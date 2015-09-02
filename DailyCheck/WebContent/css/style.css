@@ -1,0 +1,25 @@
+#myNavbar {
+	overflow: hidden;
+}
+
+#myNavbar ul li {
+	overflow: hidden;
+}
+
+#myNavbar ul {
+	overflow: hidden;
+	margin-top:-138px;
+
+}
+
+#help {
+	display: block;
+	position: fixed;
+	top: 0px;
+	left: 10px;
+}
+
+.ui-grid-a {
+	/*border : 1px solid red;*/
+	
+}
