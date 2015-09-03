@@ -331,8 +331,8 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#page1" data-transition="slide"
-						data-direction="reverse">Check1</a></li>
-					<li><a href="#page2">Check2</a></li>
+						data-direction="reverse">Check One</a></li>
+					<li><a href="#page2">Check Two</a></li>
 				</ul>
 			</div>
 			<%@ include file="/../include/bottomTools.jsp"%>
