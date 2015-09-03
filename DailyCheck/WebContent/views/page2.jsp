@@ -14,7 +14,7 @@
 		<%@ include file="/../include/header.jsp"%>
 
 		<div data-role="main" class="ui-content">
-			<h2>●Pre Check</h2>
+			<h2>●Servers</h2>
 			<%@ include file="../include/whoDidCheck.jsp"%>
 			<div data-role="navbar">
 				<ul>
@@ -327,7 +327,7 @@
 		<%@ include file="/../include/header.jsp"%>
 
 		<div data-role="main" class="ui-content">
-			<h2>●Pre Check(Continued...)</h2>
+			<h2>●Servers(continuing...)</h2>
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#page1" data-transition="slide"
