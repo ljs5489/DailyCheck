@@ -1,11 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="tools.GetDate" %> <!-- 반드시 패키지 안에 있어야 함. -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="tools.GetDate"%>
+<!-- 반드시 패키지 안에 있어야 함. -->
 
 
-<div data-role="header">
-	<h1><%= GetDate.getDate() %></h1>
-	<a href="#myPanel" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all"></a> 
-	<a href="" class="ui-btn ui-icon-grid ui-btn-icon-notext ui-corner-all" id="" onclick="setTabEventHandler()"></a>
+<div data-role="header" data-theme="b">
+	<h1><%=GetDate.getDate()%></h1>
+	<a href="#myPanel"
+		class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all"></a> <a
+		href="" class="ui-btn ui-icon-grid ui-btn-icon-notext ui-corner-all"
+		id="" onclick="setTabEventHandler()"></a>
 	<div data-role="navbar" id="myNavbar">
 		<ul>
 			<li><a href="page1.jsp">Pre Check</a></li>

@@ -42,7 +42,7 @@
 				<label for="diskUsage"
 					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Disk
 					Usage Check</label> <input type="checkbox" name="diskUsage" id="diskUsage"
-					data-cacheval="false">
+					data-cacheval="false" data-theme="a">
 			</div>
 
 
@@ -522,6 +522,7 @@
 			</div>
 			<!-- /diskUsage -->
 			<%@ include file="/../include/bottomTools.jsp"%>
+			<%@ include file="/../include/bottomGoUp.jsp"%>
 		</div>
 
 		<%@ include file="/../include/footer.jsp"%>

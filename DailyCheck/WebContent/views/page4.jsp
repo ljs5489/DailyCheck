@@ -87,6 +87,7 @@
 
 			<!-- /set -->
 			<%@ include file="/../include/bottomTools.jsp"%>
+			<%@ include file="/../include/bottomGoUp.jsp"%>
 		</div>
 
 		<%@ include file="/../include/footer.jsp"%>

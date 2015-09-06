@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 <!-- set -------------->
 <div class="ui-grid-a">
 	<div class="ui-block-a">
@@ -8,13 +10,13 @@
 			onclick="setTime($(this))">
 	</div>
 	<div class="ui-block-b">
-		<label for="day">점검자:</label> <select name="day" id="day"
-			data-native-menu="false" data-mini="true">
-			<option value="mon">임성필</option>
-			<option value="tue">한승훈</option>
-			<option value="wed">박민</option>
-			<option value="thu">이송연</option>
-			<option value="fri">이진수</option>
+		<label for="day">점검자:</label> <select data-theme="b" name="day"
+			id="day" data-mini="true">
+			<option value="splim">임성필</option>
+			<option value="shhan">한승훈</option>
+			<option value="mpark">박민</option>
+			<option value="sylee">이송연</option>
+			<option value="jslee">이진수</option>
 		</select>
 	</div>
 </div>

@@ -7,7 +7,7 @@
 <body>
 	<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
 	<div data-role="page" id="page">
-		<%@ include file="explain/forPage5.jsp"%>	
+		<%@ include file="explain/forPage5.jsp"%>
 		<%@ include file="/../include/header.jsp"%>
 
 		<div data-role="main" class="ui-content">
@@ -55,6 +55,8 @@
 			</div>
 			<!-- /set -->
 			<%@ include file="/../include/bottomTools.jsp"%>
+			<%@ include file="/../include/bottomGoUp.jsp"%>
+
 		</div>
 
 		<%@ include file="/../include/footer.jsp"%>

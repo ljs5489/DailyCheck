@@ -7,7 +7,7 @@
 <body>
 	<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
 	<div data-role="page" id="page">
-		<%@ include file="explain/forPage6.jsp"%>	
+		<%@ include file="explain/forPage6.jsp"%>
 		<%@ include file="/../include/header.jsp"%>
 
 		<div data-role="main" class="ui-content">
@@ -59,8 +59,8 @@
 				<label for="info">IPT Alarm:</label>
 				<textarea name="addinfo" id="info2"></textarea>
 			</div>
-
 			<%@ include file="/../include/bottomTools.jsp"%>
+			<%@ include file="/../include/bottomGoUp.jsp"%>
 		</div>
 
 		<%@ include file="/../include/footer.jsp"%>

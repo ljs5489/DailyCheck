@@ -76,10 +76,11 @@
 						name="fullname" id="fullname" data-clear-btn="true">
 				</div>
 			</div>
-			
-			<br/>
+
+			<br />
 			<!-- /set -->
 			<%@ include file="/../include/bottomTools.jsp"%>
+			<%@ include file="/../include/bottomGoUp.jsp"%>
 		</div>
 
 		<%@ include file="/../include/footer.jsp"%>
