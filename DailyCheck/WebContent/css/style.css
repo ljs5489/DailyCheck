@@ -24,3 +24,35 @@
 	
 }
 
+/*#3388CC 51/136/204 */
+
+.ui-bar-e{
+	border:2px red solid;
+	
+}
+
+.ui-body-e{
+	
+	
+}
+
+#ars{
+	background-color:pink;
+	
+	
+}
+.ui-flipswitch.ui-shadow-inset.ui-bar-inherit.ui-corner-all {
+	background-color: white;
+}
+.ui-flipswitch.ui-shadow-inset.ui-bar-inherit.ui-corner-all.ui-flipswitch-active
+	{
+	background-color: rgb(40,40,40);
+	border: 1px solid rgb(27,27,27);
+}
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited{
+	color:white;
+}
+
+.ui-page-theme-a .ui-btn:focus, html .ui-bar-a .ui-btn:focus, html .ui-body-a .ui-btn:focus, html body .ui-group-theme-a .ui-btn:focus, html head+body .ui-btn.ui-btn-a:focus, .ui-page-theme-a .ui-focus, html .ui-bar-a .ui-focus, html .ui-body-a .ui-focus, html body .ui-group-theme-a .ui-focus, html head+body .ui-btn-a.ui-focus, html head+body .ui-body-a.ui-focus{
+	box-shadow:0 0 12px rgb(29,29,29);
+}

@@ -4,14 +4,76 @@
 <html>
 <head>
 <%@ include file="/../include/import.jsp"%>
+
+
 </head>
 <body>
 	<%
-		String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "", leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "", WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "", WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "", EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "", EEaircon = "", EEtemperature = "", ifany = "";
+		String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "",
+				leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "",
+				WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "",
+				WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "",
+				EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
+				EEaircon = "", EEtemperature = "", ifany = "";
 		String id = GetDate.getDate(); //날짜는 변경될 수 있음!
 		Precheck precheck = PrecheckDAO.selectById(id);
-		
+
+		//조회=========================================
+		if (precheck != null && request.getMethod().equals("GET")) {
+			System.out.println("GET!!!");
+			checkTime = precheck.getCheckTime();
+			checker = precheck.getChecker();
+			ars = precheck.getArs();
+			mail = precheck.getMail();
+			fax = precheck.getFax();
+
+			vrs = precheck.getVrs();
+			messanger = precheck.getMessanger();
+			leaseloan = precheck.getLeaseloan();
+			visual = precheck.getVisual();
+			images = precheck.getImages();
+			font = precheck.getFont();
+			links = precheck.getLinks();
+
+			bbs = precheck.getBbs();
+			indexsize = precheck.getIndexsize();
+
+			WMtime = precheck.getWMtime();
+			WMstate = precheck.getWMstate();
+			WMpump = precheck.getWMpump();
+			WMaircon = precheck.getWMaircon();
+			WMtemperature = precheck.getWMtemperature();
+
+			WEtime = precheck.getWEtime();
+			WEstate = precheck.getWEstate();
+			WEpump = precheck.getWEpump();
+			WEaircon = precheck.getWEaircon();
+			WEtemperature = precheck.getWEtemperature();
+
+			EMtime = precheck.getEMtime();
+			EMstate = precheck.getEMstate();
+			EMpump = precheck.getEMpump();
+			EMaircon = precheck.getEMaircon();
+			EMtemperature = precheck.getEMtemperature();
+
+			EEtime = precheck.getEEtime();
+			EEstate = precheck.getEEstate();
+			EEpump = precheck.getEEpump();
+			EEaircon = precheck.getEEaircon();
+			EEtemperature = precheck.getEEtemperature();
+
+			System.out.println("EEtime:" + EEtime);
+
+			System.out.println("EEstate:" + EEstate);
+			System.out.println("EEpump:" + EEpump);
+			System.out.println("EEaircon:" + EEaircon);
+
+			ifany = precheck.getIfany();
+
+		}
+		//----------------------------------------------
 		if (request.getMethod().equals("POST")) {
+			System.out.println("POST!!!");
 			RequestParameter param = new RequestParameter(request);
 			checkTime = param.getString("checkTime", "");
 			checker = param.getString("checker", "");
@@ -33,12 +95,14 @@
 			WMpump = param.getString("WMpump", "");
 			WMaircon = param.getString("WMaircon", "");
 			WMtemperature = param.getString("WMtemperature", "");
+			System.out.println("WMtemperature:" + WMtemperature);
 
 			WEtime = param.getString("WEtime", "");
 			WEstate = param.getString("WEstate", "");
 			WEpump = param.getString("WEpump", "");
 			WEaircon = param.getString("WEaircon", "");
 			WEtemperature = param.getString("WEtemperature", "");
+			System.out.println("WEtemperature:" + WEtemperature);
 
 			EMtime = param.getString("EMtime", "");
 			EMstate = param.getString("EMstate", "");
@@ -52,40 +116,24 @@
 			EEaircon = param.getString("EEaircon", "");
 			EEtemperature = param.getString("EEtemperature", "");
 
-			ifany = param.getString("ifany", "test");
+			ifany = param.getString("ifany", "");
 
 			//-----------------------------------------------------------------
-			if(precheck==null){
-				PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail, fax,
-						vrs, messanger, leaseloan, visual, images, font, links,
-						bbs, indexsize, WMtime, WMstate, WMpump, WMaircon,
-						WMtemperature, WEtime, WEstate, WEpump, WEaircon,
-						WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-						EMtemperature, EEtime, EEstate, EEpump, EEaircon,
-						EEtemperature, ifany);				
-			}
-			else{
+			if (precheck == null) {
+				PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
+						images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
+						WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
+						EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
+			} else {
 				//update
+				PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
+						images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
+						WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
+						EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
 				System.out.println("업데이트 해야함!");
 			}
 
-		}		
-		//조회=========================================
-
-		if(precheck!=null){
-			checkTime=precheck.getCheckTime();
-			checker=precheck.getChecker();
-			mail=precheck.getMail();
-			ars=precheck.getArs();
-			fax=precheck.getFax();
-			vrs=precheck.getVrs();
-			messanger=precheck.getMessanger();
-			images=precheck.getImages();		
-			//여기도 추가해야함!
-			System.out.println("여기도 추가해야함!");
 		}
-		//----------------------------------------------
-		
 
 		//String queryString = request.getQueryString().replaceAll("sid=[a-zA-Z0-9]+&?", "");
 		//String listUrl = "studentList.jsp?" + queryString;
@@ -103,12 +151,12 @@
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
 						<label for="currentTime">점검 시간:</label> <input type="tel"
-							name="currentTime" id="currentTime" data-clear-btn="true"
-							onclick="setTime($(this))" value="<%=checkTime%>">
+							name="checkTime" id="checkTime" data-clear-btn="true"
+							onclick="setTime($(this))">
 					</div>
 					<div class="ui-block-b">
-						<label for="day">점검자:</label> <select data-theme="b" name="day"
-							id="day" data-mini="true">
+						<label for="day">점검자:</label> <select data-theme="b"
+							name="checker" id="checker" data-mini="true">
 							<option value="splim"
 								<%=(("splim").equals(checker)) ? "selected" : ""%>>임성필</option>
 							<option value="shhan"
@@ -245,7 +293,7 @@
 					</div>
 					<div class="ui-block-d">
 						<label for="WMtemperature">Temperature:</label> <input type="tel"
-							name="WMtemperature" id="WMtemperature" data-clear-btn="true"
+							name="WMtemperature" id="WMtemperature"
 							value="<%=WMtemperature%>">
 					</div>
 
@@ -350,19 +398,19 @@
 						<label for="EEstate">State:</label> <input type="checkbox"
 							data-mini="true" data-role="flipswitch" name="EEstate"
 							id="EEstate" data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(vrs)) ? "checked" : ""%>>
+							<%=(("on").equals(EEstate)) ? "checked" : ""%>>
 					</div>
 					<div class="ui-block-b">
 						<label for="EEpump">Pump:</label> <input type="checkbox"
 							data-mini="true" data-role="flipswitch" name="EEpump" id="EEpump"
 							data-on-text="N" data-off-text="A"
-							<%=(("on").equals(vrs)) ? "checked" : ""%>>
+							<%=(("on").equals(EEpump)) ? "checked" : ""%>>
 					</div>
 					<div class="ui-block-c">
 						<label for="EEaircon">Aircon:</label> <input type="checkbox"
 							data-mini="true" data-role="flipswitch" name="EEaircon"
 							id="EEaircon" data-on-text="N" data-off-text="A"
-							<%=(("on").equals(vrs)) ? "checked" : ""%>>
+							<%=(("on").equals(EEaircon)) ? "checked" : ""%>>
 					</div>
 					<div class="ui-block-d">
 						<label for="EEtemperature">Temperature:</label> <input type="tel"
@@ -374,7 +422,7 @@
 				<!-- /IT ROOM (E) set -->
 				<div class="ui-field-contain">
 					<label for="info">If Any:</label>
-					<textarea name="info" id="info"><%=ifany%></textarea>
+					<textarea name="ifany" id="ifany"><%=ifany%></textarea>
 				</div>
 				<%@ include file="/../include/bottomTools.jsp"%>
 				<%@ include file="/../include/bottomGoUp.jsp"%>
@@ -388,5 +436,33 @@
 
 
 	</form>
+
+	<script>
+	/*
+	 function setValues() {
+	 $.each($("input"), function() {
+	 console.log(1);
+	 $(this).val($(this).val());
+
+	 });
+	 //$("form").submit();
+	 }
+	 */
+
+		$("#checkTime").val("<%=checkTime%>");
+		alert("<%=checkTime%>");
+			
+
+
+		function test() {
+			alert("<%=checkTime%>");
+			$.ajax({
+				url : "page1.jsp",
+				success : function(result) {
+					alert(1);
+				}
+			});
+		}
+	</script>
 </body>
 </html>
