@@ -77,8 +77,8 @@
 			RequestParameter param = new RequestParameter(request);
 			checkTime = param.getString("checkTime", "");
 			checker = param.getString("checker", "");
-			ars = param.getString("ars", "");
-			mail = param.getString("mail", "");
+			ars = param.getString("ars", "123");
+			mail = param.getString("mail", "123");
 			fax = param.getString("fax", "");
 			vrs = param.getString("vrs", "");
 			messanger = param.getString("messanger", "");
@@ -146,7 +146,7 @@
 			<%@ include file="/../include/header.jsp"%>
 
 			<div data-role="main" class="ui-content">
-				<h2>●Pre Check</h2>
+				<h2 id="test">●Pre Check</h2>
 				<!-- set -------------->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
@@ -157,16 +157,11 @@
 					<div class="ui-block-b">
 						<label for="day">점검자:</label> <select data-theme="b"
 							name="checker" id="checker" data-mini="true">
-							<option value="splim"
-								<%=(("splim").equals(checker)) ? "selected" : ""%>>임성필</option>
-							<option value="shhan"
-								<%=(("shhan").equals(checker)) ? "selected" : ""%>>한승훈</option>
-							<option value="mpark"
-								<%=(("mpark").equals(checker)) ? "selected" : ""%>>박민</option>
-							<option value="sylee"
-								<%=(("sylee").equals(checker)) ? "selected" : ""%>>이송연</option>
-							<option value="jslee"
-								<%=(("jslee").equals(checker)) ? "selected" : ""%>>이진수</option>
+							<option value="splim">임성필</option>
+							<option value="shhan">한승훈</option>
+							<option value="mpark">박민</option>
+							<option value="sylee">이송연</option>
+							<option value="jslee">이진수</option>
 						</select>
 					</div>
 				</div>
@@ -177,14 +172,16 @@
 				<!-- set -->
 				<div class="ui-grid-b">
 					<div class="ui-block-a">
-						<label for="ars">ARS:</label> <input type="checkbox"
-							data-role="flipswitch" name="ars" id="ars" data-on-text="Good"
-							data-off-text="Bad" <%=(("on").equals(ars)) ? "checked" : ""%>><br>
+						<label for="ars">ARS:</label><select type="checkbox"
+							data-role="flipswitch" name="ars" id="ars">							
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 					<div class="ui-block-b">
 						<label for="mail">Mail:</label> <input type="checkbox"
 							data-role="flipswitch" name="mail" id="mail" data-on-text="Good"
-							data-off-text="Bad" <%=(("on").equals(mail)) ? "checked" : ""%>><br>
+							data-off-text="Bad" checked><br>
 					</div>
 					<div class="ui-block-c">
 						<label for="fax">Fax:</label> <input type="checkbox"
@@ -438,31 +435,59 @@
 	</form>
 
 	<script>
-	/*
-	 function setValues() {
-	 $.each($("input"), function() {
-	 console.log(1);
-	 $(this).val($(this).val());
+		/*
+		 function setValues() {
+		 $.each($("input"), function() {
+		 console.log(1);
+		 $(this).val($(this).val());
 
-	 });
-	 //$("form").submit();
-	 }
-	 */
+		 });
+		 //$("form").submit();
+		 }
+		 */
 
-		$("#checkTime").val("<%=checkTime%>");
-		alert("<%=checkTime%>");
+		$(function() {
+			//$("#checker").val("jslee").selectmenu('refresh');
+			//$("#checkTime").val("hello").textinput('refresh');
+			
+			//$('#ars').prop('checked', true);
+			//$("#ars").flipswitch('refresh');
+			//$("#ars").val("on").flipswitch("refresh");
+			
+			//.selectmenu('refresh');
 			
 
+			//$('#flipSwitch').flipswitch('refresh');
+			// $("#ars").trigger("click");
+			//alert($("#ars").val());
 
-		function test() {
-			alert("<%=checkTime%>");
-			$.ajax({
-				url : "page1.jsp",
-				success : function(result) {
-					alert(1);
-				}
-			});
-		}
+		});
+		$("#test").on('click',function(){
+			console.log($("#checkTime").val());
+			console.log("mail: "+$("#mail").val());
+			//console.log("ars: "+$("#ars").flipswitch("refresh").val());
+			console.log("ars: "+$("#ars").val());
+			console.log($("#checker").val());
+			console.log("1"+$("#ifany").text());
+			console.log("2"+$("#ifany").html());
+			console.log("3"+$("#ifany").val());
+			//console.log($("#checker").selectmenu('refresh').val());
+			
+			
+			//결국은 AJAX으로 해야할듯 하다.			
+			//http://stackoverflow.com/questions/15063218/how-to-receive-data-sent-by-ajax-in-a-jsp-file
+			//참조
+		});
+		/*
+
+		 function test() {
+		 $.ajax({
+		 url : "page1.jsp",
+		 success : function(result) {
+		 alert(1);
+		 }
+		 });
+		 }*/
 	</script>
 </body>
 </html>

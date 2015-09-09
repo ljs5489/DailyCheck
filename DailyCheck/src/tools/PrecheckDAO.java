@@ -175,9 +175,9 @@ public class PrecheckDAO {
 		try {
 			connection = DB.getConnection();
 			String sql = "";
-			sql += "UPDATE [precheck] set [checkTime]=? where [id]=?";
+			//sql += "UPDATE [precheck] set [checkTime]=?, [ars]=?, [checker]=? where [id]=?";
 			
-			/*
+			
 			sql += "UPDATE precheck SET " + "checkTime='"+checktime+"', checker='"+checker+"', ars='"+ars+"', mail='"+mail+"',"
 					+ "fax='"+fax+"', vrs='"+vrs+"', messanger='"+messanger+"', leaseloan='"+leaseloan+"', visual='"+visual+"',"
 					+ "images='"+images+"', font='"+font+"', links='"+links+"', bbs='"+bbs+"', indexsize='"+indexsize+"',"
@@ -186,11 +186,14 @@ public class PrecheckDAO {
 					+ "EMtime='"+EMtime+"', EMstate='"+EMstate+"', EMpump='"+EMpump+"', EMaircon='"+EMaircon+"', EMtemperature='"+EMtemperature+"',"
 					+ "EEtime='"+EEtime+"', EEstate='"+EEstate+"', EEpump='"+EEpump+"', EEaircon='"+EEaircon+"', EEtemperature='"+EEtemperature+"'," 
 					+ "ifany='"+ifany+"' where id='"+id+"'";
-			*/
-			statement = connection.prepareStatement(sql);
 			
-			statement.setString(1, checktime);
-			statement.setString(2, id);
+			statement = connection.prepareStatement(sql);
+			/*
+			statement.setString(1, checktime);			
+			statement.setString(2, ars);
+			statement.setString(3, checker);
+			statement.setString(4, id);
+			*/
 			System.out.println(sql);
 			statement.executeUpdate();
 		} catch (Exception e) {
