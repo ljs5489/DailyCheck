@@ -74,6 +74,11 @@
 		//----------------------------------------------
 		if (request.getMethod().equals("POST")) {
 			System.out.println("POST!!!");
+			String data1 = request.getParameter("sg");
+			String data2 = request.getParameter("st");
+			System.out.println(data1);
+			System.out.println(data2);
+			/*
 			RequestParameter param = new RequestParameter(request);
 			checkTime = param.getString("checkTime", "");
 			checker = param.getString("checker", "");
@@ -89,35 +94,35 @@
 			links = param.getString("links", "");
 			bbs = param.getString("bbs", "");
 			indexsize = param.getString("indexsize", "");
-
+			
 			WMtime = param.getString("WMtime", "");
 			WMstate = param.getString("WMstate", "");
 			WMpump = param.getString("WMpump", "");
 			WMaircon = param.getString("WMaircon", "");
 			WMtemperature = param.getString("WMtemperature", "");
 			System.out.println("WMtemperature:" + WMtemperature);
-
+			
 			WEtime = param.getString("WEtime", "");
 			WEstate = param.getString("WEstate", "");
 			WEpump = param.getString("WEpump", "");
 			WEaircon = param.getString("WEaircon", "");
 			WEtemperature = param.getString("WEtemperature", "");
 			System.out.println("WEtemperature:" + WEtemperature);
-
+			
 			EMtime = param.getString("EMtime", "");
 			EMstate = param.getString("EMstate", "");
 			EMpump = param.getString("EMpump", "");
 			EMaircon = param.getString("EMaircon", "");
 			EMtemperature = param.getString("EMtemperature", "");
-
+			
 			EEtime = param.getString("EEtime", "");
 			EEstate = param.getString("EEstate", "");
 			EEpump = param.getString("EEpump", "");
 			EEaircon = param.getString("EEaircon", "");
 			EEtemperature = param.getString("EEtemperature", "");
-
+			
 			ifany = param.getString("ifany", "");
-
+			
 			//-----------------------------------------------------------------
 			if (precheck == null) {
 				PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
@@ -132,7 +137,7 @@
 						EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
 				System.out.println("업데이트 해야함!");
 			}
-
+			*/
 		}
 
 		//String queryString = request.getQueryString().replaceAll("sid=[a-zA-Z0-9]+&?", "");
@@ -173,20 +178,24 @@
 				<div class="ui-grid-b">
 					<div class="ui-block-a">
 						<label for="ars">ARS:</label><select type="checkbox"
-							data-role="flipswitch" name="ars" id="ars">							
+							data-role="flipswitch" name="ars" id="ars">
 							<option value="off">Bad</option>
 							<option value="on" selected>Good</option>
 						</select><br>
 					</div>
 					<div class="ui-block-b">
-						<label for="mail">Mail:</label> <input type="checkbox"
-							data-role="flipswitch" name="mail" id="mail" data-on-text="Good"
-							data-off-text="Bad" checked><br>
+						<label for="mail">Mail:</label><select type="checkbox"
+							data-role="flipswitch" name="mail" id="mail">
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 					<div class="ui-block-c">
-						<label for="fax">Fax:</label> <input type="checkbox"
-							data-role="flipswitch" name="fax" id="fax" data-on-text="Good"
-							data-off-text="Bad" <%=(("on").equals(fax)) ? "checked" : ""%>><br>
+						<label for="fax">Fax:</label><select type="checkbox"
+							data-role="flipswitch" name="fax" id="fax">
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 				</div>
 				<!-- /set -->
@@ -435,59 +444,39 @@
 	</form>
 
 	<script>
-		/*
-		 function setValues() {
-		 $.each($("input"), function() {
-		 console.log(1);
-		 $(this).val($(this).val());
+		function postWithAjax() {
+			$.post("func/page1Func.jsp", {
+				
+				ifany : $("#ifany").val(),
+				
+				ars : $("#ars").val(),
+				mail : $("#mail").val(),
+				fax : $("#fax").val(),
+				
+				checker: $("#checker").val(),
+				checkTime : $("#checkTime").val()
+				
+			}, function(data) {
+				alert("Data Loaded?");
+			});
 
-		 });
-		 //$("form").submit();
-		 }
-		 */
+		}
 
-		$(function() {
-			//$("#checker").val("jslee").selectmenu('refresh');
-			//$("#checkTime").val("hello").textinput('refresh');
-			
-			//$('#ars').prop('checked', true);
-			//$("#ars").flipswitch('refresh');
-			//$("#ars").val("on").flipswitch("refresh");
-			
-			//.selectmenu('refresh');
-			
-
-			//$('#flipSwitch').flipswitch('refresh');
-			// $("#ars").trigger("click");
-			//alert($("#ars").val());
-
-		});
-		$("#test").on('click',function(){
+		$("#test").on('click', function() {
 			console.log($("#checkTime").val());
-			console.log("mail: "+$("#mail").val());
-			//console.log("ars: "+$("#ars").flipswitch("refresh").val());
-			console.log("ars: "+$("#ars").val());
+			console.log("mail: " + $("#mail").val());
+			console.log("ars: " + $("#ars").val());
 			console.log($("#checker").val());
-			console.log("1"+$("#ifany").text());
-			console.log("2"+$("#ifany").html());
-			console.log("3"+$("#ifany").val());
-			//console.log($("#checker").selectmenu('refresh').val());
+			console.log("3" + $("#ifany").val());
 			
-			
+			$("#ars").val("on").flipswitch("refresh");
+			$("#checkTime").val("hello").textinput('refresh');
+			$("#checker").val("jslee").selectmenu('refresh');
+
 			//결국은 AJAX으로 해야할듯 하다.			
 			//http://stackoverflow.com/questions/15063218/how-to-receive-data-sent-by-ajax-in-a-jsp-file
 			//참조
 		});
-		/*
-
-		 function test() {
-		 $.ajax({
-		 url : "page1.jsp",
-		 success : function(result) {
-		 alert(1);
-		 }
-		 });
-		 }*/
 	</script>
 </body>
 </html>

@@ -205,17 +205,29 @@ public class PrecheckDAO {
 				connection.close();
 		}
 	}
-	/*
-	 * 
-	 * public static void updateInfo(String sid, String studentName, String
-	 * department, int year, String telephone) throws Exception { Connection
-	 * connection = null; PreparedStatement statement = null; try { connection =
-	 * DB.getConnection(); String sql =
-	 * "UPDATE [Student] SET [studentName] = ?, [department] = ?, [year] = ?, [telephone] = ? WHERE [sid] = ?"
-	 * ; statement = connection.prepareStatement(sql); statement.setString(1,
-	 * studentName); statement.setString(2, department); statement.setInt(3,
-	 * year); statement.setString(4, telephone); statement.setString(5, sid);
-	 * statement.executeUpdate(); } finally { if (statement != null)
-	 * statement.close(); if (connection != null) connection.close(); } }
-	 */
+	
+	
+	public static void simpleUpdateInfo(String id, String checktime, String checker, String ars, String mail, String ifany) throws Exception {
+		Connection connection = null;
+		PreparedStatement statement = null;
+
+		try {
+			connection = DB.getConnection();
+			String sql = "";			
+			sql += "UPDATE precheck SET " + "checkTime='"+checktime+"', checker='"+checker+"', ars='"+ars+"', mail='"+mail+"',"
+					+ "ifany='"+ifany+"' where id='"+id+"'";
+			
+			statement = connection.prepareStatement(sql);
+			System.out.println(sql);
+			statement.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if (statement != null)
+				statement.close();
+			if (connection != null)
+				connection.close();
+		}
+	}
+
 }
