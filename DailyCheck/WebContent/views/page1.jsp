@@ -4,8 +4,7 @@
 <html>
 <head>
 <%@ include file="/../include/import.jsp"%>
-<script src="../js/func.js"></script>
-<link rel="stylesheet" href="../css/style.css">
+<script src="../js/page1Ajax.js"></script>
 
 </head>
 <body>
@@ -159,16 +158,18 @@
 						</select><br>
 					</div>
 					<div class="ui-block-b">
-						<label for="messanger">Messanger:</label> <input type="checkbox"
-							data-role="flipswitch" name="messanger" id="messanger"
-							data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(messanger)) ? "checked" : ""%>><br>
+						<label for="messanger">Messanger:</label><select type="checkbox"
+							data-role="flipswitch" name="messanger" id="messanger">
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 					<div class="ui-block-c">
-						<label for="leaseloan">Lease Loan:</label> <input type="checkbox"
-							data-role="flipswitch" name="leaseloan" id="leaseloan"
-							data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(leaseloan)) ? "checked" : ""%>><br>
+						<label for="leaseloan">Lease Loan:</label><select type="checkbox"
+							data-role="flipswitch" name="leaseloan" id="leaseloan">
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 				</div>
 				<!-- /set -->
@@ -178,10 +179,11 @@
 				<!-- set -->
 				<div class="ui-grid-b">
 					<div class="ui-block-a">
-						<label for="visual">Visual:</label> <input type="checkbox"
-							data-role="flipswitch" name="visual" id="visual"
-							data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(visual)) ? "checked" : ""%>><br>
+						<label for="visual">Visual:</label><select type="checkbox"
+							data-role="flipswitch" name="visual" id="visual">
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 					<div class="ui-block-b">
 						<label for="images">Images:</label> <input type="checkbox"
@@ -395,59 +397,7 @@
 
 	</form>
 
-	<script>
-		function postWithAjax() {
-			$.post("func/page1Func.jsp", {
-				checker : $("#checker").val(),
-				checkTime : $("#checkTime").val(),
 
-				ars : $("#ars").val(),
-				mail : $("#mail").val(),
-				fax : $("#fax").val(),
-
-				vrs : $("#vrs").val(),
-				messanger : $("#messanger").val(),
-				leaseloan : $("#leaseloan").val(),
-
-				visual : $("#visual").val(),
-				images : $("#images").val(),
-				font : $("#font").val(),
-
-				links : $("#links").val(),
-				bbs : $("#bbs").val(),
-				indexsize : $("#indexsize").val(),
-
-				ifany : $("#ifany").val()
-
-			}, function(data) {
-				//alert("Data Loaded?");
-				//location.href="#myPopupDialog";
-				//var href = $('#myPopupDialog').attr('href');
-				//window.location.href = href;
-
-				$("#loadingComplete")[0].click();
-			});
-
-		}
-
-		$("#test").on('tap', function() {
-			$('#popup').trigger('click');
-
-			console.log($("#checkTime").val());
-			console.log("mail: " + $("#mail").val());
-			console.log("ars: " + $("#ars").val());
-			console.log($("#checker").val());
-			console.log("3" + $("#ifany").val());
-
-			$("#ars").val("on").flipswitch("refresh");
-			$("#checkTime").val("test").textinput('refresh');
-			$("#checker").val("jslee").selectmenu('refresh');
-
-			//결국은 AJAX으로 해야할듯 하다.			
-			//http://stackoverflow.com/questions/15063218/how-to-receive-data-sent-by-ajax-in-a-jsp-file
-			//참조
-		});
-	</script>
 </body>
 
 

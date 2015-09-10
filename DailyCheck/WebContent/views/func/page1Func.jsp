@@ -1,19 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, tools.*"%>
+<%@page import="org.json.simple.JSONObject"%>
 
 <%
-	String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "",
-			leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "",
-			WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "",
-			WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "",
-			EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
-			EEaircon = "", EEtemperature = "", ifany = "";
+	String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "", leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "", WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "", WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "", EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "", EEaircon = "", EEtemperature = "", ifany = "";
 
 	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
 	Precheck precheck = PrecheckDAO.selectById(id);
-
-	if (request.getMethod().equals("POST")) {
+	
+	if (request.getMethod().equals("GET")) {
+		System.out.println("GET!");
+		
+		//PrintWriter out= response.getWriter();  
+        JSONObject json = new JSONObject();  
+        json.put("name", "테스트입니다..");   
+        out.print(json);  	
+	}
+	
+	else if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
@@ -65,26 +70,35 @@
 
 		System.out.println("ars:" + ars);
 		System.out.println("mail:" + mail);
-	}
 
-	PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual, images,
-			font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature, WEtime, WEstate,
-			WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon, EMtemperature, EEtime, EEstate,
-			EEpump, EEaircon, EEtemperature, ifany);
+		PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail, fax,
+				vrs, messanger, leaseloan, visual, images, font, links,
+				bbs, indexsize, WMtime, WMstate, WMpump, WMaircon,
+				WMtemperature, WEtime, WEstate, WEpump, WEaircon,
+				WEtemperature, EMtime, EMstate, EMpump, EMaircon,
+				EMtemperature, EEtime, EEstate, EEpump, EEaircon,
+				EEtemperature, ifany);
 
-	if (precheck == null) {
-		PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
-				images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature, WEtime,
-				WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon, EMtemperature,
-				EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
-		System.out.println("인서트!");
-	} else {
-		//update	
-		PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
-				images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature, WEtime,
-				WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon, EMtemperature,
-				EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
-	
-		System.out.println("업데이트!");
+		if (precheck == null) {
+			PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail,
+					fax, vrs, messanger, leaseloan, visual, images,
+					font, links, bbs, indexsize, WMtime, WMstate,
+					WMpump, WMaircon, WMtemperature, WEtime, WEstate,
+					WEpump, WEaircon, WEtemperature, EMtime, EMstate,
+					EMpump, EMaircon, EMtemperature, EEtime, EEstate,
+					EEpump, EEaircon, EEtemperature, ifany);
+			System.out.println("인서트!");
+		} else {
+			//update	
+			PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail,
+					fax, vrs, messanger, leaseloan, visual, images,
+					font, links, bbs, indexsize, WMtime, WMstate,
+					WMpump, WMaircon, WMtemperature, WEtime, WEstate,
+					WEpump, WEaircon, WEtemperature, EMtime, EMstate,
+					EMpump, EMaircon, EMtemperature, EEtime, EEstate,
+					EEpump, EEaircon, EEtemperature, ifany);
+
+			System.out.println("업데이트!");
+		}
 	}
 %>

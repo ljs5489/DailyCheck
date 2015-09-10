@@ -1,18 +1,3 @@
-$(document).on("pagebeforecreate", function(event) {
-	console.log("pagebeforecreate event fired!");
-});
-$(document).on("pagecreate", function(event) {
-	console.log("pagecreate event fired!");
-
-});
-$(document).on("pagecontainerload", function(event, data) {
-	console.log("pageload event fired!\nURL: " + data.url);
-});
-$(document).on("pagecontainerloadfailed", function(event, data) {
-	console.log("Sorry, requested page does not exist.");
-});
-
-
 function getCurrentTime() {
 	var currentdate = new Date();
 	var datetime = "" // + currentdate.getFullYear() + "/" +
