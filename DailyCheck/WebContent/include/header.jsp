@@ -11,14 +11,14 @@
 		id="headerTest"></a>
 	<div data-role="navbar" id="myNavbar">
 		<ul>
-			<li><a href="page1.jsp">Pre Check</a></li>
-			<li><a href="page2.jsp">Servers</a></li>
-			<li><a href="page3.jsp">Mobile Server</a></li>
-			<li><a href="page4.jsp">DMZ Server</a></li>
-			<li><a href="page5.jsp">Batch Job</a></li>
-			<li><a href="page6.jsp">IPT</a></li>
-			<li><a href="page7.jsp">Netwrok Error</a></li>
-			<li><a href="page8.jsp">Backup</a></li>
+			<li><a onclick="location.href='page1.jsp'">Pre Check</a></li>
+			<li><a onclick="location.href='page2.jsp'">Servers</a></li>
+			<li><a onclick="location.href='page3.jsp'">Mobile Server</a></li>
+			<li><a onclick="location.href='page4.jsp'">DMZ Server</a></li>
+			<li><a onclick="location.href='page5.jsp'">Batch Job</a></li>
+			<li><a onclick="location.href='page6.jsp'">IPT</a></li>
+			<li><a onclick="location.href='page7.jsp'">Netwrok Error</a></li>
+			<li><a onclick="location.href='page8.jsp'">Backup</a></li>
 		</ul>
 	</div>
 </div>

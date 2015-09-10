@@ -11,9 +11,7 @@ $(document).on("pagecontainerload", function(event, data) {
 $(document).on("pagecontainerloadfailed", function(event, data) {
 	console.log("Sorry, requested page does not exist.");
 });
-$(function() {
-	console.log("기존");
-})
+
 
 function getCurrentTime() {
 	var currentdate = new Date();
@@ -49,11 +47,16 @@ function setTabEventHandler() {
 	}*/
 }
 
-$(document).on("pagecreate", function(event, data) {
-	alert(1);
-	$("#headerTest").unbind();
+$(function(){
 	$("#headerTest").on('tap', function() {
 		setTabEventHandler();
+		console.log('tap');
+	});	
+	
+	$("#up_arrow").on('tap',function(){
+		window.scrollTo(0, 0);		
 	});
 });
+
+
 

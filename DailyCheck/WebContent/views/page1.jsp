@@ -6,18 +6,11 @@
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/func.js"></script>
 <link rel="stylesheet" href="../css/style.css">
-<script>
 
-</script>
 </head>
 <body>
 	<%
-		String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "",
-				leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "",
-				WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "",
-				WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "",
-				EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
-				EEaircon = "", EEtemperature = "", ifany = "";
+		String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "", leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "", WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "", WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "", EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "", EEaircon = "", EEtemperature = "", ifany = "";
 		String id = GetDate.getDate(); //날짜는 변경될 수 있음!
 		Precheck precheck = PrecheckDAO.selectById(id);
 
@@ -83,8 +76,10 @@
 			<%@ include file="/../include/header.jsp"%>
 
 			<div data-role="main" class="ui-content">
-				<a id="popup" href="#loadingComplete" data-rel="popup" style="position:fixed;"></a>
-				<div data-role="popup" id="loadingComplete" style="position:fixed; left:5%;top:20%; width:90%; height:45%;">
+				<a id="popup" href="#loadingComplete" data-rel="popup"
+					style="position: fixed;"></a>
+				<div data-role="popup" id="loadingComplete"
+					style="position: fixed; left: 5%; top: 20%; width: 90%; height: 45%;">
 					<div data-role="header">
 						<h1>Notice</h1>
 					</div>
@@ -92,18 +87,21 @@
 					<div data-role="main" class="ui-content">
 						<h2 align="center">저장되었습니다.</h2>
 						<p align="center">관련 항목 : precheck</p>
-						<div align="right"><a href="#"  style="margin-right:10%;"
-							class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left"
-							data-rel="back">Close</a></div>
+						<div align="right">
+							<a href="#" style="margin-right: 10%;"
+								class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left"
+								data-rel="back">Close</a>
+						</div>
 					</div>
 
-					<div data-role="footer" style="position:absolute; bottom:0px; width:100%;">
+					<div data-role="footer"
+						style="position: absolute; bottom: 0px; width: 100%;">
 						<h1>Toyota Financial Service Korea</h1>
 					</div>
 				</div>
 
 
-				<h2 id="test">●Pre Check</h2>
+				<h2 id="test" onclick="location.href='page2.jsp'">●Pre Check</h2>
 				<!-- set -------------->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
@@ -425,16 +423,16 @@
 				//alert("Data Loaded?");
 				//location.href="#myPopupDialog";
 				//var href = $('#myPopupDialog').attr('href');
-			    //window.location.href = href;
-			    
-			    $("#loadingComplete")[0].click();
+				//window.location.href = href;
+
+				$("#loadingComplete")[0].click();
 			});
 
 		}
 
-		$("#test").on('tap', function() {					
+		$("#test").on('tap', function() {
 			$('#popup').trigger('click');
-			
+
 			console.log($("#checkTime").val());
 			console.log("mail: " + $("#mail").val());
 			console.log("ars: " + $("#ars").val());
@@ -451,4 +449,6 @@
 		});
 	</script>
 </body>
+
+
 </html>

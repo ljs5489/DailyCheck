@@ -7,7 +7,6 @@
 <script src="../js/func.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 
-
 </head>
 <body>
 
@@ -687,4 +686,6 @@
 
 
 </body>
+
+
 </html>

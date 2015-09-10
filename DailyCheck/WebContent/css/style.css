@@ -31,16 +31,20 @@
 	
 }
 
-.ui-body-e{
-	
-	
+#ars{
+	background-color:pink;	
+}
+#up_arrow{	
+	position: fixed; 
+	bottom: 20px; 
+	left: 20px; 
+	opacity: 0.5; 
+	z-index: 10; 
+	width: 40px; 
+	height: 40px;
 }
 
-#ars{
-	background-color:pink;
-	
-	
-}
+
 .ui-flipswitch.ui-shadow-inset.ui-bar-inherit.ui-corner-all {
 	background-color: white;
 }
