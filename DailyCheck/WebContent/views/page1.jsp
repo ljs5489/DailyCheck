@@ -4,8 +4,11 @@
 <html>
 <head>
 <%@ include file="/../include/import.jsp"%>
+<script src="../js/func.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+<script>
 
-
+</script>
 </head>
 <body>
 	<%
@@ -71,77 +74,6 @@
 			ifany = precheck.getIfany();
 
 		}
-		//----------------------------------------------
-		if (request.getMethod().equals("POST")) {
-			System.out.println("POST!!!");
-			String data1 = request.getParameter("sg");
-			String data2 = request.getParameter("st");
-			System.out.println(data1);
-			System.out.println(data2);
-			/*
-			RequestParameter param = new RequestParameter(request);
-			checkTime = param.getString("checkTime", "");
-			checker = param.getString("checker", "");
-			ars = param.getString("ars", "123");
-			mail = param.getString("mail", "123");
-			fax = param.getString("fax", "");
-			vrs = param.getString("vrs", "");
-			messanger = param.getString("messanger", "");
-			leaseloan = param.getString("leaseloan", "");
-			visual = param.getString("visual", "");
-			images = param.getString("images", "");
-			font = param.getString("font", "");
-			links = param.getString("links", "");
-			bbs = param.getString("bbs", "");
-			indexsize = param.getString("indexsize", "");
-			
-			WMtime = param.getString("WMtime", "");
-			WMstate = param.getString("WMstate", "");
-			WMpump = param.getString("WMpump", "");
-			WMaircon = param.getString("WMaircon", "");
-			WMtemperature = param.getString("WMtemperature", "");
-			System.out.println("WMtemperature:" + WMtemperature);
-			
-			WEtime = param.getString("WEtime", "");
-			WEstate = param.getString("WEstate", "");
-			WEpump = param.getString("WEpump", "");
-			WEaircon = param.getString("WEaircon", "");
-			WEtemperature = param.getString("WEtemperature", "");
-			System.out.println("WEtemperature:" + WEtemperature);
-			
-			EMtime = param.getString("EMtime", "");
-			EMstate = param.getString("EMstate", "");
-			EMpump = param.getString("EMpump", "");
-			EMaircon = param.getString("EMaircon", "");
-			EMtemperature = param.getString("EMtemperature", "");
-			
-			EEtime = param.getString("EEtime", "");
-			EEstate = param.getString("EEstate", "");
-			EEpump = param.getString("EEpump", "");
-			EEaircon = param.getString("EEaircon", "");
-			EEtemperature = param.getString("EEtemperature", "");
-			
-			ifany = param.getString("ifany", "");
-			
-			//-----------------------------------------------------------------
-			if (precheck == null) {
-				PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
-						images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
-						WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-						EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
-			} else {
-				//update
-				PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
-						images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
-						WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-						EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
-				System.out.println("업데이트 해야함!");
-			}
-			*/
-		}
-
-		//String queryString = request.getQueryString().replaceAll("sid=[a-zA-Z0-9]+&?", "");
-		//String listUrl = "studentList.jsp?" + queryString;
 	%>
 
 	<form method="post">
@@ -151,6 +83,26 @@
 			<%@ include file="/../include/header.jsp"%>
 
 			<div data-role="main" class="ui-content">
+				<a id="popup" href="#loadingComplete" data-rel="popup" style="position:fixed;"></a>
+				<div data-role="popup" id="loadingComplete" style="position:fixed; left:5%;top:20%; width:90%; height:45%;">
+					<div data-role="header">
+						<h1>Notice</h1>
+					</div>
+
+					<div data-role="main" class="ui-content">
+						<h2 align="center">저장되었습니다.</h2>
+						<p align="center">관련 항목 : precheck</p>
+						<div align="right"><a href="#"  style="margin-right:10%;"
+							class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left"
+							data-rel="back">Close</a></div>
+					</div>
+
+					<div data-role="footer" style="position:absolute; bottom:0px; width:100%;">
+						<h1>Toyota Financial Service Korea</h1>
+					</div>
+				</div>
+
+
 				<h2 id="test">●Pre Check</h2>
 				<!-- set -------------->
 				<div class="ui-grid-a">
@@ -202,9 +154,11 @@
 				<!-- set -->
 				<div class="ui-grid-b">
 					<div class="ui-block-a">
-						<label for="vrs">VRS:</label> <input type="checkbox"
-							data-role="flipswitch" name="vrs" id="vrs" data-on-text="Good"
-							data-off-text="Bad" <%=(("on").equals(vrs)) ? "checked" : ""%>><br>
+						<label for="vrs">VRS:</label><select type="checkbox"
+							data-role="flipswitch" name="vrs" id="vrs">
+							<option value="off">Bad</option>
+							<option value="on" selected>Good</option>
+						</select><br>
 					</div>
 					<div class="ui-block-b">
 						<label for="messanger">Messanger:</label> <input type="checkbox"
@@ -446,31 +400,49 @@
 	<script>
 		function postWithAjax() {
 			$.post("func/page1Func.jsp", {
-				
-				ifany : $("#ifany").val(),
-				
+				checker : $("#checker").val(),
+				checkTime : $("#checkTime").val(),
+
 				ars : $("#ars").val(),
 				mail : $("#mail").val(),
 				fax : $("#fax").val(),
-				
-				checker: $("#checker").val(),
-				checkTime : $("#checkTime").val()
-				
+
+				vrs : $("#vrs").val(),
+				messanger : $("#messanger").val(),
+				leaseloan : $("#leaseloan").val(),
+
+				visual : $("#visual").val(),
+				images : $("#images").val(),
+				font : $("#font").val(),
+
+				links : $("#links").val(),
+				bbs : $("#bbs").val(),
+				indexsize : $("#indexsize").val(),
+
+				ifany : $("#ifany").val()
+
 			}, function(data) {
-				alert("Data Loaded?");
+				//alert("Data Loaded?");
+				//location.href="#myPopupDialog";
+				//var href = $('#myPopupDialog').attr('href');
+			    //window.location.href = href;
+			    
+			    $("#loadingComplete")[0].click();
 			});
 
 		}
 
-		$("#test").on('click', function() {
+		$("#test").on('tap', function() {					
+			$('#popup').trigger('click');
+			
 			console.log($("#checkTime").val());
 			console.log("mail: " + $("#mail").val());
 			console.log("ars: " + $("#ars").val());
 			console.log($("#checker").val());
 			console.log("3" + $("#ifany").val());
-			
+
 			$("#ars").val("on").flipswitch("refresh");
-			$("#checkTime").val("hello").textinput('refresh');
+			$("#checkTime").val("test").textinput('refresh');
 			$("#checker").val("jslee").selectmenu('refresh');
 
 			//결국은 AJAX으로 해야할듯 하다.			

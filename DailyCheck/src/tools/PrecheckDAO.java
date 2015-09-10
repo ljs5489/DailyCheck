@@ -175,25 +175,83 @@ public class PrecheckDAO {
 		try {
 			connection = DB.getConnection();
 			String sql = "";
-			//sql += "UPDATE [precheck] set [checkTime]=?, [ars]=?, [checker]=? where [id]=?";
-			
-			
-			sql += "UPDATE precheck SET " + "checkTime='"+checktime+"', checker='"+checker+"', ars='"+ars+"', mail='"+mail+"',"
-					+ "fax='"+fax+"', vrs='"+vrs+"', messanger='"+messanger+"', leaseloan='"+leaseloan+"', visual='"+visual+"',"
-					+ "images='"+images+"', font='"+font+"', links='"+links+"', bbs='"+bbs+"', indexsize='"+indexsize+"',"
-					+ "WMtime='"+WMtime+"', WMstate='"+WMstate+"', WMpump='"+WMpump+"', WMaircon='"+WMaircon+"', WMtemperature='"+WMtemperature+"',"
-					+ "WEtime='"+WEtime+"', WEstate='"+WEstate+"', WEpump='"+WEpump+"', WEaircon='"+WEaircon+"', WEtemperature='"+WEtemperature+"',"
-					+ "EMtime='"+EMtime+"', EMstate='"+EMstate+"', EMpump='"+EMpump+"', EMaircon='"+EMaircon+"', EMtemperature='"+EMtemperature+"',"
-					+ "EEtime='"+EEtime+"', EEstate='"+EEstate+"', EEpump='"+EEpump+"', EEaircon='"+EEaircon+"', EEtemperature='"+EEtemperature+"'," 
-					+ "ifany='"+ifany+"' where id='"+id+"'";
-			
+			sql += "UPDATE [precheck] set "
+					+"[checktime]=?,"
+					+"[checker]=?,"
+					+"[ars]=?,"
+					+"[mail]=?,"
+					+"[fax]=?,"
+					+"[vrs]=?,"
+					+"[messanger]=?,"
+					+"[leaseloan]=?,"
+					+"[visual]=?,"
+					+"[images]=?,"
+					+"[font]=?,"
+					+"[links]=?,"
+					+"[bbs]=?,"
+					+"[indexsize]=?,"
+					+"[WMtime]=?,"
+					+"[WMstate]=?,"
+					+"[WMpump]=?,"
+					+"[WMaircon]=?,"
+					+"[WMtemperature]=?,"
+					+"[WEtime]=?,"
+					+"[WEstate]=?,"
+					+"[WEpump]=?,"
+					+"[WEaircon]=?,"
+					+"[WEtemperature]=?,"
+					+"[EMtime]=?,"
+					+"[EMstate]=?,"
+					+"[EMpump]=?,"
+					+"[EMaircon]=?,"
+					+"[EMtemperature]=?,"
+					+"[EEtime]=?,"
+					+"[EEstate]=?,"
+					+"[EEpump]=?,"
+					+"[EEaircon]=?,"
+					+"[EEtemperature]=?,"
+					+"[ifany]=?"
+					+" WHERE [id]=?";
+
 			statement = connection.prepareStatement(sql);
-			/*
-			statement.setString(1, checktime);			
-			statement.setString(2, ars);
-			statement.setString(3, checker);
-			statement.setString(4, id);
-			*/
+			statement.setString(1, checktime);
+			statement.setString(2,checker);
+			statement.setString(3,ars);
+			statement.setString(4,mail);
+			statement.setString(5,fax);
+			statement.setString(6,vrs);
+			statement.setString(7,messanger);
+			statement.setString(8,leaseloan);
+			statement.setString(9,visual);
+			statement.setString(10,images);
+			statement.setString(11,font);
+			statement.setString(12,links);
+			statement.setString(13,bbs);
+			statement.setString(14,indexsize);
+			statement.setString(15,WMtime);
+			statement.setString(16,WMstate);
+			statement.setString(17,WMpump);
+			statement.setString(18,WMaircon);
+			statement.setString(19,WMtemperature);
+			statement.setString(20,WEtime);
+			statement.setString(21,WEstate);
+			statement.setString(22,WEpump);
+			statement.setString(23,WEaircon);
+			statement.setString(24,WEtemperature);
+			statement.setString(25,EMtime);
+			statement.setString(26,EMstate);
+			statement.setString(27,EMpump);
+			statement.setString(28,EMaircon);
+			statement.setString(29,EMtemperature);
+			statement.setString(30,EEtime);
+			statement.setString(31,EEstate);
+			statement.setString(32,EEpump);
+			statement.setString(33,EEaircon);
+			statement.setString(34,EEtemperature);
+			statement.setString(35,ifany);
+			statement.setString(36,id);
+
+			
 			System.out.println(sql);
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -205,18 +263,18 @@ public class PrecheckDAO {
 				connection.close();
 		}
 	}
-	
-	
-	public static void simpleUpdateInfo(String id, String checktime, String checker, String ars, String mail, String ifany) throws Exception {
+
+	public static void simpleUpdateInfo(String id, String checktime, String checker, String ars, String mail,
+			String ifany) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
 
 		try {
 			connection = DB.getConnection();
-			String sql = "";			
-			sql += "UPDATE precheck SET " + "checkTime='"+checktime+"', checker='"+checker+"', ars='"+ars+"', mail='"+mail+"',"
-					+ "ifany='"+ifany+"' where id='"+id+"'";
-			
+			String sql = "";
+			sql += "UPDATE precheck SET " + "checkTime='" + checktime + "', checker='" + checker + "', ars='" + ars
+					+ "', mail='" + mail + "'," + "ifany='" + ifany + "' where id='" + id + "'";
+
 			statement = connection.prepareStatement(sql);
 			System.out.println(sql);
 			statement.executeUpdate();
