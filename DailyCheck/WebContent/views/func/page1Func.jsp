@@ -4,25 +4,121 @@
 <%@page import="org.json.simple.JSONObject"%>
 
 <%
-	String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "", leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "", WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "", WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "", EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "", EEaircon = "", EEtemperature = "", ifany = "";
+	String checktime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "",
+			leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "",
+			WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "",
+			WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "",
+			EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
+			EEaircon = "", EEtemperature = "", ifany = "";
 
 	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
 	Precheck precheck = PrecheckDAO.selectById(id);
-	
-	if (request.getMethod().equals("GET")) {
+
+	if (precheck != null && request.getMethod().equals("GET")) {
+		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
 		System.out.println("GET!");
 		
+		checktime = precheck.getCheckTime();
+		System.out.println("check2: "+checktime);
+		
+		checker = precheck.getChecker();
+		ars = precheck.getArs();
+		mail = precheck.getMail();
+		fax = precheck.getFax();
+
+		vrs = precheck.getVrs();
+		messanger = precheck.getMessanger();
+		leaseloan = precheck.getLeaseloan();
+		visual = precheck.getVisual();
+		images = precheck.getImages();
+		font = precheck.getFont();
+		links = precheck.getLinks();
+
+		bbs = precheck.getBbs();
+		indexsize = precheck.getIndexsize();
+
+		WMtime = precheck.getWMtime();
+		WMstate = precheck.getWMstate();
+		WMpump = precheck.getWMpump();
+		WMaircon = precheck.getWMaircon();
+		WMtemperature = precheck.getWMtemperature();
+
+		WEtime = precheck.getWEtime();
+		WEstate = precheck.getWEstate();
+		WEpump = precheck.getWEpump();
+		WEaircon = precheck.getWEaircon();
+		WEtemperature = precheck.getWEtemperature();
+
+		EMtime = precheck.getEMtime();
+		EMstate = precheck.getEMstate();
+		EMpump = precheck.getEMpump();
+		EMaircon = precheck.getEMaircon();
+		EMtemperature = precheck.getEMtemperature();
+
+		EEtime = precheck.getEEtime();
+		EEstate = precheck.getEEstate();
+		EEpump = precheck.getEEpump();
+		EEaircon = precheck.getEEaircon();
+		EEtemperature = precheck.getEEtemperature();
+
+		ifany = precheck.getIfany();
+		
+		
+		
+		//======================================================================================
+
 		//PrintWriter out= response.getWriter();  
-        JSONObject json = new JSONObject();  
-        json.put("name", "테스트입니다..");   
-        out.print(json);  	
+		JSONObject json = new JSONObject();
+		json.put("name", "테스트 입니다...");
+		
+		json.put("checktime", checktime);
+		
+		System.out.println("check: "+checktime);
+		
+		json.put("checker", checker);
+		json.put("ars", ars);
+		json.put("mail", mail);
+		json.put("fax", fax);
+		json.put("vrs", vrs);
+		json.put("messanger", messanger);
+		json.put("leaseloan", leaseloan);
+		json.put("visual", visual);
+		json.put("images", images);
+		json.put("font", font);
+		json.put("links", links);
+		json.put("bbs", bbs);
+		json.put("indexsize", indexsize);
+		json.put("WMtime", WMtime);
+		json.put("WMstate", WMstate);
+		json.put("WMpump", WMpump);
+		json.put("WMaircon", WMaircon);
+		json.put("WMtemperature", WMtemperature);
+		json.put("WEtime", WEtime);
+		json.put("WEstate", WEstate);
+		json.put("WEpump", WEpump);
+		json.put("WEaircon", WEaircon);
+		json.put("WEtemperature", WEtemperature);
+		json.put("EMtime", EMtime);
+		json.put("EMstate", EMstate);
+		json.put("EMpump", EMpump);
+		json.put("EMaircon", EMaircon);
+		json.put("EMtemperature", EMtemperature);
+		json.put("EEtime", EEtime);
+		json.put("EEstate", EEstate);
+		json.put("EEpump", EEpump);
+		json.put("EEaircon", EEaircon);
+		json.put("EEtemperature", EEtemperature);
+		json.put("ifany", ifany);
+		
+		out.print(json);
+
 	}
-	
+
 	else if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
-		checkTime = param.getString("checkTime", "");
+		checktime = param.getString("checktime", "");
 		checker = param.getString("checker", "");
 		ars = param.getString("ars", "");
 		mail = param.getString("mail", "123");
@@ -42,14 +138,12 @@
 		WMpump = param.getString("WMpump", "");
 		WMaircon = param.getString("WMaircon", "");
 		WMtemperature = param.getString("WMtemperature", "");
-		System.out.println("WMtemperature:" + WMtemperature);
 
 		WEtime = param.getString("WEtime", "");
 		WEstate = param.getString("WEstate", "");
 		WEpump = param.getString("WEpump", "");
 		WEaircon = param.getString("WEaircon", "");
 		WEtemperature = param.getString("WEtemperature", "");
-		System.out.println("WEtemperature:" + WEtemperature);
 
 		EMtime = param.getString("EMtime", "");
 		EMstate = param.getString("EMstate", "");
@@ -65,38 +159,23 @@
 
 		ifany = param.getString("ifany", "");
 
-		System.out.println("checkTime:" + checkTime);
-		System.out.println("checker:" + checker);
-
-		System.out.println("ars:" + ars);
-		System.out.println("mail:" + mail);
-
-		PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail, fax,
-				vrs, messanger, leaseloan, visual, images, font, links,
-				bbs, indexsize, WMtime, WMstate, WMpump, WMaircon,
-				WMtemperature, WEtime, WEstate, WEpump, WEaircon,
-				WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-				EMtemperature, EEtime, EEstate, EEpump, EEaircon,
-				EEtemperature, ifany);
+		PrecheckDAO.updateInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
+				images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature, WEtime,
+				WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon, EMtemperature,
+				EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
 
 		if (precheck == null) {
-			PrecheckDAO.insertInfo(id, checkTime, checker, ars, mail,
-					fax, vrs, messanger, leaseloan, visual, images,
-					font, links, bbs, indexsize, WMtime, WMstate,
-					WMpump, WMaircon, WMtemperature, WEtime, WEstate,
-					WEpump, WEaircon, WEtemperature, EMtime, EMstate,
-					EMpump, EMaircon, EMtemperature, EEtime, EEstate,
-					EEpump, EEaircon, EEtemperature, ifany);
+			PrecheckDAO.insertInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
+					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
+					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
+					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
 			System.out.println("인서트!");
 		} else {
 			//update	
-			PrecheckDAO.updateInfo(id, checkTime, checker, ars, mail,
-					fax, vrs, messanger, leaseloan, visual, images,
-					font, links, bbs, indexsize, WMtime, WMstate,
-					WMpump, WMaircon, WMtemperature, WEtime, WEstate,
-					WEpump, WEaircon, WEtemperature, EMtime, EMstate,
-					EMpump, EMaircon, EMtemperature, EEtime, EEstate,
-					EEpump, EEaircon, EEtemperature, ifany);
+			PrecheckDAO.updateInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
+					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
+					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
+					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
 
 			System.out.println("업데이트!");
 		}

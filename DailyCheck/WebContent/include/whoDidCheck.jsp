@@ -6,12 +6,12 @@
 <div class="ui-grid-a">
 	<div class="ui-block-a">
 		<label for="currentTime">점검 시간:</label> <input type="tel"
-			name="currentTime" id="currentTime" data-clear-btn="true"
+			name="checktime" id="checktime" data-clear-btn="true"
 			onclick="setTime($(this))">
 	</div>
 	<div class="ui-block-b">
-		<label for="day">점검자:</label> <select data-theme="b" name="day"
-			id="day" data-mini="true">
+		<label for="checker">점검자:</label> <select data-theme="b" name="checker"
+			id="checker" data-mini="true">
 			<option value="splim">임성필</option>
 			<option value="shhan">한승훈</option>
 			<option value="mpark">박민</option>

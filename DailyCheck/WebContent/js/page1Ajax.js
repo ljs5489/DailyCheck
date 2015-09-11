@@ -1,12 +1,11 @@
 function postWithAjax() {
 	$.post("func/page1Func.jsp", {
+		checktime : $("#checktime").val(),
 		checker : $("#checker").val(),
-		checkTime : $("#checkTime").val(),
 
 		ars : $("#ars").val(),
 		mail : $("#mail").val(),
 		fax : $("#fax").val(),
-
 		vrs : $("#vrs").val(),
 		messanger : $("#messanger").val(),
 		leaseloan : $("#leaseloan").val(),
@@ -14,50 +13,92 @@ function postWithAjax() {
 		visual : $("#visual").val(),
 		images : $("#images").val(),
 		font : $("#font").val(),
-
 		links : $("#links").val(),
 		bbs : $("#bbs").val(),
 		indexsize : $("#indexsize").val(),
 
+		WMtime : $("#WMtime").val(),
+		WMstate : $("#WMstate").val(),
+		WMpump : $("#WMpump").val(),
+		WMaircon : $("#WMaircon").val(),
+		WMtemperature : $("#WMtemperature").val(),
+
+		WEtime : $("#WEtime").val(),
+		WEstate : $("#WEstate").val(),
+		WEpump : $("#WEpump").val(),
+		WEaircon : $("#WEaircon").val(),
+		WEtemperature : $("#WEtemperature").val(),
+
+		EMtime : $("#EMtime").val(),
+		EMstate : $("#EMstate").val(),
+		EMpump : $("#EMpump").val(),
+		EMaircon : $("#EMaircon").val(),
+		EMtemperature : $("#EMtemperature").val(),
+
+		EEtime : $("#EEtime").val(),
+		EEstate : $("#EEstate").val(),
+		EEpump : $("#EEpump").val(),
+		EEaircon : $("#EEaircon").val(),
+		EEtemperature : $("#EEtemperature").val(),
+
 		ifany : $("#ifany").val()
 
 	}, function(data) {
-		//alert("Data Loaded?");
-		//location.href="#myPopupDialog";
-		//var href = $('#myPopupDialog').attr('href');
-		//window.location.href = href;
-
-		$("#loadingComplete")[0].click();
+		//성공하면 여기
 	});
 
 }
 
-function getWithAjax() {
-	$.ajax({  
-        url:'func/page1Func.jsp',  
-        type:'get',  
-        dataType: 'json',  
-        success: function(data) {  
-        	alert(data.name);
-        }  
-    }); 
+function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
+	$.ajax({
+		url : 'func/page1Func.jsp',
+		type : 'get',
+		dataType : 'json',
+		success : function(data) {
+			$("#checktime").val(data.checktime).textinput('refresh');
+			$("#checker").val(data.checker).selectmenu('refresh');
+			
+			$("#ars").val(data.ars).flipswitch("refresh");
+			$("#mail").val(data.mail).flipswitch("refresh");
+			$("#fax").val(data.fax).flipswitch("refresh");
+			$("#vrs").val(data.vrs).flipswitch("refresh");
+			$("#messanger").val(data.messanger).flipswitch("refresh");
+			$("#leaseloan").val(data.leaseloan).flipswitch("refresh");
+
+			$("#visual").val(data.visual).flipswitch("refresh");
+			$("#images").val(data.images).flipswitch("refresh");
+			$("#font").val(data.font).flipswitch("refresh");
+			$("#links").val(data.links).flipswitch("refresh");
+			$("#bbs").val(data.bbs).flipswitch("refresh");
+			$("#indexsize").val(data.indexsize).textinput('refresh');
+
+			$("#WMtime").val(data.WMtime).textinput('refresh');
+			$("#WMstate").val(data.WMstate).flipswitch("refresh");
+			$("#WMpump").val(data.WMpump).flipswitch("refresh");
+			$("#WMaircon").val(data.WMaircon).flipswitch("refresh");
+			$("#WMtemperature").val(data.WMtemperature).textinput('refresh');			
+			
+			$("#WEtime").val(data.WEtime).textinput('refresh');			
+			$("#WEstate").val(data.WEstate).flipswitch("refresh");
+			$("#WEpump").val(data.WEpump).flipswitch("refresh");
+			$("#WEaircon").val(data.WEaircon).flipswitch("refresh");
+			$("#WEtemperature").val(data.WEtemperature).textinput('refresh');
+			
+			$("#EMtime").val(data.EMtime).textinput('refresh');		
+			$("#EMstate").val(data.EMstate).flipswitch("refresh");
+			$("#EMpump").val(data.EMpump).flipswitch("refresh");
+			$("#EMaircon").val(data.EMaircon).flipswitch("refresh");
+			$("#EMtemperature").val(data.EMtemperature).textinput('refresh');			
+			
+			$("#EEtime").val(data.EEtime).textinput('refresh');
+			$("#EEstate").val(data.EEstate).flipswitch("refresh");
+			$("#EEpump").val(data.EEpump).flipswitch("refresh");
+			$("#EEaircon").val(data.EEaircon).flipswitch("refresh");
+			$("#EEtemperature").val(data.EEtemperature).textinput('refresh');
+			
+			$("#ifany").val(data.ifany).textinput('refresh');
+			
+		}
+	});
 
 }
-
-$("#test").on('tap', function() {
-	$('#popup').trigger('click');
-
-	console.log($("#checkTime").val());
-	console.log("mail: " + $("#mail").val());
-	console.log("ars: " + $("#ars").val());
-	console.log($("#checker").val());
-	console.log("3" + $("#ifany").val());
-
-	$("#ars").val("on").flipswitch("refresh");
-	$("#checkTime").val("test").textinput('refresh');
-	$("#checker").val("jslee").selectmenu('refresh');
-
-	//결국은 AJAX으로 해야할듯 하다.			
-	//http://stackoverflow.com/questions/15063218/how-to-receive-data-sent-by-ajax-in-a-jsp-file
-	//참조
-});

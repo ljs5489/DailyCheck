@@ -11,6 +11,9 @@ public class PrecheckDAO {
 		Precheck precheck = new Precheck();
 		precheck.setId(resultSet.getString("id").trim());
 		precheck.setCheckTime(resultSet.getString("checkTime"));
+		
+		System.out.println("check3: "+resultSet.getString("checkTime"));
+		
 		precheck.setChecker(resultSet.getString("checker").trim());
 		precheck.setArs(resultSet.getString("ars"));
 		precheck.setMail(resultSet.getString("mail"));

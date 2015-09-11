@@ -5,214 +5,47 @@
 <head>
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/page1Ajax.js"></script>
-
+<script>$(function(){ getWithAjax(); })</script>
 </head>
 <body>
-	<%
-		String checkTime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "", leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "", WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "", WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "", EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "", EEaircon = "", EEtemperature = "", ifany = "";
-		String id = GetDate.getDate(); //날짜는 변경될 수 있음!
-		Precheck precheck = PrecheckDAO.selectById(id);
-
-		//조회=========================================
-		if (precheck != null && request.getMethod().equals("GET")) {
-			System.out.println("GET!!!");
-			checkTime = precheck.getCheckTime();
-			checker = precheck.getChecker();
-			ars = precheck.getArs();
-			mail = precheck.getMail();
-			fax = precheck.getFax();
-
-			vrs = precheck.getVrs();
-			messanger = precheck.getMessanger();
-			leaseloan = precheck.getLeaseloan();
-			visual = precheck.getVisual();
-			images = precheck.getImages();
-			font = precheck.getFont();
-			links = precheck.getLinks();
-
-			bbs = precheck.getBbs();
-			indexsize = precheck.getIndexsize();
-
-			WMtime = precheck.getWMtime();
-			WMstate = precheck.getWMstate();
-			WMpump = precheck.getWMpump();
-			WMaircon = precheck.getWMaircon();
-			WMtemperature = precheck.getWMtemperature();
-
-			WEtime = precheck.getWEtime();
-			WEstate = precheck.getWEstate();
-			WEpump = precheck.getWEpump();
-			WEaircon = precheck.getWEaircon();
-			WEtemperature = precheck.getWEtemperature();
-
-			EMtime = precheck.getEMtime();
-			EMstate = precheck.getEMstate();
-			EMpump = precheck.getEMpump();
-			EMaircon = precheck.getEMaircon();
-			EMtemperature = precheck.getEMtemperature();
-
-			EEtime = precheck.getEEtime();
-			EEstate = precheck.getEEstate();
-			EEpump = precheck.getEEpump();
-			EEaircon = precheck.getEEaircon();
-			EEtemperature = precheck.getEEtemperature();
-
-			System.out.println("EEtime:" + EEtime);
-
-			System.out.println("EEstate:" + EEstate);
-			System.out.println("EEpump:" + EEpump);
-			System.out.println("EEaircon:" + EEaircon);
-
-			ifany = precheck.getIfany();
-
-		}
-	%>
-
 	<form method="post">
 		<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
 		<div data-role="page" id="page">
 			<%@ include file="explain/forPage1.jsp"%>
 			<%@ include file="/../include/header.jsp"%>
 
-			<div data-role="main" class="ui-content">
-				<a id="popup" href="#loadingComplete" data-rel="popup"
-					style="position: fixed;"></a>
-				<div data-role="popup" id="loadingComplete"
-					style="position: fixed; left: 5%; top: 20%; width: 90%; height: 45%;">
-					<div data-role="header">
-						<h1>Notice</h1>
-					</div>
-
-					<div data-role="main" class="ui-content">
-						<h2 align="center">저장되었습니다.</h2>
-						<p align="center">관련 항목 : precheck</p>
-						<div align="right">
-							<a href="#" style="margin-right: 10%;"
-								class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left"
-								data-rel="back">Close</a>
-						</div>
-					</div>
-
-					<div data-role="footer"
-						style="position: absolute; bottom: 0px; width: 100%;">
-						<h1>Toyota Financial Service Korea</h1>
-					</div>
-				</div>
-
-
-				<h2 id="test" onclick="location.href='page2.jsp'">●Pre Check</h2>
-				<!-- set -------------->
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-						<label for="currentTime">점검 시간:</label> <input type="tel"
-							name="checkTime" id="checkTime" data-clear-btn="true"
-							onclick="setTime($(this))">
-					</div>
-					<div class="ui-block-b">
-						<label for="day">점검자:</label> <select data-theme="b"
-							name="checker" id="checker" data-mini="true">
-							<option value="splim">임성필</option>
-							<option value="shhan">한승훈</option>
-							<option value="mpark">박민</option>
-							<option value="sylee">이송연</option>
-							<option value="jslee">이진수</option>
-						</select>
-					</div>
-				</div>
-				<!-- /set -------------->
+			<div data-role="main" class="ui-content">			
+				<%@ include file="../include/popup.jsp"%>
+				<h2 id="test">●Pre Check</h2>
+				<%@ include file="../include/whoDidCheck.jsp"%>
 
 				<h3>Connect Status</h3>
 				<hr />
-				<!-- set -->
 				<div class="ui-grid-b">
-					<div class="ui-block-a">
-						<label for="ars">ARS:</label><select type="checkbox"
-							data-role="flipswitch" name="ars" id="ars">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
-					<div class="ui-block-b">
-						<label for="mail">Mail:</label><select type="checkbox"
-							data-role="flipswitch" name="mail" id="mail">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
-					<div class="ui-block-c">
-						<label for="fax">Fax:</label><select type="checkbox"
-							data-role="flipswitch" name="fax" id="fax">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
+					<%= Sets.setBlock("a","ars","Good","Bad",false) %>
+					<%= Sets.setBlock("b","mail","Good","Bad",false) %>
+					<%= Sets.setBlock("c","fax","Good","Bad",false) %>
 				</div>
-				<!-- /set -->
-				<!-- set -->
 				<div class="ui-grid-b">
-					<div class="ui-block-a">
-						<label for="vrs">VRS:</label><select type="checkbox"
-							data-role="flipswitch" name="vrs" id="vrs">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
-					<div class="ui-block-b">
-						<label for="messanger">Messanger:</label><select type="checkbox"
-							data-role="flipswitch" name="messanger" id="messanger">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
-					<div class="ui-block-c">
-						<label for="leaseloan">Lease Loan:</label><select type="checkbox"
-							data-role="flipswitch" name="leaseloan" id="leaseloan">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
+					<%= Sets.setBlock("a","vrs","Good","Bad",false) %>
+					<%= Sets.setBlock("b","messanger","Good","Bad",false) %>
+					<%= Sets.setBlock("c","leaseloan","Good","Bad",false) %>
 				</div>
-				<!-- /set -->
 
 				<h3>Homepage</h3>
 				<hr />
-				<!-- set -->
 				<div class="ui-grid-b">
-					<div class="ui-block-a">
-						<label for="visual">Visual:</label><select type="checkbox"
-							data-role="flipswitch" name="visual" id="visual">
-							<option value="off">Bad</option>
-							<option value="on" selected>Good</option>
-						</select><br>
-					</div>
-					<div class="ui-block-b">
-						<label for="images">Images:</label> <input type="checkbox"
-							data-role="flipswitch" name="images" id="images" data-on-text="Y"
-							data-off-text="N" <%=(("on").equals(images)) ? "checked" : ""%>><br>
-					</div>
-					<div class="ui-block-c">
-						<label for="font">Font:</label> <input type="checkbox"
-							data-role="flipswitch" name="font" id="font" data-on-text="Y"
-							data-off-text="N" <%=(("on").equals(font)) ? "checked" : ""%>><br>
-					</div>
+					<%= Sets.setBlock("a","visual","Good","Bad",false) %>
+					<%= Sets.setBlock("b","images","Y","N",false) %>
+					<%= Sets.setBlock("c","font","Y","N",false) %>
 				</div>
-				<!-- /set -->
 				<!-- HomePage set -->
 				<div class="ui-grid-b">
-					<div class="ui-block-a">
-						<label for="links">Links(5 Test):</label> <input type="checkbox"
-							data-role="flipswitch" name="links" id="links" data-on-text="Y"
-							data-off-text="N" <%=(("on").equals(links)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-b">
-						<label for="bbs">BBS(Notice):</label> <input type="checkbox"
-							data-role="flipswitch" name="bbs" id="bbs" data-on-text="Y"
-							data-off-text="N" <%=(("on").equals(bbs)) ? "checked" : ""%>>
-					</div>
+					<%= Sets.setBlock("a","links","Good","Bad",false) %>
+					<%= Sets.setBlock("b","bbs","Y","N",false) %>
 					<div class="ui-block-c">
 						<label for="indexsize">Index.asp(Size):</label> <input type="tel"
-							name="indexsize" id="indexsize" data-clear-btn="true"
-							value="<%=indexsize%>">
+							name="indexsize" id="indexsize" data-clear-btn="true">
 					</div>
 				</div>
 				<!-- /HomePage set -->
@@ -228,33 +61,16 @@
 					</div>
 					<div class="ui-block-b">
 						<label for="WMtime">Time:</label> <input type="tel" name="WMtime"
-							id="WMtime" data-clear-btn="true" onclick="setTime($(this))"
-							value="<%=WMtime%>">
+							id="WMtime" data-clear-btn="true" onclick="setTime($(this))">
 					</div>
 				</div>
 				<div class="ui-grid-c">
-					<div class="ui-block-a">
-						<label for="WMstate">State:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="WMstate"
-							id="WMstate" data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(WMstate)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-b">
-						<label for="WMpump">Pump:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="WMpump" id="WMpump"
-							data-on-text="N" data-off-text="A"
-							<%=(("on").equals(WMpump)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-c">
-						<label for="WMaircon">Aircon:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="WMaircon"
-							id="WMaircon" data-on-text="N" data-off-text="A"
-							<%=(("on").equals(WMaircon)) ? "checked" : ""%>>
-					</div>
+					<%= Sets.setBlock("a","WMstate","Good","Bad",true) %>
+					<%= Sets.setBlock("b","WMpump","N","A",true) %>
+					<%= Sets.setBlock("c","WMaircon","N","A",true) %>
 					<div class="ui-block-d">
 						<label for="WMtemperature">Temperature:</label> <input type="tel"
-							name="WMtemperature" id="WMtemperature"
-							value="<%=WMtemperature%>">
+							name="WMtemperature" id="WMtemperature">
 					</div>
 
 				</div>
@@ -266,33 +82,16 @@
 					</div>
 					<div class="ui-block-b">
 						<label for="WEtime">Time:</label> <input type="tel" name="WEtime"
-							id="WEtime" data-clear-btn="true" onclick="setTime($(this))"
-							value="<%=WEtime%>">
+							id="WEtime" data-clear-btn="true" onclick="setTime($(this))">
 					</div>
 				</div>
 				<div class="ui-grid-c">
-					<div class="ui-block-a">
-						<label for="WEstate">State:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="WEstate"
-							id="WEstate" data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(WEstate)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-b">
-						<label for="WEpump">Pump:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="WEpump" id="WEpump"
-							data-on-text="N" data-off-text="A"
-							<%=(("on").equals(WEpump)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-c">
-						<label for="WEaircon">Aircon:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="WEaircon"
-							id="WEaircon" data-on-text="N" data-off-text="A"
-							<%=(("on").equals(WEaircon)) ? "checked" : ""%>>
-					</div>
+					<%= Sets.setBlock("a","WEstate","Good","Bad",true) %>
+					<%= Sets.setBlock("b","WEpump","N","A",true) %>
+					<%= Sets.setBlock("c","WEaircon","N","A",true) %>
 					<div class="ui-block-d">
 						<label for="WEtemperature">Temperature:</label> <input type="tel"
-							name="WEtemperature" id="WEtemperature" data-clear-btn="true"
-							value="<%=WEtemperature%>">
+							name="WEtemperature" id="WEtemperature" data-clear-btn="true">
 					</div>
 
 				</div>
@@ -308,34 +107,17 @@
 					</div>
 					<div class="ui-block-b">
 						<label for="EMtime">Time:</label> <input type="tel" name="EMtime"
-							id="EMtime" data-clear-btn="true" onclick="setTime($(this))"
-							value="<%=EMtime%>">
+							id="EMtime" data-clear-btn="true" onclick="setTime($(this))">
 					</div>
 				</div>
 				<!-- IT ROOM (E) set -->
 				<div class="ui-grid-c">
-					<div class="ui-block-a">
-						<label for="EMstate">State:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="EMstate"
-							id="EMstate" data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(EMstate)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-b">
-						<label for="EMpump">Pump:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="EMpump" id="EMpump"
-							data-on-text="N" data-off-text="A"
-							<%=(("on").equals(EMpump)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-c">
-						<label for="EMaircon">Aircon:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="EMaircon"
-							id="EMaircon" data-on-text="N" data-off-text="A"
-							<%=(("on").equals(EMaircon)) ? "checked" : ""%>>
-					</div>
+					<%= Sets.setBlock("a","EMstate","Good","Bad",true) %>
+					<%= Sets.setBlock("b","EMpump","N","A",true) %>
+					<%= Sets.setBlock("c","EMaircon","N","A",true) %>
 					<div class="ui-block-d">
 						<label for="EMtemperature">Temperature:</label> <input type="tel"
-							name="EMtemperature" id="EMtemperature" data-clear-btn="true"
-							value="<%=EMtemperature%>">
+							name="EMtemperature" id="EMtemperature" data-clear-btn="true">
 					</div>
 
 				</div>
@@ -348,41 +130,24 @@
 					</div>
 					<div class="ui-block-b">
 						<label for="EEtime">Time:</label> <input type="tel" name="EEtime"
-							id="EEtime" data-clear-btn="true" onclick="setTime($(this))"
-							value="<%=EMtime%>">
+							id="EEtime" data-clear-btn="true" onclick="setTime($(this))">
 					</div>
 				</div>
 				<!-- IT ROOM (E) set -->
 				<div class="ui-grid-c">
-					<div class="ui-block-a">
-						<label for="EEstate">State:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="EEstate"
-							id="EEstate" data-on-text="Good" data-off-text="Bad"
-							<%=(("on").equals(EEstate)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-b">
-						<label for="EEpump">Pump:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="EEpump" id="EEpump"
-							data-on-text="N" data-off-text="A"
-							<%=(("on").equals(EEpump)) ? "checked" : ""%>>
-					</div>
-					<div class="ui-block-c">
-						<label for="EEaircon">Aircon:</label> <input type="checkbox"
-							data-mini="true" data-role="flipswitch" name="EEaircon"
-							id="EEaircon" data-on-text="N" data-off-text="A"
-							<%=(("on").equals(EEaircon)) ? "checked" : ""%>>
-					</div>
+					<%= Sets.setBlock("a","EEstate","Good","Bad",true) %>
+					<%= Sets.setBlock("b","EEpump","N","A",true) %>
+					<%= Sets.setBlock("c","EEaircon","N","A",true) %>
 					<div class="ui-block-d">
 						<label for="EEtemperature">Temperature:</label> <input type="tel"
-							name="EEtemperature" id="EEtemperature" data-clear-btn="true"
-							value="<%=EEtemperature%>">
+							name="EEtemperature" id="EEtemperature" data-clear-btn="true">
 					</div>
 
 				</div>
 				<!-- /IT ROOM (E) set -->
 				<div class="ui-field-contain">
 					<label for="info">If Any:</label>
-					<textarea name="ifany" id="ifany"><%=ifany%></textarea>
+					<textarea name="ifany" id="ifany"></textarea>
 				</div>
 				<%@ include file="/../include/bottomTools.jsp"%>
 				<%@ include file="/../include/bottomGoUp.jsp"%>
