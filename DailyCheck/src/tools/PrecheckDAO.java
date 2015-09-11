@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PrecheckDAO {
-	private static Precheck makeStudent(ResultSet resultSet) throws SQLException {
+	private static Precheck makePrecheck(ResultSet resultSet) throws SQLException {
 		Precheck precheck = new Precheck();
 		precheck.setId(resultSet.getString("id").trim());
 		precheck.setCheckTime(resultSet.getString("checkTime"));
@@ -73,7 +73,7 @@ public class PrecheckDAO {
 			// statement.setString(1, id);
 			resultSet = statement.executeQuery();
 			if (resultSet.next())
-				precheck = makeStudent(resultSet);
+				precheck = makePrecheck(resultSet);
 		} finally {
 			if (resultSet != null)
 				resultSet.close();
@@ -266,7 +266,7 @@ public class PrecheckDAO {
 				connection.close();
 		}
 	}
-
+/*
 	public static void simpleUpdateInfo(String id, String checktime, String checker, String ars, String mail,
 			String ifany) throws Exception {
 		Connection connection = null;
@@ -290,5 +290,5 @@ public class PrecheckDAO {
 				connection.close();
 		}
 	}
-
+*/
 }
