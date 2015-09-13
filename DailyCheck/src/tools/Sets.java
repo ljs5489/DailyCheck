@@ -30,7 +30,25 @@ public class Sets {
 	}
 	//제거할 문장 선택
 	public static String getRidOfTwoChar(String str) {	
+		//page2
+		str = str.replaceAll("WEB_", "");
+		str = str.replaceAll("DBM_", "");
+		str = str.replaceAll("DEW_", "");
+		str = str.replaceAll("MAIL_", "");
+		str = str.replaceAll("APP_", "");
+		str = str.replaceAll("FAX_", "");
+		str = str.replaceAll("ADN_", "");
+		str = str.replaceAll("VRS_", "");
+		str = str.replaceAll("FILE_", "");
+		str = str.replaceAll("DEVN_", "");
+		str = str.replaceAll("MSVM1_", "");
+		str = str.replaceAll("MSVM2_", "");
+		str = str.replaceAll("LYNC_", "");
+		str = str.replaceAll("ADV1_", "");
+		str = str.replaceAll("ADV2_", "");
 
+
+		
 		
 		//page3
 		str = str.replaceAll("MOBH1_", "");
