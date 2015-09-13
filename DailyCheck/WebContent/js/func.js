@@ -47,7 +47,7 @@ $(function() {
 	});
 	$("#myPost").on('click', function() {
 		postWithAjax();
-		$('#popup').trigger('click');
+		//$('#popup').trigger('click');
 	});
 
 	$("#test").on('tap', function() {

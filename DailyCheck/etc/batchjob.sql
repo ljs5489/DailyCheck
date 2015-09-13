@@ -14,7 +14,7 @@ create table batchjob(
 	del_M varchar(10),
 	leave_Mng varchar(10),
 	fax_SMS varchar(10),
-	ifany varchar(10),
+	ifany varchar(500),
 
 )
 drop table batchjob

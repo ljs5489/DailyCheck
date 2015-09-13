@@ -1,6 +1,6 @@
 package tools;
 
-/*문자열 핸들링 메소드 모음*/
+/*臾몄옄�뿴 �빖�뱾留� 硫붿냼�뱶 紐⑥쓬*/
 
 public class Sets {
 	public static String setBlock(String block, String name, String on, String off, boolean mini) {
@@ -17,12 +17,15 @@ public class Sets {
 
 		return tags;
 	}
-
+	//제거할 문장 선택
 	public static String getRidOfTwoChar(String str) {		
 		str = str.replaceAll("WE", "");
 		str = str.replaceAll("WM", "");
 		str = str.replaceAll("EM", "");
 		str = str.replaceAll("EE", "");
+		
+		str = str.replaceAll("NW", "");
+		str = str.replaceAll("NS", "");
 		
 		return str;
 	}

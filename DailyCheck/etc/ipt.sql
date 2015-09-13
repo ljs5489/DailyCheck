@@ -14,7 +14,7 @@ create table ipt(
 	in_serv_tru1 varchar(10),
 	in_serv_tru2 varchar(10),
 	gateway varchar(10),	
-	ipt_alarm varchar(10),
+	ipt_alarm varchar(500),
 	ifany varchar(500),
 	
 	--CONSTRAINT enrolled_pkey PRIMARY KEY (YID, MID, DID)

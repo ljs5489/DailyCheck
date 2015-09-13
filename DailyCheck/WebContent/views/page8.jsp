@@ -1,93 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, tools.*"%>
 <html>
 <head>
 <%@ include file="/../include/import.jsp"%>
+<script src="../js/page8Ajax.js"></script>
+<script>
+$(function(){ getWithAjax(); });
+</script>
 </head>
 <body>
 	<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
-	<div data-role="page" id="page">
+	<div data-role="page" id="page8">
 		<%@ include file="explain/forPage8.jsp"%>
 		<%@ include file="/../include/header.jsp"%>
 
 		<div data-role="main" class="ui-content">
-			<h2>●Backup</h2>
+			<%@ include file="../include/popup.jsp"%>
+			<h2>●Back up</h2>
 			<%@ include file="../include/whoDidCheck.jsp"%>
 
 			<h3>TFSKR File daily check</h3>
 			<hr />
-			<!-- set -->
 			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<label for="switch">WEB:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-b">
-					<label for="switch2">DEW:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch2" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-c">
-					<label for="switch3">APP:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch3" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
+				<%= Sets.setBlock("a","web","Y","N",false) %>
+				<%= Sets.setBlock("b","dew","Y","N",false) %>
+				<%= Sets.setBlock("c","app","Y","N",false) %>
+
 			</div>
-			<!-- /set -->
 			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<label for="switch">ADV1:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-b">
-					<label for="switch2">VRS:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch2" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-c">
-					<label for="switch3">MAIL:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch3" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
+				<%= Sets.setBlock("a","ADV_1","Y","N",false) %>
+				<%= Sets.setBlock("b","VRS","Y","N",false) %>
+				<%= Sets.setBlock("c","mail","Y","N",false) %>
 			</div>
-			<!-- /set -->
 			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<label for="switch">FAX(weekly):</label> <input type="checkbox"
-						data-role="flipswitch" name="switch" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-b">
-					<label for="switch2">DBsafer(Monthly):</label> <input
-						type="checkbox" data-role="flipswitch" name="switch2" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-c">
-					<label for="switch3">FILE:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch3" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
+				<%= Sets.setBlock("a","FAX_W","Y","N",false) %>
+				<%= Sets.setBlock("b","DBsafer_M","Y","N",false) %>
+				<%= Sets.setBlock("c","file_","Y","N",false) %>
 			</div>
-			<!-- /set -->
 			<br /> <br />
 			<h3>TFSKR DB daily check</h3>
 			<hr />
 			<!-- /set -->
 			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<label for="switch">VRS:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
-				<div class="ui-block-b">
-					<label for="switch2">DBM:</label> <input type="checkbox"
-						data-role="flipswitch" name="switch2" id="switch"
-						data-on-text="Good" data-off-text="Bad"><br>
-				</div>
+				<%= Sets.setBlock("a","VRS_DB","Y","N",false) %>
+				<%= Sets.setBlock("b","DBM","Y","N",false) %>
 			</div>
-			<!-- /set -->
+			<br/>
+			<div class="ui-field-contain">
+				<label for="info">If Any:</label>
+				<textarea name="ifany" id="ifany"></textarea>
+			</div>
 			<%@ include file="/../include/bottomTools.jsp"%>
 			<%@ include file="/../include/bottomGoUp.jsp"%>
 		</div>

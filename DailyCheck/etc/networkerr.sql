@@ -2,7 +2,7 @@ create database JSLEE
 use JSLEE
 
 
-create table networkerror(
+create table networkerr(
 	id date not null primary key,
 		
 	checkTime varchar(10) default convert(varchar(5), getdate(), 108) not null,
@@ -18,7 +18,7 @@ create table networkerror(
 	internet_spd varchar(10),
 	traffic_IDC varchar(10),
 	internet_traffic varchar(10),
-	ifany varchar(10),
+	ifany varchar(500),
 
 
 )
