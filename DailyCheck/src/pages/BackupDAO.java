@@ -1,10 +1,9 @@
-package tools;
-
+package pages;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import tools.*;
 
 public class BackupDAO {
 	private static Backup makebackup(ResultSet resultSet) throws SQLException {

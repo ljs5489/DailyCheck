@@ -1,10 +1,10 @@
-package tools;
+package pages;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import tools.*;
 
 public class MobileserverDAO {
 	private static Mobileserver makemobileserver(ResultSet resultSet) throws SQLException {

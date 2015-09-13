@@ -1,4 +1,4 @@
-package tools;
+package pages;
 
 public class Networkerr {
 	private String id;
