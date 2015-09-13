@@ -1,8 +1,19 @@
 package tools;
 
-/*臾몄옄�뿴 �빖�뱾留� 硫붿냼�뱶 紐⑥쓬*/
 
 public class Sets {
+
+	public static String setText(String block, String name, String type){
+		String tags = "";
+		tags += "<div class='ui-block-" + block + "'>";
+		tags += "<input type='"+type+"' name='"+name+"' id='"+name+"' data-clear-btn='true'>";
+		tags += "</div>";
+		
+		return tags;
+		
+	}
+	
+	
 	public static String setBlock(String block, String name, String on, String off, boolean mini) {
 
 		String tags = "";
@@ -18,7 +29,20 @@ public class Sets {
 		return tags;
 	}
 	//제거할 문장 선택
-	public static String getRidOfTwoChar(String str) {		
+	public static String getRidOfTwoChar(String str) {	
+
+		
+		//page3
+		str = str.replaceAll("MOBH1_", "");
+		str = str.replaceAll("DC2_", "");
+		str = str.replaceAll("WEB1_", "");
+		str = str.replaceAll("DB1_", "");
+		str = str.replaceAll("MOBH2_", "");
+		str = str.replaceAll("DC1_", "");
+		str = str.replaceAll("WEB2_", "");
+		str = str.replaceAll("DB2_", "");
+		
+		//page1
 		str = str.replaceAll("WE", "");
 		str = str.replaceAll("WM", "");
 		str = str.replaceAll("EM", "");
