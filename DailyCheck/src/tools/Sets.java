@@ -2,7 +2,9 @@ package tools;
 
 
 public class Sets {
-
+	public static String setWH(String w,String h){
+		return "Style='width:"+w+"px; height;"+h+"px;'";		
+	}
 	public static String setText(String block, String name, String type){
 		String tags = "";
 		tags += "<div class='ui-block-" + block + "'>";

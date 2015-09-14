@@ -11,7 +11,8 @@
 			EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
 			EEaircon = "", EEtemperature = "", ifany = "";
 
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String id=request.getParameter("id").trim();
+	System.out.println("?"+id);
 	Precheck precheck = PrecheckDAO.selectById(id);
 
 	if (precheck != null && request.getMethod().equals("GET")) {
@@ -19,7 +20,6 @@
 		System.out.println("GET!");
 		
 		checktime = precheck.getCheckTime();
-		System.out.println("check2: "+checktime);
 		
 		checker = precheck.getChecker();
 		ars = precheck.getArs();
@@ -62,62 +62,61 @@
 		EEtemperature = precheck.getEEtemperature();
 
 		ifany = precheck.getIfany();
-		
-		
-		
-		//======================================================================================
-
-		//PrintWriter out= response.getWriter();  
-		JSONObject json = new JSONObject();
-		json.put("name", "테스트 입니다...");
-		
-		json.put("checktime", checktime);
-		
-		System.out.println("check: "+checktime);
-		
-		json.put("checker", checker);
-		json.put("ars", ars);
-		json.put("mail", mail);
-		json.put("fax", fax);
-		json.put("vrs", vrs);
-		json.put("messanger", messanger);
-		json.put("leaseloan", leaseloan);
-		json.put("visual", visual);
-		json.put("images", images);
-		json.put("font", font);
-		json.put("links", links);
-		json.put("bbs", bbs);
-		json.put("indexsize", indexsize);
-		json.put("WMtime", WMtime);
-		json.put("WMstate", WMstate);
-		json.put("WMpump", WMpump);
-		json.put("WMaircon", WMaircon);
-		json.put("WMtemperature", WMtemperature);
-		json.put("WEtime", WEtime);
-		json.put("WEstate", WEstate);
-		json.put("WEpump", WEpump);
-		json.put("WEaircon", WEaircon);
-		json.put("WEtemperature", WEtemperature);
-		json.put("EMtime", EMtime);
-		json.put("EMstate", EMstate);
-		json.put("EMpump", EMpump);
-		json.put("EMaircon", EMaircon);
-		json.put("EMtemperature", EMtemperature);
-		json.put("EEtime", EEtime);
-		json.put("EEstate", EEstate);
-		json.put("EEpump", EEpump);
-		json.put("EEaircon", EEaircon);
-		json.put("EEtemperature", EEtemperature);
-		json.put("ifany", ifany);
-		
-		out.print(json);
 
 	}
+	//======================================================================================
 
-	else if (request.getMethod().equals("POST")) {
+	//PrintWriter out= response.getWriter();  
+	JSONObject json = new JSONObject();
+	json.put("name", "테스트 입니다...");
+	
+	json.put("checktime", checktime);
+	
+	System.out.println("check: "+checktime);
+	
+	json.put("checker", checker);
+	json.put("ars", ars);
+	json.put("mail", mail);
+	json.put("fax", fax);
+	json.put("vrs", vrs);
+	json.put("messanger", messanger);
+	json.put("leaseloan", leaseloan);
+	json.put("visual", visual);
+	json.put("images", images);
+	json.put("font", font);
+	json.put("links", links);
+	json.put("bbs", bbs);
+	json.put("indexsize", indexsize);
+	json.put("WMtime", WMtime);
+	json.put("WMstate", WMstate);
+	json.put("WMpump", WMpump);
+	json.put("WMaircon", WMaircon);
+	json.put("WMtemperature", WMtemperature);
+	json.put("WEtime", WEtime);
+	json.put("WEstate", WEstate);
+	json.put("WEpump", WEpump);
+	json.put("WEaircon", WEaircon);
+	json.put("WEtemperature", WEtemperature);
+	json.put("EMtime", EMtime);
+	json.put("EMstate", EMstate);
+	json.put("EMpump", EMpump);
+	json.put("EMaircon", EMaircon);
+	json.put("EMtemperature", EMtemperature);
+	json.put("EEtime", EEtime);
+	json.put("EEstate", EEstate);
+	json.put("EEpump", EEpump);
+	json.put("EEaircon", EEaircon);
+	json.put("EEtemperature", EEtemperature);
+	json.put("ifany", ifany);
+	
+	out.print(json);
+
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
+		
+		
 		checktime = param.getString("checktime", "");
 		checker = param.getString("checker", "");
 		ars = param.getString("ars", "");

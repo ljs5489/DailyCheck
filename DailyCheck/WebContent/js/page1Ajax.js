@@ -1,5 +1,7 @@
 function postWithAjax() {
 	$.post("func/page1Func.jsp", {
+		id:$("input[name='mydate']").val(),//날짜 선택 추가...
+		
 		checktime : $("#checktime").val(),
 		checker : $("#checker").val(),
 
@@ -51,9 +53,13 @@ function postWithAjax() {
 
 function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 	$.ajax({
-		url : 'func/page1Func.jsp',
+		url : "func/page1Func.jsp",
 		type : 'get',
+		data : {
+            id : $("input[name='mydate']").val()
+        },
 		dataType : 'json',
+		
 		success : function(data) {
 			$("#checktime").val(data.checktime).textinput('refresh');
 			$("#checker").val(data.checker).selectmenu('refresh');

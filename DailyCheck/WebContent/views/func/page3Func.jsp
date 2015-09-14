@@ -4,83 +4,23 @@
 <%@page import="org.json.simple.JSONObject"%>
 
 <%
-	String checktime = "", 
-			checker = "", 
-			MOBH1_CPU = "",
-			MOBH1_memory = "",
-			MOBH1_m_val = "",
-			MOBH1_vaccine = "",
-			MOBH1_update = "",
-			MOBH1_status = "",
-			MOBH1_disk1 = "",
-			MOBH1_disk2 = "",
-			MOBH1_disk3 = "",
-			MOBH1_disk4 = "",
-			DC2_CPU = "",
-			DC2_memory = "",
-			DC2_m_val = "",
-			DC2_vaccine = "",
-			DC2_update = "",
-			DC2_status = "",
-			DC2_disk1 = "",
-			DC2_disk2 = "",
-			WEB1_CPU = "",
-			WEB1_memory = "",
-			WEB1_m_val = "",
-			WEB1_vaccine = "",
-			WEB1_update = "",
-			WEB1_status = "",
-			WEB1_disk1 = "",
-			WEB1_disk2 = "",
-			DB1_CPU = "",
-			DB1_memory = "",
-			DB1_m_val = "",
-			DB1_vaccine = "",
-			DB1_update = "",
-			DB1_DB = "",
-			DB1_status = "",
-			DB1_disk1 = "",
-			DB1_disk2 = "",
-			DB1_disk3 = "",
-			DB1_disk4 = "",
-			MOBH2_CPU = "",
-			MOBH2_memory = "",
-			MOBH2_m_val = "",
-			MOBH2_vaccine = "",
-			MOBH2_update = "",
-			MOBH2_status = "",
-			MOBH2_disk1 = "",
-			MOBH2_disk2 = "",
-			MOBH2_disk3 = "",
-			MOBH2_disk4 = "",
-			DC1_CPU = "",
-			DC1_memory = "",
-			DC1_m_val = "",
-			DC1_vaccine = "",
-			DC1_update = "",
-			DC1_status = "",
-			DC1_disk1 = "",
-			DC1_disk2 = "",
-			WEB2_CPU = "",
-			WEB2_memory = "",
-			WEB2_m_val = "",
-			WEB2_vaccine = "",
-			WEB2_update = "",
-			WEB2_status = "",
-			WEB2_disk1 = "",
-			WEB2_disk2 = "",
-			DB2_CPU = "",
-			DB2_memory = "",
-			DB2_m_val = "",
-			DB2_vaccine = "",
-			DB2_update = "",
-			DB2_DB = "",
-			DB2_status = "",
-			DB2_disk1 = "",
-			DB2_disk2 = "",
-			ifany = "";	
-	
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String checktime = "", checker = "", MOBH1_CPU = "", MOBH1_memory = "", MOBH1_m_val = "",
+			MOBH1_vaccine = "", MOBH1_update = "", MOBH1_status = "", MOBH1_disk1 = "", MOBH1_disk2 = "",
+			MOBH1_disk3 = "", MOBH1_disk4 = "", DC2_CPU = "", DC2_memory = "", DC2_m_val = "", DC2_vaccine = "",
+			DC2_update = "", DC2_status = "", DC2_disk1 = "", DC2_disk2 = "", WEB1_CPU = "", WEB1_memory = "",
+			WEB1_m_val = "", WEB1_vaccine = "", WEB1_update = "", WEB1_status = "", WEB1_disk1 = "",
+			WEB1_disk2 = "", DB1_CPU = "", DB1_memory = "", DB1_m_val = "", DB1_vaccine = "", DB1_update = "",
+			DB1_DB = "", DB1_status = "", DB1_disk1 = "", DB1_disk2 = "", DB1_disk3 = "", DB1_disk4 = "",
+			MOBH2_CPU = "", MOBH2_memory = "", MOBH2_m_val = "", MOBH2_vaccine = "", MOBH2_update = "",
+			MOBH2_status = "", MOBH2_disk1 = "", MOBH2_disk2 = "", MOBH2_disk3 = "", MOBH2_disk4 = "",
+			DC1_CPU = "", DC1_memory = "", DC1_m_val = "", DC1_vaccine = "", DC1_update = "", DC1_status = "",
+			DC1_disk1 = "", DC1_disk2 = "", WEB2_CPU = "", WEB2_memory = "", WEB2_m_val = "", WEB2_vaccine = "",
+			WEB2_update = "", WEB2_status = "", WEB2_disk1 = "", WEB2_disk2 = "", DB2_CPU = "", DB2_memory = "",
+			DB2_m_val = "", DB2_vaccine = "", DB2_update = "", DB2_DB = "", DB2_status = "", DB2_disk1 = "",
+			DB2_disk2 = "", ifany = "";
+
+	String id = request.getParameter("id").trim();
+	System.out.println("?" + id);
 	Mobileserver mobileserver = MobileserverDAO.selectById(id);
 
 	if (mobileserver != null && request.getMethod().equals("GET")) {
@@ -89,7 +29,7 @@
 
 		checktime = mobileserver.getCheckTime();
 		checker = mobileserver.getChecker();
-		
+
 		MOBH1_CPU = mobileserver.getMOBH1_CPU();
 		MOBH1_memory = mobileserver.getMOBH1_memory();
 		MOBH1_m_val = mobileserver.getMOBH1_m_val();
@@ -164,101 +104,97 @@
 		DB2_disk2 = mobileserver.getDB2_disk2();
 		ifany = mobileserver.getIfany();
 
-
-
-		//======================================================================================
-
-		//PrintWriter out= response.getWriter();  
-		JSONObject json = new JSONObject();
-		json.put("checktime", checktime);
-		System.out.println("check: " + checktime);
-		json.put("checker", checker);
-		
-		json.put("MOBH1_CPU", MOBH1_CPU);
-		json.put("MOBH1_memory", MOBH1_memory);
-		json.put("MOBH1_m_val", MOBH1_m_val);
-		json.put("MOBH1_vaccine", MOBH1_vaccine);
-		json.put("MOBH1_update", MOBH1_update);
-		json.put("MOBH1_status", MOBH1_status);
-		json.put("MOBH1_disk1", MOBH1_disk1);
-		json.put("MOBH1_disk2", MOBH1_disk2);
-		json.put("MOBH1_disk3", MOBH1_disk3);
-		json.put("MOBH1_disk4", MOBH1_disk4);
-		json.put("DC2_CPU", DC2_CPU);
-		json.put("DC2_memory", DC2_memory);
-		json.put("DC2_m_val", DC2_m_val);
-		json.put("DC2_vaccine", DC2_vaccine);
-		json.put("DC2_update", DC2_update);
-		json.put("DC2_status", DC2_status);
-		json.put("DC2_disk1", DC2_disk1);
-		json.put("DC2_disk2", DC2_disk2);
-		json.put("WEB1_CPU", WEB1_CPU);
-		json.put("WEB1_memory", WEB1_memory);
-		json.put("WEB1_m_val", WEB1_m_val);
-		json.put("WEB1_vaccine", WEB1_vaccine);
-		json.put("WEB1_update", WEB1_update);
-		json.put("WEB1_status", WEB1_status);
-		json.put("WEB1_disk1", WEB1_disk1);
-		json.put("WEB1_disk2", WEB1_disk2);
-		json.put("DB1_CPU", DB1_CPU);
-		json.put("DB1_memory", DB1_memory);
-		json.put("DB1_m_val", DB1_m_val);
-		json.put("DB1_vaccine", DB1_vaccine);
-		json.put("DB1_update", DB1_update);
-		json.put("DB1_DB", DB1_DB);
-		json.put("DB1_status", DB1_status);
-		json.put("DB1_disk1", DB1_disk1);
-		json.put("DB1_disk2", DB1_disk2);
-		json.put("DB1_disk3", DB1_disk3);
-		json.put("DB1_disk4", DB1_disk4);
-		json.put("MOBH2_CPU", MOBH2_CPU);
-		json.put("MOBH2_memory", MOBH2_memory);
-		json.put("MOBH2_m_val", MOBH2_m_val);
-		json.put("MOBH2_vaccine", MOBH2_vaccine);
-		json.put("MOBH2_update", MOBH2_update);
-		json.put("MOBH2_status", MOBH2_status);
-		json.put("MOBH2_disk1", MOBH2_disk1);
-		json.put("MOBH2_disk2", MOBH2_disk2);
-		json.put("MOBH2_disk3", MOBH2_disk3);
-		json.put("MOBH2_disk4", MOBH2_disk4);
-		json.put("DC1_CPU", DC1_CPU);
-		json.put("DC1_memory", DC1_memory);
-		json.put("DC1_m_val", DC1_m_val);
-		json.put("DC1_vaccine", DC1_vaccine);
-		json.put("DC1_update", DC1_update);
-		json.put("DC1_status", DC1_status);
-		json.put("DC1_disk1", DC1_disk1);
-		json.put("DC1_disk2", DC1_disk2);
-		json.put("WEB2_CPU", WEB2_CPU);
-		json.put("WEB2_memory", WEB2_memory);
-		json.put("WEB2_m_val", WEB2_m_val);
-		json.put("WEB2_vaccine", WEB2_vaccine);
-		json.put("WEB2_update", WEB2_update);
-		json.put("WEB2_status", WEB2_status);
-		json.put("WEB2_disk1", WEB2_disk1);
-		json.put("WEB2_disk2", WEB2_disk2);
-		json.put("DB2_CPU", DB2_CPU);
-		json.put("DB2_memory", DB2_memory);
-		json.put("DB2_m_val", DB2_m_val);
-		json.put("DB2_vaccine", DB2_vaccine);
-		json.put("DB2_update", DB2_update);
-		json.put("DB2_DB", DB2_DB);
-		json.put("DB2_status", DB2_status);
-		json.put("DB2_disk1", DB2_disk1);
-		json.put("DB2_disk2", DB2_disk2);
-		json.put("ifany", ifany);
-
-
-		out.print(json);
 	}
+	//======================================================================================
 
-	else if (request.getMethod().equals("POST")) {
+	//PrintWriter out= response.getWriter();  
+	JSONObject json = new JSONObject();
+	json.put("checktime", checktime);
+	System.out.println("check: " + checktime);
+	json.put("checker", checker);
+
+	json.put("MOBH1_CPU", MOBH1_CPU);
+	json.put("MOBH1_memory", MOBH1_memory);
+	json.put("MOBH1_m_val", MOBH1_m_val);
+	json.put("MOBH1_vaccine", MOBH1_vaccine);
+	json.put("MOBH1_update", MOBH1_update);
+	json.put("MOBH1_status", MOBH1_status);
+	json.put("MOBH1_disk1", MOBH1_disk1);
+	json.put("MOBH1_disk2", MOBH1_disk2);
+	json.put("MOBH1_disk3", MOBH1_disk3);
+	json.put("MOBH1_disk4", MOBH1_disk4);
+	json.put("DC2_CPU", DC2_CPU);
+	json.put("DC2_memory", DC2_memory);
+	json.put("DC2_m_val", DC2_m_val);
+	json.put("DC2_vaccine", DC2_vaccine);
+	json.put("DC2_update", DC2_update);
+	json.put("DC2_status", DC2_status);
+	json.put("DC2_disk1", DC2_disk1);
+	json.put("DC2_disk2", DC2_disk2);
+	json.put("WEB1_CPU", WEB1_CPU);
+	json.put("WEB1_memory", WEB1_memory);
+	json.put("WEB1_m_val", WEB1_m_val);
+	json.put("WEB1_vaccine", WEB1_vaccine);
+	json.put("WEB1_update", WEB1_update);
+	json.put("WEB1_status", WEB1_status);
+	json.put("WEB1_disk1", WEB1_disk1);
+	json.put("WEB1_disk2", WEB1_disk2);
+	json.put("DB1_CPU", DB1_CPU);
+	json.put("DB1_memory", DB1_memory);
+	json.put("DB1_m_val", DB1_m_val);
+	json.put("DB1_vaccine", DB1_vaccine);
+	json.put("DB1_update", DB1_update);
+	json.put("DB1_DB", DB1_DB);
+	json.put("DB1_status", DB1_status);
+	json.put("DB1_disk1", DB1_disk1);
+	json.put("DB1_disk2", DB1_disk2);
+	json.put("DB1_disk3", DB1_disk3);
+	json.put("DB1_disk4", DB1_disk4);
+	json.put("MOBH2_CPU", MOBH2_CPU);
+	json.put("MOBH2_memory", MOBH2_memory);
+	json.put("MOBH2_m_val", MOBH2_m_val);
+	json.put("MOBH2_vaccine", MOBH2_vaccine);
+	json.put("MOBH2_update", MOBH2_update);
+	json.put("MOBH2_status", MOBH2_status);
+	json.put("MOBH2_disk1", MOBH2_disk1);
+	json.put("MOBH2_disk2", MOBH2_disk2);
+	json.put("MOBH2_disk3", MOBH2_disk3);
+	json.put("MOBH2_disk4", MOBH2_disk4);
+	json.put("DC1_CPU", DC1_CPU);
+	json.put("DC1_memory", DC1_memory);
+	json.put("DC1_m_val", DC1_m_val);
+	json.put("DC1_vaccine", DC1_vaccine);
+	json.put("DC1_update", DC1_update);
+	json.put("DC1_status", DC1_status);
+	json.put("DC1_disk1", DC1_disk1);
+	json.put("DC1_disk2", DC1_disk2);
+	json.put("WEB2_CPU", WEB2_CPU);
+	json.put("WEB2_memory", WEB2_memory);
+	json.put("WEB2_m_val", WEB2_m_val);
+	json.put("WEB2_vaccine", WEB2_vaccine);
+	json.put("WEB2_update", WEB2_update);
+	json.put("WEB2_status", WEB2_status);
+	json.put("WEB2_disk1", WEB2_disk1);
+	json.put("WEB2_disk2", WEB2_disk2);
+	json.put("DB2_CPU", DB2_CPU);
+	json.put("DB2_memory", DB2_memory);
+	json.put("DB2_m_val", DB2_m_val);
+	json.put("DB2_vaccine", DB2_vaccine);
+	json.put("DB2_update", DB2_update);
+	json.put("DB2_DB", DB2_DB);
+	json.put("DB2_status", DB2_status);
+	json.put("DB2_disk1", DB2_disk1);
+	json.put("DB2_disk2", DB2_disk2);
+	json.put("ifany", ifany);
+
+	out.print(json);
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
 		checker = param.getString("checker", "");
-		
+
 		MOBH1_CPU = param.getString("MOBH1_CPU", "");
 		MOBH1_memory = param.getString("MOBH1_memory", "");
 		MOBH1_m_val = param.getString("MOBH1_m_val", "");
@@ -333,173 +269,40 @@
 		DB2_disk2 = param.getString("DB2_disk2", "");
 		ifany = param.getString("ifany", "");
 
-
 		if (mobileserver == null) {
-	MobileserverDAO.insertInfo(
-			id, 
-			checktime, 
-			checker, 
-			
-			MOBH1_CPU,
-			MOBH1_memory,
-			MOBH1_m_val,
-			MOBH1_vaccine,
-			MOBH1_update,
-			MOBH1_status,
-			MOBH1_disk1,
-			MOBH1_disk2,
-			MOBH1_disk3,
-			MOBH1_disk4,
-			DC2_CPU,
-			DC2_memory,
-			DC2_m_val,
-			DC2_vaccine,
-			DC2_update,
-			DC2_status,
-			DC2_disk1,
-			DC2_disk2,
-			WEB1_CPU,
-			WEB1_memory,
-			WEB1_m_val,
-			WEB1_vaccine,
-			WEB1_update,
-			WEB1_status,
-			WEB1_disk1,
-			WEB1_disk2,
-			DB1_CPU,
-			DB1_memory,
-			DB1_m_val,
-			DB1_vaccine,
-			DB1_update,
-			DB1_DB,
-			DB1_status,
-			DB1_disk1,
-			DB1_disk2,
-			DB1_disk3,
-			DB1_disk4,
-			MOBH2_CPU,
-			MOBH2_memory,
-			MOBH2_m_val,
-			MOBH2_vaccine,
-			MOBH2_update,
-			MOBH2_status,
-			MOBH2_disk1,
-			MOBH2_disk2,
-			MOBH2_disk3,
-			MOBH2_disk4,
-			DC1_CPU,
-			DC1_memory,
-			DC1_m_val,
-			DC1_vaccine,
-			DC1_update,
-			DC1_status,
-			DC1_disk1,
-			DC1_disk2,
-			WEB2_CPU,
-			WEB2_memory,
-			WEB2_m_val,
-			WEB2_vaccine,
-			WEB2_update,
-			WEB2_status,
-			WEB2_disk1,
-			WEB2_disk2,
-			DB2_CPU,
-			DB2_memory,
-			DB2_m_val,
-			DB2_vaccine,
-			DB2_update,
-			DB2_DB,
-			DB2_status,
-			DB2_disk1,
-			DB2_disk2,
-			ifany
+			MobileserverDAO.insertInfo(id, checktime, checker,
 
-			
+			MOBH1_CPU, MOBH1_memory, MOBH1_m_val, MOBH1_vaccine, MOBH1_update, MOBH1_status, MOBH1_disk1,
+					MOBH1_disk2, MOBH1_disk3, MOBH1_disk4, DC2_CPU, DC2_memory, DC2_m_val, DC2_vaccine,
+					DC2_update, DC2_status, DC2_disk1, DC2_disk2, WEB1_CPU, WEB1_memory, WEB1_m_val,
+					WEB1_vaccine, WEB1_update, WEB1_status, WEB1_disk1, WEB1_disk2, DB1_CPU, DB1_memory,
+					DB1_m_val, DB1_vaccine, DB1_update, DB1_DB, DB1_status, DB1_disk1, DB1_disk2, DB1_disk3,
+					DB1_disk4, MOBH2_CPU, MOBH2_memory, MOBH2_m_val, MOBH2_vaccine, MOBH2_update, MOBH2_status,
+					MOBH2_disk1, MOBH2_disk2, MOBH2_disk3, MOBH2_disk4, DC1_CPU, DC1_memory, DC1_m_val,
+					DC1_vaccine, DC1_update, DC1_status, DC1_disk1, DC1_disk2, WEB2_CPU, WEB2_memory,
+					WEB2_m_val, WEB2_vaccine, WEB2_update, WEB2_status, WEB2_disk1, WEB2_disk2, DB2_CPU,
+					DB2_memory, DB2_m_val, DB2_vaccine, DB2_update, DB2_DB, DB2_status, DB2_disk1, DB2_disk2,
+					ifany
+
 			);
-	System.out.println("인서트!");
+			System.out.println("인서트!");
 		} else {
-	//update	
-	MobileserverDAO.updateInfo(
-			id, 
-			checktime, 
-			checker, 
-			
-			MOBH1_CPU,
-			MOBH1_memory,
-			MOBH1_m_val,
-			MOBH1_vaccine,
-			MOBH1_update,
-			MOBH1_status,
-			MOBH1_disk1,
-			MOBH1_disk2,
-			MOBH1_disk3,
-			MOBH1_disk4,
-			DC2_CPU,
-			DC2_memory,
-			DC2_m_val,
-			DC2_vaccine,
-			DC2_update,
-			DC2_status,
-			DC2_disk1,
-			DC2_disk2,
-			WEB1_CPU,
-			WEB1_memory,
-			WEB1_m_val,
-			WEB1_vaccine,
-			WEB1_update,
-			WEB1_status,
-			WEB1_disk1,
-			WEB1_disk2,
-			DB1_CPU,
-			DB1_memory,
-			DB1_m_val,
-			DB1_vaccine,
-			DB1_update,
-			DB1_DB,
-			DB1_status,
-			DB1_disk1,
-			DB1_disk2,
-			DB1_disk3,
-			DB1_disk4,
-			MOBH2_CPU,
-			MOBH2_memory,
-			MOBH2_m_val,
-			MOBH2_vaccine,
-			MOBH2_update,
-			MOBH2_status,
-			MOBH2_disk1,
-			MOBH2_disk2,
-			MOBH2_disk3,
-			MOBH2_disk4,
-			DC1_CPU,
-			DC1_memory,
-			DC1_m_val,
-			DC1_vaccine,
-			DC1_update,
-			DC1_status,
-			DC1_disk1,
-			DC1_disk2,
-			WEB2_CPU,
-			WEB2_memory,
-			WEB2_m_val,
-			WEB2_vaccine,
-			WEB2_update,
-			WEB2_status,
-			WEB2_disk1,
-			WEB2_disk2,
-			DB2_CPU,
-			DB2_memory,
-			DB2_m_val,
-			DB2_vaccine,
-			DB2_update,
-			DB2_DB,
-			DB2_status,
-			DB2_disk1,
-			DB2_disk2,
-			ifany		
-			);
+			//update	
+			MobileserverDAO.updateInfo(id, checktime, checker,
 
-	System.out.println("업데이트!");
+			MOBH1_CPU, MOBH1_memory, MOBH1_m_val, MOBH1_vaccine, MOBH1_update, MOBH1_status, MOBH1_disk1,
+					MOBH1_disk2, MOBH1_disk3, MOBH1_disk4, DC2_CPU, DC2_memory, DC2_m_val, DC2_vaccine,
+					DC2_update, DC2_status, DC2_disk1, DC2_disk2, WEB1_CPU, WEB1_memory, WEB1_m_val,
+					WEB1_vaccine, WEB1_update, WEB1_status, WEB1_disk1, WEB1_disk2, DB1_CPU, DB1_memory,
+					DB1_m_val, DB1_vaccine, DB1_update, DB1_DB, DB1_status, DB1_disk1, DB1_disk2, DB1_disk3,
+					DB1_disk4, MOBH2_CPU, MOBH2_memory, MOBH2_m_val, MOBH2_vaccine, MOBH2_update, MOBH2_status,
+					MOBH2_disk1, MOBH2_disk2, MOBH2_disk3, MOBH2_disk4, DC1_CPU, DC1_memory, DC1_m_val,
+					DC1_vaccine, DC1_update, DC1_status, DC1_disk1, DC1_disk2, WEB2_CPU, WEB2_memory,
+					WEB2_m_val, WEB2_vaccine, WEB2_update, WEB2_status, WEB2_disk1, WEB2_disk2, DB2_CPU,
+					DB2_memory, DB2_m_val, DB2_vaccine, DB2_update, DB2_DB, DB2_status, DB2_disk1, DB2_disk2,
+					ifany);
+
+			System.out.println("업데이트!");
 		}
 	}
 %>

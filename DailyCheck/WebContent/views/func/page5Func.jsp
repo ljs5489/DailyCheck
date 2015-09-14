@@ -14,8 +14,8 @@
 	fax_SMS = "",
 	ifany = "";
 
-
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String id=request.getParameter("id").trim();
+	System.out.println("?"+id);
 	Batchjob batchjob = BatchjobDAO.selectById(id);
 
 	if (batchjob != null && request.getMethod().equals("GET")) {
@@ -35,24 +35,26 @@
 		ifany = batchjob.getIfany();
 
 		
-		//======================================================================================
-
-		JSONObject json = new JSONObject();
-		json.put("checktime", checktime);
-		json.put("checker", checker);
-		json.put("ebilling", ebilling);
-		json.put("fin_SMS", fin_SMS);
-		json.put("funding_SMS", funding_SMS);
-		json.put("del_M", del_M);
-		json.put("leave_Mng", leave_Mng);
-		json.put("fax_SMS", fax_SMS);
-		json.put("ifany", ifany);
-		
-		out.print(json);
 
 	}
 
-	else if (request.getMethod().equals("POST")) {
+	//======================================================================================
+
+	JSONObject json = new JSONObject();
+	json.put("checktime", checktime);
+	json.put("checker", checker);
+	json.put("ebilling", ebilling);
+	json.put("fin_SMS", fin_SMS);
+	json.put("funding_SMS", funding_SMS);
+	json.put("del_M", del_M);
+	json.put("leave_Mng", leave_Mng);
+	json.put("fax_SMS", fax_SMS);
+	json.put("ifany", ifany);
+	
+	out.print(json);
+
+	
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);

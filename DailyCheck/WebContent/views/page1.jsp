@@ -5,12 +5,11 @@
 <head>
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/page1Ajax.js"></script>
-<script>$(function(){ getWithAjax(); })</script>
 </head>
 <body>
 	<form method="post">
 		<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
-		<div data-role="page" id="page">
+		<div data-role="page" id="page1">
 			<%@ include file="explain/forPage1.jsp"%>
 			<%@ include file="/../include/header.jsp"%>
 
@@ -41,7 +40,7 @@
 				</div>
 				<!-- HomePage set -->
 				<div class="ui-grid-b">
-					<%= Sets.setBlock("a","links","Good","Bad",false) %>
+					<%= Sets.setBlock("a","links","Y","N",false) %>
 					<%= Sets.setBlock("b","bbs","Y","N",false) %>
 					<div class="ui-block-c">
 						<label for="indexsize">Index.asp(Size):</label> <input type="tel"
@@ -78,7 +77,7 @@
 				<!-- IT ROOM (W) set -->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<h2>Evening</h2>
+						<h2>Afternoon</h2>
 					</div>
 					<div class="ui-block-b">
 						<label for="WEtime">Time:</label> <input type="tel" name="WEtime"
@@ -126,7 +125,7 @@
 				<!-- IT ROOM (E) set -->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<h2>Evening</h2>
+						<h2>Afternoon</h2>
 					</div>
 					<div class="ui-block-b">
 						<label for="EEtime">Time:</label> <input type="tel" name="EEtime"

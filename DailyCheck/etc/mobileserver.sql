@@ -1,6 +1,6 @@
 
 
-create table networkerr(
+create table mobileserver(
 	id date not null primary key,
 		
 	checkTime varchar(10) default convert(varchar(5), getdate(), 108) not null,
@@ -83,4 +83,4 @@ create table networkerr(
 
 
 )
-drop table batchjob
+drop table mobileserver

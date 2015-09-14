@@ -15,7 +15,8 @@
 	,ipt_alarm = ""
 	,ifany = "";
 
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String id=request.getParameter("id").trim();
+	System.out.println("?"+id);
 	Ipt ipt = IptDAO.selectById(id);
 
 	if (ipt != null && request.getMethod().equals("GET")) {
@@ -32,29 +33,28 @@
 		gateway = ipt.getGateway();
 		ipt_alarm = ipt.getIpt_alarm();
 		ifany = ipt.getIfany();
-
-		//======================================================================================
-
-		//PrintWriter out= response.getWriter();  
-		JSONObject json = new JSONObject();
-		json.put("name", "테스트 입니다...");
-
-		json.put("checktime", checktime);
-		json.put("checker", checker);
-		json.put("trunk", trunk);
-		json.put("idle", idle);
-		json.put("temperature", temperature);
-		json.put("in_serv_tru1", in_serv_tru1);
-		json.put("in_serv_tru2", in_serv_tru2);
-		json.put("gateway", gateway);
-		json.put("ipt_alarm", ipt_alarm);
-		json.put("ifany", ifany);
-
-		out.print(json);
-
 	}
 
-	else if (request.getMethod().equals("POST")) {
+	//======================================================================================
+
+	//PrintWriter out= response.getWriter();  
+	JSONObject json = new JSONObject();
+	json.put("name", "테스트 입니다...");
+
+	json.put("checktime", checktime);
+	json.put("checker", checker);
+	json.put("trunk", trunk);
+	json.put("idle", idle);
+	json.put("temperature", temperature);
+	json.put("in_serv_tru1", in_serv_tru1);
+	json.put("in_serv_tru2", in_serv_tru2);
+	json.put("gateway", gateway);
+	json.put("ipt_alarm", ipt_alarm);
+	json.put("ifany", ifany);
+
+	out.print(json);
+	
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);

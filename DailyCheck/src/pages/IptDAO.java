@@ -26,7 +26,7 @@ public class IptDAO {
 	}
 
 	public static Ipt selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Ipt ipt = null;
 		Connection connection = null;

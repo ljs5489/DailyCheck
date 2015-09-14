@@ -28,7 +28,7 @@ public class BackupDAO {
 	}
 
 	public static Backup selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Backup backup = null;
 		Connection connection = null;

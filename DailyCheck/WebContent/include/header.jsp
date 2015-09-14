@@ -4,9 +4,10 @@
 <!-- 반드시 패키지 안에 있어야 함. -->
 
 <div data-role="header" data-theme="b">
-	<h1><%=GetDate.getDate()%></h1>
+	<h1><input id="mydate" name="mydate" style="text-align:center;" readonly/></h1>
+
 	<a href="#myPanel"
-		class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all"></a> <a
+		class="ui-btn ui-icon-info ui-btn-icon-notext ui-corner-all"></a> <a
 		href="" class="ui-btn ui-icon-grid ui-btn-icon-notext ui-corner-all"
 		id="headerTest"></a>
 	<div data-role="navbar" id="myNavbar">

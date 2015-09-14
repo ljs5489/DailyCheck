@@ -29,7 +29,7 @@ public class BatchjobDAO {
 	}
 
 	public static Batchjob selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Batchjob batchjob = null;
 		Connection connection = null;

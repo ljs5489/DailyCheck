@@ -8,6 +8,14 @@ function getCurrentTime() {
 	// + currentdate.getSeconds();
 	return datetime;
 }
+Date.prototype.yyyymmdd = function() {
+	var yyyy = this.getFullYear().toString();
+	var mm = (this.getMonth() + 1).toString();
+	var dd = this.getDate().toString();
+
+	return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-'
+			+ (dd[1] ? dd : '0' + dd[0]);
+}
 
 function setTime(obj) {
 	$(obj).val(getCurrentTime());
@@ -30,6 +38,10 @@ function setTabEventHandler() {
 	 * $(".ui-content").hide(); } else {// 보이는 상태 $("#myNavbar ul").show(); }
 	 */
 }
+function convertDate(usDate) {
+	var dateParts = usDate.split(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+	return dateParts[3] + "-" + dateParts[1] + "-" + dateParts[2];
+}
 
 $(function() {
 	$("#headerTest").on('tap', function() {
@@ -50,6 +62,7 @@ $(function() {
 		//$('#popup').trigger('click');
 	});
 
+
 	$("#test").on('tap', function() {
 		$('#popup').trigger('click');
 		/*
@@ -66,5 +79,18 @@ $(function() {
 		// http://stackoverflow.com/questions/15063218/how-to-receive-data-sent-by-ajax-in-a-jsp-file
 		// 참조
 	});
+	
+	//===================================
+	$('#mydate').datepicker({
+		onSelect : function(dateText, inst) {
+			$("input[name='mydate']").val(convertDate(dateText));
+			getWithAjax();
+		}
+	});
+	//===================================
+	
+	$("input[name='mydate']").val((new Date()).yyyymmdd());
+
+	getWithAjax();
 
 });

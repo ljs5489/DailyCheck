@@ -31,7 +31,7 @@ public class NetworkerrDAO {
 	}
 
 	public static Networkerr selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Networkerr networkerr = null;
 		Connection connection = null;

@@ -110,7 +110,7 @@ public class ServerDAO {
 	}
 
 	public static Server selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Server server = null;
 		Connection connection = null;

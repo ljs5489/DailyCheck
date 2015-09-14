@@ -91,7 +91,7 @@ public class MobileserverDAO {
 	}
 
 	public static Mobileserver selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Mobileserver mobileserver = null;
 		Connection connection = null;

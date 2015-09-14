@@ -18,7 +18,8 @@
 			internet_traffic = "",
 			ifany = "";
 
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String id=request.getParameter("id").trim();
+	System.out.println("?"+id);
 	Networkerr networkerr = NetworkerrDAO.selectById(id);
 
 	if (networkerr != null && request.getMethod().equals("GET")) {
@@ -41,34 +42,35 @@
 		ifany = networkerr.getIfany();
 	
 		
-		//======================================================================================
-
-		//PrintWriter out= response.getWriter();  
-		JSONObject json = new JSONObject();
-		json.put("name", "테스트 입니다...");
-		
-		json.put("checktime", checktime);		
-		System.out.println("check: "+checktime);		
-		json.put("checker", checker);
-		
-		json.put("network_conn", network_conn);
-		json.put("firm_banking", firm_banking);
-		json.put("vpn_21", vpn_21);
-		json.put("vpn_31", vpn_31);
-		json.put("vpn_200", vpn_200);
-		json.put("vpn_254", vpn_254);
-		json.put("network_err", network_err);
-		json.put("internet_spd", internet_spd);
-		json.put("traffic_IDC", traffic_IDC);
-		json.put("internet_traffic", internet_traffic);
-		json.put("ifany", ifany);
-
-		
-		out.print(json);
-
+	
 	}
 
-	else if (request.getMethod().equals("POST")) {
+	//======================================================================================
+
+	//PrintWriter out= response.getWriter();  
+	JSONObject json = new JSONObject();
+	json.put("name", "테스트 입니다...");
+	
+	json.put("checktime", checktime);		
+	System.out.println("check: "+checktime);		
+	json.put("checker", checker);
+	
+	json.put("network_conn", network_conn);
+	json.put("firm_banking", firm_banking);
+	json.put("vpn_21", vpn_21);
+	json.put("vpn_31", vpn_31);
+	json.put("vpn_200", vpn_200);
+	json.put("vpn_254", vpn_254);
+	json.put("network_err", network_err);
+	json.put("internet_spd", internet_spd);
+	json.put("traffic_IDC", traffic_IDC);
+	json.put("internet_traffic", internet_traffic);
+	json.put("ifany", ifany);
+
+	
+	out.print(json);
+
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);

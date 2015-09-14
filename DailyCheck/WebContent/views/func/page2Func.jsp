@@ -4,115 +4,38 @@
 <%@page import="org.json.simple.JSONObject"%>
 
 <%
-	String checktime = "", 
-			checker = "", 
+	String checktime = "", checker = "",
 
-			WEB_CPU = "",
-			WEB_memory = "",
-			WEB_value = "",
-			WEB_vaccine = "",
-			WEB_update = "",
-			WEB_status = "",
-			DBM_CPU = "",
-			DBM_memory = "",
-			DBM_value = "",
-			DBM_vaccine = "",
-			DBM_update = "",
-			DBM_DB = "",
-			DBM_status = "",
-			DEW_CPU = "",
-			DEW_memory = "",
-			DEW_value = "",
-			DEW_vaccine = "",
-			DEW_update = "",
-			DEW_status = "",
-			MAIL_CPU = "",
-			MAIL_memory = "",
-			MAIL_value = "",
-			MAIL_vaccine = "",
-			MAIL_update = "",
-			MAIL_status = "",
-			APP_CPU = "",
-			APP_memory = "",
-			APP_value = "",
-			APP_vaccine = "",
-			APP_update = "",
-			APP_status = "",
-			FAX_CPU = "",
-			FAX_memory = "",
-			FAX_value = "",
-			FAX_vaccine = "",
-			FAX_update = "",
-			FAX_status = "",
-			ADN_CPU = "",
-			ADN_memory = "",
-			ADN_value = "",
-			ADN_vaccine = "",
-			ADN_update = "",
-			ADN_status = "",
-			VRS_CPU = "",
-			VRS_memory = "",
-			VRS_value = "",
-			VRS_vaccine = "",
-			VRS_update = "",
-			VRS_status = "",
-			FILE_CPU = "",
-			FILE_memory = "",
-			FILE_value = "",
-			FILE_vaccine = "",
-			FILE_update = "",
-			FILE_status = "",
-			DEVN_CPU = "",
-			DEVN_memory = "",
-			DEVN_value = "",
-			DEVN_vaccine = "",
-			DEVN_update = "",
-			DEVN_DB = "",
-			DEVN_status = "",
-			MSVM1_CPU = "",
-			MSVM1_memory = "",
-			MSVM1_value = "",
-			MSVM1_vaccine = "",
-			MSVM1_update = "",
-			MSVM1_status = "",
-			MSVM2_CPU = "",
-			MSVM2_memory = "",
-			MSVM2_value = "",
-			MSVM2_vaccine = "",
-			MSVM2_update = "",
-			MSVM2_status = "",
-			LYNC_CPU = "",
-			LYNC_memory = "",
-			LYNC_value = "",
-			LYNC_vaccine = "",
-			LYNC_update = "",
-			LYNC_status = "",
-			ADV1_CPU = "",
-			ADV1_memory = "",
-			ADV1_value = "",
-			ADV1_vaccine = "",
-			ADV1_update = "",
-			ADV1_status = "",
-			ADV2_CPU = "",
-			ADV2_memory = "",
-			ADV2_value = "",
-			ADV2_vaccine = "",
-			ADV2_update = "",
-			ADV2_status = "",
+	WEB_CPU = "", WEB_memory = "", WEB_value = "", WEB_vaccine = "", WEB_update = "", WEB_status = "",
+			DBM_CPU = "", DBM_memory = "", DBM_value = "", DBM_vaccine = "", DBM_update = "", DBM_DB = "",
+			DBM_status = "", DEW_CPU = "", DEW_memory = "", DEW_value = "", DEW_vaccine = "", DEW_update = "",
+			DEW_status = "", MAIL_CPU = "", MAIL_memory = "", MAIL_value = "", MAIL_vaccine = "",
+			MAIL_update = "", MAIL_status = "", APP_CPU = "", APP_memory = "", APP_value = "", APP_vaccine = "",
+			APP_update = "", APP_status = "", FAX_CPU = "", FAX_memory = "", FAX_value = "", FAX_vaccine = "",
+			FAX_update = "", FAX_status = "", ADN_CPU = "", ADN_memory = "", ADN_value = "", ADN_vaccine = "",
+			ADN_update = "", ADN_status = "", VRS_CPU = "", VRS_memory = "", VRS_value = "", VRS_vaccine = "",
+			VRS_update = "", VRS_status = "", FILE_CPU = "", FILE_memory = "", FILE_value = "",
+			FILE_vaccine = "", FILE_update = "", FILE_status = "", DEVN_CPU = "", DEVN_memory = "",
+			DEVN_value = "", DEVN_vaccine = "", DEVN_update = "", DEVN_DB = "", DEVN_status = "",
+			MSVM1_CPU = "", MSVM1_memory = "", MSVM1_value = "", MSVM1_vaccine = "", MSVM1_update = "",
+			MSVM1_status = "", MSVM2_CPU = "", MSVM2_memory = "", MSVM2_value = "", MSVM2_vaccine = "",
+			MSVM2_update = "", MSVM2_status = "", LYNC_CPU = "", LYNC_memory = "", LYNC_value = "",
+			LYNC_vaccine = "", LYNC_update = "", LYNC_status = "", ADV1_CPU = "", ADV1_memory = "",
+			ADV1_value = "", ADV1_vaccine = "", ADV1_update = "", ADV1_status = "", ADV2_CPU = "",
+			ADV2_memory = "", ADV2_value = "", ADV2_vaccine = "", ADV2_update = "", ADV2_status = "",
 			ifany = "";
 
-
-
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String id = request.getParameter("id").trim();
 	Server server = ServerDAO.selectById(id);
+	System.out.println("?" + id);
 
 	if (server != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
 		System.out.println("GET!");
-		
-		checktime = server.getCheckTime();		
+
+		checktime = server.getCheckTime();
 		checker = server.getChecker();
-		
+
 		WEB_CPU = server.getWEB_CPU();
 		WEB_memory = server.getWEB_memory();
 		WEB_value = server.getWEB_value();
@@ -207,115 +130,113 @@
 		ADV2_status = server.getADV2_status();
 		ifany = server.getIfany();
 
-		
-		//======================================================================================
-
-		//PrintWriter out= response.getWriter();  
-		JSONObject json = new JSONObject();
-		
-		json.put("checktime", checktime);		
-		System.out.println("check: "+checktime);		
-		json.put("checker", checker);
-		
-		json.put("WEB_CPU", WEB_CPU);
-		json.put("WEB_memory", WEB_memory);
-		json.put("WEB_value", WEB_value);
-		json.put("WEB_vaccine", WEB_vaccine);
-		json.put("WEB_update", WEB_update);
-		json.put("WEB_status", WEB_status);
-		json.put("DBM_CPU", DBM_CPU);
-		json.put("DBM_memory", DBM_memory);
-		json.put("DBM_value", DBM_value);
-		json.put("DBM_vaccine", DBM_vaccine);
-		json.put("DBM_update", DBM_update);
-		json.put("DBM_DB", DBM_DB);
-		json.put("DBM_status", DBM_status);
-		json.put("DEW_CPU", DEW_CPU);
-		json.put("DEW_memory", DEW_memory);
-		json.put("DEW_value", DEW_value);
-		json.put("DEW_vaccine", DEW_vaccine);
-		json.put("DEW_update", DEW_update);
-		json.put("DEW_status", DEW_status);
-		json.put("MAIL_CPU", MAIL_CPU);
-		json.put("MAIL_memory", MAIL_memory);
-		json.put("MAIL_value", MAIL_value);
-		json.put("MAIL_vaccine", MAIL_vaccine);
-		json.put("MAIL_update", MAIL_update);
-		json.put("MAIL_status", MAIL_status);
-		json.put("APP_CPU", APP_CPU);
-		json.put("APP_memory", APP_memory);
-		json.put("APP_value", APP_value);
-		json.put("APP_vaccine", APP_vaccine);
-		json.put("APP_update", APP_update);
-		json.put("APP_status", APP_status);
-		json.put("FAX_CPU", FAX_CPU);
-		json.put("FAX_memory", FAX_memory);
-		json.put("FAX_value", FAX_value);
-		json.put("FAX_vaccine", FAX_vaccine);
-		json.put("FAX_update", FAX_update);
-		json.put("FAX_status", FAX_status);
-		json.put("ADN_CPU", ADN_CPU);
-		json.put("ADN_memory", ADN_memory);
-		json.put("ADN_value", ADN_value);
-		json.put("ADN_vaccine", ADN_vaccine);
-		json.put("ADN_update", ADN_update);
-		json.put("ADN_status", ADN_status);
-		json.put("VRS_CPU", VRS_CPU);
-		json.put("VRS_memory", VRS_memory);
-		json.put("VRS_value", VRS_value);
-		json.put("VRS_vaccine", VRS_vaccine);
-		json.put("VRS_update", VRS_update);
-		json.put("VRS_status", VRS_status);
-		json.put("FILE_CPU", FILE_CPU);
-		json.put("FILE_memory", FILE_memory);
-		json.put("FILE_value", FILE_value);
-		json.put("FILE_vaccine", FILE_vaccine);
-		json.put("FILE_update", FILE_update);
-		json.put("FILE_status", FILE_status);
-		json.put("DEVN_CPU", DEVN_CPU);
-		json.put("DEVN_memory", DEVN_memory);
-		json.put("DEVN_value", DEVN_value);
-		json.put("DEVN_vaccine", DEVN_vaccine);
-		json.put("DEVN_update", DEVN_update);
-		json.put("DEVN_DB", DEVN_DB);
-		json.put("DEVN_status", DEVN_status);
-		json.put("MSVM1_CPU", MSVM1_CPU);
-		json.put("MSVM1_memory", MSVM1_memory);
-		json.put("MSVM1_value", MSVM1_value);
-		json.put("MSVM1_vaccine", MSVM1_vaccine);
-		json.put("MSVM1_update", MSVM1_update);
-		json.put("MSVM1_status", MSVM1_status);
-		json.put("MSVM2_CPU", MSVM2_CPU);
-		json.put("MSVM2_memory", MSVM2_memory);
-		json.put("MSVM2_value", MSVM2_value);
-		json.put("MSVM2_vaccine", MSVM2_vaccine);
-		json.put("MSVM2_update", MSVM2_update);
-		json.put("MSVM2_status", MSVM2_status);
-		json.put("LYNC_CPU", LYNC_CPU);
-		json.put("LYNC_memory", LYNC_memory);
-		json.put("LYNC_value", LYNC_value);
-		json.put("LYNC_vaccine", LYNC_vaccine);
-		json.put("LYNC_update", LYNC_update);
-		json.put("LYNC_status", LYNC_status);
-		json.put("ADV1_CPU", ADV1_CPU);
-		json.put("ADV1_memory", ADV1_memory);
-		json.put("ADV1_value", ADV1_value);
-		json.put("ADV1_vaccine", ADV1_vaccine);
-		json.put("ADV1_update", ADV1_update);
-		json.put("ADV1_status", ADV1_status);
-		json.put("ADV2_CPU", ADV2_CPU);
-		json.put("ADV2_memory", ADV2_memory);
-		json.put("ADV2_value", ADV2_value);
-		json.put("ADV2_vaccine", ADV2_vaccine);
-		json.put("ADV2_update", ADV2_update);
-		json.put("ADV2_status", ADV2_status);
-		json.put("ifany", ifany);
-		
-		out.print(json);
-
 	}
+	//======================================================================================
 
-	else if (request.getMethod().equals("POST")) {
+	//PrintWriter out= response.getWriter();  
+	JSONObject json = new JSONObject();
+
+	json.put("checktime", checktime);
+	System.out.println("check: " + checktime);
+	json.put("checker", checker);
+
+	json.put("WEB_CPU", WEB_CPU);
+	json.put("WEB_memory", WEB_memory);
+	json.put("WEB_value", WEB_value);
+	json.put("WEB_vaccine", WEB_vaccine);
+	json.put("WEB_update", WEB_update);
+	json.put("WEB_status", WEB_status);
+	json.put("DBM_CPU", DBM_CPU);
+	json.put("DBM_memory", DBM_memory);
+	json.put("DBM_value", DBM_value);
+	json.put("DBM_vaccine", DBM_vaccine);
+	json.put("DBM_update", DBM_update);
+	json.put("DBM_DB", DBM_DB);
+	json.put("DBM_status", DBM_status);
+	json.put("DEW_CPU", DEW_CPU);
+	json.put("DEW_memory", DEW_memory);
+	json.put("DEW_value", DEW_value);
+	json.put("DEW_vaccine", DEW_vaccine);
+	json.put("DEW_update", DEW_update);
+	json.put("DEW_status", DEW_status);
+	json.put("MAIL_CPU", MAIL_CPU);
+	json.put("MAIL_memory", MAIL_memory);
+	json.put("MAIL_value", MAIL_value);
+	json.put("MAIL_vaccine", MAIL_vaccine);
+	json.put("MAIL_update", MAIL_update);
+	json.put("MAIL_status", MAIL_status);
+	json.put("APP_CPU", APP_CPU);
+	json.put("APP_memory", APP_memory);
+	json.put("APP_value", APP_value);
+	json.put("APP_vaccine", APP_vaccine);
+	json.put("APP_update", APP_update);
+	json.put("APP_status", APP_status);
+	json.put("FAX_CPU", FAX_CPU);
+	json.put("FAX_memory", FAX_memory);
+	json.put("FAX_value", FAX_value);
+	json.put("FAX_vaccine", FAX_vaccine);
+	json.put("FAX_update", FAX_update);
+	json.put("FAX_status", FAX_status);
+	json.put("ADN_CPU", ADN_CPU);
+	json.put("ADN_memory", ADN_memory);
+	json.put("ADN_value", ADN_value);
+	json.put("ADN_vaccine", ADN_vaccine);
+	json.put("ADN_update", ADN_update);
+	json.put("ADN_status", ADN_status);
+	json.put("VRS_CPU", VRS_CPU);
+	json.put("VRS_memory", VRS_memory);
+	json.put("VRS_value", VRS_value);
+	json.put("VRS_vaccine", VRS_vaccine);
+	json.put("VRS_update", VRS_update);
+	json.put("VRS_status", VRS_status);
+	json.put("FILE_CPU", FILE_CPU);
+	json.put("FILE_memory", FILE_memory);
+	json.put("FILE_value", FILE_value);
+	json.put("FILE_vaccine", FILE_vaccine);
+	json.put("FILE_update", FILE_update);
+	json.put("FILE_status", FILE_status);
+	json.put("DEVN_CPU", DEVN_CPU);
+	json.put("DEVN_memory", DEVN_memory);
+	json.put("DEVN_value", DEVN_value);
+	json.put("DEVN_vaccine", DEVN_vaccine);
+	json.put("DEVN_update", DEVN_update);
+	json.put("DEVN_DB", DEVN_DB);
+	json.put("DEVN_status", DEVN_status);
+	json.put("MSVM1_CPU", MSVM1_CPU);
+	json.put("MSVM1_memory", MSVM1_memory);
+	json.put("MSVM1_value", MSVM1_value);
+	json.put("MSVM1_vaccine", MSVM1_vaccine);
+	json.put("MSVM1_update", MSVM1_update);
+	json.put("MSVM1_status", MSVM1_status);
+	json.put("MSVM2_CPU", MSVM2_CPU);
+	json.put("MSVM2_memory", MSVM2_memory);
+	json.put("MSVM2_value", MSVM2_value);
+	json.put("MSVM2_vaccine", MSVM2_vaccine);
+	json.put("MSVM2_update", MSVM2_update);
+	json.put("MSVM2_status", MSVM2_status);
+	json.put("LYNC_CPU", LYNC_CPU);
+	json.put("LYNC_memory", LYNC_memory);
+	json.put("LYNC_value", LYNC_value);
+	json.put("LYNC_vaccine", LYNC_vaccine);
+	json.put("LYNC_update", LYNC_update);
+	json.put("LYNC_status", LYNC_status);
+	json.put("ADV1_CPU", ADV1_CPU);
+	json.put("ADV1_memory", ADV1_memory);
+	json.put("ADV1_value", ADV1_value);
+	json.put("ADV1_vaccine", ADV1_vaccine);
+	json.put("ADV1_update", ADV1_update);
+	json.put("ADV1_status", ADV1_status);
+	json.put("ADV2_CPU", ADV2_CPU);
+	json.put("ADV2_memory", ADV2_memory);
+	json.put("ADV2_value", ADV2_value);
+	json.put("ADV2_vaccine", ADV2_vaccine);
+	json.put("ADV2_update", ADV2_update);
+	json.put("ADV2_status", ADV2_status);
+	json.put("ifany", ifany);
+
+	out.print(json);
+
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
@@ -415,199 +336,37 @@
 		ADV2_status = param.getString("ADV2_status", "");
 		ifany = param.getString("ifany", "");
 
-
 		if (server == null) {
-			ServerDAO.insertInfo(
-					id, checktime, checker,
-					WEB_CPU,
-					WEB_memory,
-					WEB_value,
-					WEB_vaccine,
-					WEB_update,
-					WEB_status,
-					DBM_CPU,
-					DBM_memory,
-					DBM_value,
-					DBM_vaccine,
-					DBM_update,
-					DBM_DB,
-					DBM_status,
-					DEW_CPU,
-					DEW_memory,
-					DEW_value,
-					DEW_vaccine,
-					DEW_update,
-					DEW_status,
-					MAIL_CPU,
-					MAIL_memory,
-					MAIL_value,
-					MAIL_vaccine,
-					MAIL_update,
-					MAIL_status,
-					APP_CPU,
-					APP_memory,
-					APP_value,
-					APP_vaccine,
-					APP_update,
-					APP_status,
-					FAX_CPU,
-					FAX_memory,
-					FAX_value,
-					FAX_vaccine,
-					FAX_update,
-					FAX_status,
-					ADN_CPU,
-					ADN_memory,
-					ADN_value,
-					ADN_vaccine,
-					ADN_update,
-					ADN_status,
-					VRS_CPU,
-					VRS_memory,
-					VRS_value,
-					VRS_vaccine,
-					VRS_update,
-					VRS_status,
-					FILE_CPU,
-					FILE_memory,
-					FILE_value,
-					FILE_vaccine,
-					FILE_update,
-					FILE_status,
-					DEVN_CPU,
-					DEVN_memory,
-					DEVN_value,
-					DEVN_vaccine,
-					DEVN_update,
-					DEVN_DB,
-					DEVN_status,
-					MSVM1_CPU,
-					MSVM1_memory,
-					MSVM1_value,
-					MSVM1_vaccine,
-					MSVM1_update,
-					MSVM1_status,
-					MSVM2_CPU,
-					MSVM2_memory,
-					MSVM2_value,
-					MSVM2_vaccine,
-					MSVM2_update,
-					MSVM2_status,
-					LYNC_CPU,
-					LYNC_memory,
-					LYNC_value,
-					LYNC_vaccine,
-					LYNC_update,
-					LYNC_status,
-					ADV1_CPU,
-					ADV1_memory,
-					ADV1_value,
-					ADV1_vaccine,
-					ADV1_update,
-					ADV1_status,
-					ADV2_CPU,
-					ADV2_memory,
-					ADV2_value,
-					ADV2_vaccine,
-					ADV2_update,
-					ADV2_status,
-					ifany	);
+			ServerDAO.insertInfo(id, checktime, checker, WEB_CPU, WEB_memory, WEB_value, WEB_vaccine,
+					WEB_update, WEB_status, DBM_CPU, DBM_memory, DBM_value, DBM_vaccine, DBM_update, DBM_DB,
+					DBM_status, DEW_CPU, DEW_memory, DEW_value, DEW_vaccine, DEW_update, DEW_status, MAIL_CPU,
+					MAIL_memory, MAIL_value, MAIL_vaccine, MAIL_update, MAIL_status, APP_CPU, APP_memory,
+					APP_value, APP_vaccine, APP_update, APP_status, FAX_CPU, FAX_memory, FAX_value, FAX_vaccine,
+					FAX_update, FAX_status, ADN_CPU, ADN_memory, ADN_value, ADN_vaccine, ADN_update, ADN_status,
+					VRS_CPU, VRS_memory, VRS_value, VRS_vaccine, VRS_update, VRS_status, FILE_CPU, FILE_memory,
+					FILE_value, FILE_vaccine, FILE_update, FILE_status, DEVN_CPU, DEVN_memory, DEVN_value,
+					DEVN_vaccine, DEVN_update, DEVN_DB, DEVN_status, MSVM1_CPU, MSVM1_memory, MSVM1_value,
+					MSVM1_vaccine, MSVM1_update, MSVM1_status, MSVM2_CPU, MSVM2_memory, MSVM2_value,
+					MSVM2_vaccine, MSVM2_update, MSVM2_status, LYNC_CPU, LYNC_memory, LYNC_value, LYNC_vaccine,
+					LYNC_update, LYNC_status, ADV1_CPU, ADV1_memory, ADV1_value, ADV1_vaccine, ADV1_update,
+					ADV1_status, ADV2_CPU, ADV2_memory, ADV2_value, ADV2_vaccine, ADV2_update, ADV2_status,
+					ifany);
 			System.out.println("인서트!");
 		} else {
 			//update	
-			ServerDAO.updateInfo(id, checktime, checker,
-					WEB_CPU,
-					WEB_memory,
-					WEB_value,
-					WEB_vaccine,
-					WEB_update,
-					WEB_status,
-					DBM_CPU,
-					DBM_memory,
-					DBM_value,
-					DBM_vaccine,
-					DBM_update,
-					DBM_DB,
-					DBM_status,
-					DEW_CPU,
-					DEW_memory,
-					DEW_value,
-					DEW_vaccine,
-					DEW_update,
-					DEW_status,
-					MAIL_CPU,
-					MAIL_memory,
-					MAIL_value,
-					MAIL_vaccine,
-					MAIL_update,
-					MAIL_status,
-					APP_CPU,
-					APP_memory,
-					APP_value,
-					APP_vaccine,
-					APP_update,
-					APP_status,
-					FAX_CPU,
-					FAX_memory,
-					FAX_value,
-					FAX_vaccine,
-					FAX_update,
-					FAX_status,
-					ADN_CPU,
-					ADN_memory,
-					ADN_value,
-					ADN_vaccine,
-					ADN_update,
-					ADN_status,
-					VRS_CPU,
-					VRS_memory,
-					VRS_value,
-					VRS_vaccine,
-					VRS_update,
-					VRS_status,
-					FILE_CPU,
-					FILE_memory,
-					FILE_value,
-					FILE_vaccine,
-					FILE_update,
-					FILE_status,
-					DEVN_CPU,
-					DEVN_memory,
-					DEVN_value,
-					DEVN_vaccine,
-					DEVN_update,
-					DEVN_DB,
-					DEVN_status,
-					MSVM1_CPU,
-					MSVM1_memory,
-					MSVM1_value,
-					MSVM1_vaccine,
-					MSVM1_update,
-					MSVM1_status,
-					MSVM2_CPU,
-					MSVM2_memory,
-					MSVM2_value,
-					MSVM2_vaccine,
-					MSVM2_update,
-					MSVM2_status,
-					LYNC_CPU,
-					LYNC_memory,
-					LYNC_value,
-					LYNC_vaccine,
-					LYNC_update,
-					LYNC_status,
-					ADV1_CPU,
-					ADV1_memory,
-					ADV1_value,
-					ADV1_vaccine,
-					ADV1_update,
-					ADV1_status,
-					ADV2_CPU,
-					ADV2_memory,
-					ADV2_value,
-					ADV2_vaccine,
-					ADV2_update,
-					ADV2_status,
+			ServerDAO.updateInfo(id, checktime, checker, WEB_CPU, WEB_memory, WEB_value, WEB_vaccine,
+					WEB_update, WEB_status, DBM_CPU, DBM_memory, DBM_value, DBM_vaccine, DBM_update, DBM_DB,
+					DBM_status, DEW_CPU, DEW_memory, DEW_value, DEW_vaccine, DEW_update, DEW_status, MAIL_CPU,
+					MAIL_memory, MAIL_value, MAIL_vaccine, MAIL_update, MAIL_status, APP_CPU, APP_memory,
+					APP_value, APP_vaccine, APP_update, APP_status, FAX_CPU, FAX_memory, FAX_value, FAX_vaccine,
+					FAX_update, FAX_status, ADN_CPU, ADN_memory, ADN_value, ADN_vaccine, ADN_update, ADN_status,
+					VRS_CPU, VRS_memory, VRS_value, VRS_vaccine, VRS_update, VRS_status, FILE_CPU, FILE_memory,
+					FILE_value, FILE_vaccine, FILE_update, FILE_status, DEVN_CPU, DEVN_memory, DEVN_value,
+					DEVN_vaccine, DEVN_update, DEVN_DB, DEVN_status, MSVM1_CPU, MSVM1_memory, MSVM1_value,
+					MSVM1_vaccine, MSVM1_update, MSVM1_status, MSVM2_CPU, MSVM2_memory, MSVM2_value,
+					MSVM2_vaccine, MSVM2_update, MSVM2_status, LYNC_CPU, LYNC_memory, LYNC_value, LYNC_vaccine,
+					LYNC_update, LYNC_status, ADV1_CPU, ADV1_memory, ADV1_value, ADV1_vaccine, ADV1_update,
+					ADV1_status, ADV2_CPU, ADV2_memory, ADV2_value, ADV2_vaccine, ADV2_update, ADV2_status,
 					ifany);
 			System.out.println("업데이트!");
 		}

@@ -30,7 +30,7 @@ public class DmzserverDAO {
 	}
 
 	public static Dmzserver selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Dmzserver dmzserver = null;
 		Connection connection = null;

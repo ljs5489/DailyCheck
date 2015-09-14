@@ -57,7 +57,7 @@ public class PrecheckDAO {
 	}
 
 	public static Precheck selectById(String id) throws Exception {
-		id = GetDate.getDate();
+		//id = GetDate.getDate();
 
 		Precheck precheck = null;
 		Connection connection = null;

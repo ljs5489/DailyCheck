@@ -6,7 +6,8 @@
 <%
 	String checktime = "", checker = "", NWCPU = "", NWmemory = "", NWvaccine = "", NWupdate = "", NWstatus = "", NSCPU = "", NSmemory = "", NSvaccine = "", NSupdate = "", NSstatus = "", ifany = "";
 
-	String id = GetDate.getDate(); //날짜는 변경될 수 있음!
+	String id=request.getParameter("id").trim();
+	System.out.println("?"+id);
 	Dmzserver dmzserver = DmzserverDAO.selectById(id);
 
 	if (dmzserver != null && request.getMethod().equals("GET")) {
@@ -28,33 +29,32 @@
 		NSstatus = dmzserver.getNSstatus();
 		ifany = dmzserver.getIfany();
 
-
-		//======================================================================================
-
-		//PrintWriter out= response.getWriter();  
-		JSONObject json = new JSONObject();
-		json.put("name", "테스트 입니다...");
-
-		json.put("checktime", checktime);
-		System.out.println("check: " + checktime);
-		json.put("checker", checker);
-				
-		json.put("NWCPU", NWCPU);
-		json.put("NWmemory", NWmemory);
-		json.put("NWvaccine", NWvaccine);
-		json.put("NWupdate", NWupdate);
-		json.put("NWstatus", NWstatus);
-		json.put("NSCPU", NSCPU);
-		json.put("NSmemory", NSmemory);
-		json.put("NSvaccine", NSvaccine);
-		json.put("NSupdate", NSupdate);
-		json.put("NSstatus", NSstatus);
-		json.put("ifany", ifany);
-
-		out.print(json);
 	}
 
-	else if (request.getMethod().equals("POST")) {
+	//======================================================================================
+
+	//PrintWriter out= response.getWriter();  
+	JSONObject json = new JSONObject();
+	json.put("name", "테스트 입니다...");
+
+	json.put("checktime", checktime);
+	System.out.println("check: " + checktime);
+	json.put("checker", checker);
+			
+	json.put("NWCPU", NWCPU);
+	json.put("NWmemory", NWmemory);
+	json.put("NWvaccine", NWvaccine);
+	json.put("NWupdate", NWupdate);
+	json.put("NWstatus", NWstatus);
+	json.put("NSCPU", NSCPU);
+	json.put("NSmemory", NSmemory);
+	json.put("NSvaccine", NSvaccine);
+	json.put("NSupdate", NSupdate);
+	json.put("NSstatus", NSstatus);
+	json.put("ifany", ifany);
+
+	out.print(json);
+	if (request.getMethod().equals("POST")) {
 		System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
