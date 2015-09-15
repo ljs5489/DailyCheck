@@ -20,7 +20,7 @@
 			<li><a onclick="location.href='page6.jsp'">IPT</a></li>
 			<li><a onclick="location.href='page7.jsp'">Netwrok Error</a></li>
 			<li><a onclick="location.href='page8.jsp'">Backup</a></li>
-			<li><a onclick="location.href='print.html'">Print</a></li>
+			<li><a onclick="location.href='print.jsp'">Print</a></li>
 			<li><a onclick="location.href='print2.html'">Statistics</a></li>
 		</ul>
 	</div>
