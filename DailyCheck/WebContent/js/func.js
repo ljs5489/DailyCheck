@@ -23,7 +23,7 @@ function setTime(obj) {
 
 function setTabEventHandler() {
 	if ($("#myNavbar ul").css("margin-top") == "0px") {// 보이는상태
-		$("#myNavbar ul").css("margin-top", "-138px");
+		$("#myNavbar ul").css("margin-top", "-172px");
 		// $("#myNavbar ul").animate({'marginTop': '-138px'},500);
 	} else {// 안보이는 상태
 		$("#myNavbar ul").css("margin-top", "0px");
