@@ -25,6 +25,8 @@ function postWithAjax() {
 
 	}, function(data) {
 		//성공하면 여기
+		//alert(7);
+		$('#popup').trigger('click');
 	});
 
 }

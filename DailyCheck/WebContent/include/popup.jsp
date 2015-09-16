@@ -3,7 +3,7 @@
 <a id="popup" href="#loadingComplete" data-rel="popup"
 	style="position: fixed;"></a>
 <div data-role="popup" id="loadingComplete"
-	style="position: fixed; left: 5%; top: 25%; width: 90%; height: 45%;">
+	style="position: fixed; left: 5%; top: 25%; width: 90%; height: 35%;">
 	<div data-role="header">
 		<h1>Notice</h1>
 	</div>

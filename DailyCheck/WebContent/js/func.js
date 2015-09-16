@@ -64,7 +64,7 @@ $(function() {
 
 
 	$("#test").on('tap', function() {
-		$('#popup').trigger('click');
+		//$('#popup').trigger('click');
 		/*
 		 * console.log($("#checkTime").val()); console.log("mail: " +
 		 * $("#mail").val()); console.log("ars: " + $("#ars").val());

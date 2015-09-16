@@ -13,8 +13,11 @@ function postWithAjax() {
 		ifany : $("#ifany").val(),
 
 
-	}, function(data) {
+	},function(data) {
 		//성공하면 여기
+		//alert(1);
+		//alert(5);
+		$('#popup').trigger('click');
 	});
 
 }

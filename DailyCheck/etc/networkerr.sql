@@ -18,10 +18,19 @@ create table networkerr(
 	internet_spd varchar(10),
 	traffic_IDC varchar(10),
 	internet_traffic varchar(10),
+	
+	internet_traffic_2 varchar(10),
+	internet_spd_2 varchar(10),
+	traffic_IDC_2 varchar(10),
+
+	
 	ifany varchar(500),
 
 
 )
+
+
+use jslee
 drop table networkerr
 
 

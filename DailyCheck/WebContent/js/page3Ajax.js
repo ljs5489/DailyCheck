@@ -101,11 +101,13 @@ function postWithAjax() {
 
 		
 	
-		ifany : $("#ifany").val(),
+		ifany : $("#ifany").val()
 
 
 	}, function(data) {
 		//성공하면 여기
+		//alert(3);
+		$('#popup').trigger('click');
 	});
 
 }

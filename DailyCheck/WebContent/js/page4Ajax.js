@@ -34,6 +34,8 @@ function postWithAjax() {
 		ifany : $("#ifany").val(),
 
 	}, function(data) {
+		//alert(4);
+		$('#popup').trigger('click');
 		//성공하면 여기
 	});
 

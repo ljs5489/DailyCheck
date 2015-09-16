@@ -21,7 +21,9 @@ function postWithAjax() {
 			ifany : $("#ifany").val(),			
 		},
 		success : function(data) {		
-			console.log("post성공");  
+			//console.log("post성공");  
+			//alert(6);
+			$('#popup').trigger('click');
 			/*
 			$("#checktime").val(data.checktime).textinput('refresh');
 			$("#checker").val(data.checker).selectmenu('refresh');			

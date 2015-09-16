@@ -20,8 +20,9 @@ function postWithAjax() {
 
 	}, function(data) {
 		//성공하면 여기
+		//alert(8);
+		$('#popup').trigger('click');
 	});
-
 }
 
 function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.

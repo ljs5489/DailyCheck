@@ -45,8 +45,10 @@ function postWithAjax() {
 
 		ifany : $("#ifany").val()
 
-	}, function(data) {
+	}, function() {
 		//성공하면 여기
+		//alert(1);
+		$('#popup').trigger('click');
 	});
 
 }
