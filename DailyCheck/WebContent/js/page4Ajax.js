@@ -74,9 +74,9 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#SPAM_disk2").val(data.SPAM_disk2).textinput("refresh");
 			
 			$("#NWCPU_val").val(data.NWCPU_val).textinput("refresh");
-			$("#NWmemory_val").val(data.NWCPU_val).textinput("refresh");
-			$("#NSCPU_val").val(data.NWCPU_val).textinput("refresh");
-			$("#NSmemory_val").val(data.NWCPU_val).textinput("refresh");		
+			$("#NWmemory_val").val(data.NWmemory_val).textinput("refresh");
+			$("#NSCPU_val").val(data.NSCPU_val).textinput("refresh");
+			$("#NSmemory_val").val(data.NSmemory_val).textinput("refresh");		
 			
 			$("#ifany").val(data.ifany).textinput("refresh");			
 		}

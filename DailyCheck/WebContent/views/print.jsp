@@ -158,8 +158,8 @@
 	</div>
 </body>
 <div class="page-break"></div>
+
 <body>
-	<div style="border:1px solid black">
 	<table cellspacing="0" cellpadding="0" class="no_bd top1">
 		<colgroup>
 			<col width="*" />
@@ -168,7 +168,7 @@
 		<tr>
 			<td>
 				<br/>
-				<h1 style="text-align:left; font-size:30px; margin:15px;">Daily System Operation Check List</h1>
+				<h1 style="text-align:left; font-size:30px; margin:15px;">Daily System Check List</h1>
 				<br/>
 				<h3 style="margin:15px;">Date :</h3>
 			
@@ -294,7 +294,6 @@
 		<br /> <br /> <br /> <br /> <br />
 
 
-	</div>
 	</div>
 </body>
 

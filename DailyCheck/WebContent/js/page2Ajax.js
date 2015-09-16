@@ -97,6 +97,87 @@ function postWithAjax() {
 		ADV2_vaccine : $("#ADV2_vaccine").val(),
 		ADV2_update : $("#ADV2_update").val(),
 		ADV2_status : $("#ADV2_status").val(),
+		
+		WEB_value_2 : $("#WEB_value_2").val(),
+		DBM_value_2 : $("#DBM_value_2").val(),
+		DEW_value_2 : $("#DEW_value_2").val(),
+		MAIL_value_2 : $("#MAIL_value_2").val(),
+		APP_value_2 : $("#APP_value_2").val(),
+		FAX_value_2 : $("#FAX_value_2").val(),
+		ADN_value_2 : $("#ADN_value_2").val(),
+		VRS_value_2 : $("#VRS_value_2").val(),
+		FILE_value_2 : $("#FILE_value_2").val(),
+		DEVN_value_2 : $("#DEVN_value_2").val(),
+		MSVM1_value_2 : $("#MSVM1_value_2").val(),
+		MSVM2_value_2 : $("#MSVM2_value_2").val(),
+		LYNC_value_2 : $("#LYNC_value_2").val(),
+		ADV1_value_2 : $("#ADV1_value_2").val(),
+		ADV2_value_2 : $("#ADV2_value_2").val(),
+		WEB_disk1 : $("#WEB_disk1").val(),
+		WEB_disk2 : $("#WEB_disk2").val(),
+		WEB_disk3 : $("#WEB_disk3").val(),
+		WEB_disk4 : $("#WEB_disk4").val(),
+		DBM_disk1 : $("#DBM_disk1").val(),
+		DBM_disk2 : $("#DBM_disk2").val(),
+		DBM_disk3 : $("#DBM_disk3").val(),
+		DBM_disk4 : $("#DBM_disk4").val(),
+		DEW_disk1 : $("#DEW_disk1").val(),
+		DEW_disk2 : $("#DEW_disk2").val(),
+		MAIL_disk1 : $("#MAIL_disk1").val(),
+		MAIL_disk2 : $("#MAIL_disk2").val(),
+		MAIL_disk3 : $("#MAIL_disk3").val(),
+		MAIL_disk4 : $("#MAIL_disk4").val(),
+		APP_disk1 : $("#APP_disk1").val(),
+		APP_disk2 : $("#APP_disk2").val(),
+		APP_disk3 : $("#APP_disk3").val(),
+		APP_disk4 : $("#APP_disk4").val(),
+		FAX_disk1 : $("#FAX_disk1").val(),
+		FAX_disk2 : $("#FAX_disk2").val(),
+		ADN_disk1 : $("#ADN_disk1").val(),
+		ADN_disk2 : $("#ADN_disk2").val(),
+		ADN_disk3 : $("#ADN_disk3").val(),
+		ADN_disk4 : $("#ADN_disk4").val(),
+		VRS_disk1 : $("#VRS_disk1").val(),
+		VRS_disk2 : $("#VRS_disk2").val(),
+		VRS_disk3 : $("#VRS_disk3").val(),
+		VRS_disk4 : $("#VRS_disk4").val(),
+		FILE_disk1 : $("#FILE_disk1").val(),
+		FILE_disk2 : $("#FILE_disk2").val(),
+		FILE_disk3 : $("#FILE_disk3").val(),
+		FILE_disk4 : $("#FILE_disk4").val(),
+		DEVN_disk1 : $("#DEVN_disk1").val(),
+		DEVN_disk2 : $("#DEVN_disk2").val(),
+		DEVN_disk3 : $("#DEVN_disk3").val(),
+		DEVN_disk4 : $("#DEVN_disk4").val(),
+		MSVM1_disk1 : $("#MSVM1_disk1").val(),
+		MSVM1_disk2 : $("#MSVM1_disk2").val(),
+		MSVM1_disk3 : $("#MSVM1_disk3").val(),
+		MSVM1_disk4 : $("#MSVM1_disk4").val(),
+		MSVM1_disk5 : $("#MSVM1_disk5").val(),
+		MSVM1_disk6 : $("#MSVM1_disk6").val(),
+		MSVM1_disk7 : $("#MSVM1_disk7").val(),
+		MSVM1_disk8 : $("#MSVM1_disk8").val(),
+		MSVM1_disk9 : $("#MSVM1_disk9").val(),
+		MSVM1_disk10 : $("#MSVM1_disk10").val(),
+		MSVM2_disk1 : $("#MSVM2_disk1").val(),
+		MSVM2_disk2 : $("#MSVM2_disk2").val(),
+		MSVM2_disk3 : $("#MSVM2_disk3").val(),
+		MSVM2_disk4 : $("#MSVM2_disk4").val(),
+		MSVM2_disk5 : $("#MSVM2_disk5").val(),
+		MSVM2_disk6 : $("#MSVM2_disk6").val(),
+		MSVM2_disk7 : $("#MSVM2_disk7").val(),
+		MSVM2_disk8 : $("#MSVM2_disk8").val(),
+		MSVM2_disk9 : $("#MSVM2_disk9").val(),
+		MSVM2_disk10 : $("#MSVM2_disk10").val(),
+		LYNC_disk1 : $("#LYNC_disk1").val(),
+		LYNC_disk2 : $("#LYNC_disk2").val(),
+		LYNC_disk3 : $("#LYNC_disk3").val(),
+		LYNC_disk4 : $("#LYNC_disk4").val(),
+		ADV1_disk1 : $("#ADV1_disk1").val(),
+		ADV1_disk2 : $("#ADV1_disk2").val(),
+		ADV2_disk1 : $("#ADV2_disk1").val(),
+		ADV2_disk2 : $("#ADV2_disk2").val(),		
+		
 		ifany : $("#ifany").val(),
 
 	}, function(data) {
@@ -211,6 +292,88 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#ADV2_vaccine").val(data.ADV2_vaccine).flipswitch('refresh');
 			$("#ADV2_update").val(data.ADV2_update).flipswitch('refresh');
 			$("#ADV2_status").val(data.ADV2_status).flipswitch('refresh');
+			
+			$("#WEB_value_2").val(data.WEB_value_2).textinput('refresh');
+			$("#DBM_value_2").val(data.DBM_value_2).textinput('refresh');
+			$("#DEW_value_2").val(data.DEW_value_2).textinput('refresh');
+			$("#MAIL_value_2").val(data.MAIL_value_2).textinput('refresh');
+			$("#APP_value_2").val(data.APP_value_2).textinput('refresh');
+			$("#FAX_value_2").val(data.FAX_value_2).textinput('refresh');
+			$("#ADN_value_2").val(data.ADN_value_2).textinput('refresh');
+			$("#VRS_value_2").val(data.VRS_value_2).textinput('refresh');
+			$("#FILE_value_2").val(data.FILE_value_2).textinput('refresh');
+			$("#DEVN_value_2").val(data.DEVN_value_2).textinput('refresh');
+			$("#MSVM1_value_2").val(data.MSVM1_value_2).textinput('refresh');
+			$("#MSVM2_value_2").val(data.MSVM2_value_2).textinput('refresh');
+			$("#LYNC_value_2").val(data.LYNC_value_2).textinput('refresh');
+			$("#ADV1_value_2").val(data.ADV1_value_2).textinput('refresh');
+			$("#ADV2_value_2").val(data.ADV2_value_2).textinput('refresh');
+			$("#WEB_disk1").val(data.WEB_disk1).textinput('refresh');
+			$("#WEB_disk2").val(data.WEB_disk2).textinput('refresh');
+			$("#WEB_disk3").val(data.WEB_disk3).textinput('refresh');
+			$("#WEB_disk4").val(data.WEB_disk4).textinput('refresh');
+			$("#DBM_disk1").val(data.DBM_disk1).textinput('refresh');
+			$("#DBM_disk2").val(data.DBM_disk2).textinput('refresh');
+			$("#DBM_disk3").val(data.DBM_disk3).textinput('refresh');
+			$("#DBM_disk4").val(data.DBM_disk4).textinput('refresh');
+			$("#DEW_disk1").val(data.DEW_disk1).textinput('refresh');
+			$("#DEW_disk2").val(data.DEW_disk2).textinput('refresh');
+			$("#MAIL_disk1").val(data.MAIL_disk1).textinput('refresh');
+			$("#MAIL_disk2").val(data.MAIL_disk2).textinput('refresh');
+			$("#MAIL_disk3").val(data.MAIL_disk3).textinput('refresh');
+			$("#MAIL_disk4").val(data.MAIL_disk4).textinput('refresh');
+			$("#APP_disk1").val(data.APP_disk1).textinput('refresh');
+			$("#APP_disk2").val(data.APP_disk2).textinput('refresh');
+			$("#APP_disk3").val(data.APP_disk3).textinput('refresh');
+			$("#APP_disk4").val(data.APP_disk4).textinput('refresh');
+			$("#FAX_disk1").val(data.FAX_disk1).textinput('refresh');
+			$("#FAX_disk2").val(data.FAX_disk2).textinput('refresh');
+			$("#ADN_disk1").val(data.ADN_disk1).textinput('refresh');
+			$("#ADN_disk2").val(data.ADN_disk2).textinput('refresh');
+			$("#ADN_disk3").val(data.ADN_disk3).textinput('refresh');
+			$("#ADN_disk4").val(data.ADN_disk4).textinput('refresh');
+			$("#VRS_disk1").val(data.VRS_disk1).textinput('refresh');
+			$("#VRS_disk2").val(data.VRS_disk2).textinput('refresh');
+			$("#VRS_disk3").val(data.VRS_disk3).textinput('refresh');
+			$("#VRS_disk4").val(data.VRS_disk4).textinput('refresh');
+			$("#FILE_disk1").val(data.FILE_disk1).textinput('refresh');
+			$("#FILE_disk2").val(data.FILE_disk2).textinput('refresh');
+			$("#FILE_disk3").val(data.FILE_disk3).textinput('refresh');
+			$("#FILE_disk4").val(data.FILE_disk4).textinput('refresh');
+			$("#DEVN_disk1").val(data.DEVN_disk1).textinput('refresh');
+			$("#DEVN_disk2").val(data.DEVN_disk2).textinput('refresh');
+			$("#DEVN_disk3").val(data.DEVN_disk3).textinput('refresh');
+			$("#DEVN_disk4").val(data.DEVN_disk4).textinput('refresh');
+			$("#MSVM1_disk1").val(data.MSVM1_disk1).textinput('refresh');
+			$("#MSVM1_disk2").val(data.MSVM1_disk2).textinput('refresh');
+			$("#MSVM1_disk3").val(data.MSVM1_disk3).textinput('refresh');
+			$("#MSVM1_disk4").val(data.MSVM1_disk4).textinput('refresh');
+			$("#MSVM1_disk5").val(data.MSVM1_disk5).textinput('refresh');
+			$("#MSVM1_disk6").val(data.MSVM1_disk6).textinput('refresh');
+			$("#MSVM1_disk7").val(data.MSVM1_disk7).textinput('refresh');
+			$("#MSVM1_disk8").val(data.MSVM1_disk8).textinput('refresh');
+			$("#MSVM1_disk9").val(data.MSVM1_disk9).textinput('refresh');
+			$("#MSVM1_disk10").val(data.MSVM1_disk10).textinput('refresh');
+			$("#MSVM2_disk1").val(data.MSVM2_disk1).textinput('refresh');
+			$("#MSVM2_disk2").val(data.MSVM2_disk2).textinput('refresh');
+			$("#MSVM2_disk3").val(data.MSVM2_disk3).textinput('refresh');
+			$("#MSVM2_disk4").val(data.MSVM2_disk4).textinput('refresh');
+			$("#MSVM2_disk5").val(data.MSVM2_disk5).textinput('refresh');
+			$("#MSVM2_disk6").val(data.MSVM2_disk6).textinput('refresh');
+			$("#MSVM2_disk7").val(data.MSVM2_disk7).textinput('refresh');
+			$("#MSVM2_disk8").val(data.MSVM2_disk8).textinput('refresh');
+			$("#MSVM2_disk9").val(data.MSVM2_disk9).textinput('refresh');
+			$("#MSVM2_disk10").val(data.MSVM2_disk10).textinput('refresh');
+			$("#LYNC_disk1").val(data.LYNC_disk1).textinput('refresh');
+			$("#LYNC_disk2").val(data.LYNC_disk2).textinput('refresh');
+			$("#LYNC_disk3").val(data.LYNC_disk3).textinput('refresh');
+			$("#LYNC_disk4").val(data.LYNC_disk4).textinput('refresh');
+			$("#ADV1_disk1").val(data.ADV1_disk1).textinput('refresh');
+			$("#ADV1_disk2").val(data.ADV1_disk2).textinput('refresh');
+			$("#ADV2_disk1").val(data.ADV2_disk1).textinput('refresh');
+			$("#ADV2_disk2").val(data.ADV2_disk2).textinput('refresh');
+
+			
 			$("#ifany").val(data.ifany).textinput('refresh');
 
 			

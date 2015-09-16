@@ -103,7 +103,89 @@ public class ServerDAO {
 		server.setADV2_value(resultSet.getString("ADV2_value").trim());
 		server.setADV2_vaccine(resultSet.getString("ADV2_vaccine").trim());
 		server.setADV2_update(resultSet.getString("ADV2_update").trim());
-		server.setADV2_status(resultSet.getString("ADV2_status").trim());
+		server.setADV2_status(resultSet.getString("ADV2_status").trim());		
+		server.setWEB_value_2(resultSet.getString("WEB_value_2").trim());
+		server.setDBM_value_2(resultSet.getString("DBM_value_2").trim());
+		server.setDEW_value_2(resultSet.getString("DEW_value_2").trim());
+		server.setMAIL_value_2(resultSet.getString("MAIL_value_2").trim());
+		server.setAPP_value_2(resultSet.getString("APP_value_2").trim());
+		server.setFAX_value_2(resultSet.getString("FAX_value_2").trim());
+		server.setADN_value_2(resultSet.getString("ADN_value_2").trim());
+		server.setVRS_value_2(resultSet.getString("VRS_value_2").trim());
+		server.setFILE_value_2(resultSet.getString("FILE_value_2").trim());
+		server.setDEVN_value_2(resultSet.getString("DEVN_value_2").trim());
+		server.setMSVM1_value_2(resultSet.getString("MSVM1_value_2").trim());
+		server.setMSVM2_value_2(resultSet.getString("MSVM2_value_2").trim());
+		server.setLYNC_value_2(resultSet.getString("LYNC_value_2").trim());
+		server.setADV1_value_2(resultSet.getString("ADV1_value_2").trim());
+		server.setADV2_value_2(resultSet.getString("ADV2_value_2").trim());
+		server.setWEB_disk1(resultSet.getString("WEB_disk1").trim());
+		server.setWEB_disk2(resultSet.getString("WEB_disk2").trim());
+		server.setWEB_disk3(resultSet.getString("WEB_disk3").trim());
+		server.setWEB_disk4(resultSet.getString("WEB_disk4").trim());
+		server.setDBM_disk1(resultSet.getString("DBM_disk1").trim());
+		server.setDBM_disk2(resultSet.getString("DBM_disk2").trim());
+		server.setDBM_disk3(resultSet.getString("DBM_disk3").trim());
+		server.setDBM_disk4(resultSet.getString("DBM_disk4").trim());
+		server.setDEW_disk1(resultSet.getString("DEW_disk1").trim());
+		server.setDEW_disk2(resultSet.getString("DEW_disk2").trim());
+		server.setMAIL_disk1(resultSet.getString("MAIL_disk1").trim());
+		server.setMAIL_disk2(resultSet.getString("MAIL_disk2").trim());
+		server.setMAIL_disk3(resultSet.getString("MAIL_disk3").trim());
+		server.setMAIL_disk4(resultSet.getString("MAIL_disk4").trim());
+		server.setAPP_disk1(resultSet.getString("APP_disk1").trim());
+		server.setAPP_disk2(resultSet.getString("APP_disk2").trim());
+		server.setAPP_disk3(resultSet.getString("APP_disk3").trim());
+		server.setAPP_disk4(resultSet.getString("APP_disk4").trim());
+		server.setFAX_disk1(resultSet.getString("FAX_disk1").trim());
+		server.setFAX_disk2(resultSet.getString("FAX_disk2").trim());
+		server.setADN_disk1(resultSet.getString("ADN_disk1").trim());
+		server.setADN_disk2(resultSet.getString("ADN_disk2").trim());
+		server.setADN_disk3(resultSet.getString("ADN_disk3").trim());
+		server.setADN_disk4(resultSet.getString("ADN_disk4").trim());
+		server.setVRS_disk1(resultSet.getString("VRS_disk1").trim());
+		server.setVRS_disk2(resultSet.getString("VRS_disk2").trim());
+		server.setVRS_disk3(resultSet.getString("VRS_disk3").trim());
+		server.setVRS_disk4(resultSet.getString("VRS_disk4").trim());
+		server.setFILE_disk1(resultSet.getString("FILE_disk1").trim());
+		server.setFILE_disk2(resultSet.getString("FILE_disk2").trim());
+		server.setFILE_disk3(resultSet.getString("FILE_disk3").trim());
+		server.setFILE_disk4(resultSet.getString("FILE_disk4").trim());
+		server.setDEVN_disk1(resultSet.getString("DEVN_disk1").trim());
+		server.setDEVN_disk2(resultSet.getString("DEVN_disk2").trim());
+		server.setDEVN_disk3(resultSet.getString("DEVN_disk3").trim());
+		server.setDEVN_disk4(resultSet.getString("DEVN_disk4").trim());
+		server.setMSVM1_disk1(resultSet.getString("MSVM1_disk1").trim());
+		server.setMSVM1_disk2(resultSet.getString("MSVM1_disk2").trim());
+		server.setMSVM1_disk3(resultSet.getString("MSVM1_disk3").trim());
+		server.setMSVM1_disk4(resultSet.getString("MSVM1_disk4").trim());
+		server.setMSVM1_disk5(resultSet.getString("MSVM1_disk5").trim());
+		server.setMSVM1_disk6(resultSet.getString("MSVM1_disk6").trim());
+		server.setMSVM1_disk7(resultSet.getString("MSVM1_disk7").trim());
+		server.setMSVM1_disk8(resultSet.getString("MSVM1_disk8").trim());
+		server.setMSVM1_disk9(resultSet.getString("MSVM1_disk9").trim());
+		server.setMSVM1_disk10(resultSet.getString("MSVM1_disk10").trim());
+		server.setMSVM2_disk1(resultSet.getString("MSVM2_disk1").trim());
+		server.setMSVM2_disk2(resultSet.getString("MSVM2_disk2").trim());
+		server.setMSVM2_disk3(resultSet.getString("MSVM2_disk3").trim());
+		server.setMSVM2_disk4(resultSet.getString("MSVM2_disk4").trim());
+		server.setMSVM2_disk5(resultSet.getString("MSVM2_disk5").trim());
+		server.setMSVM2_disk6(resultSet.getString("MSVM2_disk6").trim());
+		server.setMSVM2_disk7(resultSet.getString("MSVM2_disk7").trim());
+		server.setMSVM2_disk8(resultSet.getString("MSVM2_disk8").trim());
+		server.setMSVM2_disk9(resultSet.getString("MSVM2_disk9").trim());
+		server.setMSVM2_disk10(resultSet.getString("MSVM2_disk10").trim());
+		server.setLYNC_disk1(resultSet.getString("LYNC_disk1").trim());
+		server.setLYNC_disk2(resultSet.getString("LYNC_disk2").trim());
+		server.setLYNC_disk3(resultSet.getString("LYNC_disk3").trim());
+		server.setLYNC_disk4(resultSet.getString("LYNC_disk4").trim());
+		server.setADV1_disk1(resultSet.getString("ADV1_disk1").trim());
+		server.setADV1_disk2(resultSet.getString("ADV1_disk2").trim());
+		server.setADV2_disk1(resultSet.getString("ADV2_disk1").trim());
+		server.setADV2_disk2(resultSet.getString("ADV2_disk2").trim());
+
+		
+		
 		server.setIfany(resultSet.getString("ifany").trim());
 		
 		return server;
@@ -235,6 +317,87 @@ public class ServerDAO {
 			String ADV2_vaccine,
 			String ADV2_update,
 			String ADV2_status,
+			
+			String WEB_value_2,
+			String DBM_value_2,
+			String DEW_value_2,
+			String MAIL_value_2,
+			String APP_value_2,
+			String FAX_value_2,
+			String ADN_value_2,
+			String VRS_value_2,
+			String FILE_value_2,
+			String DEVN_value_2,
+			String MSVM1_value_2,
+			String MSVM2_value_2,
+			String LYNC_value_2,
+			String ADV1_value_2,
+			String ADV2_value_2,
+			String WEB_disk1,
+			String WEB_disk2,
+			String WEB_disk3,
+			String WEB_disk4,
+			String DBM_disk1,
+			String DBM_disk2,
+			String DBM_disk3,
+			String DBM_disk4,
+			String DEW_disk1,
+			String DEW_disk2,
+			String MAIL_disk1,
+			String MAIL_disk2,
+			String MAIL_disk3,
+			String MAIL_disk4,
+			String APP_disk1,
+			String APP_disk2,
+			String APP_disk3,
+			String APP_disk4,
+			String FAX_disk1,
+			String FAX_disk2,
+			String ADN_disk1,
+			String ADN_disk2,
+			String ADN_disk3,
+			String ADN_disk4,
+			String VRS_disk1,
+			String VRS_disk2,
+			String VRS_disk3,
+			String VRS_disk4,
+			String FILE_disk1,
+			String FILE_disk2,
+			String FILE_disk3,
+			String FILE_disk4,
+			String DEVN_disk1,
+			String DEVN_disk2,
+			String DEVN_disk3,
+			String DEVN_disk4,
+			String MSVM1_disk1,
+			String MSVM1_disk2,
+			String MSVM1_disk3,
+			String MSVM1_disk4,
+			String MSVM1_disk5,
+			String MSVM1_disk6,
+			String MSVM1_disk7,
+			String MSVM1_disk8,
+			String MSVM1_disk9,
+			String MSVM1_disk10,
+			String MSVM2_disk1,
+			String MSVM2_disk2,
+			String MSVM2_disk3,
+			String MSVM2_disk4,
+			String MSVM2_disk5,
+			String MSVM2_disk6,
+			String MSVM2_disk7,
+			String MSVM2_disk8,
+			String MSVM2_disk9,
+			String MSVM2_disk10,
+			String LYNC_disk1,
+			String LYNC_disk2,
+			String LYNC_disk3,
+			String LYNC_disk4,
+			String ADV1_disk1,
+			String ADV1_disk2,
+			String ADV2_disk1,
+			String ADV2_disk2,			
+			
 			String ifany) throws Exception {
 		Server server = null;
 		Connection connection = null;
@@ -341,6 +504,87 @@ public class ServerDAO {
 					+ "ADV2_vaccine, "
 					+ "ADV2_update, "
 					+ "ADV2_status, "
+					
+					+ "WEB_value_2, "
+					+ "DBM_value_2, "
+					+ "DEW_value_2, "
+					+ "MAIL_value_2, "
+					+ "APP_value_2, "
+					+ "FAX_value_2, "
+					+ "ADN_value_2, "
+					+ "VRS_value_2, "
+					+ "FILE_value_2, "
+					+ "DEVN_value_2, "
+					+ "MSVM1_value_2, "
+					+ "MSVM2_value_2, "
+					+ "LYNC_value_2, "
+					+ "ADV1_value_2, "
+					+ "ADV2_value_2, "
+					+ "WEB_disk1, "
+					+ "WEB_disk2, "
+					+ "WEB_disk3, "
+					+ "WEB_disk4, "
+					+ "DBM_disk1, "
+					+ "DBM_disk2, "
+					+ "DBM_disk3, "
+					+ "DBM_disk4, "
+					+ "DEW_disk1, "
+					+ "DEW_disk2, "
+					+ "MAIL_disk1, "
+					+ "MAIL_disk2, "
+					+ "MAIL_disk3, "
+					+ "MAIL_disk4, "
+					+ "APP_disk1, "
+					+ "APP_disk2, "
+					+ "APP_disk3, "
+					+ "APP_disk4, "
+					+ "FAX_disk1, "
+					+ "FAX_disk2, "
+					+ "ADN_disk1, "
+					+ "ADN_disk2, "
+					+ "ADN_disk3, "
+					+ "ADN_disk4, "
+					+ "VRS_disk1, "
+					+ "VRS_disk2, "
+					+ "VRS_disk3, "
+					+ "VRS_disk4, "
+					+ "FILE_disk1, "
+					+ "FILE_disk2, "
+					+ "FILE_disk3, "
+					+ "FILE_disk4, "
+					+ "DEVN_disk1, "
+					+ "DEVN_disk2, "
+					+ "DEVN_disk3, "
+					+ "DEVN_disk4, "
+					+ "MSVM1_disk1, "
+					+ "MSVM1_disk2, "
+					+ "MSVM1_disk3, "
+					+ "MSVM1_disk4, "
+					+ "MSVM1_disk5, "
+					+ "MSVM1_disk6, "
+					+ "MSVM1_disk7, "
+					+ "MSVM1_disk8, "
+					+ "MSVM1_disk9, "
+					+ "MSVM1_disk10, "
+					+ "MSVM2_disk1, "
+					+ "MSVM2_disk2, "
+					+ "MSVM2_disk3, "
+					+ "MSVM2_disk4, "
+					+ "MSVM2_disk5, "
+					+ "MSVM2_disk6, "
+					+ "MSVM2_disk7, "
+					+ "MSVM2_disk8, "
+					+ "MSVM2_disk9, "
+					+ "MSVM2_disk10, "
+					+ "LYNC_disk1, "
+					+ "LYNC_disk2, "
+					+ "LYNC_disk3, "
+					+ "LYNC_disk4, "
+					+ "ADV1_disk1, "
+					+ "ADV1_disk2, "
+					+ "ADV2_disk1, "
+					+ "ADV2_disk2, "				
+					
 					+ "ifany"
 					+ ") "
 					+ "VALUES (" 
@@ -353,6 +597,14 @@ public class ServerDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ? )";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
@@ -452,7 +704,88 @@ public class ServerDAO {
 			statement.setString(93,ADV2_vaccine);
 			statement.setString(94,ADV2_update);
 			statement.setString(95,ADV2_status);
-			statement.setString(96,ifany);
+			
+			statement.setString(96,WEB_value_2);
+			statement.setString(97,DBM_value_2);
+			statement.setString(98,DEW_value_2);
+			statement.setString(99,MAIL_value_2);
+			statement.setString(100,APP_value_2);
+			statement.setString(101,FAX_value_2);
+			statement.setString(102,ADN_value_2);
+			statement.setString(103,VRS_value_2);
+			statement.setString(104,FILE_value_2);
+			statement.setString(105,DEVN_value_2);
+			statement.setString(106,MSVM1_value_2);
+			statement.setString(107,MSVM2_value_2);
+			statement.setString(108,LYNC_value_2);
+			statement.setString(109,ADV1_value_2);
+			statement.setString(110,ADV2_value_2);
+			statement.setString(111,WEB_disk1);
+			statement.setString(112,WEB_disk2);
+			statement.setString(113,WEB_disk3);
+			statement.setString(114,WEB_disk4);
+			statement.setString(115,DBM_disk1);
+			statement.setString(116,DBM_disk2);
+			statement.setString(117,DBM_disk3);
+			statement.setString(118,DBM_disk4);
+			statement.setString(119,DEW_disk1);
+			statement.setString(120,DEW_disk2);
+			statement.setString(121,MAIL_disk1);
+			statement.setString(122,MAIL_disk2);
+			statement.setString(123,MAIL_disk3);
+			statement.setString(124,MAIL_disk4);
+			statement.setString(125,APP_disk1);
+			statement.setString(126,APP_disk2);
+			statement.setString(127,APP_disk3);
+			statement.setString(128,APP_disk4);
+			statement.setString(129,FAX_disk1);
+			statement.setString(130,FAX_disk2);
+			statement.setString(131,ADN_disk1);
+			statement.setString(132,ADN_disk2);
+			statement.setString(133,ADN_disk3);
+			statement.setString(134,ADN_disk4);
+			statement.setString(135,VRS_disk1);
+			statement.setString(136,VRS_disk2);
+			statement.setString(137,VRS_disk3);
+			statement.setString(138,VRS_disk4);
+			statement.setString(139,FILE_disk1);
+			statement.setString(140,FILE_disk2);
+			statement.setString(141,FILE_disk3);
+			statement.setString(142,FILE_disk4);
+			statement.setString(143,DEVN_disk1);
+			statement.setString(144,DEVN_disk2);
+			statement.setString(145,DEVN_disk3);
+			statement.setString(146,DEVN_disk4);
+			statement.setString(147,MSVM1_disk1);
+			statement.setString(148,MSVM1_disk2);
+			statement.setString(149,MSVM1_disk3);
+			statement.setString(150,MSVM1_disk4);
+			statement.setString(151,MSVM1_disk5);
+			statement.setString(152,MSVM1_disk6);
+			statement.setString(153,MSVM1_disk7);
+			statement.setString(154,MSVM1_disk8);
+			statement.setString(155,MSVM1_disk9);
+			statement.setString(156,MSVM1_disk10);
+			statement.setString(157,MSVM2_disk1);
+			statement.setString(158,MSVM2_disk2);
+			statement.setString(159,MSVM2_disk3);
+			statement.setString(160,MSVM2_disk4);
+			statement.setString(161,MSVM2_disk5);
+			statement.setString(162,MSVM2_disk6);
+			statement.setString(163,MSVM2_disk7);
+			statement.setString(164,MSVM2_disk8);
+			statement.setString(165,MSVM2_disk9);
+			statement.setString(166,MSVM2_disk10);
+			statement.setString(167,LYNC_disk1);
+			statement.setString(168,LYNC_disk2);
+			statement.setString(169,LYNC_disk3);
+			statement.setString(170,LYNC_disk4);
+			statement.setString(171,ADV1_disk1);
+			statement.setString(172,ADV1_disk2);
+			statement.setString(173,ADV2_disk1);
+			statement.setString(174,ADV2_disk2);
+			
+			statement.setString(175,ifany);
 
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -562,6 +895,87 @@ public class ServerDAO {
 			String ADV2_vaccine,
 			String ADV2_update,
 			String ADV2_status,
+			
+			String WEB_value_2,
+			String DBM_value_2,
+			String DEW_value_2,
+			String MAIL_value_2,
+			String APP_value_2,
+			String FAX_value_2,
+			String ADN_value_2,
+			String VRS_value_2,
+			String FILE_value_2,
+			String DEVN_value_2,
+			String MSVM1_value_2,
+			String MSVM2_value_2,
+			String LYNC_value_2,
+			String ADV1_value_2,
+			String ADV2_value_2,
+			String WEB_disk1,
+			String WEB_disk2,
+			String WEB_disk3,
+			String WEB_disk4,
+			String DBM_disk1,
+			String DBM_disk2,
+			String DBM_disk3,
+			String DBM_disk4,
+			String DEW_disk1,
+			String DEW_disk2,
+			String MAIL_disk1,
+			String MAIL_disk2,
+			String MAIL_disk3,
+			String MAIL_disk4,
+			String APP_disk1,
+			String APP_disk2,
+			String APP_disk3,
+			String APP_disk4,
+			String FAX_disk1,
+			String FAX_disk2,
+			String ADN_disk1,
+			String ADN_disk2,
+			String ADN_disk3,
+			String ADN_disk4,
+			String VRS_disk1,
+			String VRS_disk2,
+			String VRS_disk3,
+			String VRS_disk4,
+			String FILE_disk1,
+			String FILE_disk2,
+			String FILE_disk3,
+			String FILE_disk4,
+			String DEVN_disk1,
+			String DEVN_disk2,
+			String DEVN_disk3,
+			String DEVN_disk4,
+			String MSVM1_disk1,
+			String MSVM1_disk2,
+			String MSVM1_disk3,
+			String MSVM1_disk4,
+			String MSVM1_disk5,
+			String MSVM1_disk6,
+			String MSVM1_disk7,
+			String MSVM1_disk8,
+			String MSVM1_disk9,
+			String MSVM1_disk10,
+			String MSVM2_disk1,
+			String MSVM2_disk2,
+			String MSVM2_disk3,
+			String MSVM2_disk4,
+			String MSVM2_disk5,
+			String MSVM2_disk6,
+			String MSVM2_disk7,
+			String MSVM2_disk8,
+			String MSVM2_disk9,
+			String MSVM2_disk10,
+			String LYNC_disk1,
+			String LYNC_disk2,
+			String LYNC_disk3,
+			String LYNC_disk4,
+			String ADV1_disk1,
+			String ADV1_disk2,
+			String ADV2_disk1,
+			String ADV2_disk2,
+			
 			String ifany) throws Exception {
 		Server server = null;
 		Connection connection = null;
@@ -667,6 +1081,89 @@ public class ServerDAO {
 					+"[ADV2_vaccine]=?,"
 					+"[ADV2_update]=?,"
 					+"[ADV2_status]=?,"
+					
+					+"[WEB_value_2]=?,"
+					+"[DBM_value_2]=?,"
+					+"[DEW_value_2]=?,"
+					+"[MAIL_value_2]=?,"
+					+"[APP_value_2]=?,"
+					+"[FAX_value_2]=?,"
+					+"[ADN_value_2]=?,"
+					+"[VRS_value_2]=?,"
+					+"[FILE_value_2]=?,"
+					+"[DEVN_value_2]=?,"
+					+"[MSVM1_value_2]=?,"
+					+"[MSVM2_value_2]=?,"
+					+"[LYNC_value_2]=?,"
+					+"[ADV1_value_2]=?,"
+					+"[ADV2_value_2]=?,"
+					+"[WEB_disk1]=?,"
+					+"[WEB_disk2]=?,"
+					+"[WEB_disk3]=?,"
+					+"[WEB_disk4]=?,"
+					+"[DBM_disk1]=?,"
+					+"[DBM_disk2]=?,"
+					+"[DBM_disk3]=?,"
+					+"[DBM_disk4]=?,"
+					+"[DEW_disk1]=?,"
+					+"[DEW_disk2]=?,"
+					+"[MAIL_disk1]=?,"
+					+"[MAIL_disk2]=?,"
+					+"[MAIL_disk3]=?,"
+					+"[MAIL_disk4]=?,"
+					+"[APP_disk1]=?,"
+					+"[APP_disk2]=?,"
+					+"[APP_disk3]=?,"
+					+"[APP_disk4]=?,"
+					+"[FAX_disk1]=?,"
+					+"[FAX_disk2]=?,"
+					+"[ADN_disk1]=?,"
+					+"[ADN_disk2]=?,"
+					+"[ADN_disk3]=?,"
+					+"[ADN_disk4]=?,"
+					+"[VRS_disk1]=?,"
+					+"[VRS_disk2]=?,"
+					+"[VRS_disk3]=?,"
+					+"[VRS_disk4]=?,"
+					+"[FILE_disk1]=?,"
+					+"[FILE_disk2]=?,"
+					+"[FILE_disk3]=?,"
+					+"[FILE_disk4]=?,"
+					+"[DEVN_disk1]=?,"
+					+"[DEVN_disk2]=?,"
+					+"[DEVN_disk3]=?,"
+					+"[DEVN_disk4]=?,"
+					+"[MSVM1_disk1]=?,"
+					+"[MSVM1_disk2]=?,"
+					+"[MSVM1_disk3]=?,"
+					+"[MSVM1_disk4]=?,"
+					+"[MSVM1_disk5]=?,"
+					+"[MSVM1_disk6]=?,"
+					+"[MSVM1_disk7]=?,"
+					+"[MSVM1_disk8]=?,"
+					+"[MSVM1_disk9]=?,"
+					+"[MSVM1_disk10]=?,"
+					+"[MSVM2_disk1]=?,"
+					+"[MSVM2_disk2]=?,"
+					+"[MSVM2_disk3]=?,"
+					+"[MSVM2_disk4]=?,"
+					+"[MSVM2_disk5]=?,"
+					+"[MSVM2_disk6]=?,"
+					+"[MSVM2_disk7]=?,"
+					+"[MSVM2_disk8]=?,"
+					+"[MSVM2_disk9]=?,"
+					+"[MSVM2_disk10]=?,"
+					+"[LYNC_disk1]=?,"
+					+"[LYNC_disk2]=?,"
+					+"[LYNC_disk3]=?,"
+					+"[LYNC_disk4]=?,"
+					+"[ADV1_disk1]=?,"
+					+"[ADV1_disk2]=?,"
+					+"[ADV2_disk1]=?,"
+					+"[ADV2_disk2]=?,"
+
+					
+					
 					+"[ifany]=?"					
 					
 					+" WHERE [id]=?";
@@ -767,8 +1264,89 @@ public class ServerDAO {
 			statement.setString(92,ADV2_vaccine);
 			statement.setString(93,ADV2_update);
 			statement.setString(94,ADV2_status);
-			statement.setString(95,ifany);
-			statement.setString(96,id);
+			
+			statement.setString(95,WEB_value_2);
+			statement.setString(96,DBM_value_2);
+			statement.setString(97,DEW_value_2);
+			statement.setString(98,MAIL_value_2);
+			statement.setString(99,APP_value_2);
+			statement.setString(100,FAX_value_2);
+			statement.setString(101,ADN_value_2);
+			statement.setString(102,VRS_value_2);
+			statement.setString(103,FILE_value_2);
+			statement.setString(104,DEVN_value_2);
+			statement.setString(105,MSVM1_value_2);
+			statement.setString(106,MSVM2_value_2);
+			statement.setString(107,LYNC_value_2);
+			statement.setString(108,ADV1_value_2);
+			statement.setString(109,ADV2_value_2);
+			statement.setString(110,WEB_disk1);
+			statement.setString(111,WEB_disk2);
+			statement.setString(112,WEB_disk3);
+			statement.setString(113,WEB_disk4);
+			statement.setString(114,DBM_disk1);
+			statement.setString(115,DBM_disk2);
+			statement.setString(116,DBM_disk3);
+			statement.setString(117,DBM_disk4);
+			statement.setString(118,DEW_disk1);
+			statement.setString(119,DEW_disk2);
+			statement.setString(120,MAIL_disk1);
+			statement.setString(121,MAIL_disk2);
+			statement.setString(122,MAIL_disk3);
+			statement.setString(123,MAIL_disk4);
+			statement.setString(124,APP_disk1);
+			statement.setString(125,APP_disk2);
+			statement.setString(126,APP_disk3);
+			statement.setString(127,APP_disk4);
+			statement.setString(128,FAX_disk1);
+			statement.setString(129,FAX_disk2);
+			statement.setString(130,ADN_disk1);
+			statement.setString(131,ADN_disk2);
+			statement.setString(132,ADN_disk3);
+			statement.setString(133,ADN_disk4);
+			statement.setString(134,VRS_disk1);
+			statement.setString(135,VRS_disk2);
+			statement.setString(136,VRS_disk3);
+			statement.setString(137,VRS_disk4);
+			statement.setString(138,FILE_disk1);
+			statement.setString(139,FILE_disk2);
+			statement.setString(140,FILE_disk3);
+			statement.setString(141,FILE_disk4);
+			statement.setString(142,DEVN_disk1);
+			statement.setString(143,DEVN_disk2);
+			statement.setString(144,DEVN_disk3);
+			statement.setString(145,DEVN_disk4);
+			statement.setString(146,MSVM1_disk1);
+			statement.setString(147,MSVM1_disk2);
+			statement.setString(148,MSVM1_disk3);
+			statement.setString(149,MSVM1_disk4);
+			statement.setString(150,MSVM1_disk5);
+			statement.setString(151,MSVM1_disk6);
+			statement.setString(152,MSVM1_disk7);
+			statement.setString(153,MSVM1_disk8);
+			statement.setString(154,MSVM1_disk9);
+			statement.setString(155,MSVM1_disk10);
+			statement.setString(156,MSVM2_disk1);
+			statement.setString(157,MSVM2_disk2);
+			statement.setString(158,MSVM2_disk3);
+			statement.setString(159,MSVM2_disk4);
+			statement.setString(160,MSVM2_disk5);
+			statement.setString(161,MSVM2_disk6);
+			statement.setString(162,MSVM2_disk7);
+			statement.setString(163,MSVM2_disk8);
+			statement.setString(164,MSVM2_disk9);
+			statement.setString(165,MSVM2_disk10);
+			statement.setString(166,LYNC_disk1);
+			statement.setString(167,LYNC_disk2);
+			statement.setString(168,LYNC_disk3);
+			statement.setString(169,LYNC_disk4);
+			statement.setString(170,ADV1_disk1);
+			statement.setString(171,ADV1_disk2);
+			statement.setString(172,ADV2_disk1);
+			statement.setString(173,ADV2_disk2);
+		
+			statement.setString(174,ifany);
+			statement.setString(175,id);
 			
 			System.out.println(sql);
 			statement.executeUpdate();
