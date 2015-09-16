@@ -21,22 +21,31 @@ $(function(){ getWithAjax(); });
 			<h2>●IPT</h2>
 			<%@ include file="../include/whoDidCheck.jsp"%>
 
-			<div class="ui-grid-b">
+			<div class="ui-grid-c">
+
+				<%= Sets.setBlock("a","idle","Y","N",false) %>
+				<%= Sets.setBlock("b","temperature","Y","N",false) %>
+				<div class="ui-block-c">
+					<label for="idle_val">idle_val</label> <input type="tel"
+						name="idle_val" id="idle_val" data-clear-btn="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="temp_val">temp_val</label> <input type="tel"
+						name="temp_val" id="temp_val" data-clear-btn="true">
+				</div>
+			</div>
+			<div class="ui-grid-c">
 				<%= Sets.setBlock("a","trunk","Y","N",false) %>
-				<%= Sets.setBlock("b","idle","Y","N",false) %>
-				<%= Sets.setBlock("c","temperature","Y","N",false) %>
+				<%= Sets.setBlock("b","in_serv_tru1","Y","N",false) %>
+				<%= Sets.setBlock("c","in_serv_tru2","Y","N",false) %>
+				<%= Sets.setBlock("d","gateway","Y","N",false) %>
 			</div>
-			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","in_serv_tru1","Y","N",false) %>
-				<%= Sets.setBlock("b","in_serv_tru2","Y","N",false) %>
-				<%= Sets.setBlock("c","gateway","Y","N",false) %>
-			</div>
-			<br/>
+			<br />
 			<div class="ui-field-contain">
 				<label for="ipt_alarm">IPT_Alarm:</label>
 				<textarea name="ipt_alarm" id="ipt_alarm"></textarea>
 			</div>
-			<br/>
+			<br />
 			<div class="ui-field-contain">
 				<label for="info">If Any:</label>
 				<textarea name="ifany" id="ifany"></textarea>

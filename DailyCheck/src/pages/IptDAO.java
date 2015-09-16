@@ -20,6 +20,10 @@ public class IptDAO {
 		ipt.setIn_serv_tru2(resultSet.getString("in_serv_tru2").trim());
 		ipt.setGateway(resultSet.getString("gateway").trim());
 		ipt.setIpt_alarm(resultSet.getString("ipt_alarm").trim());
+		
+		ipt.setIdle_val(resultSet.getString("idle_val").trim());
+		ipt.setTemp_val(resultSet.getString("temp_val").trim());
+		
 		ipt.setIfany(resultSet.getString("ifany").trim());
 		
 		return ipt;
@@ -53,7 +57,7 @@ public class IptDAO {
 	}
 
 	public static void insertInfo(String id, String checktime, String checker, String trunk,String idle, 
-			String temperature, String in_serv_tru1, String in_serv_tru2, String gateway, String ipt_alarm, 
+			String temperature, String in_serv_tru1, String in_serv_tru2, String gateway, String ipt_alarm, String idle_val, String temp_val, 
 			String ifany) throws Exception {
 		Ipt ipt = null;
 		Connection connection = null;
@@ -64,11 +68,11 @@ public class IptDAO {
 			connection = DB.getConnection();
 			String sql = "";
 			sql += "INSERT INTO ipt(id,checkTime,checker, trunk ,idle" 
-					+ ",temperature ,in_serv_tru1,in_serv_tru2 ,gateway ,ipt_alarm "
+					+ ",temperature ,in_serv_tru1,in_serv_tru2 ,gateway ,ipt_alarm ,idle_val ,temp_val "
 					+ ",ifany) " 
 					+ "VALUES ( ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " 
-					+ "?)";
+					+ "?,?,?)";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
@@ -81,7 +85,11 @@ public class IptDAO {
 			statement.setString(8, in_serv_tru2);
 			statement.setString(9, gateway);
 			statement.setString(10,ipt_alarm);
-			statement.setString(11,ifany);
+			
+			statement.setString(11,idle_val);
+			statement.setString(12,temp_val);
+			
+			statement.setString(13,ifany);
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -95,7 +103,7 @@ public class IptDAO {
 	}
 
 	public static void updateInfo(String id, String checktime, String checker, String trunk,String idle, 
-			String temperature, String in_serv_tru1, String in_serv_tru2, String gateway, String ipt_alarm, 
+			String temperature, String in_serv_tru1, String in_serv_tru2, String gateway, String ipt_alarm,  String idle_val, String temp_val, 
 			String ifany) throws Exception {
 		Ipt ipt = null;
 		Connection connection = null;
@@ -115,6 +123,8 @@ public class IptDAO {
 					+"[in_serv_tru2]=?,"
 					+"[gateway]=?,"
 					+"[ipt_alarm]=?,"
+					+"[idle_val]=?,"
+					+"[temp_val]=?,"
 					+"[ifany]=?"
 					+" WHERE [id]=?";
 
@@ -129,8 +139,12 @@ public class IptDAO {
 			statement.setString(7, in_serv_tru2);
 			statement.setString(8, gateway);
 			statement.setString(9,ipt_alarm);
-			statement.setString(10,ifany);
-			statement.setString(11, id);
+			
+			statement.setString(10,idle_val);
+			statement.setString(11,temp_val);
+			
+			statement.setString(12,ifany);					
+			statement.setString(13, id);
 			
 			System.out.println(sql);
 			statement.executeUpdate();

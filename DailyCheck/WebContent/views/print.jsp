@@ -21,7 +21,6 @@
 </head>
 
 <body>
-	<div style="border:1px solid black">
 	<table cellspacing="0" cellpadding="0" class="no_bd top1">
 		<colgroup>
 			<col width="*" />
@@ -30,7 +29,7 @@
 		<tr>
 			<td>
 				<br/>
-				<h1 style="text-align:left; font-size:30px; margin:15px;">Daily System Operation Check List</h1>
+				<h1 style="text-align:left; font-size:30px; margin:15px;">Daily System Check List</h1>
 				<br/>
 				<h3 style="margin:15px;">Date :</h3>
 			
@@ -75,7 +74,7 @@
 			</colgroup>
 			<tr>
 				<td><h2>●Pre check ( Min Park ) : ( : )</h2></td>
-				<td>______________________________________ [ Error : N ]</td>
+				<td>__________________________________ [ Error : N ]</td>
 			</tr>
 			<tr></tr>
 		</table>
@@ -120,7 +119,7 @@
 			</colgroup>
 			<tr>
 				<td><h2>●Servers ( Min Park ) : ( : )</hs2></td>
-				<td>______________________________________ [ Error : N ]</td>
+				<td>__________________________________ [ Error : N ]</td>
 			</tr>
 			<tr></tr>
 		</table>
@@ -156,7 +155,6 @@
 		<br /> <br /> <br /> <br /> <br />
 
 
-	</div>
 	</div>
 </body>
 <div class="page-break"></div>
@@ -215,7 +213,7 @@
 			</colgroup>
 			<tr>
 				<td><h2>●Pre check ( Min Park ) : ( : )</h2></td>
-				<td>______________________________________ [ Error : N ]</td>
+				<td>__________________________________ [ Error : N ]</td>
 			</tr>
 			<tr></tr>
 		</table>
@@ -260,7 +258,7 @@
 			</colgroup>
 			<tr>
 				<td><h2>●Servers ( Min Park ) : ( : )</hs2></td>
-				<td>______________________________________ [ Error : N ]</td>
+				<td>__________________________________ [ Error : N ]</td>
 			</tr>
 			<tr></tr>
 		</table>

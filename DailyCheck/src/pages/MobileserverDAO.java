@@ -85,6 +85,20 @@ public class MobileserverDAO {
 		mobileserver.setDB2_status(resultSet.getString("DB2_status").trim());
 		mobileserver.setDB2_disk1(resultSet.getString("DB2_disk1").trim());
 		mobileserver.setDB2_disk2(resultSet.getString("DB2_disk2").trim());
+		
+		mobileserver.setMOBH1_disk1_2(resultSet.getString("MOBH1_disk1_2").trim());
+		mobileserver.setMOBH1_disk2_2(resultSet.getString("MOBH1_disk2_2").trim());
+		mobileserver.setMOBH1_disk3_2(resultSet.getString("MOBH1_disk3_2").trim());
+		mobileserver.setMOBH1_disk4_2(resultSet.getString("MOBH1_disk4_2").trim());
+		mobileserver.setDB1_disk1_2(resultSet.getString("DB1_disk1_2").trim());
+		mobileserver.setDB1_disk2_2(resultSet.getString("DB1_disk2_2").trim());
+		mobileserver.setDB1_disk3_2(resultSet.getString("DB1_disk3_2").trim());
+		mobileserver.setDB1_disk4_2(resultSet.getString("DB1_disk4_2").trim());
+		mobileserver.setMOBH2_disk1_2(resultSet.getString("MOBH2_disk1_2").trim());
+		mobileserver.setMOBH2_disk2_2(resultSet.getString("MOBH2_disk2_2").trim());
+		mobileserver.setMOBH2_disk3_2(resultSet.getString("MOBH2_disk3_2").trim());
+		mobileserver.setMOBH2_disk4_2(resultSet.getString("MOBH2_disk4_2").trim());
+		
 		mobileserver.setIfany(resultSet.getString("ifany").trim());
 		
 		return mobileserver;
@@ -194,6 +208,20 @@ public class MobileserverDAO {
 			String DB2_status,
 			String DB2_disk1,
 			String DB2_disk2,
+			
+			String MOBH1_disk1_2,
+			String MOBH1_disk2_2,
+			String MOBH1_disk3_2,
+			String MOBH1_disk4_2,
+			String DB1_disk1_2,
+			String DB1_disk2_2,
+			String DB1_disk3_2,
+			String DB1_disk4_2,
+			String MOBH2_disk1_2,
+			String MOBH2_disk2_2,
+			String MOBH2_disk3_2,
+			String MOBH2_disk4_2,
+			
 			String ifany			
 			) throws Exception {
 		Connection connection = null;
@@ -279,6 +307,21 @@ public class MobileserverDAO {
 					+ ",DB2_status"
 					+ ",DB2_disk1"
 					+ ",DB2_disk2"
+					
+					+ ",MOBH1_disk1_2"
+					+ ",MOBH1_disk2_2"
+					+ ",MOBH1_disk3_2"
+					+ ",MOBH1_disk4_2"
+					+ ",DB1_disk1_2"
+					+ ",DB1_disk2_2"
+					+ ",DB1_disk3_2"
+					+ ",DB1_disk4_2"
+					+ ",MOBH2_disk1_2"
+					+ ",MOBH2_disk2_2"
+					+ ",MOBH2_disk3_2"
+					+ ",MOBH2_disk4_2"
+
+					
 					+ ",ifany"
 					+ ") " 					
 					+ "VALUES ( "
@@ -289,7 +332,8 @@ public class MobileserverDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
-					+ "?, ?, ?, ?, ?, ?)";
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, ?,? ,?)";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
@@ -368,7 +412,21 @@ public class MobileserverDAO {
 			statement.setString(73,DB2_status);
 			statement.setString(74,DB2_disk1);
 			statement.setString(75,DB2_disk2);
-			statement.setString(76,ifany);
+			
+			statement.setString(76,MOBH1_disk1_2);
+			statement.setString(77,MOBH1_disk2_2);
+			statement.setString(78,MOBH1_disk3_2);
+			statement.setString(79,MOBH1_disk4_2);
+			statement.setString(80,DB1_disk1_2);
+			statement.setString(81,DB1_disk2_2);
+			statement.setString(82,DB1_disk3_2);
+			statement.setString(83,DB1_disk4_2);
+			statement.setString(84,MOBH2_disk1_2);
+			statement.setString(85,MOBH2_disk2_2);
+			statement.setString(86,MOBH2_disk3_2);
+			statement.setString(87,MOBH2_disk4_2);
+
+			statement.setString(88,ifany);
 		
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -458,6 +516,21 @@ public class MobileserverDAO {
 			String DB2_status,
 			String DB2_disk1,
 			String DB2_disk2,
+			
+			String MOBH1_disk1_2,
+			String MOBH1_disk2_2,
+			String MOBH1_disk3_2,
+			String MOBH1_disk4_2,
+			String DB1_disk1_2,
+			String DB1_disk2_2,
+			String DB1_disk3_2,
+			String DB1_disk4_2,
+			String MOBH2_disk1_2,
+			String MOBH2_disk2_2,
+			String MOBH2_disk3_2,
+			String MOBH2_disk4_2,
+
+			
 			String ifany		
 			) throws Exception {
 		Connection connection = null;
@@ -542,6 +615,20 @@ public class MobileserverDAO {
 					+"[DB2_status]=?,"
 					+"[DB2_disk1]=?,"
 					+"[DB2_disk2]=?,"
+					
+					+"[MOBH1_disk1_2]=?,"
+					+"[MOBH1_disk2_2]=?,"
+					+"[MOBH1_disk3_2]=?,"
+					+"[MOBH1_disk4_2]=?,"
+					+"[DB1_disk1_2]=?,"
+					+"[DB1_disk2_2]=?,"
+					+"[DB1_disk3_2]=?,"
+					+"[DB1_disk4_2]=?,"
+					+"[MOBH2_disk1_2]=?,"
+					+"[MOBH2_disk2_2]=?,"
+					+"[MOBH2_disk3_2]=?,"
+					+"[MOBH2_disk4_2]=?,"
+					
 					+"[ifany]=? "
 
 					+" WHERE [id]=?";
@@ -622,8 +709,22 @@ public class MobileserverDAO {
 			statement.setString(72,DB2_status);
 			statement.setString(73,DB2_disk1);
 			statement.setString(74,DB2_disk2);
-			statement.setString(75,ifany);
-			statement.setString(76,id);
+			
+			statement.setString(75,MOBH1_disk1_2);
+			statement.setString(76,MOBH1_disk2_2);
+			statement.setString(77,MOBH1_disk3_2);
+			statement.setString(78,MOBH1_disk4_2);
+			statement.setString(79,DB1_disk1_2);
+			statement.setString(80,DB1_disk2_2);
+			statement.setString(81,DB1_disk3_2);
+			statement.setString(82,DB1_disk4_2);
+			statement.setString(83,MOBH2_disk1_2);
+			statement.setString(84,MOBH2_disk2_2);
+			statement.setString(85,MOBH2_disk3_2);
+			statement.setString(86,MOBH2_disk4_2);
+			
+			statement.setString(87,ifany);
+			statement.setString(88,id);
 
 			
 			System.out.println(sql);

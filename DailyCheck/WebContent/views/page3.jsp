@@ -5,25 +5,14 @@
 <head>
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/page3Ajax.js"></script>
+<script src="../js/diskUsage.js"></script>
 
 <style>
 .diskUsage {
 	display: none;
 }
 </style>
-<script>
-	$(function() {
-		$("#diskUsage").change(function() {
-			var onOff = $("#diskUsage").is(":checked");
-			if (onOff) {//체크 되어있다면
-				$(".diskUsage").show();
-			} else {
-				$(".diskUsage").hide();
-			}
-		});//HERE
-		getWithAjax();
-	})
-</script>
+
 </head>
 <body>
 	<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
@@ -41,8 +30,7 @@
 
 			<div class="ui-checkbox">
 				<label for="diskUsage"
-					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Disk
-					Usage Check</label> <input type="checkbox" name="diskUsage" id="diskUsage"
+					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Weekly</label> <input type="checkbox" name="diskUsage" id="diskUsage"
 					data-cacheval="false" data-theme="a">
 			</div>
 
@@ -69,6 +57,12 @@
 					<%=Sets.setText("b", "MOBH1_disk2", "tel")%>
 					<%=Sets.setText("c", "MOBH1_disk3", "tel")%>
 					<%=Sets.setText("d", "MOBH1_disk4", "tel")%>
+				</div>
+				<div class="ui-grid-c">
+					<%=Sets.setText("a", "MOBH1_disk1_2", "tel")%>
+					<%=Sets.setText("b", "MOBH1_disk2_2", "tel")%>
+					<%=Sets.setText("c", "MOBH1_disk3_2", "tel")%>
+					<%=Sets.setText("d", "MOBH1_disk4_2", "tel")%>
 				</div>
 			</div>
 			<br />
@@ -141,6 +135,12 @@
 					<%=Sets.setText("b", "DB1_disk2", "tel")%>
 					<%=Sets.setText("c", "DB1_disk3", "tel")%>
 					<%=Sets.setText("d", "DB1_disk4", "tel")%>
+				</div>				
+				<div class="ui-grid-c">
+					<%=Sets.setText("a", "DB1_disk1_2", "tel")%>
+					<%=Sets.setText("b", "DB1_disk2_2", "tel")%>
+					<%=Sets.setText("c", "DB1_disk3_2", "tel")%>
+					<%=Sets.setText("d", "DB1_disk4_2", "tel")%>
 				</div>
 			</div>
 			<br />
@@ -166,6 +166,12 @@
 					<%=Sets.setText("b", "MOBH2_disk2", "tel")%>
 					<%=Sets.setText("c", "MOBH2_disk3", "tel")%>
 					<%=Sets.setText("d", "MOBH2_disk4", "tel")%>
+				</div>
+				<div class="ui-grid-c">
+					<%=Sets.setText("a", "MOBH2_disk1_2", "tel")%>
+					<%=Sets.setText("b", "MOBH2_disk2_2", "tel")%>
+					<%=Sets.setText("c", "MOBH2_disk3_2", "tel")%>
+					<%=Sets.setText("d", "MOBH2_disk4_2", "tel")%>
 				</div>
 			</div>
 			<!-- /diskUsage -->

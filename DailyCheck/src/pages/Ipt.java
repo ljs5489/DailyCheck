@@ -11,9 +11,25 @@ public class Ipt {
 	private String in_serv_tru2;
 	private String gateway;
 	private String ipt_alarm;
+	
+	private String idle_val;
+	private String temp_val;
+	
 	private String ifany;
 	
 	
+	public String getIdle_val() {
+		return idle_val;
+	}
+	public void setIdle_val(String idle_val) {
+		this.idle_val = idle_val;
+	}
+	public String getTemp_val() {
+		return temp_val;
+	}
+	public void setTemp_val(String temp_val) {
+		this.temp_val = temp_val;
+	}
 	public String getIfany() {
 		return ifany;
 	}

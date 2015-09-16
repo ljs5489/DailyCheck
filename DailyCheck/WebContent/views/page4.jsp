@@ -5,9 +5,18 @@
 <head>
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/page4Ajax.js"></script>
+<script src="../js/diskUsage.js"></script>
+
 <script>
 $(function(){ getWithAjax(); });
 </script>
+
+<style>
+.diskUsage {
+	display: none;
+}
+</style>
+
 </head>
 <body>
 	<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
@@ -21,6 +30,15 @@ $(function(){ getWithAjax(); });
 			<%@ include file="../include/whoDidCheck.jsp"%>
 
 
+			<div class="ui-checkbox">
+				<label for="diskUsage"
+					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Weekly</label> <input type="checkbox" name="diskUsage" id="diskUsage"
+					data-cacheval="false" data-theme="a">
+			</div>
+
+
+
+
 			<h3>TFSITNWEB (Host)</h3>
 			<hr />
 			<div class="ui-grid-b">
@@ -31,6 +49,15 @@ $(function(){ getWithAjax(); });
 			<div class="ui-grid-b">
 				<%= Sets.setBlock("a","NWupdate","Y","N",false) %>
 				<%= Sets.setBlock("b","NWstatus","Good","Bad",false) %>
+			</div>
+			<div class="diskUsage">
+				<h4>Disk Usage check</h4>
+				<div class="ui-grid-c">
+					<%=Sets.setText("a", "WEB_disk1", "tel")%>
+					<%=Sets.setText("b", "WEB_disk2", "tel")%>
+					<%=Sets.setText("c", "WEB_disk3", "tel")%>
+					<%=Sets.setText("d", "WEB_disk4", "tel")%>
+				</div>
 			</div>
 			<h3>TFSITNSPAM (Guest)</h3>
 			<hr />
@@ -43,7 +70,14 @@ $(function(){ getWithAjax(); });
 				<%= Sets.setBlock("a","NSupdate","Y","N",false) %>
 				<%= Sets.setBlock("b","NSstatus","Good","Bad",false) %>
 			</div>
-			<br/>
+			<div class="diskUsage">
+				<h4>Disk Usage check</h4>
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "SPAM_disk1", "tel")%>
+					<%=Sets.setText("b", "SPAM_disk2", "tel")%>
+				</div>
+			</div>
+			<br />
 			<div class="ui-field-contain">
 				<label for="info">If Any:</label>
 				<textarea name="ifany" id="ifany"></textarea>

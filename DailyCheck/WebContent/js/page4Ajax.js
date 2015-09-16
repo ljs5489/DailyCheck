@@ -15,6 +15,15 @@ function postWithAjax() {
 		NSvaccine : $("#NSvaccine").val(),
 		NSupdate : $("#NSupdate").val(),
 		NSstatus : $("#NSstatus").val(),
+		
+		WEB_disk1 : $("#WEB_disk1").val(),
+		WEB_disk2 : $("#WEB_disk2").val(),
+		WEB_disk3 : $("#WEB_disk3").val(),
+		WEB_disk4 : $("#WEB_disk4").val(),
+		
+		SPAM_disk1 : $("#SPAM_disk1").val(),
+		SPAM_disk2 : $("#SPAM_disk2").val(),		
+		
 		ifany : $("#ifany").val(),
 
 	}, function(data) {
@@ -48,6 +57,16 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#NSvaccine").val(data.NSvaccine).flipswitch("refresh");
 			$("#NSupdate").val(data.NSupdate).flipswitch("refresh");
 			$("#NSstatus").val(data.NSstatus).flipswitch("refresh");
+			
+			$("#WEB_disk1").val(data.WEB_disk1).textinput("refresh");
+			$("#WEB_disk2").val(data.WEB_disk2).textinput("refresh");
+			$("#WEB_disk3").val(data.WEB_disk3).textinput("refresh");
+			$("#WEB_disk4").val(data.WEB_disk4).textinput("refresh");
+			
+			$("#SPAM_disk1").val(data.SPAM_disk1).textinput("refresh");
+			$("#SPAM_disk2").val(data.SPAM_disk2).textinput("refresh");
+			
+			
 			$("#ifany").val(data.ifany).textinput("refresh");			
 		}
 	});

@@ -5,6 +5,7 @@
 
 <%
 	String checktime = "", checker = "", NWCPU = "", NWmemory = "", NWvaccine = "", NWupdate = "", NWstatus = "", NSCPU = "", NSmemory = "", NSvaccine = "", NSupdate = "", NSstatus = "", ifany = "";
+	String WEB_disk1= "", WEB_disk2= "", WEB_disk3= "", WEB_disk4= "", SPAM_disk1= "", SPAM_disk2= "";
 
 	String id=request.getParameter("id").trim();
 	System.out.println("?"+id);
@@ -27,6 +28,15 @@
 		NSvaccine = dmzserver.getNSvaccine();
 		NSupdate = dmzserver.getNSupdate();
 		NSstatus = dmzserver.getNSstatus();
+		
+		WEB_disk1 = dmzserver.getWEB_disk1();
+		WEB_disk2 = dmzserver.getWEB_disk2();
+		WEB_disk3 = dmzserver.getWEB_disk3();
+		WEB_disk4 = dmzserver.getWEB_disk4();
+		
+		SPAM_disk1 = dmzserver.getSPAM_disk1();
+		SPAM_disk2 = dmzserver.getSPAM_disk2();
+				
 		ifany = dmzserver.getIfany();
 
 	}
@@ -51,6 +61,15 @@
 	json.put("NSvaccine", NSvaccine);
 	json.put("NSupdate", NSupdate);
 	json.put("NSstatus", NSstatus);
+	
+	json.put("WEB_disk1", WEB_disk1);
+	json.put("WEB_disk2", WEB_disk2);
+	json.put("WEB_disk3", WEB_disk3);	
+	json.put("WEB_disk4", WEB_disk4);
+	
+	json.put("SPAM_disk1", SPAM_disk1);
+	json.put("SPAM_disk2", SPAM_disk2);
+	
 	json.put("ifany", ifany);
 
 	out.print(json);
@@ -71,6 +90,15 @@
 		NSvaccine = param.getString("NSvaccine", "");
 		NSupdate = param.getString("NSupdate", "");
 		NSstatus = param.getString("NSstatus", "");
+		
+		WEB_disk1 = param.getString("WEB_disk1", "");
+		WEB_disk2 = param.getString("WEB_disk2", "");
+		WEB_disk3 = param.getString("WEB_disk3", "");
+		WEB_disk4 = param.getString("WEB_disk4", "");
+		
+		SPAM_disk1 = param.getString("SPAM_disk1", "");
+		SPAM_disk2 = param.getString("SPAM_disk2", "");
+		
 		ifany = param.getString("ifany", "");
 
 		if (dmzserver == null) {
@@ -88,6 +116,14 @@
 					NSvaccine,
 					NSupdate,
 					NSstatus,
+					
+					WEB_disk1,
+					WEB_disk2,
+					WEB_disk3,
+					WEB_disk4,					
+					SPAM_disk1,
+					SPAM_disk2,		
+					
 					ifany
 					);
 			System.out.println("인서트!");
@@ -107,6 +143,14 @@
 					NSvaccine,
 					NSupdate,
 					NSstatus,
+					
+					WEB_disk1,
+					WEB_disk2,
+					WEB_disk3,
+					WEB_disk4,					
+					SPAM_disk1,
+					SPAM_disk2,		
+					
 					ifany
 					);
 

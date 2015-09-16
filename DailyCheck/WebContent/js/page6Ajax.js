@@ -14,6 +14,10 @@ function postWithAjax() {
 			in_serv_tru2 : $("#in_serv_tru2").val(),
 			gateway : $("#gateway").val(),
 			ipt_alarm : $("#ipt_alarm").val(),
+			
+			idle_val : $("#idle_val").val(),
+			temp_val : $("#temp_val").val(),		
+			
 			ifany : $("#ifany").val(),			
 		},
 		success : function(data) {		
@@ -57,7 +61,11 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#in_serv_tru1").val(data.in_serv_tru1).flipswitch("refresh");	
 			$("#in_serv_tru2").val(data.in_serv_tru2).flipswitch("refresh");	
 			$("#gateway").val(data.gateway).flipswitch("refresh");
-			$("#ipt_alarm").val(data.ipt_alarm).textinput("refresh");				
+			$("#ipt_alarm").val(data.ipt_alarm).textinput("refresh");
+			
+			$("#idle_val").val(data.idle_val).textinput("refresh");
+			$("#temp_val").val(data.temp_val).textinput("refresh");
+			
 			$("#ifany").val(data.ifany).textinput('refresh');
 			
 		},

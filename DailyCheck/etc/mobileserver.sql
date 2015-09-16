@@ -78,9 +78,26 @@ create table mobileserver(
 	DB2_status varchar(10),
 	DB2_disk1 varchar(10),
 	DB2_disk2 varchar(10),
+	
+	MOBH1_disk1_2 varchar(10),
+	MOBH1_disk2_2 varchar(10),
+	MOBH1_disk3_2 varchar(10),
+	MOBH1_disk4_2 varchar(10),
+	DB1_disk1_2 varchar(10),
+	DB1_disk2_2 varchar(10),
+	DB1_disk3_2 varchar(10),
+	DB1_disk4_2 varchar(10),
+	MOBH2_disk1_2 varchar(10),
+	MOBH2_disk2_2 varchar(10),
+	MOBH2_disk3_2 varchar(10),
+	MOBH2_disk4_2 varchar(10),
+
 	ifany varchar(500),
 
 
 
 )
 drop table mobileserver
+
+
+use jslee

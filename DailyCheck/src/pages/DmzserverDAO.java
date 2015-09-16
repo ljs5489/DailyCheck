@@ -23,6 +23,15 @@ public class DmzserverDAO {
 		dmzserver.setNSvaccine(resultSet.getString("NSvaccine").trim());
 		dmzserver.setNSupdate(resultSet.getString("NSupdate").trim());
 		dmzserver.setNSstatus(resultSet.getString("NSstatus").trim());
+		
+		dmzserver.setWEB_disk1(resultSet.getString("WEB_disk1").trim());
+		dmzserver.setWEB_disk2(resultSet.getString("WEB_disk2").trim());
+		dmzserver.setWEB_disk3(resultSet.getString("WEB_disk3").trim());
+		dmzserver.setWEB_disk4(resultSet.getString("WEB_disk4").trim());
+		
+		dmzserver.setSPAM_disk1(resultSet.getString("SPAM_disk1").trim());
+		dmzserver.setSPAM_disk2(resultSet.getString("SPAM_disk2").trim());
+				
 		dmzserver.setIfany(resultSet.getString("ifany").trim());
 
 		
@@ -70,6 +79,14 @@ public class DmzserverDAO {
 			String NSvaccine,
 			String NSupdate,
 			String NSstatus,
+			
+			String WEB_disk1,
+			String WEB_disk2,
+			String WEB_disk3,
+			String WEB_disk4,
+			String SPAM_disk1,
+			String SPAM_disk2,
+			
 			String ifany
 			) throws Exception {
 		Connection connection = null;
@@ -92,11 +109,20 @@ public class DmzserverDAO {
 					+ ",NSvaccine"
 					+ ",NSupdate"
 					+ ",NSstatus"
+					
+					+ ",WEB_disk1"
+					+ ",WEB_disk2"
+					+ ",WEB_disk3"
+					+ ",WEB_disk4"
+					+ ",SPAM_disk1"
+					+ ",SPAM_disk2"
+					
 					+ ",ifany) " 
 					+ "VALUES ( "
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " 
-					+ "?, ?, ?, ? " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ? " 
 					+ ")";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
@@ -114,7 +140,16 @@ public class DmzserverDAO {
 			statement.setString(11,NSvaccine);
 			statement.setString(12,NSupdate);
 			statement.setString(13,NSstatus);
-			statement.setString(14,ifany);			
+			
+			statement.setString(14,WEB_disk1);
+			statement.setString(15,WEB_disk2);
+			statement.setString(16,WEB_disk3);
+			statement.setString(17,WEB_disk4);
+			
+			statement.setString(18,SPAM_disk1);
+			statement.setString(19,SPAM_disk2);			
+			
+			statement.setString(20,ifany);			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -140,6 +175,14 @@ public class DmzserverDAO {
 			String NSvaccine,
 			String NSupdate,
 			String NSstatus,
+			
+			String WEB_disk1,
+			String WEB_disk2,
+			String WEB_disk3,
+			String WEB_disk4,
+			String SPAM_disk1,
+			String SPAM_disk2,
+			
 			String ifany) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -160,6 +203,15 @@ public class DmzserverDAO {
 					+"[NSvaccine]=?,"
 					+"[NSupdate]=?,"
 					+"[NSstatus]=?,"
+					
+					+"[WEB_disk1]=?,"
+					+"[WEB_disk2]=?,"
+					+"[WEB_disk3]=?,"
+					+"[WEB_disk4]=?,"
+					
+					+"[SPAM_disk1]=?,"
+					+"[SPAM_disk2]=?,"
+					
 					+"[ifany]=?"
 					+" WHERE [id]=?";
 
@@ -177,8 +229,17 @@ public class DmzserverDAO {
 			statement.setString(10,NSvaccine);
 			statement.setString(11,NSupdate);
 			statement.setString(12,NSstatus);
-			statement.setString(13,ifany);				
-			statement.setString(14, id);
+			
+			statement.setString(13,WEB_disk1);
+			statement.setString(14,WEB_disk2);
+			statement.setString(15,WEB_disk3);
+			statement.setString(16,WEB_disk4);
+			
+			statement.setString(17,SPAM_disk1);
+			statement.setString(18,SPAM_disk2);	
+			
+			statement.setString(19,ifany);				
+			statement.setString(20, id);
 			
 			System.out.println(sql);
 			statement.executeUpdate();

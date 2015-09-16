@@ -78,6 +78,97 @@ public class Mobileserver {
 	private String DB2_disk1;
 	private String DB2_disk2;
 	private String ifany;
+	
+	private String MOBH1_disk1_2;
+	private String MOBH1_disk2_2;
+	private String MOBH1_disk3_2; 
+	private String MOBH1_disk4_2;
+	private String DB1_disk1_2; 
+	private String DB1_disk2_2; 
+	private String DB1_disk3_2; 
+	private String DB1_disk4_2;
+	private String MOBH2_disk1_2; 
+	private String MOBH2_disk2_2; 
+	private String MOBH2_disk3_2; 
+	private String MOBH2_disk4_2;
+
+	
+	
+	
+	
+	
+	public String getMOBH1_disk1_2() {
+		return MOBH1_disk1_2;
+	}
+	public void setMOBH1_disk1_2(String mOBH1_disk1_2) {
+		MOBH1_disk1_2 = mOBH1_disk1_2;
+	}
+	public String getMOBH1_disk2_2() {
+		return MOBH1_disk2_2;
+	}
+	public void setMOBH1_disk2_2(String mOBH1_disk2_2) {
+		MOBH1_disk2_2 = mOBH1_disk2_2;
+	}
+	public String getMOBH1_disk3_2() {
+		return MOBH1_disk3_2;
+	}
+	public void setMOBH1_disk3_2(String mOBH1_disk3_2) {
+		MOBH1_disk3_2 = mOBH1_disk3_2;
+	}
+	public String getMOBH1_disk4_2() {
+		return MOBH1_disk4_2;
+	}
+	public void setMOBH1_disk4_2(String mOBH1_disk4_2) {
+		MOBH1_disk4_2 = mOBH1_disk4_2;
+	}
+	public String getDB1_disk1_2() {
+		return DB1_disk1_2;
+	}
+	public void setDB1_disk1_2(String dB1_disk1_2) {
+		DB1_disk1_2 = dB1_disk1_2;
+	}
+	public String getDB1_disk2_2() {
+		return DB1_disk2_2;
+	}
+	public void setDB1_disk2_2(String dB1_disk2_2) {
+		DB1_disk2_2 = dB1_disk2_2;
+	}
+	public String getDB1_disk3_2() {
+		return DB1_disk3_2;
+	}
+	public void setDB1_disk3_2(String dB1_disk3_2) {
+		DB1_disk3_2 = dB1_disk3_2;
+	}
+	public String getDB1_disk4_2() {
+		return DB1_disk4_2;
+	}
+	public void setDB1_disk4_2(String dB1_disk4_2) {
+		DB1_disk4_2 = dB1_disk4_2;
+	}
+	public String getMOBH2_disk1_2() {
+		return MOBH2_disk1_2;
+	}
+	public void setMOBH2_disk1_2(String mOBH2_disk1_2) {
+		MOBH2_disk1_2 = mOBH2_disk1_2;
+	}
+	public String getMOBH2_disk2_2() {
+		return MOBH2_disk2_2;
+	}
+	public void setMOBH2_disk2_2(String mOBH2_disk2_2) {
+		MOBH2_disk2_2 = mOBH2_disk2_2;
+	}
+	public String getMOBH2_disk3_2() {
+		return MOBH2_disk3_2;
+	}
+	public void setMOBH2_disk3_2(String mOBH2_disk3_2) {
+		MOBH2_disk3_2 = mOBH2_disk3_2;
+	}
+	public String getMOBH2_disk4_2() {
+		return MOBH2_disk4_2;
+	}
+	public void setMOBH2_disk4_2(String mOBH2_disk4_2) {
+		MOBH2_disk4_2 = mOBH2_disk4_2;
+	}
 	public String getId() {
 		return id;
 	}

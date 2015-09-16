@@ -13,6 +13,10 @@
 	,in_serv_tru2 = ""
 	,gateway = ""
 	,ipt_alarm = ""
+	
+	,idle_val = ""
+	,temp_val = ""
+	
 	,ifany = "";
 
 	String id=request.getParameter("id").trim();
@@ -32,6 +36,10 @@
 		in_serv_tru2 = ipt.getIn_serv_tru2();
 		gateway = ipt.getGateway();
 		ipt_alarm = ipt.getIpt_alarm();
+		
+		idle_val = ipt.getIdle_val();
+		temp_val = ipt.getTemp_val();		
+		
 		ifany = ipt.getIfany();
 	}
 
@@ -50,6 +58,10 @@
 	json.put("in_serv_tru2", in_serv_tru2);
 	json.put("gateway", gateway);
 	json.put("ipt_alarm", ipt_alarm);
+	
+	json.put("idle_val", idle_val);
+	json.put("temp_val", temp_val);	
+	
 	json.put("ifany", ifany);
 
 	out.print(json);
@@ -68,15 +80,19 @@
 		in_serv_tru2 = param.getString("in_serv_tru2", "");
 		gateway = param.getString("gateway", "");
 		ipt_alarm = param.getString("ipt_alarm", "");
+		
+		idle_val = param.getString("idle_val", "");
+		temp_val = param.getString("temp_val", "");
+		//System.out.println(idle_val);
 		ifany = param.getString("ifany", "");
 
 
 		if (ipt == null) {
-			IptDAO.insertInfo(id, checktime, checker, trunk	,idle,temperature,in_serv_tru1,in_serv_tru2	,gateway,ipt_alarm	,ifany);
+			IptDAO.insertInfo(id, checktime, checker, trunk	,idle,temperature,in_serv_tru1,in_serv_tru2	,gateway,ipt_alarm,idle_val,temp_val,ifany);
 			System.out.println("인서트!");
 		} else {
 			//update	
-			IptDAO.updateInfo(id, checktime, checker, trunk	,idle,temperature,in_serv_tru1,in_serv_tru2	,gateway,ipt_alarm	,ifany);
+			IptDAO.updateInfo(id, checktime, checker, trunk	,idle,temperature,in_serv_tru1,in_serv_tru2	,gateway,ipt_alarm,idle_val,temp_val,ifany);
 			System.out.println("업데이트!");
 		}
 	}
