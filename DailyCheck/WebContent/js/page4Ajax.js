@@ -24,6 +24,13 @@ function postWithAjax() {
 		SPAM_disk1 : $("#SPAM_disk1").val(),
 		SPAM_disk2 : $("#SPAM_disk2").val(),		
 		
+		NWCPU_val : $("#NWCPU_val").val(),
+		NWmemory_val : $("#NWmemory_val").val(),
+		NSCPU_val : $("#NSCPU_val").val(),
+		NSmemory_val : $("#NSmemory_val").val(),
+
+
+		
 		ifany : $("#ifany").val(),
 
 	}, function(data) {
@@ -66,6 +73,10 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#SPAM_disk1").val(data.SPAM_disk1).textinput("refresh");
 			$("#SPAM_disk2").val(data.SPAM_disk2).textinput("refresh");
 			
+			$("#NWCPU_val").val(data.NWCPU_val).textinput("refresh");
+			$("#NWmemory_val").val(data.NWCPU_val).textinput("refresh");
+			$("#NSCPU_val").val(data.NWCPU_val).textinput("refresh");
+			$("#NSmemory_val").val(data.NWCPU_val).textinput("refresh");		
 			
 			$("#ifany").val(data.ifany).textinput("refresh");			
 		}

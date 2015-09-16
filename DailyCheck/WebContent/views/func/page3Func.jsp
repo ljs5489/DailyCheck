@@ -13,16 +13,21 @@
 			DB1_DB = "", DB1_status = "", DB1_disk1 = "", DB1_disk2 = "", DB1_disk3 = "", DB1_disk4 = "",
 			MOBH2_CPU = "", MOBH2_memory = "", MOBH2_m_val = "", MOBH2_vaccine = "", MOBH2_update = "",
 			MOBH2_status = "", MOBH2_disk1 = "", MOBH2_disk2 = "", MOBH2_disk3 = "", MOBH2_disk4 = "",
-			
-					MOBH1_disk1_2 = "", MOBH1_disk2_2 = "",	MOBH1_disk3_2 = "", MOBH1_disk4_2 = "",
-					DB1_disk1_2 = "", DB1_disk2_2 = "", DB1_disk3_2 = "", DB1_disk4_2 = "",
-					MOBH2_disk1_2 = "", MOBH2_disk2_2 = "", MOBH2_disk3_2 = "", MOBH2_disk4_2 = "",
-			
-			DC1_CPU = "", DC1_memory = "", DC1_m_val = "", DC1_vaccine = "", DC1_update = "", DC1_status = "",
+
+	MOBH1_disk1_2 = "", MOBH1_disk2_2 = "", MOBH1_disk3_2 = "", MOBH1_disk4_2 = "", DB1_disk1_2 = "",
+			DB1_disk2_2 = "", DB1_disk3_2 = "", DB1_disk4_2 = "", MOBH2_disk1_2 = "", MOBH2_disk2_2 = "",
+			MOBH2_disk3_2 = "", MOBH2_disk4_2 = "",
+
+	DC1_CPU = "", DC1_memory = "", DC1_m_val = "", DC1_vaccine = "", DC1_update = "", DC1_status = "",
 			DC1_disk1 = "", DC1_disk2 = "", WEB2_CPU = "", WEB2_memory = "", WEB2_m_val = "", WEB2_vaccine = "",
 			WEB2_update = "", WEB2_status = "", WEB2_disk1 = "", WEB2_disk2 = "", DB2_CPU = "", DB2_memory = "",
 			DB2_m_val = "", DB2_vaccine = "", DB2_update = "", DB2_DB = "", DB2_status = "", DB2_disk1 = "",
-			DB2_disk2 = "", ifany = "";
+			DB2_disk2 = "",
+
+	MOBH1_c_val = "", DC2_c_val = "", WEB1_c_val = "", DB1_c_val = "", MOBH2_c_val = "", DC1_c_val = "",
+			WEB2_c_val = "", DB2_c_val = "",
+
+	ifany = "";
 
 	String id = request.getParameter("id").trim();
 	System.out.println("?" + id);
@@ -108,20 +113,28 @@
 		DB2_disk1 = mobileserver.getDB2_disk1();
 		DB2_disk2 = mobileserver.getDB2_disk2();
 		ifany = mobileserver.getIfany();
-		
-		MOBH1_disk1_2  = mobileserver.getMOBH1_disk1_2();
-		MOBH1_disk2_2 = mobileserver.getMOBH1_disk2_2();
-		MOBH1_disk3_2  = mobileserver.getMOBH1_disk3_2();
-		MOBH1_disk4_2 = mobileserver.getMOBH1_disk4_2();
-		DB1_disk1_2  = mobileserver.getDB1_disk1_2 ();
-		DB1_disk2_2  = mobileserver.getDB1_disk2_2 ();
-		DB1_disk3_2  = mobileserver.getDB1_disk3_2 ();
-		DB1_disk4_2 = mobileserver.getDB1_disk4_2();
-		MOBH2_disk1_2  = mobileserver.getMOBH2_disk1_2();
-		MOBH2_disk2_2  = mobileserver.getMOBH2_disk2_2();
-		MOBH2_disk3_2  = mobileserver.getMOBH2_disk3_2();
-		MOBH2_disk4_2 = mobileserver.getMOBH2_disk4_2();
 
+		MOBH1_disk1_2 = mobileserver.getMOBH1_disk1_2();
+		MOBH1_disk2_2 = mobileserver.getMOBH1_disk2_2();
+		MOBH1_disk3_2 = mobileserver.getMOBH1_disk3_2();
+		MOBH1_disk4_2 = mobileserver.getMOBH1_disk4_2();
+		DB1_disk1_2 = mobileserver.getDB1_disk1_2();
+		DB1_disk2_2 = mobileserver.getDB1_disk2_2();
+		DB1_disk3_2 = mobileserver.getDB1_disk3_2();
+		DB1_disk4_2 = mobileserver.getDB1_disk4_2();
+		MOBH2_disk1_2 = mobileserver.getMOBH2_disk1_2();
+		MOBH2_disk2_2 = mobileserver.getMOBH2_disk2_2();
+		MOBH2_disk3_2 = mobileserver.getMOBH2_disk3_2();
+		MOBH2_disk4_2 = mobileserver.getMOBH2_disk4_2();
+		
+		MOBH1_c_val = mobileserver.getMOBH1_c_val();
+		DC2_c_val = mobileserver.getDC2_c_val();
+		WEB1_c_val = mobileserver.getWEB1_c_val();
+		DB1_c_val = mobileserver.getDB1_c_val();
+		MOBH2_c_val = mobileserver.getMOBH2_c_val();
+		DC1_c_val = mobileserver.getDC1_c_val();
+		WEB2_c_val = mobileserver.getWEB2_c_val();
+		DB2_c_val = mobileserver.getDB2_c_val();
 
 
 	}
@@ -205,21 +218,30 @@
 	json.put("DB2_status", DB2_status);
 	json.put("DB2_disk1", DB2_disk1);
 	json.put("DB2_disk2", DB2_disk2);
-	
-	json.put("MOBH1_disk1_2", MOBH1_disk1_2 );
-	json.put("MOBH1_disk2_2", MOBH1_disk2_2);
-	json.put("MOBH1_disk3_2", MOBH1_disk3_2 );
-	json.put("MOBH1_disk4_2", MOBH1_disk4_2);
-	json.put("DB1_disk1_2", DB1_disk1_2 );
-	json.put("DB1_disk2_2", DB1_disk2_2 );
-	json.put("DB1_disk3_2", DB1_disk3_2 );
-	json.put("DB1_disk4_2", DB1_disk4_2);
-	json.put("MOBH2_disk1_2", MOBH2_disk1_2 );
-	json.put("MOBH2_disk2_2", MOBH2_disk2_2 );
-	json.put("MOBH2_disk3_2", MOBH2_disk3_2 );
-	json.put("MOBH2_disk4_2", MOBH2_disk4_2);
 
+	json.put("MOBH1_disk1_2", MOBH1_disk1_2);
+	json.put("MOBH1_disk2_2", MOBH1_disk2_2);
+	json.put("MOBH1_disk3_2", MOBH1_disk3_2);
+	json.put("MOBH1_disk4_2", MOBH1_disk4_2);
+	json.put("DB1_disk1_2", DB1_disk1_2);
+	json.put("DB1_disk2_2", DB1_disk2_2);
+	json.put("DB1_disk3_2", DB1_disk3_2);
+	json.put("DB1_disk4_2", DB1_disk4_2);
+	json.put("MOBH2_disk1_2", MOBH2_disk1_2);
+	json.put("MOBH2_disk2_2", MOBH2_disk2_2);
+	json.put("MOBH2_disk3_2", MOBH2_disk3_2);
+	json.put("MOBH2_disk4_2", MOBH2_disk4_2);
 	
+	json.put("MOBH1_c_val", MOBH1_c_val);
+	json.put("DC2_c_val", DC2_c_val);
+	json.put("WEB1_c_val", WEB1_c_val);
+	json.put("DB1_c_val", DB1_c_val);
+	json.put("MOBH2_c_val", MOBH2_c_val);
+	json.put("DC1_c_val", DC1_c_val);
+	json.put("WEB2_c_val", WEB2_c_val);
+	json.put("DB2_c_val", DB2_c_val);
+
+
 	json.put("ifany", ifany);
 
 	out.print(json);
@@ -302,7 +324,7 @@
 		DB2_status = param.getString("DB2_status", "");
 		DB2_disk1 = param.getString("DB2_disk1", "");
 		DB2_disk2 = param.getString("DB2_disk2", "");
-		
+
 		MOBH1_disk1_2 = param.getString("MOBH1_disk1_2", "");
 		MOBH1_disk2_2 = param.getString("MOBH1_disk2_2", "");
 		MOBH1_disk3_2 = param.getString("MOBH1_disk3_2", "");
@@ -316,6 +338,18 @@
 		MOBH2_disk3_2 = param.getString("MOBH2_disk3_2", "");
 		MOBH2_disk4_2 = param.getString("MOBH2_disk4_2", "");
 		
+		MOBH1_c_val = param.getString("MOBH1_c_val", "");
+		DC2_c_val = param.getString("DC2_c_val", "");
+		WEB1_c_val = param.getString("WEB1_c_val", "");
+		DB1_c_val = param.getString("DB1_c_val", "");
+		MOBH2_c_val = param.getString("MOBH2_c_val", "");
+		DC1_c_val = param.getString("DC1_c_val", "");
+		WEB2_c_val = param.getString("WEB2_c_val", "");
+		DB2_c_val = param.getString("DB2_c_val", "");
+
+		
+		
+
 		ifany = param.getString("ifany", "");
 
 		if (mobileserver == null) {
@@ -331,18 +365,17 @@
 					DC1_vaccine, DC1_update, DC1_status, DC1_disk1, DC1_disk2, WEB2_CPU, WEB2_memory,
 					WEB2_m_val, WEB2_vaccine, WEB2_update, WEB2_status, WEB2_disk1, WEB2_disk2, DB2_CPU,
 					DB2_memory, DB2_m_val, DB2_vaccine, DB2_update, DB2_DB, DB2_status, DB2_disk1, DB2_disk2,
-					MOBH1_disk1_2,
-					MOBH1_disk2_2,
-					MOBH1_disk3_2,
-					MOBH1_disk4_2,
-					DB1_disk1_2,
-					DB1_disk2_2,
-					DB1_disk3_2,
-					DB1_disk4_2,
-					MOBH2_disk1_2,
-					MOBH2_disk2_2,
-					MOBH2_disk3_2,
-					MOBH2_disk4_2,
+					MOBH1_disk1_2, MOBH1_disk2_2, MOBH1_disk3_2, MOBH1_disk4_2, DB1_disk1_2, DB1_disk2_2,
+					DB1_disk3_2, DB1_disk4_2, MOBH2_disk1_2, MOBH2_disk2_2, MOBH2_disk3_2, MOBH2_disk4_2, 
+					MOBH1_c_val,
+					DC2_c_val,
+					WEB1_c_val,
+					DB1_c_val,
+					MOBH2_c_val,
+					DC1_c_val,
+					WEB2_c_val,
+					DB2_c_val,
+
 					ifany
 
 			);
@@ -361,18 +394,16 @@
 					DC1_vaccine, DC1_update, DC1_status, DC1_disk1, DC1_disk2, WEB2_CPU, WEB2_memory,
 					WEB2_m_val, WEB2_vaccine, WEB2_update, WEB2_status, WEB2_disk1, WEB2_disk2, DB2_CPU,
 					DB2_memory, DB2_m_val, DB2_vaccine, DB2_update, DB2_DB, DB2_status, DB2_disk1, DB2_disk2,
-					MOBH1_disk1_2,
-					MOBH1_disk2_2,
-					MOBH1_disk3_2,
-					MOBH1_disk4_2,
-					DB1_disk1_2,
-					DB1_disk2_2,
-					DB1_disk3_2,
-					DB1_disk4_2,
-					MOBH2_disk1_2,
-					MOBH2_disk2_2,
-					MOBH2_disk3_2,
-					MOBH2_disk4_2,
+					MOBH1_disk1_2, MOBH1_disk2_2, MOBH1_disk3_2, MOBH1_disk4_2, DB1_disk1_2, DB1_disk2_2,
+					DB1_disk3_2, DB1_disk4_2, MOBH2_disk1_2, MOBH2_disk2_2, MOBH2_disk3_2, MOBH2_disk4_2,
+					MOBH1_c_val,
+					DC2_c_val,
+					WEB1_c_val,
+					DB1_c_val,
+					MOBH2_c_val,
+					DC1_c_val,
+					WEB2_c_val,
+					DB2_c_val,
 					ifany);
 
 			System.out.println("업데이트!");

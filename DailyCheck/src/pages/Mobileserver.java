@@ -93,10 +93,66 @@ public class Mobileserver {
 	private String MOBH2_disk4_2;
 
 	
+	private String MOBH1_c_val;
+	private String DC2_c_val;
+	private String WEB1_c_val;
+	private String DB1_c_val;
+	private String MOBH2_c_val;
+	private String DC1_c_val;
+	private String WEB2_c_val;
+	private String DB2_c_val;
+
 	
 	
 	
-	
+	public String getMOBH1_c_val() {
+		return MOBH1_c_val;
+	}
+	public void setMOBH1_c_val(String mOBH1_c_val) {
+		MOBH1_c_val = mOBH1_c_val;
+	}
+	public String getDC2_c_val() {
+		return DC2_c_val;
+	}
+	public void setDC2_c_val(String dC2_c_val) {
+		DC2_c_val = dC2_c_val;
+	}
+	public String getWEB1_c_val() {
+		return WEB1_c_val;
+	}
+	public void setWEB1_c_val(String wEB1_c_val) {
+		WEB1_c_val = wEB1_c_val;
+	}
+	public String getDB1_c_val() {
+		return DB1_c_val;
+	}
+	public void setDB1_c_val(String dB1_c_val) {
+		DB1_c_val = dB1_c_val;
+	}
+	public String getMOBH2_c_val() {
+		return MOBH2_c_val;
+	}
+	public void setMOBH2_c_val(String mOBH2_c_val) {
+		MOBH2_c_val = mOBH2_c_val;
+	}
+	public String getDC1_c_val() {
+		return DC1_c_val;
+	}
+	public void setDC1_c_val(String dC1_c_val) {
+		DC1_c_val = dC1_c_val;
+	}
+	public String getWEB2_c_val() {
+		return WEB2_c_val;
+	}
+	public void setWEB2_c_val(String wEB2_c_val) {
+		WEB2_c_val = wEB2_c_val;
+	}
+	public String getDB2_c_val() {
+		return DB2_c_val;
+	}
+	public void setDB2_c_val(String dB2_c_val) {
+		DB2_c_val = dB2_c_val;
+	}
 	public String getMOBH1_disk1_2() {
 		return MOBH1_disk1_2;
 	}

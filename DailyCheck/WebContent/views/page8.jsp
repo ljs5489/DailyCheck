@@ -34,7 +34,13 @@ $(function(){ getWithAjax(); });
 				<%= Sets.setBlock("c","mail","Y","N",false) %>
 			</div>
 			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","FAX_W","Y","N",false) %>
+				<div class='ui-block-a'>
+					<label for='FAX_W'>FAX:</label>
+					<select type='checkbox' data-role='flipswitch' name='FAX_W' id='FAX_W'>
+						<option value='off'>N</option>
+						<option value='on'>Y</option>
+					</select>
+				</div>
 				<%= Sets.setBlock("b","DBsafer_M","Y","N",false) %>
 				<%= Sets.setBlock("c","file_","Y","N",false) %>
 			</div>

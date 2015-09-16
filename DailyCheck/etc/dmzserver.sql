@@ -1,3 +1,4 @@
+use jslee
 create table dmzserver(
 	id date not null primary key,
 		
@@ -14,6 +15,20 @@ create table dmzserver(
 	NSvaccine   varchar(10),
 	NSupdate   varchar(10),
 	NSstatus   varchar(10),
+	
+	WEB_disk1  varchar(10),
+	WEB_disk2  varchar(10),
+	WEB_disk3  varchar(10),
+	WEB_disk4  varchar(10),		
+	SPAM_disk1  varchar(10),
+	SPAM_disk2  varchar(10),
+	
+	NWCPU_val  varchar(10),
+	NWmemory_val  varchar(10),
+	NSCPU_val  varchar(10),
+	NSmemory_val  varchar(10),
+
+	
 	ifany   varchar(500),
 
 )

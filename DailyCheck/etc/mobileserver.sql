@@ -91,6 +91,15 @@ create table mobileserver(
 	MOBH2_disk2_2 varchar(10),
 	MOBH2_disk3_2 varchar(10),
 	MOBH2_disk4_2 varchar(10),
+	MOBH1_c_val varchar(10),
+	DC2_c_val varchar(10),
+	WEB1_c_val varchar(10),
+	DB1_c_val varchar(10),
+	MOBH2_c_val varchar(10),
+	DC1_c_val varchar(10),
+	WEB2_c_val varchar(10),
+	DB2_c_val varchar(10),
+
 
 	ifany varchar(500),
 

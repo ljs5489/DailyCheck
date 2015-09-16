@@ -90,6 +90,16 @@ function postWithAjax() {
 		MOBH2_disk2_2 : $("#MOBH2_disk2_2").val(),
 		MOBH2_disk3_2 : $("#MOBH2_disk3_2").val(),
 		MOBH2_disk4_2 : $("#MOBH2_disk4_2").val(),
+		MOBH1_c_val : $("#MOBH1_c_val").val(),
+		DC2_c_val : $("#DC2_c_val").val(),
+		WEB1_c_val : $("#WEB1_c_val").val(),
+		DB1_c_val : $("#DB1_c_val").val(),
+		MOBH2_c_val : $("#MOBH2_c_val").val(),
+		DC1_c_val : $("#DC1_c_val").val(),
+		WEB2_c_val : $("#WEB2_c_val").val(),
+		DB2_c_val : $("#DB2_c_val").val(),
+
+		
 	
 		ifany : $("#ifany").val(),
 
@@ -208,6 +218,17 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#MOBH2_disk2_2").val(data.MOBH2_disk2_2).textinput("refresh");
 			$("#MOBH2_disk3_2").val(data.MOBH2_disk3_2).textinput("refresh");
 			$("#MOBH2_disk4_2").val(data.MOBH2_disk4_2).textinput("refresh");
+			
+			$("#MOBH1_c_val").val(data.MOBH1_c_val).textinput("refresh");
+			$("#DC2_c_val").val(data.DC2_c_val).textinput("refresh");
+			$("#WEB1_c_val").val(data.WEB1_c_val).textinput("refresh");
+			$("#DB1_c_val").val(data.DB1_c_val).textinput("refresh");
+			$("#MOBH2_c_val").val(data.MOBH2_c_val).textinput("refresh");
+			$("#DC1_c_val").val(data.DC1_c_val).textinput("refresh");
+			$("#WEB2_c_val").val(data.WEB2_c_val).textinput("refresh");
+			$("#DB2_c_val").val(data.DB2_c_val).textinput("refresh");
+
+			
 			
 			$("#ifany").val(data.ifany).textinput("refresh");
 			

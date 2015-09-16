@@ -99,6 +99,15 @@ public class MobileserverDAO {
 		mobileserver.setMOBH2_disk3_2(resultSet.getString("MOBH2_disk3_2").trim());
 		mobileserver.setMOBH2_disk4_2(resultSet.getString("MOBH2_disk4_2").trim());
 		
+		mobileserver.setMOBH1_c_val(resultSet.getString("MOBH1_c_val").trim());
+		mobileserver.setDC2_c_val(resultSet.getString("DC2_c_val").trim());
+		mobileserver.setWEB1_c_val(resultSet.getString("WEB1_c_val").trim());
+		mobileserver.setDB1_c_val(resultSet.getString("DB1_c_val").trim());
+		mobileserver.setMOBH2_c_val(resultSet.getString("MOBH2_c_val").trim());
+		mobileserver.setDC1_c_val(resultSet.getString("DC1_c_val").trim());
+		mobileserver.setWEB2_c_val(resultSet.getString("WEB2_c_val").trim());
+		mobileserver.setDB2_c_val(resultSet.getString("DB2_c_val").trim());		
+		
 		mobileserver.setIfany(resultSet.getString("ifany").trim());
 		
 		return mobileserver;
@@ -222,6 +231,15 @@ public class MobileserverDAO {
 			String MOBH2_disk3_2,
 			String MOBH2_disk4_2,
 			
+			String MOBH1_c_val,
+			String DC2_c_val,
+			String WEB1_c_val,
+			String DB1_c_val,
+			String MOBH2_c_val,
+			String DC1_c_val,
+			String WEB2_c_val,
+			String DB2_c_val,
+			
 			String ifany			
 			) throws Exception {
 		Connection connection = null;
@@ -321,6 +339,14 @@ public class MobileserverDAO {
 					+ ",MOBH2_disk3_2"
 					+ ",MOBH2_disk4_2"
 
+					+ ",MOBH1_c_val"
+					+ ",DC2_c_val"
+					+ ",WEB1_c_val"
+					+ ",DB1_c_val"
+					+ ",MOBH2_c_val"
+					+ ",DC1_c_val"
+					+ ",WEB2_c_val"
+					+ ",DB2_c_val"				
 					
 					+ ",ifany"
 					+ ") " 					
@@ -333,6 +359,7 @@ public class MobileserverDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, ?,? ,?)";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
@@ -426,7 +453,16 @@ public class MobileserverDAO {
 			statement.setString(86,MOBH2_disk3_2);
 			statement.setString(87,MOBH2_disk4_2);
 
-			statement.setString(88,ifany);
+			statement.setString(88,MOBH1_c_val);
+			statement.setString(89,DC2_c_val);
+			statement.setString(90,WEB1_c_val);
+			statement.setString(91,DB1_c_val);
+			statement.setString(92,MOBH2_c_val);
+			statement.setString(93,DC1_c_val);
+			statement.setString(94,WEB2_c_val);
+			statement.setString(95,DB2_c_val);		
+			
+			statement.setString(96,ifany);
 		
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -530,6 +566,14 @@ public class MobileserverDAO {
 			String MOBH2_disk3_2,
 			String MOBH2_disk4_2,
 
+			String MOBH1_c_val,
+			String DC2_c_val,
+			String WEB1_c_val,
+			String DB1_c_val,
+			String MOBH2_c_val,
+			String DC1_c_val,
+			String WEB2_c_val,
+			String DB2_c_val,			
 			
 			String ifany		
 			) throws Exception {
@@ -628,7 +672,15 @@ public class MobileserverDAO {
 					+"[MOBH2_disk2_2]=?,"
 					+"[MOBH2_disk3_2]=?,"
 					+"[MOBH2_disk4_2]=?,"
-					
+					+"[MOBH1_c_val]=?,"
+					+"[DC2_c_val]=?,"
+					+"[WEB1_c_val]=?,"
+					+"[DB1_c_val]=?,"
+					+"[MOBH2_c_val]=?,"
+					+"[DC1_c_val]=?,"
+					+"[WEB2_c_val]=?,"
+					+"[DB2_c_val]=?,"
+
 					+"[ifany]=? "
 
 					+" WHERE [id]=?";
@@ -723,8 +775,17 @@ public class MobileserverDAO {
 			statement.setString(85,MOBH2_disk3_2);
 			statement.setString(86,MOBH2_disk4_2);
 			
-			statement.setString(87,ifany);
-			statement.setString(88,id);
+			statement.setString(87,MOBH1_c_val);
+			statement.setString(88,DC2_c_val);
+			statement.setString(89,WEB1_c_val);
+			statement.setString(90,DB1_c_val);
+			statement.setString(91,MOBH2_c_val);
+			statement.setString(92,DC1_c_val);
+			statement.setString(93,WEB2_c_val);
+			statement.setString(94,DB2_c_val);	
+			
+			statement.setString(95,ifany);
+			statement.setString(96,id);
 
 			
 			System.out.println(sql);

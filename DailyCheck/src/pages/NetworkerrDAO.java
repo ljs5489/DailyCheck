@@ -23,6 +23,11 @@ public class NetworkerrDAO {
 		networkerr.setInternet_spd(resultSet.getString("internet_spd").trim());
 		networkerr.setTraffic_IDC(resultSet.getString("traffic_IDC").trim());
 		networkerr.setInternet_traffic(resultSet.getString("internet_traffic").trim());
+		
+		networkerr.setInternet_traffic_2(resultSet.getString("internet_traffic_2").trim());
+		networkerr.setInternet_spd_2(resultSet.getString("internet_spd_2").trim());
+		networkerr.setTraffic_IDC_2(resultSet.getString("traffic_IDC_2").trim());
+		
 		networkerr.setIfany(resultSet.getString("ifany").trim());
 
 
@@ -71,6 +76,11 @@ public class NetworkerrDAO {
 			String internet_spd,
 			String traffic_IDC,
 			String internet_traffic,
+			
+			String internet_traffic_2,
+			String internet_spd_2,
+			String traffic_IDC_2,
+			
 			String ifany		
 			) throws Exception {
 		Networkerr networkerr = null;
@@ -94,10 +104,16 @@ public class NetworkerrDAO {
 					+ ",internet_spd"
 					+ ",traffic_IDC"
 					+ ",internet_traffic"
+					
+					+ ",internet_traffic_2"
+					+ ",internet_spd_2"
+					+ ",traffic_IDC_2"
+
 					+ ",ifany)"					 
 					+ "VALUES ( "
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, " 
 					+ "?, ?, ?, ?)";
 			
 			System.out.println(sql);
@@ -115,7 +131,12 @@ public class NetworkerrDAO {
 			statement.setString(11,internet_spd);
 			statement.setString(12,traffic_IDC);
 			statement.setString(13,internet_traffic);
-			statement.setString(14,ifany);
+			
+			statement.setString(14,internet_traffic_2);
+			statement.setString(15,internet_spd_2);
+			statement.setString(16,traffic_IDC_2);
+			
+			statement.setString(17,ifany);
 
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -142,6 +163,11 @@ public class NetworkerrDAO {
 			String internet_spd,
 			String traffic_IDC,
 			String internet_traffic,
+			
+			String internet_traffic_2,
+			String internet_spd_2,
+			String traffic_IDC_2,	
+			
 			String ifany	
 			) throws Exception {
 		Networkerr networkerr = null;
@@ -165,6 +191,11 @@ public class NetworkerrDAO {
 					+"[internet_spd]=?,"
 					+"[traffic_IDC]=?,"
 					+"[internet_traffic]=?,"
+					
+					+"[internet_traffic_2]=?,"
+					+"[internet_spd_2]=?,"
+					+"[traffic_IDC_2]=?,"
+					
 					+"[ifany]=? "
 					+" WHERE [id]=?";
 
@@ -182,8 +213,13 @@ public class NetworkerrDAO {
 			statement.setString(10,internet_spd);
 			statement.setString(11,traffic_IDC);
 			statement.setString(12,internet_traffic);
-			statement.setString(13,ifany);
-			statement.setString(14, id);
+
+			
+			statement.setString(13,internet_traffic_2);
+			statement.setString(14,internet_spd_2);
+			statement.setString(15,traffic_IDC_2);
+			statement.setString(16,ifany);
+			statement.setString(17, id);
 			
 			System.out.println(sql);
 			statement.executeUpdate();

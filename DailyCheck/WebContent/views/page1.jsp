@@ -13,35 +13,43 @@
 			<%@ include file="explain/forPage1.jsp"%>
 			<%@ include file="/../include/header.jsp"%>
 
-			<div data-role="main" class="ui-content">			
+			<div data-role="main" class="ui-content">
 				<%@ include file="../include/popup.jsp"%>
 				<h2 id="test">●Pre Check</h2>
-				<%@ include file="../include/whoDidCheck.jsp"%>
 
+				<%@ include file="../include/whoDidCheck.jsp"%>
+				<h5 style="font-size: 9px;">※N(Normal)/A(Abnormal),
+					Y(Normal)/N(Not Normal)</h5>
 				<h3>Connect Status</h3>
 				<hr />
 				<div class="ui-grid-b">
-					<%= Sets.setBlock("a","ars","Good","Bad",false) %>
-					<%= Sets.setBlock("b","mail","Good","Bad",false) %>
-					<%= Sets.setBlock("c","fax","Good","Bad",false) %>
+					<%=Sets.setBlock("a", "ars", "Good", "Bad", false)%>
+					<%=Sets.setBlock("b", "mail", "Good", "Bad", false)%>
+					<%=Sets.setBlock("c", "fax", "Good", "Bad", false)%>
 				</div>
 				<div class="ui-grid-b">
-					<%= Sets.setBlock("a","vrs","Good","Bad",false) %>
-					<%= Sets.setBlock("b","messanger","Good","Bad",false) %>
-					<%= Sets.setBlock("c","leaseloan","Good","Bad",false) %>
+					<%=Sets.setBlock("a", "vrs", "Good", "Bad", false)%>
+					<%=Sets.setBlock("b", "messanger", "Good", "Bad", false)%>
+					<div class='ui-block-c'>
+						<label for='leaseloan'>Lease & Loan</label><select type='checkbox'
+							data-role='flipswitch' name='leaseloan' id='leaseloan'>
+							<option value='off'>Bad</option>
+							<option value='on'>Good</option>
+						</select><br>
+					</div>
 				</div>
 
 				<h3>Homepage</h3>
 				<hr />
 				<div class="ui-grid-b">
-					<%= Sets.setBlock("a","visual","Good","Bad",false) %>
-					<%= Sets.setBlock("b","images","Y","N",false) %>
-					<%= Sets.setBlock("c","font","Y","N",false) %>
+					<%=Sets.setBlock("a", "visual", "Good", "Bad", false)%>
+					<%=Sets.setBlock("b", "images", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "font", "Y", "N", false)%>
 				</div>
 				<!-- HomePage set -->
 				<div class="ui-grid-b">
-					<%= Sets.setBlock("a","links","Y","N",false) %>
-					<%= Sets.setBlock("b","bbs","Y","N",false) %>
+					<%=Sets.setBlock("a", "links", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "bbs", "Y", "N", false)%>
 					<div class="ui-block-c">
 						<label for="indexsize">Index.asp(Size):</label> <input type="tel"
 							name="indexsize" id="indexsize" data-clear-btn="true">
@@ -64,9 +72,9 @@
 					</div>
 				</div>
 				<div class="ui-grid-c">
-					<%= Sets.setBlock("a","WMstate","Good","Bad",true) %>
-					<%= Sets.setBlock("b","WMpump","N","A",true) %>
-					<%= Sets.setBlock("c","WMaircon","N","A",true) %>
+					<%=Sets.setBlock("a", "WMstate", "Good", "Bad", true)%>
+					<%=Sets.setBlock("b", "WMpump", "N", "A", true)%>
+					<%=Sets.setBlock("c", "WMaircon", "N", "A", true)%>
 					<div class="ui-block-d">
 						<label for="WMtemperature">Temperature:</label> <input type="tel"
 							name="WMtemperature" id="WMtemperature">
@@ -85,9 +93,9 @@
 					</div>
 				</div>
 				<div class="ui-grid-c">
-					<%= Sets.setBlock("a","WEstate","Good","Bad",true) %>
-					<%= Sets.setBlock("b","WEpump","N","A",true) %>
-					<%= Sets.setBlock("c","WEaircon","N","A",true) %>
+					<%=Sets.setBlock("a", "WEstate", "Good", "Bad", true)%>
+					<%=Sets.setBlock("b", "WEpump", "N", "A", true)%>
+					<%=Sets.setBlock("c", "WEaircon", "N", "A", true)%>
 					<div class="ui-block-d">
 						<label for="WEtemperature">Temperature:</label> <input type="tel"
 							name="WEtemperature" id="WEtemperature" data-clear-btn="true">
@@ -111,9 +119,9 @@
 				</div>
 				<!-- IT ROOM (E) set -->
 				<div class="ui-grid-c">
-					<%= Sets.setBlock("a","EMstate","Good","Bad",true) %>
-					<%= Sets.setBlock("b","EMpump","N","A",true) %>
-					<%= Sets.setBlock("c","EMaircon","N","A",true) %>
+					<%=Sets.setBlock("a", "EMstate", "Good", "Bad", true)%>
+					<%=Sets.setBlock("b", "EMpump", "N", "A", true)%>
+					<%=Sets.setBlock("c", "EMaircon", "N", "A", true)%>
 					<div class="ui-block-d">
 						<label for="EMtemperature">Temperature:</label> <input type="tel"
 							name="EMtemperature" id="EMtemperature" data-clear-btn="true">
@@ -134,9 +142,9 @@
 				</div>
 				<!-- IT ROOM (E) set -->
 				<div class="ui-grid-c">
-					<%= Sets.setBlock("a","EEstate","Good","Bad",true) %>
-					<%= Sets.setBlock("b","EEpump","N","A",true) %>
-					<%= Sets.setBlock("c","EEaircon","N","A",true) %>
+					<%=Sets.setBlock("a", "EEstate", "Good", "Bad", true)%>
+					<%=Sets.setBlock("b", "EEpump", "N", "A", true)%>
+					<%=Sets.setBlock("c", "EEaircon", "N", "A", true)%>
 					<div class="ui-block-d">
 						<label for="EEtemperature">Temperature:</label> <input type="tel"
 							name="EEtemperature" id="EEtemperature" data-clear-btn="true">

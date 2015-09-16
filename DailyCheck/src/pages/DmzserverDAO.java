@@ -31,6 +31,12 @@ public class DmzserverDAO {
 		
 		dmzserver.setSPAM_disk1(resultSet.getString("SPAM_disk1").trim());
 		dmzserver.setSPAM_disk2(resultSet.getString("SPAM_disk2").trim());
+		
+		dmzserver.setNWCPU_val(resultSet.getString("NWCPU_val").trim());
+		dmzserver.setNWmemory_val(resultSet.getString("NWmemory_val").trim());
+		dmzserver.setNSCPU_val(resultSet.getString("NSCPU_val").trim());
+		dmzserver.setNSmemory_val(resultSet.getString("NSmemory_val").trim());
+
 				
 		dmzserver.setIfany(resultSet.getString("ifany").trim());
 
@@ -87,6 +93,11 @@ public class DmzserverDAO {
 			String SPAM_disk1,
 			String SPAM_disk2,
 			
+			String NWCPU_val,
+			String NWmemory_val,
+			String NSCPU_val,
+			String NSmemory_val,
+			
 			String ifany
 			) throws Exception {
 		Connection connection = null;
@@ -117,12 +128,21 @@ public class DmzserverDAO {
 					+ ",SPAM_disk1"
 					+ ",SPAM_disk2"
 					
+					+ ",NWCPU_val"
+					+ ",NWmemory_val"
+					+ ",NSCPU_val"
+					+ ",NSmemory_val"
+
+					
+					
 					+ ",ifany) " 
 					+ "VALUES ( "
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, " 
-					+ "?, ?, ?, ?, ? " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ? " 
+					
 					+ ")";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
@@ -147,9 +167,14 @@ public class DmzserverDAO {
 			statement.setString(17,WEB_disk4);
 			
 			statement.setString(18,SPAM_disk1);
-			statement.setString(19,SPAM_disk2);			
+			statement.setString(19,SPAM_disk2);	
 			
-			statement.setString(20,ifany);			
+			statement.setString(20,NWCPU_val);
+			statement.setString(21,NWmemory_val);
+			statement.setString(22,NSCPU_val);
+			statement.setString(23,NSmemory_val);		
+			
+			statement.setString(24,ifany);			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -183,6 +208,11 @@ public class DmzserverDAO {
 			String SPAM_disk1,
 			String SPAM_disk2,
 			
+			String NWCPU_val,
+			String NWmemory_val,
+			String NSCPU_val,
+			String NSmemory_val,
+			
 			String ifany) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -212,6 +242,12 @@ public class DmzserverDAO {
 					+"[SPAM_disk1]=?,"
 					+"[SPAM_disk2]=?,"
 					
+					+"[NWCPU_val]=?,"
+					+"[NWmemory_val]=?,"
+					+"[NSCPU_val]=?,"
+					+"[NSmemory_val]=?,"
+
+					
 					+"[ifany]=?"
 					+" WHERE [id]=?";
 
@@ -238,8 +274,13 @@ public class DmzserverDAO {
 			statement.setString(17,SPAM_disk1);
 			statement.setString(18,SPAM_disk2);	
 			
-			statement.setString(19,ifany);				
-			statement.setString(20, id);
+			statement.setString(19,NWCPU_val);
+			statement.setString(20,NWmemory_val);
+			statement.setString(21,NSCPU_val);
+			statement.setString(22,NSmemory_val);				
+			
+			statement.setString(23,ifany);				
+			statement.setString(24, id);
 			
 			System.out.println(sql);
 			statement.executeUpdate();

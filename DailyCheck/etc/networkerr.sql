@@ -22,7 +22,7 @@ create table networkerr(
 
 
 )
-drop table batchjob
+drop table networkerr
 
 
 

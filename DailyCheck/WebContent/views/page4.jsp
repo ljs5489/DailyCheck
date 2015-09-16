@@ -8,7 +8,9 @@
 <script src="../js/diskUsage.js"></script>
 
 <script>
-$(function(){ getWithAjax(); });
+	$(function() {
+		getWithAjax();
+	});
 </script>
 
 <style>
@@ -32,7 +34,8 @@ $(function(){ getWithAjax(); });
 
 			<div class="ui-checkbox">
 				<label for="diskUsage"
-					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Weekly</label> <input type="checkbox" name="diskUsage" id="diskUsage"
+					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Weekly</label>
+				<input type="checkbox" name="diskUsage" id="diskUsage"
 					data-cacheval="false" data-theme="a">
 			</div>
 
@@ -41,34 +44,58 @@ $(function(){ getWithAjax(); });
 
 			<h3>TFSITNWEB (Host)</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","NWCPU","Y","N",false) %>
-				<%= Sets.setBlock("b","NWmemory","Y","N",false) %>
-				<%= Sets.setBlock("c","NWvaccine","Y","N",false) %>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "NWCPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "NWmemory", "Y", "N", true)%>
+				<div class="ui-block-c">
+					<label for="NWCPU_val">CPU:</label> <input type="tel"
+						name="NWCPU_val" id="NWCPU_val" data-clear-btn="true"
+						data-mini='true'>
+				</div>
+				<div class="ui-block-d">
+					<label for="NWmemory_val">Memory:</label> <input type="tel"
+						name="NWmemory_val" id="NWmemory_val" data-clear-btn="true"
+						data-mini='true'>
+				</div>
+
 			</div>
 			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","NWupdate","Y","N",false) %>
-				<%= Sets.setBlock("b","NWstatus","Good","Bad",false) %>
+				<%=Sets.setBlock("a", "NWvaccine", "Y", "N", false)%>
+				<%=Sets.setBlock("b", "NWupdate", "Y", "N", false)%>
+				<%=Sets.setBlock("c", "NWstatus", "Good", "Bad", false)%>
 			</div>
 			<div class="diskUsage">
 				<h4>Disk Usage check</h4>
-				<div class="ui-grid-c">
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "WEB_disk1", "tel")%>
 					<%=Sets.setText("b", "WEB_disk2", "tel")%>
-					<%=Sets.setText("c", "WEB_disk3", "tel")%>
-					<%=Sets.setText("d", "WEB_disk4", "tel")%>
+				</div>
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "WEB_disk3", "tel")%>
+					<%=Sets.setText("b", "WEB_disk4", "tel")%>
 				</div>
 			</div>
 			<h3>TFSITNSPAM (Guest)</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","NSCPU","Y","N",false) %>
-				<%= Sets.setBlock("b","NSmemory","Y","N",false) %>
-				<%= Sets.setBlock("c","NSvaccine","Y","N",false) %>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "NSCPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "NSmemory", "Y", "N", true)%>
+				<div class="ui-block-c">
+					<label for="NSCPU_val">CPU:</label> <input type="tel"
+						name="NSCPU_val" id="NSCPU_val" data-clear-btn="true"
+						data-mini='true'>
+				</div>
+				<div class="ui-block-d">
+					<label for="NSmemory_val">Memory:</label> <input type="tel"
+						name="NSmemory_val" id="NSmemory_val" data-clear-btn="true"
+						data-mini='true'>
+				</div>
+
 			</div>
 			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","NSupdate","Y","N",false) %>
-				<%= Sets.setBlock("b","NSstatus","Good","Bad",false) %>
+				<%=Sets.setBlock("a", "NSvaccine", "Y", "N", false)%>
+				<%=Sets.setBlock("b", "NSupdate", "Y", "N", false)%>
+				<%=Sets.setBlock("c", "NSstatus", "Good", "Bad", false)%>
 			</div>
 			<div class="diskUsage">
 				<h4>Disk Usage check</h4>

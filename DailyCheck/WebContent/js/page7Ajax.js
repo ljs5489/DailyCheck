@@ -15,6 +15,11 @@ function postWithAjax() {
 		internet_spd : $("#internet_spd").val(),
 		traffic_IDC : $("#traffic_IDC").val(),
 		internet_traffic : $("#internet_traffic").val(),
+		
+		internet_traffic_2 : $("#internet_traffic_2").val(),
+		internet_spd_2 : $("#internet_spd_2").val(),
+		traffic_IDC_2 : $("#traffic_IDC_2").val(),	
+
 		ifany : $("#ifany").val(),
 
 
@@ -48,6 +53,11 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#internet_spd").val(data.internet_spd).textinput("refresh");
 			$("#traffic_IDC").val(data.traffic_IDC).textinput("refresh");
 			$("#internet_traffic").val(data.internet_traffic).textinput("refresh");
+			
+			$("#internet_traffic_2").val(data.internet_traffic_2).textinput("refresh");
+			$("#internet_spd_2").val(data.internet_spd_2).textinput("refresh");
+			$("#traffic_IDC_2").val(data.traffic_IDC_2).textinput("refresh");
+
 			$("#ifany").val(data.ifany).textinput("refresh");
 
 			

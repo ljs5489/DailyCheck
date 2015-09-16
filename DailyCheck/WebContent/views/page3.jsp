@@ -30,19 +30,27 @@
 
 			<div class="ui-checkbox">
 				<label for="diskUsage"
-					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Weekly</label> <input type="checkbox" name="diskUsage" id="diskUsage"
+					class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">Weekly</label>
+				<input type="checkbox" name="diskUsage" id="diskUsage"
 					data-cacheval="false" data-theme="a">
 			</div>
 
 
 			<h3>TFSKR MOBH1 (VT: Host)</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "MOBH1_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "MOBH1_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "MOBH1_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "MOBH1_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="MOBH1_m_val">M_val</label> <input type="tel"
-						name="MOBH1_m_val" id="MOBH1_m_val" data-clear-btn="true">
+					<label for="MOBH1_c_val">CPU:</label> <input type="tel"
+						name="MOBH1_c_val" id="MOBH1_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="MOBH1_m_val">Memory:</label> <input type="tel"
+						name="MOBH1_m_val" id="MOBH1_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-b">
@@ -52,28 +60,41 @@
 			</div>
 			<div class="diskUsage">
 				<h4>Disk Usage check</h4>
-				<div class="ui-grid-c">
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "MOBH1_disk1", "tel")%>
 					<%=Sets.setText("b", "MOBH1_disk2", "tel")%>
-					<%=Sets.setText("c", "MOBH1_disk3", "tel")%>
-					<%=Sets.setText("d", "MOBH1_disk4", "tel")%>
 				</div>
-				<div class="ui-grid-c">
+
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "MOBH1_disk3", "tel")%>
+					<%=Sets.setText("b", "MOBH1_disk4", "tel")%>
+				</div>
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "MOBH1_disk1_2", "tel")%>
 					<%=Sets.setText("b", "MOBH1_disk2_2", "tel")%>
-					<%=Sets.setText("c", "MOBH1_disk3_2", "tel")%>
-					<%=Sets.setText("d", "MOBH1_disk4_2", "tel")%>
+				</div>
+
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "MOBH1_disk3_2", "tel")%>
+					<%=Sets.setText("b", "MOBH1_disk4_2", "tel")%>
 				</div>
 			</div>
 			<br />
 			<h3>TFS MOBILE-DC2</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "DC2_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "DC2_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "DC2_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "DC2_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="DC2_m_val">M_val</label> <input type="tel"
-						name="DC2_m_val" id="DC2_m_val" data-clear-btn="true">
+					<label for="DC2_c_val">CPU:</label> <input type="tel"
+						name="DC2_c_val" id="DC2_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="DC2_m_val">Memory:</label> <input type="tel"
+						name="DC2_m_val" id="DC2_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-b">
@@ -91,12 +112,19 @@
 			<br />
 			<h3>TFSKR MOB WEB1</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "WEB1_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "WEB1_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "WEB1_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "WEB1_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="WEB1_m_val">M_val</label> <input type="tel"
-						name="WEB1_m_val" id="WEB1_m_val" data-clear-btn="true">
+					<label for="WEB1_c_val">CPU:</label> <input type="tel"
+						name="WEB1_c_val" id="WEB1_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="WEB1_m_val">Memory:</label> <input type="tel"
+						name="WEB1_m_val" id="WEB1_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-b">
@@ -114,12 +142,19 @@
 			<br />
 			<h3>TFSKR MOB DB1</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "DB1_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "DB1_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "DB1_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "DB1_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="DB1_m_val">M_val</label> <input type="tel"
-						name="DB1_m_val" id="DB1_m_val" data-clear-btn="true">
+					<label for="DB1_c_val">CPU:</label> <input type="tel"
+						name="DB1_c_val" id="DB1_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="DB1_m_val">Memory:</label> <input type="tel"
+						name="DB1_m_val" id="DB1_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-c">
@@ -130,28 +165,39 @@
 			</div>
 			<div class="diskUsage">
 				<h4>Disk Usage check</h4>
-				<div class="ui-grid-c">
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "DB1_disk1", "tel")%>
 					<%=Sets.setText("b", "DB1_disk2", "tel")%>
-					<%=Sets.setText("c", "DB1_disk3", "tel")%>
-					<%=Sets.setText("d", "DB1_disk4", "tel")%>
-				</div>				
-				<div class="ui-grid-c">
+				</div>
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "DB1_disk3", "tel")%>
+					<%=Sets.setText("b", "DB1_disk4", "tel")%>
+				</div>
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "DB1_disk1_2", "tel")%>
 					<%=Sets.setText("b", "DB1_disk2_2", "tel")%>
-					<%=Sets.setText("c", "DB1_disk3_2", "tel")%>
-					<%=Sets.setText("d", "DB1_disk4_2", "tel")%>
+				</div>
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "DB1_disk3_2", "tel")%>
+					<%=Sets.setText("b", "DB1_disk4_2", "tel")%>
 				</div>
 			</div>
 			<br />
 			<h3>TFSKR MOBH2 (VT: Host)</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "MOBH2_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "MOBH2_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "MOBH2_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "MOBH2_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="MOBH2_m_val">M_val</label> <input type="tel"
-						name="MOBH2_m_val" id="MOBH2_m_val" data-clear-btn="true">
+					<label for="MOBH2_c_val">CPU:</label> <input type="tel"
+						name="MOBH2_c_val" id="MOBH2_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="MOBH2_m_val">Memory:</label> <input type="tel"
+						name="MOBH2_m_val" id="MOBH2_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-b">
@@ -161,29 +207,40 @@
 			</div>
 			<div class="diskUsage">
 				<h4>Disk Usage check</h4>
-				<div class="ui-grid-c">
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "MOBH2_disk1", "tel")%>
 					<%=Sets.setText("b", "MOBH2_disk2", "tel")%>
-					<%=Sets.setText("c", "MOBH2_disk3", "tel")%>
-					<%=Sets.setText("d", "MOBH2_disk4", "tel")%>
 				</div>
-				<div class="ui-grid-c">
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "MOBH2_disk3", "tel")%>
+					<%=Sets.setText("b", "MOBH2_disk4", "tel")%>
+				</div>
+				<div class="ui-grid-a">
 					<%=Sets.setText("a", "MOBH2_disk1_2", "tel")%>
 					<%=Sets.setText("b", "MOBH2_disk2_2", "tel")%>
-					<%=Sets.setText("c", "MOBH2_disk3_2", "tel")%>
-					<%=Sets.setText("d", "MOBH2_disk4_2", "tel")%>
+				</div>
+				<div class="ui-grid-a">
+					<%=Sets.setText("a", "MOBH2_disk3_2", "tel")%>
+					<%=Sets.setText("b", "MOBH2_disk4_2", "tel")%>
 				</div>
 			</div>
 			<!-- /diskUsage -->
 			<br />
 			<h3>TFS MOBILE-DC1</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "DC1_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "DC1_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "DC1_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "DC1_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="DC1_m_val">M_val</label> <input type="tel"
-						name="DC1_m_val" id="DC1_m_val" data-clear-btn="true">
+					<label for="DC1_c_val">CPU:</label> <input type="tel"
+						name="DC1_c_val" id="DC1_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="DC1_m_val">Memory:</label> <input type="tel"
+						name="DC1_m_val" id="DC1_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-b">
@@ -201,12 +258,19 @@
 			<br />
 			<h3>TFSKR MOB WEB2</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "WEB2_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "WEB2_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "WEB2_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "WEB2_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="WEB2_m_val">M_val</label> <input type="tel"
-						name="WEB2_m_val" id="WEB2_m_val" data-clear-btn="true">
+					<label for="WEB2_c_val">CPU:</label> <input type="tel"
+						name="WEB2_c_val" id="WEB2_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="WEB2_m_val">Memory:</label> <input type="tel"
+						name="WEB2_m_val" id="WEB2_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-b">
@@ -224,12 +288,19 @@
 			<br />
 			<h3>TFSKR MOB DB2</h3>
 			<hr />
-			<div class="ui-grid-b">
-				<%=Sets.setBlock("a", "DB2_CPU", "Y", "N", false)%>
-				<%=Sets.setBlock("b", "DB2_memory", "Y", "N", false)%>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "DB2_CPU", "Y", "N", true)%>
+				<%=Sets.setBlock("b", "DB2_memory", "Y", "N", true)%>
+
 				<div class="ui-block-c">
-					<label for="DB2_m_val">M_val</label> <input type="tel"
-						name="DB2_m_val" id="DB2_m_val" data-clear-btn="true">
+					<label for="DB2_c_val">CPU:</label> <input type="tel"
+						name="DB2_c_val" id="DB2_c_val" data-clear-btn="true"
+						data-mini="true">
+				</div>
+				<div class="ui-block-d">
+					<label for="DB2_m_val">Memory:</label> <input type="tel"
+						name="DB2_m_val" id="DB2_m_val" data-clear-btn="true"
+						data-mini="true">
 				</div>
 			</div>
 			<div class="ui-grid-c">

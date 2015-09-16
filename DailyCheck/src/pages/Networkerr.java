@@ -14,8 +14,35 @@ public class Networkerr {
 	private String internet_spd;
 	private String traffic_IDC;
 	private String internet_traffic;
+
+	private String internet_traffic_2;
+	private String internet_spd_2;
+	private String traffic_IDC_2;
+
+	
 	private String ifany;
 	
+	
+	
+	
+	public String getInternet_traffic_2() {
+		return internet_traffic_2;
+	}
+	public void setInternet_traffic_2(String internet_traffic_2) {
+		this.internet_traffic_2 = internet_traffic_2;
+	}
+	public String getInternet_spd_2() {
+		return internet_spd_2;
+	}
+	public void setInternet_spd_2(String internet_spd_2) {
+		this.internet_spd_2 = internet_spd_2;
+	}
+	public String getTraffic_IDC_2() {
+		return traffic_IDC_2;
+	}
+	public void setTraffic_IDC_2(String traffic_IDC_2) {
+		this.traffic_IDC_2 = traffic_IDC_2;
+	}
 	public String getId() {
 		return id;
 	}

@@ -23,22 +23,22 @@ $(function(){ getWithAjax(); });
 
 			<div class="ui-grid-c">
 
-				<%= Sets.setBlock("a","idle","Y","N",false) %>
-				<%= Sets.setBlock("b","temperature","Y","N",false) %>
+				<%= Sets.setBlock("a","idle","Y","N",true) %>
+				<%= Sets.setBlock("b","temperature","Y","N",true) %>
 				<div class="ui-block-c">
 					<label for="idle_val">idle_val</label> <input type="tel"
-						name="idle_val" id="idle_val" data-clear-btn="true">
+						name="idle_val" id="idle_val" data-clear-btn="true" data-mini='true'>
 				</div>
 				<div class="ui-block-d">
 					<label for="temp_val">temp_val</label> <input type="tel"
-						name="temp_val" id="temp_val" data-clear-btn="true">
+						name="temp_val" id="temp_val" data-clear-btn="true" data-mini='true'>
 				</div>
 			</div>
 			<div class="ui-grid-c">
-				<%= Sets.setBlock("a","trunk","Y","N",false) %>
-				<%= Sets.setBlock("b","in_serv_tru1","Y","N",false) %>
-				<%= Sets.setBlock("c","in_serv_tru2","Y","N",false) %>
-				<%= Sets.setBlock("d","gateway","Y","N",false) %>
+				<%= Sets.setBlock("a","trunk","Y","N",true) %>
+				<%= Sets.setBlock("b","in_serv_tru1","Y","N",true) %>
+				<%= Sets.setBlock("c","in_serv_tru2","Y","N",true) %>
+				<%= Sets.setBlock("d","gateway","Y","N",true) %>
 			</div>
 			<br />
 			<div class="ui-field-contain">

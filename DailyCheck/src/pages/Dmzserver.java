@@ -24,6 +24,11 @@ public class Dmzserver {
 	private String SPAM_disk1;
 	private String SPAM_disk2;
 	
+	private String NWCPU_val;
+	private String NWmemory_val;
+	private String NSCPU_val;
+	private String NSmemory_val;
+
 	
 	private String ifany;
 	
@@ -31,7 +36,30 @@ public class Dmzserver {
 	
 	
 	
-	
+	public String getNWCPU_val() {
+		return NWCPU_val;
+	}
+	public void setNWCPU_val(String nWCPU_val) {
+		NWCPU_val = nWCPU_val;
+	}
+	public String getNWmemory_val() {
+		return NWmemory_val;
+	}
+	public void setNWmemory_val(String nWmemory_val) {
+		NWmemory_val = nWmemory_val;
+	}
+	public String getNSCPU_val() {
+		return NSCPU_val;
+	}
+	public void setNSCPU_val(String nSCPU_val) {
+		NSCPU_val = nSCPU_val;
+	}
+	public String getNSmemory_val() {
+		return NSmemory_val;
+	}
+	public void setNSmemory_val(String nSmemory_val) {
+		NSmemory_val = nSmemory_val;
+	}
 	public String getWEB_disk1() {
 		return WEB_disk1;
 	}

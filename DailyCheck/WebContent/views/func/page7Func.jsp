@@ -16,6 +16,12 @@
 			internet_spd = "",
 			traffic_IDC = "",
 			internet_traffic = "",
+			
+			internet_traffic_2= "",
+			internet_spd_2= "",
+			traffic_IDC_2= "",
+
+			
 			ifany = "";
 
 	String id=request.getParameter("id").trim();
@@ -39,6 +45,12 @@
 		internet_spd = networkerr.getInternet_spd();
 		traffic_IDC = networkerr.getTraffic_IDC();
 		internet_traffic = networkerr.getInternet_traffic();
+		
+		internet_traffic_2 = networkerr.getInternet_traffic_2();
+		internet_spd_2 = networkerr.getInternet_spd_2();
+		traffic_IDC_2 = networkerr.getTraffic_IDC_2();
+		
+		
 		ifany = networkerr.getIfany();
 	
 		
@@ -65,6 +77,11 @@
 	json.put("internet_spd", internet_spd);
 	json.put("traffic_IDC", traffic_IDC);
 	json.put("internet_traffic", internet_traffic);
+	
+	json.put("internet_traffic_2", internet_traffic_2);
+	json.put("internet_spd_2", internet_spd_2);
+	json.put("traffic_IDC_2", traffic_IDC_2);	
+	
 	json.put("ifany", ifany);
 
 	
@@ -86,14 +103,21 @@
 		internet_spd = param.getString("internet_spd", "");
 		traffic_IDC = param.getString("traffic_IDC", "");
 		internet_traffic = param.getString("internet_traffic", "");
+		
+		internet_traffic_2 = param.getString("internet_traffic_2", "");
+		internet_spd_2 = param.getString("internet_spd_2", "");
+		traffic_IDC_2 = param.getString("traffic_IDC_2", "");		
+
 		ifany = param.getString("ifany", "");
 
 		if (networkerr == null) {
-			NetworkerrDAO.insertInfo(id, checktime, checker,network_conn,firm_banking,vpn_21,vpn_31,vpn_200,vpn_254,network_err,internet_spd,traffic_IDC,internet_traffic,ifany);
+			NetworkerrDAO.insertInfo(id, checktime, checker,network_conn,firm_banking,vpn_21
+					,vpn_31,vpn_200,vpn_254,network_err,internet_spd,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2,ifany);
 			System.out.println("인서트!");
 		} else {
 			//update	
-			NetworkerrDAO.updateInfo(id, checktime, checker,network_conn,firm_banking,vpn_21,vpn_31,vpn_200,vpn_254,network_err,internet_spd,traffic_IDC,internet_traffic,ifany);
+			NetworkerrDAO.updateInfo(id, checktime, checker,network_conn,firm_banking,vpn_21,vpn_31,vpn_200,vpn_254,network_err,internet_spd
+					,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2,ifany);
 			System.out.println("업데이트!");
 		}
 	}

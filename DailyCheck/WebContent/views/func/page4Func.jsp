@@ -6,6 +6,12 @@
 <%
 	String checktime = "", checker = "", NWCPU = "", NWmemory = "", NWvaccine = "", NWupdate = "", NWstatus = "", NSCPU = "", NSmemory = "", NSvaccine = "", NSupdate = "", NSstatus = "", ifany = "";
 	String WEB_disk1= "", WEB_disk2= "", WEB_disk3= "", WEB_disk4= "", SPAM_disk1= "", SPAM_disk2= "";
+	String NWCPU_val= "";
+	String NWmemory_val= "";
+	String NSCPU_val= "";
+	String NSmemory_val= "";
+
+	
 
 	String id=request.getParameter("id").trim();
 	System.out.println("?"+id);
@@ -36,6 +42,12 @@
 		
 		SPAM_disk1 = dmzserver.getSPAM_disk1();
 		SPAM_disk2 = dmzserver.getSPAM_disk2();
+		
+		NWCPU_val = dmzserver.getNWCPU_val();
+		NWmemory_val = dmzserver.getNWmemory_val();
+		NSCPU_val = dmzserver.getNSCPU_val();
+		NSmemory_val = dmzserver.getNSmemory_val();
+
 				
 		ifany = dmzserver.getIfany();
 
@@ -70,6 +82,13 @@
 	json.put("SPAM_disk1", SPAM_disk1);
 	json.put("SPAM_disk2", SPAM_disk2);
 	
+	json.put("NWCPU_val", NWCPU_val);
+	json.put("NWmemory_val", NWmemory_val);
+	json.put("NSCPU_val", NSCPU_val);
+	json.put("NSmemory_val", NSmemory_val);
+
+	
+	
 	json.put("ifany", ifany);
 
 	out.print(json);
@@ -99,6 +118,13 @@
 		SPAM_disk1 = param.getString("SPAM_disk1", "");
 		SPAM_disk2 = param.getString("SPAM_disk2", "");
 		
+		NWCPU_val = param.getString("NWCPU_val", "");
+		NWmemory_val = param.getString("NWmemory_val", "");
+		NSCPU_val = param.getString("NSCPU_val", "");
+		NSmemory_val = param.getString("NSmemory_val", "");
+
+		
+		
 		ifany = param.getString("ifany", "");
 
 		if (dmzserver == null) {
@@ -122,8 +148,13 @@
 					WEB_disk3,
 					WEB_disk4,					
 					SPAM_disk1,
-					SPAM_disk2,		
+					SPAM_disk2,	
 					
+					NWCPU_val,
+					NWmemory_val,
+					NSCPU_val,
+					NSmemory_val,
+
 					ifany
 					);
 			System.out.println("인서트!");
@@ -150,6 +181,11 @@
 					WEB_disk4,					
 					SPAM_disk1,
 					SPAM_disk2,		
+					
+					NWCPU_val,
+					NWmemory_val,
+					NSCPU_val,
+					NSmemory_val,
 					
 					ifany
 					);
