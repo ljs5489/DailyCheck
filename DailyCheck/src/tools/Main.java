@@ -6,5 +6,7 @@ public class Main {
 	public static void main(String[] args){
 		System.out.println(GetDate.getDate());	
 		System.out.println(GetDate.changeTimeformat(new Date()));	
+		
+		System.out.println(Integer.parseInt(("84%").replaceAll("%","")));
 	}
 }

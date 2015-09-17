@@ -74,7 +74,8 @@ public class PrecheckDAO {
 			resultSet = statement.executeQuery();
 			if (resultSet.next())
 				precheck = makePrecheck(resultSet);
-		} finally {
+		} 
+		finally {
 			if (resultSet != null)
 				resultSet.close();
 			if (statement != null)

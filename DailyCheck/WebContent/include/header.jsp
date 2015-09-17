@@ -21,7 +21,7 @@
 			<li><a onclick="location.href='page7.jsp'">Netwrok Error</a></li>
 			<li><a onclick="location.href='page8.jsp'">Backup</a></li>
 			<li><a onclick="location.href='print.jsp'">Print</a></li>
-			<li><a onclick="location.href='print2.html'">Statistics</a></li>
+			<li><a onclick="location.href='statistics.jsp'">Statistics</a></li>
 		</ul>
 	</div>
 </div>

@@ -57,12 +57,12 @@
 					<%=Sets.setBlock("a", "WEB_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "WEB_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="WEB_value">Value:</label> <input type="tel"
+						<label for="WEB_value">C_val:</label> <input type="tel"
 							name="WEB_value" id="WEB_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="WEB_value_2">Value2:</label> <input type="tel"
+						<label for="WEB_value_2">M_val:</label> <input type="tel"
 							name="WEB_value_2" id="WEB_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -95,12 +95,12 @@
 					<%=Sets.setBlock("a", "DBM_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "DBM_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="DBM_value">Value:</label> <input type="tel"
+						<label for="DBM_value">C_val:</label> <input type="tel"
 							name="DBM_value" id="DBM_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="DBM_value_2">Value2:</label> <input type="tel"
+						<label for="DBM_value_2">M_val:</label> <input type="tel"
 							name="DBM_value_2" id="DBM_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -131,12 +131,12 @@
 					<%=Sets.setBlock("a", "DEW_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "DEW_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="DEW_value">Value:</label> <input type="tel"
+						<label for="DEW_value">C_val:</label> <input type="tel"
 							name="DEW_value" id="DEW_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="DEW_value_2">Value2:</label> <input type="tel"
+						<label for="DEW_value_2">M_val:</label> <input type="tel"
 							name="DEW_value_2" id="DEW_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -161,12 +161,12 @@
 					<%=Sets.setBlock("a", "MAIL_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "MAIL_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="MAIL_value">Value:</label> <input type="tel"
+						<label for="MAIL_value">C_val:</label> <input type="tel"
 							name="MAIL_value" id="MAIL_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="MAIL_value_2">Value2:</label> <input type="tel"
+						<label for="MAIL_value_2">M_val:</label> <input type="tel"
 							name="MAIL_value_2" id="MAIL_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -196,12 +196,12 @@
 					<%=Sets.setBlock("a", "APP_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "APP_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="APP_value">Value:</label> <input type="tel"
+						<label for="APP_value">C_val:</label> <input type="tel"
 							name="APP_value" id="APP_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="APP_value_2">Value2:</label> <input type="tel"
+						<label for="APP_value_2">M_val:</label> <input type="tel"
 							name="APP_value_2" id="APP_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -231,12 +231,12 @@
 					<%=Sets.setBlock("a", "FAX_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "FAX_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="FAX_value">Value:</label> <input type="tel"
+						<label for="FAX_value">C_val:</label> <input type="tel"
 							name="FAX_value" id="FAX_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="FAX_value_2">Value2:</label> <input type="tel"
+						<label for="FAX_value_2">M_val:</label> <input type="tel"
 							name="FAX_value_2" id="FAX_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -262,12 +262,12 @@
 					<%=Sets.setBlock("a", "ADN_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "ADN_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="ADN_value">Value:</label> <input type="tel"
+						<label for="ADN_value">C_val:</label> <input type="tel"
 							name="ADN_value" id="ADN_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="ADN_value_2">Value2:</label> <input type="tel"
+						<label for="ADN_value_2">M_val:</label> <input type="tel"
 							name="ADN_value_2" id="ADN_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -307,12 +307,12 @@
 					<%=Sets.setBlock("a", "VRS_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "VRS_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="VRS_value">Value:</label> <input type="tel"
+						<label for="VRS_value">C_val:</label> <input type="tel"
 							name="VRS_value" id="VRS_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="VRS_value_2">Value2:</label> <input type="tel"
+						<label for="VRS_value_2">M_val:</label> <input type="tel"
 							name="VRS_value_2" id="VRS_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -343,12 +343,12 @@
 					<%=Sets.setBlock("a", "FILE_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "FILE_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="FILE_value">Value:</label> <input type="tel"
+						<label for="FILE_value">C_val:</label> <input type="tel"
 							name="FILE_value" id="FILE_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="FILE_value_2">Value2:</label> <input type="tel"
+						<label for="FILE_value_2">M_val:</label> <input type="tel"
 							name="FILE_value_2" id="FILE_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -379,12 +379,12 @@
 					<%=Sets.setBlock("a", "DEVN_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "DEVN_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="DEVN_value">Value:</label> <input type="tel"
+						<label for="DEVN_value">C_val:</label> <input type="tel"
 							name="DEVN_value" id="DEVN_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="DEVN_value_2">Value2:</label> <input type="tel"
+						<label for="DEVN_value_2">M_val:</label> <input type="tel"
 							name="DEVN_value_2" id="DEVN_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -415,12 +415,12 @@
 					<%=Sets.setBlock("a", "MSVM1_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "MSVM1_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="MSVM1_value">Value:</label> <input type="tel"
+						<label for="MSVM1_value">C_val:</label> <input type="tel"
 							name="MSVM1_value" id="MSVM1_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="MSVM1_value_2">Value2:</label> <input type="tel"
+						<label for="MSVM1_value_2">M_val:</label> <input type="tel"
 							name="MSVM1_value_2" id="MSVM1_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -464,12 +464,12 @@
 					<%=Sets.setBlock("a", "MSVM2_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "MSVM2_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="MSVM2_value">Value:</label> <input type="tel"
+						<label for="MSVM2_value">C_val:</label> <input type="tel"
 							name="MSVM2_value" id="MSVM2_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="MSVM2_value_2">Value2:</label> <input type="tel"
+						<label for="MSVM2_value_2">M_val:</label> <input type="tel"
 							name="MSVM2_value_2" id="MSVM2_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -512,12 +512,12 @@
 					<%=Sets.setBlock("a", "LYNC_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "LYNC_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="LYNC_value">Value:</label> <input type="tel"
+						<label for="LYNC_value">C_val:</label> <input type="tel"
 							name="LYNC_value" id="LYNC_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="LYNC_value_2">Value2:</label> <input type="tel"
+						<label for="LYNC_value_2">M_val:</label> <input type="tel"
 							name="LYNC_value_2" id="LYNC_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -547,12 +547,12 @@
 					<%=Sets.setBlock("a", "ADV1_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "ADV1_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="ADV1_value">Value:</label> <input type="tel"
+						<label for="ADV1_value">C_val:</label> <input type="tel"
 							name="ADV1_value" id="ADV1_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="ADV1_value_2">Value2:</label> <input type="tel"
+						<label for="ADV1_value_2">M_val:</label> <input type="tel"
 							name="ADV1_value_2" id="ADV1_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
@@ -577,12 +577,12 @@
 					<%=Sets.setBlock("a", "ADV2_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "ADV2_memory", "Y", "N", true)%>
 					<div class="ui-block-c">
-						<label for="ADV2_value">Value:</label> <input type="tel"
+						<label for="ADV2_value">C_val:</label> <input type="tel"
 							name="ADV2_value" id="ADV2_value" data-clear-btn="true"
 							data-mini="true">
 					</div>
 					<div class="ui-block-d">
-						<label for="ADV2_value_2">Value2:</label> <input type="tel"
+						<label for="ADV2_value_2">M_val:</label> <input type="tel"
 							name="ADV2_value_2" id="ADV2_value_2" data-mini="true"
 							data-clear-btn="true">
 					</div>
