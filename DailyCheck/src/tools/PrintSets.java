@@ -1,11 +1,12 @@
 package tools;
 
 public class PrintSets {
-	public static String getTd(String arr[]){
+	public static String getTd(int index, String arr[]){
 		String returnIt="";
 		
 		for(int i=0;i<arr.length;i++){
-			returnIt+="<td>"+arr[i]+"</td>";
+			if(i+1==index) returnIt+=arr[i];
+			else returnIt+="<td>"+arr[i]+"</td>";
 		}
 		return returnIt;		
 	}
@@ -45,7 +46,7 @@ public class PrintSets {
 		returnIt+="	<table cellspacing='0' cellpadding='0' class='top2'";
 		returnIt+="	style='width: 100%; margin-bottom: 0px;'>";
 		returnIt+=" <colgroup> <col width='10%' /> <col width='90%' /> </colgroup> </table> </div>";
-		returnIt+=" <div style='width: 50%;' class='f_r'> </div> </div> <br /><br />";
+		returnIt+=" <div style='width: 50%;' class='f_r'> </div> </div> <br />";
 		returnIt+=" <table width='100%' cellpadding='0' cellspacing='0' class='title'>";
 		returnIt+=" <colgroup> <col width='65%' /> <col width='35%' /> </colgroup> <tr>";
 		returnIt+=" <td><h2>●"+name+" ( "+checker+" ) : ( "+checkTime+" )</hs2></td>";
@@ -67,11 +68,24 @@ public class PrintSets {
 		
 		}
 	}
-	public static String whenOver65(String val){
-		System.out.println(val);
+	public static String setC(String val){
+		//System.out.println(val);
+		try{
+			String temp=(val).replaceAll("ºC","");
+			return temp+"ºC";
+			
+		}
+		catch(Exception e){
+			return val;
+			
+		}
+	
+	}
+	public static String whenOverLimit(String val,int limit){
+		//System.out.println(val);
 		try{
 			Integer temp=Integer.parseInt((val).replaceAll("%",""));
-			if(temp>=65){
+			if(temp>=limit){
 				return "<b><u>"+temp+"%</u></b>";
 			}
 			else return temp+"%";	
@@ -83,23 +97,36 @@ public class PrintSets {
 		}
 	
 	}
+	public static String setTable(int count, String arr[]){
+		String returnIt="";		
+
+		returnIt+="	<table cellspacing='0' cellpadding='0' class='innerTable'"
+				+ "<tr><td>"+arr[0]+" /</td><td>"+arr[1]+" /</td><td rowspan='"+count+"'> "+"%"+"</td></tr>";
+				for(int i=1;i<count;i++){
+					returnIt+= "<tr><td>"+arr[2*i]+" /</td><td>"+arr[2*i+1]+" /</td></tr>";
+					
+				}
+		returnIt+=" </table>";
+		
+		return returnIt;
+	}
 	
 	public static String getFooter(){
-		String returnIt="<br /></div>";
+		String returnIt="</div>";
 		return returnIt;	
 	}
 	
 	public static String onToGood(String on){
 		if((on).equals("on")) return "Good";
-		else return "Bad";		
+		else return "<b><u>Bad</u></b>";		
 	}
 	public static String onToY(String on){
 		if((on).equals("on")) return "Y";
-		else return "N";		
+		else return "<b><u>N</u></b>";		
 	}
 	public static String onToN(String on){
 		if((on).equals("on")) return "N";
-		else return "A";		
+		else return "<b><u>A</u></b>";		
 	}
 	public static String timeFormat(String time){
 		if((time).equals("")) return " : ";
