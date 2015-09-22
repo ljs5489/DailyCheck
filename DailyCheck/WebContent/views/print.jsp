@@ -6,7 +6,7 @@
 
 try{
 
-String theDate="2015-09-22";
+String theDate="2015-09-23";
 Precheck precheck = PrecheckDAO.selectById(theDate);
 Server server = ServerDAO.selectById(theDate);
 Mobileserver mobileserver = MobileserverDAO.selectById(theDate);

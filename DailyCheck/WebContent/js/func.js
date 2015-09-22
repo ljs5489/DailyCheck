@@ -49,12 +49,10 @@ $(function() {
 	});
 	$("#myGet").on('click', function() {
 		getWithAjax();
-		//$('#popup').trigger('click');
 
 	});
 	$("#myPost").on('click', function() {
 		postWithAjax();
-		//$('#popup').trigger('click');
 	});
 
 

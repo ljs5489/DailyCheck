@@ -54,7 +54,7 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
             id : $("input[name='mydate']").val()
         },
 		success : function(data) {
-		    console.log("get성공");  
+		    //console.log("get성공");  
 			$("#checktime").val(data.checktime).textinput('refresh');
 			$("#checker").val(data.checker).selectmenu('refresh');			
 			$("#trunk").val(data.trunk).flipswitch("refresh");	

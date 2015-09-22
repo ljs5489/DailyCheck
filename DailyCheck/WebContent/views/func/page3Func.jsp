@@ -143,7 +143,7 @@
 	//PrintWriter out= response.getWriter();  
 	JSONObject json = new JSONObject();
 	json.put("checktime", checktime);
-	System.out.println("check: " + checktime);
+	//System.out.println("check: " + checktime);
 	json.put("checker", checker);
 
 	json.put("MOBH1_CPU", MOBH1_CPU);
