@@ -5,9 +5,7 @@
 <head>
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/page5Ajax.js"></script>
-<script>
-$(function(){ getWithAjax(); });
-</script>
+
 </head>
 <body>
 

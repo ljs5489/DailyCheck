@@ -7,11 +7,7 @@
 <script src="../js/page4Ajax.js"></script>
 <script src="../js/diskUsage.js"></script>
 
-<script>
-	$(function() {
-		getWithAjax();
-	});
-</script>
+
 
 <style>
 .diskUsage {

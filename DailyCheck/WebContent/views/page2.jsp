@@ -8,7 +8,6 @@
 <script src="../js/diskUsage.js"></script>
 <script>
 	$(function() {
-		getWithAjax();
 		$('#nav1').trigger('click');
 	})
 </script>

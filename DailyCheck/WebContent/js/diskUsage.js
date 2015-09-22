@@ -7,5 +7,4 @@ $(function() {
 			$(".diskUsage").hide();
 		}
 	});//HERE
-	getWithAjax();
 })

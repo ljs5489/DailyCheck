@@ -158,12 +158,6 @@
 
 		ifany = param.getString("ifany", "");
 
-		/*
-		PrecheckDAO.updateInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
-				images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature, WEtime,
-				WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon, EMtemperature,
-				EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
-		*/
 		if (precheck == null) {
 			PrecheckDAO.insertInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
 					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
