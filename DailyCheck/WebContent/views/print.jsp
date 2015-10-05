@@ -124,7 +124,7 @@ Backup backup = BackupDAO.selectById(theDate);
 						precheck.getIndexsize()})%>
 				</tr>
 				<tr>
-					<td rowspan="2"><b>IT ROOM(W)</b></td>
+					<td rowspan="1"><b>IT ROOM(W)</b></td>
 					<%=PrintSets.getTd(0, new String[] { 
 							"<b>State( "+PrintSets.timeFormat(precheck.getWMtime())+" )</b>", 
 							PrintSets.onToGood(precheck.getWMstate()), 
@@ -134,17 +134,9 @@ Backup backup = BackupDAO.selectById(theDate);
 							PrintSets.onToN(precheck.getWMpump()) })
 					%>
 				</tr>
-				<tr><%=PrintSets.getTd(0, new String[] { 
-						"<b>State( "+PrintSets.timeFormat(precheck.getWEtime())+" )</b>", 
-						PrintSets.onToGood(precheck.getWEstate()), 
-						"<b>Aircon</b>", 
-						PrintSets.onToN(precheck.getWEaircon())+" / "+PrintSets.setC(precheck.getWEtemperature()), 
-						"<b>Water Pump</b>", 
-						PrintSets.onToN(precheck.getWEpump()) })
-					%>
-				</tr>
+
 				<tr>
-					<td rowspan="2"><b>IT ROOM(E)</b></td>
+					<td rowspan="1"><b>IT ROOM(E)</b></td>
 					<%=PrintSets.getTd(0, new String[] { 
 							"<b>State( "+PrintSets.timeFormat(precheck.getEMtime())+" )</b>", 
 							PrintSets.onToGood(precheck.getEMstate()), 
@@ -155,23 +147,15 @@ Backup backup = BackupDAO.selectById(theDate);
 						})
 					%>
 				</tr>
-				<tr><%=PrintSets.getTd(0, new String[] { 
-						"<b>State( "+PrintSets.timeFormat(precheck.getEEtime())+" )</b>", 
-						PrintSets.onToGood(precheck.getEEstate()), 
-						"<b>Aircon</b>", 
-						PrintSets.onToN(precheck.getEEaircon())+" / "+PrintSets.setC(precheck.getEEtemperature()), 
-						"<b>Water Pump</b>", 
-						PrintSets.onToN(precheck.getEEpump()) 
-						})
-					%>
-				</tr>
+
 				<tr><td><b>If Any</b></td><td colspan="6"><%= precheck.getIfany() %></td></tr>	
 			</tbody>
 		</table>
 		<p style="margin:0px; font-size:8px;">※ N(Normal)/A(Abnormal), Y(Normal)/N(Not Normal)</p>
 		<%= PrintSets.getFooter() %>
 
-		 
+		 <br/><br/>
+		
 		<%= PrintSets.getWrap() %>
 		<%= PrintSets.getHeader("Servers", "Min Park",
 				PrintSets.timeFormat(server.getCheckTime()), 
@@ -207,6 +191,7 @@ Backup backup = BackupDAO.selectById(theDate);
 		</table>
 		<%= PrintSets.getFooter() %>
 		
+
 <div class="page-break"></div>
 
 		<%= PrintSets.getWrap() %>

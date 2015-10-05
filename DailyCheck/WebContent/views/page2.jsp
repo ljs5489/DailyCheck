@@ -494,14 +494,6 @@
 						<%=Sets.setText("b", "MSVM2_disk6", "tel")%>
 					</div>
 
-					<div class="ui-grid-a">
-						<%=Sets.setText("a", "MSVM2_disk7", "tel")%>
-						<%=Sets.setText("b", "MSVM2_disk8", "tel")%>
-					</div>
-					<div class="ui-grid-a">
-						<%=Sets.setText("a", "MSVM2_disk9", "tel")%>
-						<%=Sets.setText("b", "MSVM2_disk10", "tel")%>
-					</div>
 				</div>
 				<br />
 

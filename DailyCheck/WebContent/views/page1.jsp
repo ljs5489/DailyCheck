@@ -59,12 +59,12 @@
 
 				<br /> <br />
 
-				<h3>IT ROOM(West)</h3>
+				<h3>IT ROOM</h3>
 				<hr />
 				<!-- IT ROOM (W) set -->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<h2>Morning</h2>
+						<h2>West</h2>
 					</div>
 					<div class="ui-block-b">
 						<label for="WMtime">Time:</label> <input type="tel" name="WMtime"
@@ -82,35 +82,10 @@
 
 				</div>
 				<!-- /IT ROOM (W) set -->
-				<!-- IT ROOM (W) set -->
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-						<h2>Afternoon</h2>
-					</div>
-					<div class="ui-block-b">
-						<label for="WEtime">Time:</label> <input type="tel" name="WEtime"
-							id="WEtime" data-clear-btn="true" onclick="setTime($(this))">
-					</div>
-				</div>
-				<div class="ui-grid-c">
-					<%=Sets.setBlock("a", "WEstate", "Good", "Bad", true)%>
-					<%=Sets.setBlock("b", "WEpump", "N", "A", true)%>
-					<%=Sets.setBlock("c", "WEaircon", "N", "A", true)%>
-					<div class="ui-block-d">
-						<label for="WEtemperature">Temperature:</label> <input type="tel"
-							name="WEtemperature" id="WEtemperature" data-clear-btn="true">
-					</div>
-
-				</div>
-				<!-- /IT ROOM (W) set -->
-				<br /> <br />
-
-				<h3>IT ROOM(East)</h3>
-				<hr />
 				<!-- IT ROOM (E) set -->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<h2>Morning</h2>
+						<h2>East</h2>
 					</div>
 					<div class="ui-block-b">
 						<label for="EMtime">Time:</label> <input type="tel" name="EMtime"
@@ -126,32 +101,10 @@
 						<label for="EMtemperature">Temperature:</label> <input type="tel"
 							name="EMtemperature" id="EMtemperature" data-clear-btn="true">
 					</div>
-
 				</div>
 				<!-- /IT ROOM (E) set -->
 
-				<!-- IT ROOM (E) set -->
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-						<h2>Afternoon</h2>
-					</div>
-					<div class="ui-block-b">
-						<label for="EEtime">Time:</label> <input type="tel" name="EEtime"
-							id="EEtime" data-clear-btn="true" onclick="setTime($(this))">
-					</div>
-				</div>
-				<!-- IT ROOM (E) set -->
-				<div class="ui-grid-c">
-					<%=Sets.setBlock("a", "EEstate", "Good", "Bad", true)%>
-					<%=Sets.setBlock("b", "EEpump", "N", "A", true)%>
-					<%=Sets.setBlock("c", "EEaircon", "N", "A", true)%>
-					<div class="ui-block-d">
-						<label for="EEtemperature">Temperature:</label> <input type="tel"
-							name="EEtemperature" id="EEtemperature" data-clear-btn="true">
-					</div>
-
-				</div>
-				<!-- /IT ROOM (E) set -->
+			
 				<div class="ui-field-contain">
 					<label for="info">If Any:</label>
 					<textarea name="ifany" id="ifany"></textarea>

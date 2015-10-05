@@ -1,0 +1,147 @@
+	<!-- IT ROOM (W) set -->
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<h2>Afternoon</h2>
+				</div>
+				<div class="ui-block-b">
+					<label for="WEtime">Time:</label> <input type="tel" name="WEtime"
+						id="WEtime" data-clear-btn="true" onclick="setTime($(this))">
+				</div>
+			</div>
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "WEstate", "Good", "Bad", true)%>
+				<%=Sets.setBlock("b", "WEpump", "N", "A", true)%>
+				<%=Sets.setBlock("c", "WEaircon", "N", "A", true)%>
+				<div class="ui-block-d">
+					<label for="WEtemperature">Temperature:</label> <input type="tel"
+						name="WEtemperature" id="WEtemperature" data-clear-btn="true">
+				</div>
+
+			</div>
+			<!-- /IT ROOM (W) set -->
+
+
+
+
+
+
+
+
+
+
+<!-- IT ROOM (E) set -->
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<h2>Afternoon</h2>
+				</div>
+				<div class="ui-block-b">
+					<label for="EEtime">Time:</label> <input type="tel" name="EEtime"
+						id="EEtime" data-clear-btn="true" onclick="setTime($(this))">
+				</div>
+			</div>
+			<!-- IT ROOM (E) set -->
+			<div class="ui-grid-c">
+				<%=Sets.setBlock("a", "EEstate", "Good", "Bad", true)%>
+				<%=Sets.setBlock("b", "EEpump", "N", "A", true)%>
+				<%=Sets.setBlock("c", "EEaircon", "N", "A", true)%>
+				<div class="ui-block-d">
+					<label for="EEtemperature">Temperature:</label> <input type="tel"
+						name="EEtemperature" id="EEtemperature" data-clear-btn="true">
+				</div>
+
+			</div>
+			<!-- /IT ROOM (E) set -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			===========================================back up
+				<h3>IT ROOM(West)</h3>
+				<hr />
+				<!-- IT ROOM (W) set -->
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<h2>Morning</h2>
+					</div>
+					<div class="ui-block-b">
+						<label for="WMtime">Time:</label> <input type="tel" name="WMtime"
+							id="WMtime" data-clear-btn="true" onclick="setTime($(this))">
+					</div>
+				</div>
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "WMstate", "Good", "Bad", true)%>
+					<%=Sets.setBlock("b", "WMpump", "N", "A", true)%>
+					<%=Sets.setBlock("c", "WMaircon", "N", "A", true)%>
+					<div class="ui-block-d">
+						<label for="WMtemperature">Temperature:</label> <input type="tel"
+							name="WMtemperature" id="WMtemperature">
+					</div>
+
+				</div>
+				<!-- /IT ROOM (W) set -->
+			
+				<br /> <br />
+
+				<h3>IT ROOM(East)</h3>
+				<hr />
+				<!-- IT ROOM (E) set -->
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<h2>Morning</h2>
+					</div>
+					<div class="ui-block-b">
+						<label for="EMtime">Time:</label> <input type="tel" name="EMtime"
+							id="EMtime" data-clear-btn="true" onclick="setTime($(this))">
+					</div>
+				</div>
+				<!-- IT ROOM (E) set -->
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "EMstate", "Good", "Bad", true)%>
+					<%=Sets.setBlock("b", "EMpump", "N", "A", true)%>
+					<%=Sets.setBlock("c", "EMaircon", "N", "A", true)%>
+					<div class="ui-block-d">
+						<label for="EMtemperature">Temperature:</label> <input type="tel"
+							name="EMtemperature" id="EMtemperature" data-clear-btn="true">
+					</div>
+				</div>
+				<!-- /IT ROOM (E) set -->
+				
+				
+				
+				
+				
+				
+				=========================================================
+				
+								<tr><%=PrintSets.getTd(0, new String[] { 
+						"<b>State( "+PrintSets.timeFormat(precheck.getWEtime())+" )</b>", 
+						PrintSets.onToGood(precheck.getWEstate()), 
+						"<b>Aircon</b>", 
+						PrintSets.onToN(precheck.getWEaircon())+" / "+PrintSets.setC(precheck.getWEtemperature()), 
+						"<b>Water Pump</b>", 
+						PrintSets.onToN(precheck.getWEpump()) })
+					%>
+				</tr>
+				
+				
+								<tr><%=PrintSets.getTd(0, new String[] { 
+						"<b>State( "+PrintSets.timeFormat(precheck.getEEtime())+" )</b>", 
+						PrintSets.onToGood(precheck.getEEstate()), 
+						"<b>Aircon</b>", 
+						PrintSets.onToN(precheck.getEEaircon())+" / "+PrintSets.setC(precheck.getEEtemperature()), 
+						"<b>Water Pump</b>", 
+						PrintSets.onToN(precheck.getEEpump()) 
+						})
+					%>
+				</tr>
