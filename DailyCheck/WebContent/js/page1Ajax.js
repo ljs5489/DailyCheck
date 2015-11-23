@@ -18,7 +18,12 @@ function postWithAjax() {
 		links : $("#links").val(),
 		bbs : $("#bbs").val(),
 		indexsize : $("#indexsize").val(),
-
+		
+		tra1time : $("#tra1time").val(),
+		tra1val : $("#tra1val").val(),
+		tra2time : $("#tra2time").val(),
+		tra2val : $("#tra2val").val(),
+		
 		WMtime : $("#WMtime").val(),
 		WMstate : $("#WMstate").val(),
 		WMpump : $("#WMpump").val(),
@@ -79,6 +84,11 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#links").val(data.links).flipswitch("refresh");
 			$("#bbs").val(data.bbs).flipswitch("refresh");
 			$("#indexsize").val(data.indexsize).textinput('refresh');
+			
+			$("#tra1time").val(data.tra1time).textinput('refresh');
+			$("#tra1val").val(data.tra1val).textinput('refresh');
+			$("#tra2time").val(data.tra2time).textinput('refresh');
+			$("#tra2val").val(data.tra2val).textinput('refresh');
 
 			$("#WMtime").val(data.WMtime).textinput('refresh');
 			$("#WMstate").val(data.WMstate).flipswitch("refresh");

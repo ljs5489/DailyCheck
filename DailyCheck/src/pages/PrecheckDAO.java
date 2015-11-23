@@ -28,6 +28,14 @@ public class PrecheckDAO {
 		precheck.setBbs(resultSet.getString("bbs"));
 		precheck.setIndexsize(resultSet.getString("indexsize"));
 
+		precheck.setTra1time(resultSet.getString("tra1time"));
+		precheck.setTra1val(resultSet.getString("tra1val"));
+		precheck.setTra2time(resultSet.getString("tra2time"));
+		precheck.setTra2val(resultSet.getString("tra2val"));		
+		
+		System.out.println(resultSet.getString("tra1time"));
+		System.out.println(resultSet.getString("tra1val"));
+
 		precheck.setWMtime(resultSet.getString("WMtime"));
 		precheck.setWMstate(resultSet.getString("WMstate"));
 		precheck.setWMpump(resultSet.getString("WMpump"));
@@ -91,7 +99,7 @@ public class PrecheckDAO {
 			String bbs, String indexsize, String WMtime, String WMstate, String WMpump, String WMaircon,
 			String WMtemperature, String WEtime, String WEstate, String WEpump, String WEaircon, String WEtemperature,
 			String EMtime, String EMstate, String EMpump, String EMaircon, String EMtemperature, String EEtime,
-			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany) throws Exception {
+			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany, String tra1time, String tra1val, String tra2time, String tra2val) throws Exception {
 		Precheck precheck = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -105,9 +113,11 @@ public class PrecheckDAO {
 					+ ",WMstate	,WMpump ,WMaircon ,WMtemperature ,WEtime "
 					+ ",WEstate	,WEpump ,WEaircon ,WEtemperature ,EMtime "
 					+ ",EMstate	,EMpump ,EMaircon ,EMtemperature ,EEtime "
-					+ ",EEstate	,EEpump ,EEaircon ,EEtemperature ,ifany) " + "VALUES (" + "?, ?, ?, ?, ?, "
+					+ ",EEstate	,EEpump ,EEaircon ,EEtemperature ,ifany"
+					+ ",tra1time,tra1val ,tra2time ,tra2val"
+					+ ") " + "VALUES (" + "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, "
-					+ "?, ?, ?, ?, ?, ?)";
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
@@ -154,6 +164,14 @@ public class PrecheckDAO {
 			statement.setString(35, EEtemperature);
 
 			statement.setString(36, ifany);
+			
+			statement.setString(37, tra1time);
+			statement.setString(38, tra1val);
+			statement.setString(39, tra2time);
+			statement.setString(40, tra2val);
+			
+			
+			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -170,7 +188,7 @@ public class PrecheckDAO {
 			String bbs, String indexsize, String WMtime, String WMstate, String WMpump, String WMaircon,
 			String WMtemperature, String WEtime, String WEstate, String WEpump, String WEaircon, String WEtemperature,
 			String EMtime, String EMstate, String EMpump, String EMaircon, String EMtemperature, String EEtime,
-			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany) throws Exception {
+			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany, String tra1time, String tra1val, String tra2time, String tra2val) throws Exception {
 		Precheck precheck = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -214,7 +232,12 @@ public class PrecheckDAO {
 					+"[EEpump]=?,"
 					+"[EEaircon]=?,"
 					+"[EEtemperature]=?,"
-					+"[ifany]=?"
+					+"[ifany]=?,"
+					+"[tra1time]=?,"
+					+"[tra1val]=?,"
+					+"[tra2time]=?,"
+					+"[tra2val]=?"				
+					
 					+" WHERE [id]=?";
 
 			statement = connection.prepareStatement(sql);
@@ -253,8 +276,11 @@ public class PrecheckDAO {
 			statement.setString(33,EEaircon);
 			statement.setString(34,EEtemperature);
 			statement.setString(35,ifany);
-			statement.setString(36,id);
-
+			statement.setString(36,tra1time);
+			statement.setString(37,tra1val);
+			statement.setString(38,tra2time);
+			statement.setString(39,tra2val);						
+			statement.setString(40,id);
 			
 			System.out.println(sql);
 			statement.executeUpdate();

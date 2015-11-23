@@ -11,7 +11,7 @@ public class DB {
 	//private static String USER_ID = "sa";
 	//private static String USER_PASSWORD = "test123";
 	private static String USER_ID = "jslee";
-	private static String USER_PASSWORD = "1q2w3e1#";
+	private static String USER_PASSWORD = "1q2w3e1#e361299";
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER_NAME);

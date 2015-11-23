@@ -6,6 +6,7 @@
 <%
 	String checktime = "", checker = "", ars = "", mail = "", fax = "", vrs = "", messanger = "",
 			leaseloan = "", visual = "", images = "", font = "", links = "", bbs = "", indexsize = "",
+			tra1time = "", tra1val = "", tra2time = "", tra2val = "",
 			WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "",
 			WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "",
 			EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
@@ -36,6 +37,11 @@
 
 		bbs = precheck.getBbs();
 		indexsize = precheck.getIndexsize();
+		
+		tra1time = precheck.getTra1time();
+		tra1val = precheck.getTra1val();
+		tra2time = precheck.getTra2time();
+		tra2val = precheck.getTra2val();
 
 		WMtime = precheck.getWMtime();
 		WMstate = precheck.getWMstate();
@@ -87,6 +93,12 @@
 	json.put("links", links);
 	json.put("bbs", bbs);
 	json.put("indexsize", indexsize);
+	
+	json.put("tra1time", tra1time);
+	json.put("tra1val", tra1val);
+	json.put("tra2time", tra2time);
+	json.put("tra2val", tra2val);	
+	
 	json.put("WMtime", WMtime);
 	json.put("WMstate", WMstate);
 	json.put("WMpump", WMpump);
@@ -131,6 +143,11 @@
 		links = param.getString("links", "");
 		bbs = param.getString("bbs", "");
 		indexsize = param.getString("indexsize", "");
+		
+		tra1time = param.getString("tra1time", "");
+		tra1val = param.getString("tra1val", "");
+		tra2time = param.getString("tra2time", "");
+		tra2val = param.getString("tra2val", "");
 
 		WMtime = param.getString("WMtime", "");
 		WMstate = param.getString("WMstate", "");
@@ -162,14 +179,14 @@
 			PrecheckDAO.insertInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
 					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
 					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
+					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val);
 			System.out.println("인서트!");
 		} else {
 			//update	
 			PrecheckDAO.updateInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
 					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
 					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany);
+					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val);
 
 			System.out.println("업데이트!");
 		}

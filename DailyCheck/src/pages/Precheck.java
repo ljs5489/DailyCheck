@@ -18,6 +18,11 @@ public class Precheck {
 	private String links;
 	private String bbs;
 	private String indexsize;
+	
+	private String tra1time;
+	private String tra1val;
+	private String tra2time;
+	private String tra2val;	
 
 	private String WMtime;
 	private String WMstate;
@@ -332,4 +337,40 @@ public class Precheck {
 	public void setIfany(String ifany) {
 		this.ifany = ifany;
 	}
+
+	public String getTra1time() {
+		return tra1time;
+	}
+
+	public void setTra1time(String tra1time) {
+		this.tra1time = tra1time;
+	}
+
+	public String getTra1val() {
+		return tra1val;
+	}
+
+	public void setTra1val(String tra1val) {
+		this.tra1val = tra1val;
+	}
+
+	public String getTra2time() {
+		return tra2time;
+	}
+
+	public void setTra2time(String tra2time) {
+		this.tra2time = tra2time;
+	}
+
+	public String getTra2val() {
+		return tra2val;
+	}
+
+	public void setTra2val(String tra2val) {
+		this.tra2val = tra2val;
+	}
+	
+	
+	
+	
 }

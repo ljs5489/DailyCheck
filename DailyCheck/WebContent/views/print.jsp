@@ -6,7 +6,7 @@
 
 try{
 
-String theDate="2015-09-23";
+String theDate="2015-11-23";
 Precheck precheck = PrecheckDAO.selectById(theDate);
 Server server = ServerDAO.selectById(theDate);
 Mobileserver mobileserver = MobileserverDAO.selectById(theDate);
@@ -111,7 +111,7 @@ Backup backup = BackupDAO.selectById(theDate);
 						PrintSets.onToGood(precheck.getLeaseloan())})%>
 				</tr>
 				<tr>
-					<td rowspan="2"><b>Homepage</b></td>
+					<td rowspan="3"><b>Homepage</b></td>
 					<%=PrintSets.getTd(0, new String[] { "<b>Visual Inspection</b>", "<b>Image</b>", "<b>Font</b>", "<b>Link(5 Test)</b>",
 					"<b>BBS(Notice)</b>", "<b>Index.asp(Size)</b>" })%>
 				</tr>
@@ -122,6 +122,12 @@ Backup backup = BackupDAO.selectById(theDate);
 						PrintSets.onToY(precheck.getLinks()),
 						PrintSets.onToY(precheck.getBbs()), 
 						precheck.getIndexsize()})%>
+				</tr>
+				<tr>
+					<td colspan="2"><b>Internet Traffic( <%= precheck.getTra1time() %> )</b></td>					
+					<td><%= precheck.getTra1val() %>MB</td>					
+					<td colspan="2"><b>Internet Traffic( <%= precheck.getTra2time() %> )</b></td>						
+					<td><%= precheck.getTra2val() %>MB</td>		
 				</tr>
 				<tr>
 					<td rowspan="1"><b>IT ROOM(W)</b></td>
@@ -300,7 +306,7 @@ Backup backup = BackupDAO.selectById(theDate);
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Internet Speed</b>", "http://speed.nia.or.kr", networkerr.getInternet_spd()+" / "+networkerr.getInternet_spd_2()+" Mbps", "<b>Traffic (IDC)</b>", "IDC Homepage", networkerr.getTraffic_IDC()+" / "+networkerr.getTraffic_IDC_2()+" Mbps" })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Internet Traffic</b>", "http://e-robot.skbroadband.com", networkerr.getInternet_traffic()+" / "+networkerr.getInternet_traffic_2()+" Mbps", "<b>Firm-Banking</b>", "Balance List", PrintSets.onToY(networkerr.getFirm_banking()) })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>VPN</b>", "Status - 10.1.212.254", PrintSets.onToY(networkerr.getVpn_254()), "<b>VPN</b>", "Status - 10.1.208.31", PrintSets.onToY(networkerr.getVpn_31()) })%></tr>
-				<tr><%=PrintSets.getTd(0, new String[] { "<b>VPN</b>", "Status - 10.1.212.200", PrintSets.onToY(networkerr.getVpn_200()), "<b>VPN</b>", "Status - 10.1.208.21", PrintSets.onToY(networkerr.getVpn_21()) })%></tr>
+				<tr><%=PrintSets.getTd(0, new String[] { "<b>VPN</b>", "Status - 101.1.209.200", PrintSets.onToY(networkerr.getVpn_200()), "<b>VPN</b>", "Status - 10.1.209.21", PrintSets.onToY(networkerr.getVpn_21()) })%></tr>
 				<tr><td><b>If Any</b></td><td colspan="5"><%= networkerr.getIfany() %></td></tr>
 			</tbody>
 		</table>
