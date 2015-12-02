@@ -1,7 +1,21 @@
 package tools;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Sets {
+	public static String changeFormatYYYYMMDD(String date){
+		return date.replaceFirst("(\\d{4})(\\d{2})(\\d{2})", "$1-$2-$3");	
+	}
+	public static String getToday() {
+		Date date = new Date();
+		return new SimpleDateFormat("yyyyMMdd").format(date);
+		
+		
+	}
+	
+	
+	
 	public static String setWH(String w,String h){
 		return "Style='width:"+w+"px; height;"+h+"px;'";		
 	}

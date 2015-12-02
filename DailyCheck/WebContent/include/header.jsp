@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="tools.GetDate"%>
+<%@ page import="tools.*"%>
 <!-- 반드시 패키지 안에 있어야 함. -->
+
+<%
+String today = Sets.getToday();
+//today="20151201";
+%>
 
 <div data-role="header" data-theme="b">
 	<h1><input id="mydate" name="mydate" style="text-align:center;" readonly/></h1>
@@ -20,7 +25,7 @@
 			<li><a onclick="location.href='page6.jsp'">IPT</a></li>
 			<li><a onclick="location.href='page7.jsp'">Netwrok Error</a></li>
 			<li><a onclick="location.href='page8.jsp'">Backup</a></li>
-			<li><a onclick="location.href='print.jsp'">Print</a></li>
+			<li><a onclick="location.href='print.jsp?date=<%= today %>'">Print</a></li>
 			<li><a onclick="location.href='statistics.jsp'">Statistics</a></li>
 		</ul>
 	</div>

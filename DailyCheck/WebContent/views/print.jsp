@@ -6,7 +6,17 @@
 
 try{
 
-String theDate="2015-11-23";
+String theDate="";
+try{
+	theDate = request.getParameter("date");
+	theDate=Sets.changeFormatYYYYMMDD(theDate);
+}
+catch(Exception e){
+	theDate=Sets.getToday();
+	//System.out.println("!"+theDate);
+}
+
+
 Precheck precheck = PrecheckDAO.selectById(theDate);
 Server server = ServerDAO.selectById(theDate);
 Mobileserver mobileserver = MobileserverDAO.selectById(theDate);
@@ -160,7 +170,7 @@ Backup backup = BackupDAO.selectById(theDate);
 		<p style="margin:0px; font-size:8px;">※ N(Normal)/A(Abnormal), Y(Normal)/N(Not Normal)</p>
 		<%= PrintSets.getFooter() %>
 
-		 <br/><br/>
+		 <br/>
 		
 		<%= PrintSets.getWrap() %>
 		<%= PrintSets.getHeader("Servers", "Min Park",

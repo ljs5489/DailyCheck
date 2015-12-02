@@ -53,29 +53,33 @@
 					<div class="ui-block-c">
 						<label for="indexsize">Index.asp(Size):</label> <input type="tel"
 							name="indexsize" id="indexsize" data-clear-btn="true">
-					</div>			
+					</div>
 
 				</div>
 				<div class="ui-grid-c">
 					<div class="ui-block-a">
-						<label for="tra1time">Time(AM):</label> <input type="tel" name="tra1time"
-							id="tra1time" data-mini="true" data-clear-btn="true" onclick="setTime($(this))">
+						<label for="tra1time">Time(AM):</label> <input type="tel"
+							name="tra1time" id="tra1time" data-mini="true"
+							data-clear-btn="true" onclick="setTime($(this))">
 					</div>
 					<div class="ui-block-b">
-						<label for="tra1val">Traffic(MB):</label> <input type="tel" name="tra1val"
-							id="tra1val" data-mini="true" data-clear-btn="true">
+						<label for="tra1val">Traffic(MB):</label> <input type="tel"
+							name="tra1val" id="tra1val" data-mini="true"
+							data-clear-btn="true">
 					</div>
 					<div class="ui-block-c">
-						<label for="tra2time">Time(PM):</label> <input type="tel" name="tra2time"
-							id="tra2time" data-mini="true" data-clear-btn="true" onclick="setTime($(this))">
+						<label for="tra2time">Time(PM):</label> <input type="tel"
+							name="tra2time" id="tra2time" data-mini="true"
+							data-clear-btn="true" onclick="setTime($(this))">
 					</div>
 					<div class="ui-block-d">
-						<label for="tra2val">Traffic(MB):</label> <input type="tel" name="tra2val"
-							id="tra2val" data-mini="true" data-clear-btn="true">
+						<label for="tra2val">Traffic(MB):</label> <input type="tel"
+							name="tra2val" id="tra2val" data-mini="true"
+							data-clear-btn="true">
 					</div>
 				</div>
-					
-				</div>
+
+
 				<!-- /HomePage set -->
 
 				<br /> <br />
@@ -124,8 +128,8 @@
 					</div>
 				</div>
 				<!-- /IT ROOM (E) set -->
-				<br/><br/>
-			
+				<br /> <br />
+
 				<div class="ui-field-contain">
 					<label for="info">If Any:</label>
 					<textarea name="ifany" id="ifany"></textarea>
