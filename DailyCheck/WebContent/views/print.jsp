@@ -140,7 +140,7 @@ Backup backup = BackupDAO.selectById(theDate);
 					<td><%= precheck.getTra2val() %>MB</td>		
 				</tr>
 				<tr>
-					<td rowspan="1"><b>IT ROOM(W)</b></td>
+					<td rowspan="1"><b>IT ROOM</b></td>
 					<%=PrintSets.getTd(0, new String[] { 
 							"<b>State( "+PrintSets.timeFormat(precheck.getWMtime())+" )</b>", 
 							PrintSets.onToGood(precheck.getWMstate()), 
@@ -150,20 +150,21 @@ Backup backup = BackupDAO.selectById(theDate);
 							PrintSets.onToN(precheck.getWMpump()) })
 					%>
 				</tr>
-
+<!-- 
 				<tr>
 					<td rowspan="1"><b>IT ROOM(E)</b></td>
-					<%=PrintSets.getTd(0, new String[] { 
+					<=					
+						PrintSets.getTd(0, new String[] { 
 							"<b>State( "+PrintSets.timeFormat(precheck.getEMtime())+" )</b>", 
 							PrintSets.onToGood(precheck.getEMstate()), 
 							"<b>Aircon</b>", 
 							PrintSets.onToN(precheck.getEMaircon())+" / "+PrintSets.setC(precheck.getEMtemperature()), 
 							"<b>Water Pump</b>", 
 							PrintSets.onToN(precheck.getEMpump()) 
-						})
-					%>
+						})					
+					>
 				</tr>
-
+ -->
 				<tr><td><b>If Any</b></td><td colspan="6"><%= precheck.getIfany() %></td></tr>	
 			</tbody>
 		</table>

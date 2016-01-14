@@ -89,7 +89,7 @@
 				<!-- IT ROOM (W) set -->
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<h2>West</h2>
+						<h2>Health Check</h2>
 					</div>
 					<div class="ui-block-b">
 						<label for="WMtime">Time:</label> <input type="tel" name="WMtime"
@@ -108,7 +108,7 @@
 				</div>
 				<!-- /IT ROOM (W) set -->
 				<!-- IT ROOM (E) set -->
-				<div class="ui-grid-a">
+				<!-- <div class="ui-grid-a">
 					<div class="ui-block-a">
 						<h2>East</h2>
 					</div>
@@ -116,9 +116,9 @@
 						<label for="EMtime">Time:</label> <input type="tel" name="EMtime"
 							id="EMtime" data-clear-btn="true" onclick="setTime($(this))">
 					</div>
-				</div>
+				</div> -->
 				<!-- IT ROOM (E) set -->
-				<div class="ui-grid-c">
+				<!-- <div class="ui-grid-c">
 					<%=Sets.setBlock("a", "EMstate", "Good", "Bad", true)%>
 					<%=Sets.setBlock("b", "EMpump", "N", "A", true)%>
 					<%=Sets.setBlock("c", "EMaircon", "N", "A", true)%>
@@ -126,14 +126,18 @@
 						<label for="EMtemperature">Temperature:</label> <input type="tel"
 							name="EMtemperature" id="EMtemperature" data-clear-btn="true">
 					</div>
-				</div>
+				</div> -->
 				<!-- /IT ROOM (E) set -->
+				<!--	
 				<br /> <br />
-
-				<div class="ui-field-contain">
+	
+				 -->	
+				  <br /> 
+				 <div class="ui-field-contain">
 					<label for="info">If Any:</label>
 					<textarea name="ifany" id="ifany"></textarea>
 				</div>
+				 <br /> <br />
 				<%@ include file="/../include/bottomTools.jsp"%>
 				<%@ include file="/../include/bottomGoUp.jsp"%>
 			</div>
