@@ -1,11 +1,7 @@
 .hide (display: none ) body, table, p, td, div {
 	padding: 0px;
 	font-size: 13px;
-	font-family: "Tahoma", "Verdana", "나눔고딕", "NanumGothic", "맑은 고딕",
-		"Malgun Gothic", "sans-serif";
-	/* for ie7 */
-	*font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic",
-		"sans-serif";
+
 }
 
 .t_l {

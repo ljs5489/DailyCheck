@@ -1,0 +1,47 @@
+
+body{
+	margin:0px;
+}
+
+#graph{
+	overflow:hidden;
+	margin:0px;
+	border: 1px solid black;
+	position:absolute;
+	left:0px;
+	-webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
+}
+
+.bars{
+	position:absolute;	
+}
+.in_bars{
+	position:absolute;			
+	border-radius: 8px;
+}
+
+h1{
+	text-align: center;
+}
+h2{
+	text-align: center;
+}
+#basic{
+	position:relative;
+	bottom :0px;
+}
+#background_chart{
+	position:relative;
+
+}
+#background_chart div{
+	position:absolute;
+	border-bottom:1px dashed black;
+	text-align: right;	
+}
+#background_chart div p{
+	position:relative;
+	text-align: left;
+	margin:0px;
+}

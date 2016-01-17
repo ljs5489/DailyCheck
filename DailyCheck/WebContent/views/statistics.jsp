@@ -3,50 +3,36 @@
 <%@ page import="java.sql.*, tools.*, pages.*"%>
 <html>
 <head>
-<%@ include file="/../include/import.jsp"%>
-<script src="../js/page1Ajax.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+
+<style>
+*{
+	border: 1px solid red;
+}
+.bars{
+	position:absolute;	
+}
+
+</style>
+
+<script>
+
+$(function(){
+	$(".bars").css("width","100px");
+	
+});
+
+</script>
 </head>
 <body>
-	<form method="post">
-		<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
-		<div data-role="page" id="page1">
-			<%@ include file="explain/forPage1.jsp"%>
-			<%@ include file="/../include/header.jsp"%>
 
-			<div data-role="main" class="ui-content">
-				<%@ include file="../include/popup.jsp"%>
 
-				<%@ include file="/../include/bottomTools.jsp"%>
-				<%@ include file="/../include/bottomGoUp.jsp"%>
-				
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<center><h1>통계는 아직 구현되지 않았습니다.</h1></center>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				
-			</div>
-			<%@ include file="/../include/footer.jsp"%>
-		</div>
-
-		<!-- /page -------------------------------------------------------------------------------------------------------------------------------------------------->
+<div style="width : 100%; height: 100%;">
+	
 
 
 
-	</form>
+</div>
 
 
 </body>

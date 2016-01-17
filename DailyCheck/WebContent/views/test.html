@@ -1,0 +1,81 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+var screenW = $(window).width();
+var screenH = $(window).height()-100;
+</script>
+
+<script src="../js/salesGraph.js"></script>
+<link rel="stylesheet" href="../css/salesGraph.css">
+
+
+<style>
+img{
+	position:fixed; 
+	height: 60%; 
+	width: 10%; 
+	top: 20%; 
+	opacity: 0.15;
+	-webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
+}
+#arr_l{
+	left:3%
+}
+#arr_l:hover{
+	opacity: 0.3;
+}
+#arr_l:active{
+	left:1%;
+	opacity: 0.5;
+}
+#arr_r{
+	right:3%
+}
+#arr_r:hover{
+	opacity: 0.3;
+}
+#arr_r:active{
+	right:1%;
+	opacity: 0.5;
+}
+</style>
+
+
+<script>
+$(function(){
+	$("#arr_l").click(function(){
+		$("#graph").css("left","-=200px");
+		
+	});
+	$("#arr_r").click(function(){
+		$("#graph").css("left","+=200px");
+		
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<div style="position:absolute; width:100%">
+<h2 style="text-align:center;">11~12월 렉서스 점유율 목표 달성 현황 (12/8)</h2>
+</div>
+
+
+
+
+<div id="graph">	
+	<div id="basic"></div>
+	<div id="background_chart"></div>
+</div>
+
+
+<img class="arrow" id="arr_l" src="../img/prev.png" />
+<img class="arrow" id="arr_r" src="../img/next.png" />
+</body>
+</html>
