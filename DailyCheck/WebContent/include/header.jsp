@@ -26,7 +26,7 @@ String today = Sets.getToday();
 			<li><a onclick="location.href='page7.jsp'">Netwrok Error</a></li>
 			<li><a onclick="location.href='page8.jsp'">Backup</a></li>
 			<li><a onclick="location.href='print.jsp?date=<%= today %>'">Print</a></li>
-			<li><a onclick="location.href='statistics.jsp'">Statistics</a></li>
+			<li><a onclick="location.href='../views/salesPerformance.html'">Statistics</a></li>
 		</ul>
 	</div>
 </div>
