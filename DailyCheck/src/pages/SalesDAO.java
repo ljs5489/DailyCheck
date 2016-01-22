@@ -8,47 +8,50 @@ import java.util.ArrayList;
 
 import tools.*;
 
+
+
 public class SalesDAO {
 	private static Sales makesales(ResultSet resultSet) throws SQLException {
 		Sales sales = new Sales();
-		sales.setDEALER_CD(resultSet.getString("DEALER_CD").trim());
-		//sales.getTARGET_AMT(resultSet.getString("TARGET_AMT").trim());
-		
+		sales.setKijun_date(resultSet.getString("kijun_date").trim());
+		sales.setDealer(resultSet.getString("dealer").trim());
+		sales.setDealer_cd(resultSet.getString("dealer_cd").trim());	
+		sales.setTfskr_sales_rep(resultSet.getString("tfskr_sales_rep").trim());	
+		sales.setTarget_cnt(resultSet.getString("target_cnt").trim());	
+		sales.setTarget_amt(resultSet.getString("target_amt").trim());	
+		sales.setTarget_ms(resultSet.getString("target_ms").trim());	
+		sales.setCar_sales(resultSet.getString("car_sales").trim());	
+		sales.setTfskr_funding(resultSet.getString("tfskr_funding").trim());	
+		sales.setMs_all(resultSet.getString("ms_all").trim());	
+		sales.setTm_applied(resultSet.getString("tm_applied").trim());	
+		sales.setTm_t_approved(resultSet.getString("tm_t_approved").trim());	
+		sales.setEtc(resultSet.getString("etc").trim());	
 		return sales;
+		
 	}
 
-	public static ArrayList<Sales> selectPage(String date, String series) throws Exception {
-        String sql = "EXEC userSelectPage ?, ?";
-        try (Connection con = DB.getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setString(1, date);
-            stmt.setString(2, series);
-            try (ResultSet rs = stmt.executeQuery()) {
-                ArrayList<Sales> list = new ArrayList<Sales>();
-                while (rs.next()) list.add(makesales(rs));
-                return list;
-            }
-        }
-    }
-/*
-	public static Sales<Sales> selectById(String id) throws Exception {
-		//id = GetDate.getDate();
-
-		Sales sales = null;
+	public static ArrayList<Sales> selectById(String date, String code) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
-		try {
-			connection = DB.getConnection();
-			String sql = "EXEC LSR_SALES_PERFORMANCE_REPORT '20160120', 'A271'";
 		
-			
-			System.out.println(sql);
-			statement = connection.prepareStatement(sql);
-			resultSet = statement.executeQuery();
-			if (resultSet.next())
-				sales = makesales(resultSet);
-		} finally {
+        String sql = "EXEC LSR_SALES_PERFORMANCE_REPORT ?, ?";
+    	
+        try (Connection con = DB_sales.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setString(1, date);
+            stmt.setString(2, code);                        
+            try (ResultSet rs = stmt.executeQuery()) {
+                ArrayList<Sales> list = new ArrayList<Sales>();
+                while (rs.next()){
+                	list.add(makesales(rs));
+                }
+                return list; //select된곳에 null있으면 에러남... 공백이라도 있어야 함.
+
+            }
+        }finally {
+
+            System.out.println(4);
 			if (resultSet != null)
 				resultSet.close();
 			if (statement != null)
@@ -56,9 +59,9 @@ public class SalesDAO {
 			if (connection != null)
 				connection.close();
 		}
-		return sales;
-	}
-*/
+    }
+
+	
 
 
 

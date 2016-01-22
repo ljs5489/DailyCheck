@@ -28,7 +28,7 @@
 <script>
 var menuWidth = $(window).width()/10;
 
-var LGraphX = $(window).width()*(5/10); 
+var LGraphX = $(window).width()*(9/10); 
 var LGraphY = $(window).height()/2-5;
 var LMatrixX = $(window).width()*(4/10);
 var LSubMatrixX = $(window).width()*(4/10);
@@ -38,7 +38,7 @@ var LGraphMargin = 15;
 var LLineWidth = 3;
 var chart_nameLeft = 10;
 
-var TGraphX = $(window).width()*(5/10); 
+var TGraphX = $(window).width()*(9/10); 
 var TGraphY = $(window).height()/2-5;
 var TMatrixX = $(window).width()*(4/10);
 var TSubMatrixX = $(window).width()*(4/10);
@@ -146,7 +146,7 @@ $(function(){
 <div id="chart_name"></div>
 
 
-<table id="matrix_id"></table>
+<table id="matrix_id" style="display:none;"></table>
 
 
 <div id = "middleLine" style="border: 1px solid white; box-shadow: 1px 1px 1px #eeeeee; border-style: dashed;"></div>
@@ -155,7 +155,7 @@ $(function(){
 <div id="chart_id2"></div>
 <div id="chart_name2">Toyota 2월 영업팀 목표</div>
 
-<table id="matrix_id2"></table>
+<table id="matrix_id2" style="display:none;"></table>
 
 
 
@@ -169,10 +169,17 @@ $(function(){
 <img id="timerPlay" src="../img/play.png"/>
 <img id="timerStop" src="../img/pause.png"/>
 
-<div style="text-align:right; color:white; font-size:20px">10 Sec</div>
+<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
+
+
+
+<div id="pageMove" style="width:80%; margin:auto;margin-top:30px;">
+<img id="arrow_l"  style="width:30%; float:left;"src="../img/arrow_l.png" onclick="location.href='salesPerformance4.html'"/>
+<img id="arrow_r"  style="width:30%; float:right;"src="../img/arrow_r.png" onclick="location.href='salesPerformance2.html'"/>
+</div>
 
 <div style="height:30%;"></div>
-<b><div style="text-align:right; color:white; font-size:25px;" >Sales Performance Report.</div></b>
+<b><div style="text-align:right; color:white; font-size:21px;" onclick="getSalesWithAjaxLexus()">Sales Performance Report.</div></b>
 </div>
 
 

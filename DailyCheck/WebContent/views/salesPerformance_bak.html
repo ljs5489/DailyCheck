@@ -38,8 +38,8 @@ var LGraphMargin = 15;
 var LLineWidth = 3;
 var chart_nameLeft = 10;
 
-var TGraphX = $(window).width()*(9/10); 
-var TGraphY = $(window).height()-5;
+var TGraphX = $(window).width()*(5/10); 
+var TGraphY = $(window).height()/2-5;
 var TMatrixX = $(window).width()*(4/10);
 var TSubMatrixX = $(window).width()*(4/10);
 var TGraphLeft = 0 + menuWidth;
@@ -57,7 +57,7 @@ var TLineWidth = 3;
 var myTimer;
 var temp=0;
 var timerOnOff='off';
-var nextPage = "salesPerformance";
+var nextPage = "salesPerformance2";
 
 </script>
 
@@ -76,20 +76,13 @@ $(function(){
 	
 	$("#logo").css("margin-top",menuWidth/2); //이미지마크로고	
 	$("#logo3").css("width",menuWidth); //all right reserverd.
-	
-
-
-
 
 });
-
-
-
-
 
 </script>
 
 <script src="../js/timer.js"></script>
+
 <script src="../js/sales_graph_lexus.js"></script>
 <script src="../js/sales_graph_toyota.js"></script>
 <link rel="stylesheet" href="../css/matrix_lexus.css">
@@ -113,7 +106,7 @@ $(function(){
 	$("#chart_name").css("margin-left",menuWidth+LGraphMargin);
 	$("#chart_name").css("margin-top",15);
 	$("#chart_name2").css("margin-left",menuWidth+TGraphMargin);
-	$("#chart_name2").css("margin-top",30);
+	$("#chart_name2").css("margin-top",$(window).height()/2+15);
 
 	
 	Date.prototype.yyyymmdd = function() {
@@ -123,7 +116,7 @@ $(function(){
 	   return yyyy +"-"+ (mm[1]?mm:"0"+mm[0]) +"-"+ (dd[1]?dd:"0"+dd[0]); // padding
 	};
 	d = new Date();
-	//$("#chart_name").html("LEXUS 2월 영업팀 목표 "+d.yyyymmdd());
+	$("#chart_name").html("LEXUS 2월 영업팀 목표 "+d.yyyymmdd());
 	$("#chart_name2").html("TOYOTA 2월 영업팀 목표 "+d.yyyymmdd());	
 	
 	/* 테이블을 생성한다. */
@@ -149,38 +142,45 @@ $(function(){
 
 
 
-<div id="chart_id" style="display:none"></div>
-<div id="chart_name" style="display:none"></div>
-<table id="matrix_id" style="display:none"></table>
+<div id="chart_id"></div>
+<div id="chart_name"></div>
+
+
+<table id="matrix_id"></table>
+
+
+<div id = "middleLine" style="border: 1px solid white; box-shadow: 1px 1px 1px #eeeeee; border-style: dashed;"></div>
 
 
 <div id="chart_id2"></div>
-<div id="chart_name2"></div>
+<div id="chart_name2">Toyota 2월 영업팀 목표</div>
 
-<table id="matrix_id2" style="display:none"></table>
+<table id="matrix_id2"></table>
 
 
 
 
 <div id="menuBar">
 <img id="logo"  style="width:100%; "src="../img/financial.png"/>
+
 <div id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.001<div style="height:50px;"></div>COPYRIGHT 2005 TOYOTA FINANCIAL ALL RIGHT RESERVED.</div>
 
 <div style="height:50px;"></div>
 <img id="timerPlay" src="../img/play.png"/>
 <img id="timerStop" src="../img/pause.png"/>
 
+<div style="text-align:right; color:white; font-size:20px; margin:5px;">10 Sec</div>
 
-<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
+
 
 <div id="pageMove" style="width:80%; margin:auto;margin-top:30px;">
-<img id="arrow_l"  style="width:30%; float:left;"src="../img/arrow_l.png" onclick="location.href='salesPerformance2.html'"/>
-<img id="arrow_r"  style="width:30%; float:right;"src="../img/arrow_r.png" onclick="location.href='salesPerformance.html'"/>
+<img id="arrow_l"  style="width:30%; float:left;"src="../img/arrow_l.png" onclick="location.href='salesPerformance4.html'"/>
+<img id="arrow_r"  style="width:30%; float:right;"src="../img/arrow_r.png" onclick="location.href='salesPerformance2.html'"/>
 </div>
+
 <div style="height:30%;"></div>
 <b><div style="text-align:right; color:white; font-size:21px;" >Sales Performance Report.</div></b>
 </div>
-
 
 
 
