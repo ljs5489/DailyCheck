@@ -55,6 +55,7 @@ var TLineWidth = 3;
 var myTimer;
 var temp=0;
 var timerOnOff='off';
+var nextPage = "salesPerformance4";
 
 
 </script>
@@ -75,42 +76,17 @@ $(function(){
 	$("#logo").css("margin-top",menuWidth/2); //이미지마크로고	
 	$("#logo3").css("width",menuWidth); //all right reserverd.
 	
-	$("#timerPlay").css("width",menuWidth*0.3);
-	$("#timerPlay").css("height",menuWidth*0.3);
-	$("#timerStop").css("width",menuWidth*0.3);
-	$("#timerSTop").css("height",menuWidth*0.3);
-	
-	
 
-	var timer = location.search.split('timer=')[1];
-	if(timer=="on"){ setTimer(); timerOnOff='on'; console.log("타이머 자동셋팅");}
 	
-
-	function setTimer(){
-	    myTimer = setInterval(function(){
-		    console.log(temp++);
-		  	location.href='salesPerformance3.html?timer='+timerOnOff;
-	    }, 10000);		
-	}
-	$("#timerPlay").click(function(){
-		console.log(1);
-		setTimer();
-	});
-	$("#timerStop").click(function(){
-		console.log(2);
-		clearInterval(myTimer);
-	});
 	
-	/* 테이블을 생성한다. */
-	createTable(ld,$("#matrix_id"));
-	createTable(td,$("#matrix_id2"));		
 });
 
-
-
-
-
 </script>
+
+<script src="../js/timer.js"></script>
+
+
+
 <script src="../js/sales_graph_lexus.js"></script>
 <script src="../js/sales_graph_toyota.js"></script>
 <link rel="stylesheet" href="../css/matrix_lexus.css">
@@ -132,7 +108,7 @@ $(function(){
 	$("#middleLine").css("margin-left",menuWidth+15);
 	
 	$("#chart_name").css("margin-left",menuWidth+LGraphMargin);
-	$("#chart_name").css("margin-top",15);
+	$("#chart_name").css("margin-top",30);
 	$("#chart_name2").css("margin-left",menuWidth+TGraphMargin);
 	$("#chart_name2").css("margin-top",$(window).height()/2+15);
 
@@ -169,13 +145,19 @@ $(function(){
 
 <div id="menuBar">
 <img id="logo"  style="width:100%; "src="../img/financial.png"/>
-<p id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.001<br/><br/><br/>COPYRIGHT 2005 TOYOTA FINANCIAL ALL RIGHT RESERVED.</p>
+<div id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.001<div style="height:50px;"></div>COPYRIGHT 2005 TOYOTA FINANCIAL ALL RIGHT RESERVED.</div>
 
-<br/>
-<br/>
+<div style="height:50px;"></div>
 <img id="timerPlay" src="../img/play.png"/>
 <img id="timerStop" src="../img/pause.png"/>
-<div style="text-align:right; color:white; font-size:20px">1 Min</div>
+<div style="text-align:right; color:white; font-size:20px">10 Sec</div>
+
+
+
+
+<div style="height:30%;"></div>
+<b><div style="text-align:right; color:white; font-size:25px;" >Sales Performance Report.</div></b>
+
 </div>
 
 

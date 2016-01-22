@@ -40,16 +40,16 @@ function drawChart() {
 	
 
 	var data = google.visualization.arrayToDataTable([
-			[ '지점', '목표 판매량', '목표 인수대수', '현재M/S','목표M/S' ], 
-			[ "강남", td[0][1], td[0][2], td[0][3],td[0][4] ], 
-			[ "서초", td[1][1], td[1][2], td[1][3],td[1][4] ],
-			[ "용산", td[2][1], td[2][2], td[2][3],td[2][4] ], 
-			[ "분당", td[3][1], td[3][2], td[3][3],td[3][4] ],
-			[ "인천", td[4][1], td[4][2], td[4][3],td[4][4] ], 
-			[ "부산", td[5][1], td[5][2], td[5][3],td[5][4] ],
-			[ "대구", td[6][1], td[6][2], td[6][3],td[6][4] ], 
-			[ "광주", td[7][1], td[7][2], td[7][3],td[7][4] ],
-			[ "대전", td[8][1], td[8][2], td[8][3],td[8][4] ], 	
+			[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
+			[ "강남(LIH)", td[0][1], td[0][2], td[0][3],td[0][4] ], 
+			[ "서초(LIH)", td[1][1], td[1][2], td[1][3],td[1][4] ],
+			[ "용산(LIH)", td[2][1], td[2][2], td[2][3],td[2][4] ], 
+			[ "분당(LJH)", td[3][1], td[3][2], td[3][3],td[3][4] ],
+			[ "인천(LIH)", td[4][1], td[4][2], td[4][3],td[4][4] ], 
+			[ "부산(LIH)", td[5][1], td[5][2], td[5][3],td[5][4] ],
+			[ "대구(MJS)", td[6][1], td[6][2], td[6][3],td[6][4] ], 
+			[ "광주(LJH)", td[7][1], td[7][2], td[7][3],td[7][4] ],
+			[ "대전(LJH)", td[8][1], td[8][2], td[8][3],td[8][4] ], 	
 	//[ "총합", , 168, 0.80 ],
 	]);
 	var options = {
@@ -72,7 +72,7 @@ function drawChart() {
 			0 : { //왼쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 500, //최대값
+					max : 100, //최대값
 					min : 0
 				//최소값
 				},
@@ -87,7 +87,7 @@ function drawChart() {
 			1 : {//오른쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 100, //최대값
+					max : 500, //최대값
 					min : 0  //최소값
 				},
 				gridlines : {
@@ -104,25 +104,26 @@ function drawChart() {
 		seriesType : 'bars',
 		series : {
 			0 : {
-				targetAxisIndex : 0, //0은 0을 따름
-				type : 'line',
-				lineDashStyle: [2, 2, 20, 2, 20, 2]
+				targetAxisIndex : 1, //0은 0을 따름
+				/*type : 'line',*/
+			/*	lineDashStyle: [2, 2, 20, 2, 20, 2]*/
+				
 			},
 			1 : {
-				targetAxisIndex : 0, //1은 0을 따름
-				type : 'line',
-				lineDashStyle: [2, 2, 20, 2, 20, 2]
+				targetAxisIndex : 1, //1은 0을 따름
+				/*type : 'line',*/
+				/*	lineDashStyle: [2, 2, 20, 2, 20, 2]*/
 			},
 			2 : {
-				targetAxisIndex : 1
-			//2는 1을 따름
+				targetAxisIndex : 0, //2는 1을 따름
+				type : 'line',
 			},
 			3 : {
-				targetAxisIndex : 1
-			//2는 1을 따름
-			},
+				targetAxisIndex : 0, //2는 1을 따름
+				type : 'line',
+			}, 
 		},
-		colors : [ "#F15F5F", "#E167BE", "#C1B438", "white" ], //#A7CF25도 있음. 차트의 색깔.
+		colors : [  "#5B5AFF","#AAD7A5","#DB0000", "orange" ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
 			left :"8%",
 			top : "15%",
