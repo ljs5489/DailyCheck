@@ -25,6 +25,8 @@ public class SalesDAO {
 		sales.setMs_all(resultSet.getString("ms_all").trim());	
 		sales.setTm_applied(resultSet.getString("tm_applied").trim());	
 		sales.setTm_t_approved(resultSet.getString("tm_t_approved").trim());	
+		sales.setTm_t_approved_amt(resultSet.getString("tm_t_approved_amt").trim());	
+		sales.setTm_t_funded_amt(resultSet.getString("tm_t_funded_amt").trim());	
 		sales.setEtc(resultSet.getString("etc").trim());	
 		return sales;
 		
@@ -36,7 +38,7 @@ public class SalesDAO {
 		ResultSet resultSet = null;
 		
         String sql = "EXEC LSR_SALES_PERFORMANCE_REPORT ?, ?";
-    	
+
         try (Connection con = DB_sales.getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setString(1, date);
@@ -50,8 +52,6 @@ public class SalesDAO {
 
             }
         }finally {
-
-            System.out.println(4);
 			if (resultSet != null)
 				resultSet.close();
 			if (statement != null)

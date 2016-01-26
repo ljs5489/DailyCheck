@@ -2,10 +2,19 @@
 
 <head>
 <meta charset="UTF-8">
+
+<script src="../js/SP_data.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="../js/SP_data.js"></script>
+
+<script>
+google.charts.load('current', {'packages':["corechart", "gauge"]});
+//이거 없으면 안됨...
+</script>
+
 
 <link rel="stylesheet" href="../css/font_size.css">
 <style>
@@ -35,7 +44,7 @@ var LSubMatrixX = $(window).width()*(4/10);
 var LGraphLeft = 0 + menuWidth;
 var LGraphTop = 0;
 var LGraphMargin = 15;
-var LLineWidth = 3;
+var LLineWidth = 5;
 var chart_nameLeft = 10;
 
 var TGraphX = $(window).width()*(9/10); 
@@ -52,7 +61,7 @@ var LMatrixMarginY = 15;
 
 var TMatrixMarginX = 15;
 var TMatrixMarginY = 15;
-var TLineWidth = 3;
+var TLineWidth = 5;
 
 var myTimer;
 var temp=0;
@@ -80,7 +89,12 @@ $(function(){
 
 
 
-
+	getSalesWithAjaxToyota();
+	
+	$("#newLoading").css("top",($(window).height()/2-$(window).height()*(1/20)));
+	$("#newLoading").css("left",($(window).width()+menuWidth)/2-$(window).height()*(1/20));
+	$("#newLoading").css("width",$(window).height()*(1/10));
+	$("#newLoading").css("height",$(window).height()*(1/10));
 });
 
 
@@ -89,10 +103,8 @@ $(function(){
 
 </script>
 
-<script src="../js/timer.js"></script>
-<script src="../js/sales_graph_lexus.js"></script>
+
 <script src="../js/sales_graph_toyota.js"></script>
-<link rel="stylesheet" href="../css/matrix_lexus.css">
 <link rel="stylesheet" href="../css/matrix_toyota.css">
 
 
@@ -122,9 +134,9 @@ $(function(){
 	   var dd  = this.getDate().toString();
 	   return yyyy +"-"+ (mm[1]?mm:"0"+mm[0]) +"-"+ (dd[1]?dd:"0"+dd[0]); // padding
 	};
+	
 	d = new Date();
-	//$("#chart_name").html("LEXUS 2월 영업팀 목표 "+d.yyyymmdd());
-	$("#chart_name2").html("TOYOTA 2월 영업팀 목표 "+d.yyyymmdd());	
+	d.setDate(d.getDate()-1);
 	
 	/* 테이블을 생성한다. */
 	createTable(ld,$("#matrix_id"));
@@ -137,13 +149,7 @@ $(function(){
 
 </script>
 
-
-
-
-<script>
-
-
-</script>
+<script src="../js/timer.js"></script>
 </head>
 <body style="margin:0px; position: absolute; top:0px; left:0px; width:100%; height:100%; overflow:hidden;">
 
@@ -164,7 +170,7 @@ $(function(){
 
 <div id="menuBar">
 <img id="logo"  style="width:100%; "src="../img/financial.png"/>
-<div id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.001<div style="height:50px;"></div>COPYRIGHT 2005 TOYOTA FINANCIAL ALL RIGHT RESERVED.</div>
+<div id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.002<div style="height:50px;"></div>COPYRIGHT 2016 TOYOTA FINANCIAL ALL RIGHT RESERVED.</div>
 
 <div style="height:50px;"></div>
 <img id="timerPlay" src="../img/play.png"/>
@@ -173,14 +179,14 @@ $(function(){
 
 <div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
 
-<div id="pageMove" style="width:80%; margin:auto;margin-top:30px;">
-<img id="arrow_l"  style="width:30%; float:left;"src="../img/arrow_l.png" onclick="location.href='salesPerformance2.html'"/>
-<img id="arrow_r"  style="width:30%; float:right;"src="../img/arrow_r.png" onclick="location.href='salesPerformance.html'"/>
+<div id="pageMove" style="width:100%; margin:auto;margin-top:30px;">
+<img id="arrow_l"  style="width:32%; float:left;"src="../img/arrow_l.png" onclick="location.href='salesPerformance2.html'"/>
+<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='salesPerformance.html'"/>
 </div>
 <div style="height:30%;"></div>
 <b><div style="text-align:right; color:white; font-size:21px;" >Sales Performance Report.</div></b>
 </div>
-
+<img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>
 
 
 

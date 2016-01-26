@@ -13,6 +13,8 @@ public class Sales {
 	private String ms_all;
 	private String tm_applied;
 	private String tm_t_approved;
+	private String tm_t_approved_amt;
+	private String tm_t_funded_amt;
 	private String etc;
 	public String getKijun_date() {
 		return kijun_date;
@@ -85,6 +87,22 @@ public class Sales {
 	}
 	public void setTm_t_approved(String tm_t_approved) {
 		this.tm_t_approved = tm_t_approved;
+	}
+	
+	
+	
+	
+	public String getTm_t_approved_amt() {
+		return tm_t_approved_amt;
+	}
+	public void setTm_t_approved_amt(String tm_t_approved_amt) {
+		this.tm_t_approved_amt = tm_t_approved_amt;
+	}
+	public String getTm_t_funded_amt() {
+		return tm_t_funded_amt;
+	}
+	public void setTm_t_funded_amt(String tm_t_funded_amt) {
+		this.tm_t_funded_amt = tm_t_funded_amt;
 	}
 	public String getEtc() {
 		return etc;

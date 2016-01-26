@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.util.ArrayList, tools.*, pages.*"%>
+<%@ page import="java.sql.*, java.util.ArrayList, tools.*, pages.*, java.text.SimpleDateFormat, java.util.Calendar "%>
 <%@page import="org.json.simple.JSONObject"%>
 
 <%
@@ -22,10 +22,12 @@
 			String target_amt = temp.getTarget_amt();
 			String target_ms = temp.getTarget_ms();
 			String car_sales = temp.getCar_sales();
-			String tfskr_funding = temp.getTfskr_funding();
-			String ms_all = temp.getMs_all();
+			String tfskr_funding = temp.getTfskr_funding();			
+			String ms_all = temp.getMs_all();			
 			String tm_applied = temp.getTm_applied();
 			String tm_t_approved = temp.getTm_t_approved();
+			String tm_t_approved_amt = temp.getTm_t_approved_amt();
+			String tm_t_funded_amt = temp.getTm_t_funded_amt();			
 			String etc = temp.getEtc();			
 			
 			salesDataSet +=
@@ -41,16 +43,20 @@
 					+ms_all+"/"
 					+tm_applied+"/"
 					+tm_t_approved+"/"
+					+tm_t_approved_amt+"/"
+					+tm_t_funded_amt+"/"
 					+etc+",";
-			System.out.println("gogo"+salesDataSet);
+			//System.out.println("gogo"+salesDataSet);
 			
 		}
 	}
 	
 	//======================================================================================
 
-
-	System.out.println(salesDataSet);
+ 	Calendar cal = Calendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기..."+id+", "+code);
+	
 	JSONObject json = new JSONObject();
 	json.put("name", "테스트 입니다...");	
 	json.put("salesDataSet", salesDataSet);

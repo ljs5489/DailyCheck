@@ -22,4 +22,9 @@
 	#chart_name2{ font-size: 40; }
 	#logo3{ font-size: 35; }
 }
-
+@media only screen and (min-width: 5000px) {
+	*{ font-size: 35; }
+	#chart_name{ font-size: 55; }
+	#chart_name2{ font-size: 55; }
+	#logo3{ font-size: 45; }
+}

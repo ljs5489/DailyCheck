@@ -1,12 +1,7 @@
 
-	google.load("visualization", "1", {
-		packages : [ "corechart" ]
-	});
-	google.setOnLoadCallback(drawChart);
-	function drawChart() {
-		//$("#chart_id").css("width","500px");
-		//$("#chart_id").css("height","400px");
-		
+	//
+
+	function drawChart() {		
 		var thisGraphX = LGraphX;
 		var thisGraphY = LGraphY; 
 		var thisMatrixX= LMatrixX;
@@ -71,7 +66,7 @@
 				0 : { //왼쪽 y축
 					viewWindowMode : 'explicit',
 					viewWindow : {
-						max : 100, //최대값
+						max : 80, //최대값
 						min : 0  //최소값
 					},
 					gridlines : {
@@ -85,7 +80,7 @@
 				1 : {//오른쪽 y축
 					viewWindowMode : 'explicit',
 					viewWindow : {
-						max : 2500, //최대값
+						max : 2000, //최대값
 						min : 0  //최소값
 					},
 					gridlines : {
@@ -121,19 +116,21 @@
 					type : 'line',
 				}, 
 			},
-			colors : [  "#5B5AFF","#AAD7A5","#DB0000", "orange" ], //#A7CF25도 있음. 차트의 색깔.
+			colors : [  "#2478FF","#53FF4C","#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
 			chartArea : {
-				left :"8%",
+				left :"5%",
 				top : "15%",
-				width : "85%",
+				width : "90%",
 				height : "70%",
 			},
+			
 			animation : {
-				duration : 2000,
+				duration : 1500,
 				easing : 'out',
 				startup : true,
 
 			},
+			
 			bar : {
 				groupWidth:"30%",				
 			},
@@ -149,10 +146,13 @@
 		
 		
 		
-		$(function(){
-			var chart = new google.visualization.ComboChart(document.getElementById('chart_id'));
-			chart.draw(data, options);
+		//$(function(){
+		var chart = new google.visualization.ComboChart(document.getElementById('chart_id'));
+		chart.draw(data, options);
+		$("#chart_name").html("LEXUS 1월 영업팀 목표 "+d.yyyymmdd());
+		$("#newLoading").hide();
+		$("#middleLine").show();
 
-		});
+		//});
 		
 	}

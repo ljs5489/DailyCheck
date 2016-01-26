@@ -1,0 +1,11 @@
+*{
+    font-family: Arial;
+}
+#menuBar{
+	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	border-right:2px solid #eeeeee;
+	padding:4px;
+	border-style: double;
+	box-shadow: 5px 5px 5px #454545;
+
+}

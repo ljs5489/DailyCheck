@@ -116,8 +116,8 @@ $(function(){
 	   return yyyy +"-"+ (mm[1]?mm:"0"+mm[0]) +"-"+ (dd[1]?dd:"0"+dd[0]); // padding
 	};
 	d = new Date();
-	$("#chart_name").html("LEXUS 2월 영업팀 목표 "+d.yyyymmdd());
-	$("#chart_name2").html("TOYOTA 2월 영업팀 목표 "+d.yyyymmdd());	
+	//$("#chart_name").html("LEXUS 2월 영업팀 목표 "+d.yyyymmdd());
+	//$("#chart_name2").html("TOYOTA 2월 영업팀 목표 "+d.yyyymmdd());	
 	
 	/* 테이블을 생성한다. */
 	createTable(ld,$("#matrix_id"));
@@ -153,7 +153,7 @@ $(function(){
 
 
 <div id="chart_id2"></div>
-<div id="chart_name2">Toyota 2월 영업팀 목표</div>
+<div id="chart_name2"></div>
 
 <table id="matrix_id2"></table>
 
@@ -163,7 +163,7 @@ $(function(){
 <div id="menuBar">
 <img id="logo"  style="width:100%; "src="../img/financial.png"/>
 
-<div id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.001<div style="height:50px;"></div>COPYRIGHT 2005 TOYOTA FINANCIAL ALL RIGHT RESERVED.</div>
+<div id="logo3" style="position:absolute; color: white; text-align:right; left: 0px; bottom:10px; ">Version 0.002<div style="height:50px;"></div>COPYRIGHT 2016 TOYOTA FINANCIAL ALL RIGHT RESERVED.</div>
 
 <div style="height:50px;"></div>
 <img id="timerPlay" src="../img/play.png"/>

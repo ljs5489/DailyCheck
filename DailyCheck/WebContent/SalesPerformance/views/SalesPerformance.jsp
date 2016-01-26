@@ -1,28 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
 <html style="background-color:#292929">
 
 <head>
-<meta charset="UTF-8">
-
-<script>
-
-
-
-</script>
-
+<meta charset="utf-8" /> 
 <script src="../js/SP_data.js"></script>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-
-<script>
-google.charts.load('current', {'packages':["corechart", "gauge"]});
-</script>
-
-
-
-
+<script>google.charts.load('current', {'packages':["corechart", "gauge"]});</script>
 
 <link rel="stylesheet" href="../css/font_size.css">
 <style>
@@ -35,7 +22,6 @@ google.charts.load('current', {'packages':["corechart", "gauge"]});
 	padding:4px;
 	border-style: double;
 	box-shadow: 5px 5px 5px #454545;
-
 }
 
 </style>
@@ -44,7 +30,7 @@ google.charts.load('current', {'packages':["corechart", "gauge"]});
 
 <script>
 var menuWidth = $(window).width()/10;
-var scaleWidth = 180;//(window).width()*(1.2/10);
+var scaleWidth = 0;//(window).width()*(1.2/10);
 
 var LGraphX = $(window).width()*(9/10)-scaleWidth; 
 var LGraphY = $(window).height()/2-5;
@@ -108,9 +94,7 @@ $(function(){
 
 
 
-
-<script src="../js/circleChartGraph.js"></script>
-
+<!-- <script src="../js/circleChartGraph.js"></script> -->
 <script src="../js/sales_graph_lexus.js"></script>
 <script src="../js/sales_graph_toyota.js"></script>
 
@@ -170,6 +154,7 @@ $(function(){
 </script>
  
  <!-- 순서도 중요함.. -->
+
 <script src="../js/timer.js"></script> 
 </head>
 <body style="margin:0px; position: absolute; top:0px; left:0px; width:100%; height:100%; overflow:hidden;">
@@ -181,17 +166,13 @@ $(function(){
 <div id="chart_name"></div>
 
 
-<table id="matrix_id" style="display:none;"></table>
-
-
+ <!-- <table id="matrix_id" style="display:none;"></table>  -->
 <div id = "middleLine" style="display :none;border: 1px solid white; box-shadow: 1px 1px 1px #eeeeee; border-style: groove;"></div>
 
 
 <div id="chart_id2"></div>
 <div id="chart_name2"></div>
-
-<table id="matrix_id2" style="display:none;"></table>
-
+ <!-- <table id="matrix_id2" style="display:none;"></table> -->
 
 
 
@@ -217,12 +198,12 @@ $(function(){
 <b><div style="text-align:right; color:white; font-size:21px;" onclick="">Sales Performance Report.</div></b>
 </div>
 
-
+<!-- 
 <div id="circleChart1" style="position:fixed; border:2px solid red;"></div>
 <div id="circleChart2" style="position:fixed; border:2px solid red;"></div>
 <div id="circleChart3" style="position:fixed; border:2px solid red;"></div>
 <div id="circleChart4" style="position:fixed; border:2px solid red;"></div>
-
+ -->
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>
 

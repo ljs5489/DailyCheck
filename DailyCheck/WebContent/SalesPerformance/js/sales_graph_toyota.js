@@ -1,10 +1,7 @@
 var toyotaChart = $("#chart_id2");
 
-google.load("visualization", "1", {
-	packages : [ "corechart" ]
-});
-google.setOnLoadCallback(drawChart);
-function drawChart() {	
+
+function drawChart2() {	
 	
 	var thisGraphX = TGraphX;
 	var thisGraphY = TGraphY; 
@@ -72,7 +69,7 @@ function drawChart() {
 			0 : { //왼쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 100, //최대값
+					max : 80, //최대값
 					min : 0
 				//최소값
 				},
@@ -87,7 +84,7 @@ function drawChart() {
 			1 : {//오른쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 500, //최대값
+					max : 400, //최대값
 					min : 0  //최소값
 				},
 				gridlines : {
@@ -123,11 +120,11 @@ function drawChart() {
 				type : 'line',
 			}, 
 		},
-		colors : [  "#5B5AFF","#AAD7A5","#DB0000", "orange" ], //#A7CF25도 있음. 차트의 색깔.
+		colors : [  "#2478FF","#53FF4C","#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
-			left :"8%",
+			left :"5%",
 			top : "15%",
-			width : "85%",
+			width : "90%",
 			height : "70%",
 		},
 		animation : {
@@ -152,6 +149,9 @@ function drawChart() {
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_id2'));
 		chart.draw(data, options);
 
+		$("#chart_name2").html("TOYOTA 1월 영업팀 목표 "+d.yyyymmdd());	
+		$("#newLoading").hide();
+		$("#middleLine").show();
 
 	});
 

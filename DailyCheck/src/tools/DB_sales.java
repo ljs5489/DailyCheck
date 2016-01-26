@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 public class DB_sales {
 	private static String JDBC_DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private static String DB_URL = "jdbc:sqlserver://10.1.208.15;databaseName=TFS_DB";
+	private static String DB_URL = "jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB";
 	//private static String USER_ID = "sa";
 	//private static String USER_PASSWORD = "test123";
-	private static String USER_ID = "DBDev3";
-	private static String USER_PASSWORD = "DBDev3@KLLHCit#0422";
+	private static String USER_ID = "DBWeb1";
+	private static String USER_PASSWORD = "DB02@Web#0125";
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER_NAME);
