@@ -1,0 +1,77 @@
+<html style="background-color:#292929">
+
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../js/SP_data.js"></script>
+<script src="../js/getAjax.js"></script>
+
+<script src="../js/sales_graph_whole.js"></script>
+
+<link rel="stylesheet" href="../css/wholeSale.css">
+<link rel="stylesheet" href="../css/font_size2.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../js/timer.js"></script> 
+<script>
+//OVERRIDE
+var LGraphX = $(window).width()*(9/10)-leftSpace; 
+var LGraphY = $(window).height()-5;
+
+</script>
+
+<script>
+//왼쪽 메뉴바 셋팅
+
+$(function(){	
+	nextPage = "SP_Both";	
+	LLineWidth = 5;
+	
+	$("#chart_name").css("margin-top",15);
+	
+	//테스트용=====================================
+	google.charts.setOnLoadCallback(drawChart3);
+	//============================================
+		
+	//실제 데이터용==================================
+	//getSalesWithAjaxLexus();
+	//=============================================
+});
+
+
+</script>
+ 
+</head>
+<body>
+
+<div id="whole_chart_id"></div>
+<div id="whole_chart_name" class="chart_name"></div>
+
+<div id="menuBar">
+	<img id="logo"  style="width:100%; "src="../img/financial.png"/>
+	
+	<div style="height:50px;"></div>
+	<img id="timerPlay" src="../img/play.png"/>
+	<img id="timerStop" src="../img/pause.png"/>
+	
+	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
+	
+	<div id="pageMove" style="width:100%; margin:auto;margin-top:30px;">
+		<img id="arrow_l"  style="width:32%; float:left;" src="../img/arrow_l.png" onclick="location.href='SP_Toyota.html'"/>
+		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_Both.html'"/>
+	</div>
+	
+	
+	<div style="height:30%;"></div>
+	<div style="text-align:right; color:white; font-size:21px;">Sales Performance Report.</div>
+	
+	<div id="logo3" ></div>
+</div>
+
+<img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>
+
+
+
+</body>
+</html>

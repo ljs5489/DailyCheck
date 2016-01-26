@@ -149,7 +149,12 @@ function drawChart2() {
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_id2'));
 		chart.draw(data, options);
 
-		$("#chart_name2").html("TOYOTA 1월 영업팀 목표 "+d.yyyymmdd());	
+		$("#chart_name2").html(
+				"<div style='left:3%; width:10%; bottom:5px; position:absolute; text-align:left;'>(%)</div>"
+				+ToyotaTitle 
+				+ d.yyyymmdd()
+				+"<div style='right:2%; width:10%; bottom:5px; position:absolute; text-align:right;'>(백 만원)</div>"
+			);	
 		$("#newLoading").hide();
 		$("#middleLine").show();
 

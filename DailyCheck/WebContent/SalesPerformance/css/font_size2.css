@@ -5,25 +5,25 @@
 	#logo3{ font-size: 6; }
 }
 @media only screen and (min-width: 1000px) {
-	*{ font-size: 15; }
+	*{ font-size: 18; }
 	.chart_name_s{ font-size: 30; }
 	.chart_name{ font-size: 40; }
 	#logo3{ font-size: 11; }
 }
 @media only screen and (min-width: 1800px) {
-	*{ font-size: 18; }
+	*{ font-size: 23; }
 	.chart_name_s{ font-size: 20; }
-	.chart_name{ font-size: 31; }
+	.chart_name{ font-size: 38; }
 	#logo3{ font-size: 13; }
 }
 @media only screen and (min-width: 3000px) {
-	*{ font-size: 26; }
+	*{ font-size: 29; }
 	.chart_name_s{ font-size: 20; }
 	.chart_name{ font-size: 40; }
 	#logo3{ font-size: 35; }
 }
 @media only screen and (min-width: 5000px) {
-	*{ font-size: 35; }
+	*{ font-size: 38; }
 	.chart_name_s{ font-size: 20; }
 	.chart_name{ font-size: 55; }
 	#logo3{ font-size: 45; }

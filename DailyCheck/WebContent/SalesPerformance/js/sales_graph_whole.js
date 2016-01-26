@@ -1,49 +1,33 @@
 
 
 
-function drawChart() {
-	var thisGraphX = LGraphX;
-	var thisGraphY = LGraphY;
-	var thisMatrixX = LMatrixX;
-	var thisSubMatrixX = LSubMatrixX;
+function drawChart3() {
+	var thisGraphX = WGraphX;
+	var thisGraphY = WGraphY;
 
-	var thisMatrixMarginX = LMatrixMarginX;
-	var thisMatrixMarginY = LMatrixMarginY;
-
-	var thisGraphLeft = LGraphLeft;
-	var thisGraphTop = LGraphTop;
-	var thisGraphMargin = LGraphMargin;
-
-	var thisLineWidth = LLineWidth;
+	var thisGraphLeft = WGraphLeft;
+	var thisGraphTop = WGraphTop;
+	var thisGraphMargin = WGraphMargin;
+	var thisLineWidth = WLineWidth;
 	//var chart_nameLeft = chart_nameLeft;
+	
+	var thisMatrixMarginX = 0;
+	var thisMatrixMarginY = 0;
 
-	$("#chart_id").css("width", thisGraphX - thisMatrixMarginX * 2);
-	$("#chart_id").css("height", thisGraphY - thisMatrixMarginY * 2);
-	$("#matrix_id").css("width", thisMatrixX - thisMatrixMarginX * 2);
-	$("#sub_matrix_id").css("width", thisSubMatrixX - thisMatrixMarginX * 2);
 
-	$("#chart_name").css("width", thisGraphX - thisMatrixMarginX * 2);
-	//$("#chart_name").css("margin-left",chart_nameLeft);
-
-	$("#matrix_id").css("right", thisMatrixMarginX);
-	$("#matrix_id").css("top", thisMatrixMarginY);
-	$("#sub_matrix_id").css("right", thisMatrixMarginX);
-
-	$("#chart_id").css("left", thisGraphLeft);
-	$("#chart_id").css("top", thisGraphTop);
-	$("#chart_id").css("margin", LGraphMargin);
+	
+	$("#whole_chart_id").css("width", thisGraphX - thisMatrixMarginX * 2);
+	$("#whole_chart_id").css("height", thisGraphY - thisMatrixMarginY * 2);
+	$("#whole_chart_name").css("width", thisGraphX - thisMatrixMarginX * 2);
+	$("#whole_chart_id").css("left", thisGraphLeft);
+	$("#whole_chart_id").css("top", thisGraphTop);
+	$("#whole_chart_id").css("margin", thisGraphMargin);
 
 	var data = google.visualization.arrayToDataTable([
 			[ '지점', '목표 금액', '현재 금액 ', '목표M/S', '현재M/S' ],
-			[ ld[0][0], ld[0][1], ld[0][2], ld[0][3], ld[0][4] ],
-			[ ld[1][0], ld[1][1], ld[1][2], ld[1][3], ld[1][4] ],
-			[ ld[2][0], ld[2][1], ld[2][2], ld[2][3], ld[2][4] ],
-			[ ld[3][0], ld[3][1], ld[3][2], ld[3][3], ld[3][4] ],
-			[ ld[4][0], ld[4][1], ld[4][2], ld[4][3], ld[4][4] ],
-			[ ld[5][0], ld[5][1], ld[5][2], ld[5][3], ld[5][4] ],
-			[ ld[6][0], ld[6][1], ld[6][2], ld[6][3], ld[6][4] ],
-			[ ld[7][0], ld[7][1], ld[7][2], ld[7][3], ld[7][4] ],
-			[ ld[8][0], ld[8][1], ld[8][2], ld[8][3], ld[8][4] ],
+			[ wd[0][0], wd[0][1], wd[0][2], wd[0][3], wd[0][4] ],
+			[ wd[1][0], wd[1][1], wd[1][2], wd[1][3], wd[1][4] ],
+			[ wd[2][0], wd[2][1], wd[2][2], wd[2][3], wd[2][4] ],
 	//[ "총합", , 168, 0.80 ],
 	]);
 	var options = {
@@ -63,7 +47,7 @@ function drawChart() {
 			0 : { //왼쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 80, //최대값
+					max : 50, //최대값
 					min : 0
 				//최소값
 				},
@@ -78,7 +62,7 @@ function drawChart() {
 			1 : {//오른쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 2000, //최대값
+					max : 350, //최대값
 					min : 0
 				//최소값
 				},
@@ -131,7 +115,7 @@ function drawChart() {
 		},
 
 		bar : {
-			groupWidth : "30%",
+			groupWidth : "45%",
 		},
 		legend : { //범례
 			position : 'bottom',
@@ -145,11 +129,11 @@ function drawChart() {
 
 	//$(function(){
 	var chart = new google.visualization.ComboChart(document
-			.getElementById('chart_id'));
+			.getElementById('whole_chart_id'));
 	chart.draw(data, options);
-	$("#chart_name").html(
+	$("#whole_chart_name").html(
 			"<div style='left:3%; width:10%; bottom:5px; position:absolute; text-align:left;'>(%)</div>"
-			+LexusTitle 
+			+WholeTitle 
 			+ d.yyyymmdd()
 			+"<div style='right:2%; width:10%; bottom:5px; position:absolute; text-align:right;'>(백 만원)</div>"
 		);

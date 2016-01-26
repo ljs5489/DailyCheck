@@ -1,8 +1,107 @@
+//google.charts.load('current', {'packages':["corechart", "gauge"]});
+google.charts.load('current', {'packages':['corechart']});
+
+var currentVersion = "0.003"; 
+
+var menuWidth = $(window).width()/10;
+var leftSpace = 15;//(window).width()*(1.2/10);
+
+var LGraphX = $(window).width()-leftSpace-menuWidth-30;
+var LGraphY = $(window).height()/2-5;
+var LMatrixX = $(window).width()*(4/10);
+var LSubMatrixX = $(window).width()*(4/10);
+var LGraphLeft = leftSpace + menuWidth;
+var LGraphTop = 0;
+var LGraphMargin = 15;
+var LLineWidth = 3;
+var chart_nameLeft = menuWidth+LGraphMargin+leftSpace;
+
+var TGraphX = $(window).width()-leftSpace-menuWidth-30;
+var TGraphY = $(window).height()/2-5;
+var TMatrixX = $(window).width()*(4/10);
+var TSubMatrixX = $(window).width()*(4/10);
+var TGraphLeft = leftSpace + menuWidth;
+
+var TGraphTop = 0;
+var TGraphMargin = 15;
+var chart_name2Left = menuWidth+LGraphMargin+leftSpace;
+
+var LMatrixMarginX = 15;
+var LMatrixMarginY = 15;
+
+var TMatrixMarginX = 15;
+var TMatrixMarginY = 15;
+var TLineWidth = 3;
 
 
 
 
+//W==================================
 
+var WGraphX = $(window).width()-leftSpace-menuWidth-30; 
+var WGraphY = $(window).height()-30;
+
+var WGraphLeft = leftSpace + menuWidth;
+var WGraphTop = 0;
+var WGraphMargin = 15;
+var WLineWidth = 20;
+var whole_chart_name_left = menuWidth+LGraphMargin+leftSpace;
+
+var LexusTitle = "LEXUS 영업 목표 1월 전일자 누적 ";
+var ToyotaTitle = "TOYOTA 영업 목표 1월 전일자 누적  ";
+var WholeTitle = "3개월간 목표 달성 ";
+
+
+var myTimer;
+var temp=0;
+var timerOnOff='off';
+var timeTerm = 5; //5초 간격으로 넘김.
+
+
+Date.prototype.yyyymmdd = function() {
+	   var yyyy = this.getFullYear().toString();
+	   var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+	   var dd  = this.getDate().toString();
+	   return yyyy +"-"+ (mm[1]?mm:"0"+mm[0]) +"-"+ (dd[1]?dd:"0"+dd[0]); // padding
+	};	
+	
+var d = new Date();
+d.setDate(d.getDate()-1);
+
+
+
+$(function(){
+	$("#menuBar").css("width",menuWidth);
+	$("#menuBar").css("height","100%");
+	$("#menuBar").css("position","absolute");
+	$("#menuBar").css("top",0);
+	$("#menuBar").css("left",0);
+	
+	$("#newLoading").css("top",($(window).height()/2-$(window).height()*(1/20)));
+	$("#newLoading").css("left",($(window).width()+menuWidth)/2-$(window).height()*(1/20));
+	$("#newLoading").css("width",$(window).height()*(1/10));
+	$("#newLoading").css("height",$(window).height()*(1/10));
+	
+	$("#logo").css("margin-top",menuWidth/2); //이미지마크로고	
+	$("#logo3").css("width",menuWidth); //all right reserverd.
+	
+	$("#middleLine").css("margin-top",$(window).height()/2);
+	$("#middleLine").css("margin-left",menuWidth+15);
+	
+	$("#chart_name").css("margin-left",chart_nameLeft);
+	$("#chart_name2").css("margin-left",chart_name2Left);
+	$("#whole_chart_name").css("margin-left",whole_chart_name_left);
+	
+	$("#chart_name").css("margin-top",15);	
+	$("#chart_name2").css("margin-top",$(window).height()/2+15);
+	$("#whole_chart_name").css("margin-top",15);
+	
+	
+	$("#logo3").html("Version "+currentVersion+"<div style='height:50px;'></div> COPYRIGHT 2016 TOYOTA FINANCIAL ALL RIGHT RESERVED.");
+
+
+	
+});
 
 
 
@@ -34,11 +133,15 @@ var td = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M
 			[ "합계"     , 1975, 1041, 25.0,18.9 ], //"합계",
        ];
 
-
+var wd = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
+			[ "첫달", 307, 172, 24.5,22.7],
+			[ "둘째달", 243, 90, 21.3,9.7], 
+			[ "셋째달", 294, 108, 24.0,16.0 ], 
+      ];
 //var dealer = 
 
 
-var today="20160125";
+var today="20160126";
 
 
 
@@ -99,111 +202,13 @@ var arrayToyota = new Array(
 
 
 
-function getSalesWithAjaxLexus() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
-
-	$.ajax({
-		url : 'func/getSalesData.jsp', //바꿔줄것
-		type : 'get',
-		dataType : 'json',
-		data : {
-            id : today,//$("input[name='mydate']").val()
-            code : 'A271'
-        },
-		success : function(dataSet) {		
-			
-			
-			
-			
-			var dataSetArray = dataSet.salesDataSet;
-			var temp = dataSetArray.split(',');
-			for(var i=0;i<temp.length;i++){
-				temp[i]=temp[i].split('/');
-			}
-			
-			for(var i=0;i<temp.length-1;i++){
-				var tempText="";
-				for(var j=0;j<temp[i].length;j++){
-					//console.log("temp "+i+" : "+j+" : "+temp[i][j]);
-					//console.log("arrayLexus "+i+" : "+j+" : "+arrayLexus[i][j]);
-					
-					arrayLexus[i][j] = temp[i][j]; 
-					tempText += "("+i+","+j+")"+arrayLexus[i][j]+", ";
-					//console.log(i+"행 "+j+"열"+arrayLexus[i][j]); //1614
-
-				}
-				
-				//console.log(ld[i][0]);
-				//console.log(arrayLexus[i][1]);
-				//console.log(arrayToyota[i][14]);
-				
-				ld[i][0]=(arrayLexus[i][1]+"(" + arrayLexus[i][3] + ")"); //목표금액
-				ld[i][1]=Number(arrayLexus[i][5]); //목표금액
-				ld[i][2]=Number(arrayLexus[i][13]); //현재 금액
-				ld[i][3]=Number(arrayLexus[i][6]); //타겟MS
-				ld[i][4]=Number(arrayLexus[i][9]); //현재MS
-
-			}	
-	
-			drawChart(); //lexus
-	
-		}
-	});
-}
-
-function getSalesWithAjaxToyota() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
-
-	$.ajax({
-		url : 'func/getSalesData.jsp', //바꿔줄것
-		type : 'get',
-		dataType : 'json',
-		data : {
-            id : today,//$("input[name='mydate']").val()
-            code : 'A272'
-        },
-		success : function(dataSet) {		
-			var dataSetArray = dataSet.salesDataSet;
-			var temp = dataSetArray.split(',');
-			for(var i=0;i<temp.length;i++){
-				temp[i]=temp[i].split('/');
-			}
-			
-			for(var i=0;i<temp.length-1;i++){
-				var tempText="";
-				for(var j=0;j<temp[i].length;j++){
-					//console.log("temp "+i+" : "+j+" : "+temp[i][j]);
-					//console.log("arrayToyota "+i+" : "+j+" : "+arrayToyota[i][j]);
-					
-					arrayToyota[i][j] = temp[i][j]; 
-					tempText += "("+i+","+j+")"+arrayToyota[i][j]+", ";
-					//console.log(i+"행 "+j+"열"+arrayToyota[i][j]); //1614
-
-				}
-				
-				//console.log(td[i][0]);
-				//console.log(arrayToyota[i][1]);
-				//console.log(arrayToyota[i][14]);
-				
-				
-				td[i][0]=(arrayToyota[i][1]+"(" + arrayToyota[i][3] + ")"); //목표금액
-				td[i][1]=Number(arrayToyota[i][5]); //목표금액
-				td[i][2]=Number(arrayToyota[i][13]); //현재 금액
-				td[i][3]=Number(arrayToyota[i][6]); //타겟MS
-				td[i][4]=Number(arrayToyota[i][9]); //현재MS
-
-			}	
-			drawChart2(); //lexus
-
-		}
-	});
-}
 
 
 
 
 
 
-
-
+/*
 function createTable(dataSet, id){ //데이터 셋을 이용해서 테이블을 만들어준다.
 	var i,html="";
 	var SP_data = dataSet;
@@ -224,7 +229,7 @@ function createTable(dataSet, id){ //데이터 셋을 이용해서 테이블을 
 	$(id).html(html);	
 }
 
-
+*/
 
 
 

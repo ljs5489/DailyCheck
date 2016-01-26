@@ -1,6 +1,18 @@
 *{
     font-family: Arial;
 }
+
+body{
+	margin:0px; 
+	position: absolute; 
+	top:0px; 
+	left:0px; 
+	width:100%; 
+	height:100%; 
+	overflow:hidden;
+	
+}
+
 #menuBar{
 	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
 	border-right:2px solid #eeeeee;
@@ -8,4 +20,22 @@
 	border-style: double;
 	box-shadow: 5px 5px 5px #454545;
 
+}
+
+
+#logo3{
+	position:absolute; 
+	color: white; 
+	text-align:right; 
+	left: 0px; 
+	bottom:10px; 
+	
+}
+
+#middleLine{
+	
+	display :none;
+	border: 1px solid white; 
+	box-shadow: 1px 1px 1px #eeeeee; 
+	border-style: groove;
 }
