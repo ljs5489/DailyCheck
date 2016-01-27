@@ -3,21 +3,29 @@
 	.chart_name_s{ font-size: 20; }
 	.chart_name{ font-size: 20; }
 	#logo3{ font-size: 6; }
+	.menuButton{ font-size: 6; }
 }
 @media only screen and (min-width: 1000px) {
-	*{ font-size: 15; }
-	.chart_name_s{ font-size: 30; }
-	.chart_name{ font-size: 40; }
+	*{ font-size: 19; }	
+	.chart_name_ss{ font-size: 16; }
+	.chart_name_s{ font-size: 22; }
+	.chart_name{ font-size: 36; }
 	#logo3{ font-size: 11; }
+	
+	.menuButton{ font-size: 17; }
 }
 @media only screen and (min-width: 1800px) {
-	*{ font-size: 18; }
-	.chart_name_s{ font-size: 20; }
-	.chart_name{ font-size: 31; }
-	#logo3{ font-size: 13; }
+	*{ font-size: 22; }
+	.chart_name_ss{ font-size: 18; }
+	.chart_name_s{ font-size: 30; }
+	.chart_name{ font-size: 45; }
+	#logo3{ font-size: 16; }
+	
+	.menuButton{ font-size: 18; }
 }
+/*
 @media only screen and (min-width: 3000px) {
-	*{ font-size: 26; }
+	*{ font-size: 44; }
 	.chart_name_s{ font-size: 20; }
 	.chart_name{ font-size: 40; }
 	#logo3{ font-size: 35; }
@@ -28,3 +36,4 @@
 	.chart_name{ font-size: 55; }
 	#logo3{ font-size: 45; }
 }
+*/

@@ -62,7 +62,7 @@ function drawChart3() {
 			1 : {//오른쪽 y축
 				viewWindowMode : 'explicit',
 				viewWindow : {
-					max : 350, //최대값
+					max : 500, //최대값
 					min : 0
 				//최소값
 				},
@@ -101,9 +101,9 @@ function drawChart3() {
 		},
 		colors : [ "#2478FF", "#53FF4C", "#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
-			left : "5%",
+			left : "4%",
 			top : "15%",
-			width : "90%",
+			width : "91%",
 			height : "70%",
 		},
 
@@ -132,11 +132,11 @@ function drawChart3() {
 			.getElementById('whole_chart_id'));
 	chart.draw(data, options);
 	$("#whole_chart_name").html(
-			"<div style='left:3%; width:10%; bottom:5px; position:absolute; text-align:left;'>(%)</div>"
-			+WholeTitle 
-			+ d.yyyymmdd()
-			+"<div style='right:2%; width:10%; bottom:5px; position:absolute; text-align:right;'>(백 만원)</div>"
-		);
+			"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left;'>M/S(%)</div>"
+			+"<br/>"
+			+WholeTitle+"("+d.yyyymmdd()+")"
+			+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right;'>금액(백 만원)</div>"
+		);	
 	$("#newLoading").hide();
 	$("#middleLine").show();
 

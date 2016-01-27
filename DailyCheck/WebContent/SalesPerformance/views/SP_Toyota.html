@@ -25,7 +25,14 @@ $(function(){
 	nextPage = "SP_Both";	
 	TLineWidth = 5; //선 굵기
 	
-	$("#chart_name2").css("margin-top",15);			
+	$("#chart_name2").css("margin-top",header_name_margin_top);
+	
+	$("#menuToyota").css("background-color","#cccccc");
+	$("#menuToyota").css("color","#111111");
+
+	$("#menuToyota").css("font-weight","bold");
+
+	
 	//테스트용=====================================
 	//google.charts.setOnLoadCallback(drawChart);
 	google.charts.setOnLoadCallback(drawChart2);
@@ -59,16 +66,20 @@ $(function(){
 	
 	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
 	
-	<div id="pageMove" style="width:100%; margin:auto;margin-top:30px;">
-		<img id="arrow_l"  style="width:32%; float:left;" src="../img/arrow_l.png" onclick="location.href='SP_Lexus.html'"/>
-		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_WholeSale.html'"/>
+	<!-- 
+	<div id="pageMove" style="width:100%; margin:auto;margin-top:20px; height:8%">
+		<img id="arrow_l"  style="width:32%; float:left;" src="../img/arrow_l.png" onclick="location.href='SP_Toyota.html'"/>
+		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_Lexus.html'"/>
 	</div>
+	 -->
+	
+	<div style="height:13%; margin-top:130px;" id="menus"></div>
 	
 	
-	<div style="height:30%;"></div>
-	<div style="text-align:right; color:white; font-size:21px;">Sales Performance Report.</div>
+	<div style="height:10%;"></div>
+	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
 	
-	<div id="logo3" ></div>
+	<div id="logo3" class="char_name_ss"></div>
 </div>
 
 

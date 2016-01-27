@@ -29,7 +29,10 @@ $(function(){
 	nextPage = "SP_Toyota";	
 	LLineWidth = 5;
 	
-	$("#chart_name").css("margin-top",15);
+	$("#chart_name").css("margin-top",header_name_margin_top);
+	$("#menuLexus").css("background-color","#cccccc");
+	$("#menuLexus").css("color","#111111");
+	$("#menuLexus").css("font-weight","bold");
 	
 	//테스트용=====================================
 	google.charts.setOnLoadCallback(drawChart);
@@ -64,16 +67,23 @@ $(function(){
 	
 	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
 	
-	<div id="pageMove" style="width:100%; margin:auto;margin-top:30px;">
-		<img id="arrow_l"  style="width:32%; float:left;" src="../img/arrow_l.png" onclick="location.href='SP_Both.html'"/>
-		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_Toyota.html'"/>
+	<!-- 
+	<div id="pageMove" style="width:100%; margin:auto;margin-top:20px; height:8%">
+		<img id="arrow_l"  style="width:32%; float:left;" src="../img/arrow_l.png" onclick="location.href='SP_Toyota.html'"/>
+		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_Lexus.html'"/>
 	</div>
+	 -->
+	
+	<div style="height:13%; margin-top:130px;" id="menus"></div>
+
 	
 	
-	<div style="height:30%;"></div>
-	<div style="text-align:right; color:white; font-size:21px;">Sales Performance Report.</div>	
-	<div id="logo3" ></div>
+	<div style="height:10%;"></div>
+	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
+	
+	<div id="logo3" class="char_name_ss"></div>
 </div>
+
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>
 

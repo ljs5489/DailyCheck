@@ -6,7 +6,7 @@ var currentVersion = "0.003";
 var menuWidth = $(window).width()/10;
 var leftSpace = 15;//(window).width()*(1.2/10);
 
-var LGraphX = $(window).width()-leftSpace-menuWidth-30;
+var LGraphX = $(window).width()-leftSpace*2-menuWidth;
 var LGraphY = $(window).height()/2-5;
 var LMatrixX = $(window).width()*(4/10);
 var LSubMatrixX = $(window).width()*(4/10);
@@ -16,7 +16,7 @@ var LGraphMargin = 15;
 var LLineWidth = 3;
 var chart_nameLeft = menuWidth+LGraphMargin+leftSpace;
 
-var TGraphX = $(window).width()-leftSpace-menuWidth-30;
+var TGraphX = $(window).width()-leftSpace*2-menuWidth;
 var TGraphY = $(window).height()/2-5;
 var TMatrixX = $(window).width()*(4/10);
 var TSubMatrixX = $(window).width()*(4/10);
@@ -24,7 +24,7 @@ var TGraphLeft = leftSpace + menuWidth;
 
 var TGraphTop = 0;
 var TGraphMargin = 15;
-var chart_name2Left = menuWidth+LGraphMargin+leftSpace;
+var chart_name2Left = menuWidth+TGraphMargin+leftSpace;
 
 var LMatrixMarginX = 15;
 var LMatrixMarginY = 15;
@@ -33,7 +33,7 @@ var TMatrixMarginX = 15;
 var TMatrixMarginY = 15;
 var TLineWidth = 3;
 
-
+var header_name_margin_top = 10;
 
 
 //W==================================
@@ -45,17 +45,17 @@ var WGraphLeft = leftSpace + menuWidth;
 var WGraphTop = 0;
 var WGraphMargin = 15;
 var WLineWidth = 20;
-var whole_chart_name_left = menuWidth+LGraphMargin+leftSpace;
+var whole_chart_name_left = menuWidth+WGraphMargin+leftSpace;
 
-var LexusTitle = "LEXUS 영업 목표 1월 전일자 누적 ";
-var ToyotaTitle = "TOYOTA 영업 목표 1월 전일자 누적  ";
+var LexusTitle = "1월 전일자 누적 ";
+var ToyotaTitle = "1월 전일자 누적  ";
 var WholeTitle = "3개월간 목표 달성 ";
 
 
 var myTimer;
 var temp=0;
 var timerOnOff='off';
-var timeTerm = 5; //5초 간격으로 넘김.
+var timeTerm = 5; // ~초 간격으로 넘김.
 
 
 Date.prototype.yyyymmdd = function() {
@@ -92,12 +92,24 @@ $(function(){
 	$("#chart_name2").css("margin-left",chart_name2Left);
 	$("#whole_chart_name").css("margin-left",whole_chart_name_left);
 	
-	$("#chart_name").css("margin-top",15);	
-	$("#chart_name2").css("margin-top",$(window).height()/2+15);
-	$("#whole_chart_name").css("margin-top",15);
+	$("#chart_name").css("margin-top",header_name_margin_top);	
+	$("#chart_name2").css("margin-top",$(window).height()/2+header_name_margin_top);	
+	$("#whole_chart_name").css("margin-top",header_name_margin_top);
 	
 	
 	$("#logo3").html("Version "+currentVersion+"<div style='height:50px;'></div> COPYRIGHT 2016 TOYOTA FINANCIAL ALL RIGHT RESERVED.");
+	
+	
+	//메뉴 추가.
+	var menus = ""
+	+"<div id='menuMain' class='menuButton' onclick='location.href=\"SP_Both.html\"'>Main</div>"
+	+"<div id='menuLexus' class='menuButton' onclick='location.href=\"SP_Lexus.html\"'>LEXUS</div>"
+	+"<div id='menuToyota' class='menuButton' onclick='location.href=\"SP_Toyota.html\"'>TOYOTA</div>"
+	+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_WholeSale.html\"'>Whole Sale</div>"
+	+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_WholeSale.html\"'>Comment</div>"
+	
+	+"";
+	$("#menus").html(menus);
 
 
 	

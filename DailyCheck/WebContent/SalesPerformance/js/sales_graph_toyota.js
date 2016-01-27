@@ -62,7 +62,7 @@ function drawChart2() {
 			showTextEvery : 1, //얼마나 건너뛸지 정한다.
 			textStyle : {
 				color : '#D9E8F7', //강남, 서초, 용산등등의 색깔
-				bold : true,
+				bold : false,
 			}
 		},
 		vAxes : {
@@ -122,9 +122,9 @@ function drawChart2() {
 		},
 		colors : [  "#2478FF","#53FF4C","#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
-			left :"5%",
+			left : "4%",
 			top : "15%",
-			width : "90%",
+			width : "91%",
 			height : "70%",
 		},
 		animation : {
@@ -140,20 +140,34 @@ function drawChart2() {
 			position : 'bottom',
 			textStyle : {
 				color : '#D9E8F7',
-			//fontSize: 16
+				fontSize: 20,
 			}
 		},
-		lineWidth: thisLineWidth
+		lineWidth: thisLineWidth,
+		focusTarget : "",//"datum",
+		/*
+		annotations : {
+			datum:{
+				color:"blue",
+				stem:{
+					color:"red",
+					
+				}
+				
+			}
+			
+		}
+		*/
 	};
 	$(function() {
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_id2'));
 		chart.draw(data, options);
 
 		$("#chart_name2").html(
-				"<div style='left:3%; width:10%; bottom:5px; position:absolute; text-align:left;'>(%)</div>"
-				+ToyotaTitle 
-				+ d.yyyymmdd()
-				+"<div style='right:2%; width:10%; bottom:5px; position:absolute; text-align:right;'>(백 만원)</div>"
+				"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left;'>M/S(%)</div>"
+				+"Toyota 영업 목표<br/>"
+				+ToyotaTitle+"("+d.yyyymmdd()+")"
+				+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right;'>금액(백 만원)</div>"
 			);	
 		$("#newLoading").hide();
 		$("#middleLine").show();
