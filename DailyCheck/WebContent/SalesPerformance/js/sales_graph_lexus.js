@@ -115,7 +115,7 @@ function drawChart() {
 				type : 'line',
 			},
 		},
-		colors : [ "#2478FF", "#53FF4C", "#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
+		colors : [  graphColor.color1,graphColor.color2,graphColor.color3, graphColor.color4 ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
 			left : "4%",
 			top : "15%",
@@ -141,7 +141,7 @@ function drawChart() {
 			}
 		},
 		lineWidth : thisLineWidth,
-		focusTarget : "",//"datum",
+		focusTarget : "datum",
 		/*
 		annotations : {
 			datum:{
@@ -162,10 +162,10 @@ function drawChart() {
 			.getElementById('chart_id'));
 	chart.draw(data, options);
 	$("#chart_name").html(
-			"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left;'>M/S(%)</div>"
+			"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left; font-weight: normal;'>M/S(%)</div>"
 			+"LEXUS 영업 목표<br/>"
-			+LexusTitle+"("+d.yyyymmdd()+")"
-			+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right;'>금액(백 만원)</div>"
+			+"<div class='chart_name_sub'>"+LexusTitle+"("+d.yyyymmdd()+")</div>"
+			+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right; font-weight: normal;'>금액(백 만원)</div>"
 		);
 	$("#newLoading").hide();
 	$("#middleLine").show();

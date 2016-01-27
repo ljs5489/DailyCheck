@@ -8,16 +8,12 @@
 <script src="../js/SP_data.js"></script>
 <script src="../js/getAjax.js"></script>
 
-<script src="../js/sales_graph_whole.js"></script>
-
-<link rel="stylesheet" href="../css/wholeSale.css">
-<link rel="stylesheet" href="../css/font_size2.css">
+<link rel="stylesheet" href="../css/font_size_each.css">
 <link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/left_menu.css">
 <script src="../js/timer.js"></script> 
 <script>
 //OVERRIDE
-var LGraphX = $(window).width()*(9/10)-leftSpace; 
-var LGraphY = $(window).height()-5;
 
 </script>
 
@@ -26,7 +22,6 @@ var LGraphY = $(window).height()-5;
 
 $(function(){	
 	nextPage = "SP_Both";	
-	LLineWidth = 5;
 	
 	
 	$("#whole_chart_name").css("margin-top",15);
@@ -35,13 +30,6 @@ $(function(){
 
 	$("#menuWhole").css("font-weight","bold");
 	
-	//테스트용=====================================
-	google.charts.setOnLoadCallback(drawChart3);
-	//============================================
-		
-	//실제 데이터용==================================
-	//getSalesWithAjaxLexus();
-	//=============================================
 });
 
 
@@ -68,12 +56,14 @@ $(function(){
 		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_Lexus.html'"/>
 	</div>
 	 -->
-	<div style="height:13%; margin-top:130px;" id="menus"></div>
-	
 	<div style="height:10%;"></div>
 	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
+	<div style="height:2%;"></div>
+	<div style="height:13%;" id="menus"></div>
+
+	<div style="height:10%;"></div>
 	
-	<div id="logo3" class="char_name_ss"></div>
+	<div id="logo3" class="chart_name_ss"></div>
 </div>
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>

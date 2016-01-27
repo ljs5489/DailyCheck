@@ -49,6 +49,12 @@ function drawChart2() {
 			[ td[8][0], td[8][1], td[8][2], td[8][3],td[8][4] ], 		
 	//[ "총합", , 168, 0.80 ],
 	]);
+	
+	
+	// data.addColumn({type:'string', role:'annotation'}); // annotation role col. -- not enabled for bar charts
+	// data.addColumn({type:'string', role:'annotationText'}); // annotationText col. -- not enabled for bar charts
+	  
+	
 	var options = {
 		backgroundColor : '#292929', //배경색
 		/*
@@ -120,11 +126,11 @@ function drawChart2() {
 				type : 'line',
 			}, 
 		},
-		colors : [  "#2478FF","#53FF4C","#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
+		colors : [  graphColor.color1,graphColor.color2,graphColor.color3, graphColor.color4 ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
 			left : "4%",
 			top : "15%",
-			width : "91%",
+			width : "92%",
 			height : "70%",
 		},
 		animation : {
@@ -144,30 +150,19 @@ function drawChart2() {
 			}
 		},
 		lineWidth: thisLineWidth,
-		focusTarget : "",//"datum",
-		/*
-		annotations : {
-			datum:{
-				color:"blue",
-				stem:{
-					color:"red",
-					
-				}
-				
-			}
-			
-		}
-		*/
+		focusTarget : "datum",
+
+		
 	};
 	$(function() {
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_id2'));
 		chart.draw(data, options);
 
 		$("#chart_name2").html(
-				"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left;'>M/S(%)</div>"
-				+"Toyota 영업 목표<br/>"
-				+ToyotaTitle+"("+d.yyyymmdd()+")"
-				+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right;'>금액(백 만원)</div>"
+				"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left; font-weight: normal;'>M/S(%)</div>"
+				+"TOYOTA 영업 목표<br/>"
+				+"<div class='chart_name_sub'>"+ToyotaTitle+"("+d.yyyymmdd()+")</div>"
+				+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right; font-weight: normal;'>금액(백 만원)</div>"
 			);	
 		$("#newLoading").hide();
 		$("#middleLine").show();

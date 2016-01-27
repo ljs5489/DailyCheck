@@ -1,7 +1,19 @@
 //google.charts.load('current', {'packages':["corechart", "gauge"]});
 google.charts.load('current', {'packages':['corechart']});
 
-var currentVersion = "0.003"; 
+
+var graphColor = {
+	color1 : "#2478FF",
+	color2 : "#53FF4C",
+	color3 : "#5BE1E1", 
+	color4 : "#AF4BAD",	
+};
+
+var testing = false;
+var timeTerm = 60; // ~초 간격으로 넘김.
+
+
+var currentVersion = "1.004"; 
 
 var menuWidth = $(window).width()/10;
 var leftSpace = 15;//(window).width()*(1.2/10);
@@ -47,15 +59,14 @@ var WGraphMargin = 15;
 var WLineWidth = 20;
 var whole_chart_name_left = menuWidth+WGraphMargin+leftSpace;
 
-var LexusTitle = "1월 전일자 누적 ";
-var ToyotaTitle = "1월 전일자 누적  ";
+var LexusTitle = "1월달 전일자 누적 ";
+var ToyotaTitle = "1월달 전일자 누적  ";
 var WholeTitle = "3개월간 목표 달성 ";
 
 
 var myTimer;
 var temp=0;
 var timerOnOff='off';
-var timeTerm = 5; // ~초 간격으로 넘김.
 
 
 Date.prototype.yyyymmdd = function() {
@@ -102,46 +113,55 @@ $(function(){
 	
 	//메뉴 추가.
 	var menus = ""
-	+"<div id='menuMain' class='menuButton' onclick='location.href=\"SP_Both.html\"'>Main</div>"
-	+"<div id='menuLexus' class='menuButton' onclick='location.href=\"SP_Lexus.html\"'>LEXUS</div>"
-	+"<div id='menuToyota' class='menuButton' onclick='location.href=\"SP_Toyota.html\"'>TOYOTA</div>"
-	+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_WholeSale.html\"'>Whole Sale</div>"
-	+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_WholeSale.html\"'>Comment</div>"
+	+"<div id='menuMain' class='menuButton' onclick='location.href=\"SP_Both.html\"'>MAIN</div>"
+	+"<div id='menuLexus' class='menuButton' onclick='location.href=\"SP_Lexus.html\"'>LEXUS BY DEALER</div>"
+	+"<div id='menuToyota' class='menuButton' onclick='location.href=\"SP_Toyota.html\"'>TOYOTA BY DEALER</div>"
+	//+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_WholeSale.html\"'>Whole Sale</div>"
+	//+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_Comment.html\"'>COMMENT</div>"
 	
 	+"";
 	$("#menus").html(menus);
 
 
+	/*
+	div#chart_id div div div svg g g g text{ font-size:14px; }	
+	*/
+	/*for(var i in $("div#chart_id div div div svg g g g text")){
+		console.log(i+" : "+i.length);
+		
+	}
+	*/
+	//alert($("div#chart_id div div div svg g g g text").text());
 	
 });
 
 
 
 var ld = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
-			[ "강남(JS MOON)", 1321, 231, 31.1,13.15 ], //"강남", 
-			[ "서초(JS MOON)", 1332, 221, 26.7,14.28 ], //"서초",
-			[ "용산(JS MOON)", 1523, 361, 34.8,22.58 ], //"용산", 
-			[ "분당(JH LEE)", 1269, 659, 30.3,24.39 ], //"분당", 
-			[ "부산(IH LEE)", 507, 622, 30.9,28.57 ], //"부산", 
-			[ "광주(JH LEE)", 886, 191, 27.3,36.36], //"광주",			
-			[ "인천(IH LEE)", 1040, 88, 31.4,40 ], //"인천", 
-			[ "대구(JS MOON)", 584, 371, 30.8,28.57], //"대구",
-			[ "대전(JH LEE)", 189, 38, 17.9,8.33 ], //"대전",
+			[ "강남(테스트)", 1321, 231, 31.1,13.15 ], //"강남", 
+			[ "서초(문정수)", 1332, 221, 26.7,14.28 ], //"서초",
+			[ "용산(문정수)", 1523, 361, 34.8,22.58 ], //"용산", 
+			[ "분당(이주훈)", 1269, 659, 30.3,24.39 ], //"분당", 
+			[ "부산(이일형)", 507, 622, 30.9,28.57 ], //"부산", 
+			[ "광주(이주훈)", 886, 191, 27.3,36.36], //"광주",			
+			[ "인천(이일형)", 1040, 88, 31.4,40 ], //"인천", 
+			[ "대구(문정수)", 584, 371, 30.8,28.57], //"대구",
+			[ "대전(이주훈)", 189, 38, 17.9,8.33 ], //"대전",
 			[ "합계"     , 8870, 2773, 30.0,24.18 ], //"합계",
          ];
 
 
 
 var td = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
-			[ "강남(IH LEE)", 307, 172, 24.5,22.7],
-			[ "서초(IH LEE)", 243, 90, 21.3,9.7], 
-			[ "용산(IH LEE)", 294, 108, 24.0,16.0 ], 
-			[ "분당(JH LEE)", 292, 109, 26.7,12.0 ],
-			[ "부산(IH LEE)", 68,  149, 32.4,22.2 ], 
-			[ "광주(JH LEE)", 230, 21, 17.6,50.0 ], 
-			[ "인천(IH LEE)", 298, 218, 33.3,17.6 ],			
-			[ "대구(JS MOON)", 178, 93, 27.3,9.1 ],
-			[ "대전(JH LEE)", 65, 77, 27.3,54.5 ],
+			[ "강남(테스트)", 307, 172, 24.5,22.7],
+			[ "서초(이일형)", 243, 90, 21.3,9.7], 
+			[ "용산(이일형)", 294, 108, 24.0,16.0 ], 
+			[ "분당(이주훈)", 292, 109, 26.7,12.0 ],
+			[ "부산(이일형)", 68,  149, 32.4,22.2 ], 
+			[ "광주(이주훈)", 230, 21, 17.6,50.0 ], 
+			[ "인천(이일형)", 298, 218, 33.3,17.6 ],			
+			[ "대구(문정수)", 178, 93, 27.3,9.1 ],
+			[ "대전(이주훈)", 65, 77, 27.3,54.5 ],
 			[ "합계"     , 1975, 1041, 25.0,18.9 ], //"합계",
        ];
 

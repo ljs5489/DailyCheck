@@ -99,7 +99,7 @@ function drawChart3() {
 				type : 'line',
 			},
 		},
-		colors : [ "#2478FF", "#53FF4C", "#FFA648", "#FFA9FF" ], //#A7CF25도 있음. 차트의 색깔.
+		colors : [  graphColor.color1,graphColor.color2,graphColor.color3, graphColor.color4 ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : {
 			left : "4%",
 			top : "15%",
@@ -132,10 +132,10 @@ function drawChart3() {
 			.getElementById('whole_chart_id'));
 	chart.draw(data, options);
 	$("#whole_chart_name").html(
-			"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left;'>M/S(%)</div>"
+			"<div style='left:1%; width:10%; bottom:15px; position:absolute; text-align:left; font-weight: normal;'>M/S(%)</div>"
 			+"<br/>"
 			+WholeTitle+"("+d.yyyymmdd()+")"
-			+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right;'>금액(백 만원)</div>"
+			+"<div style='right:1%; width:10%; bottom:15px; position:absolute; text-align:right; font-weight: normal;'>금액(백 만원)</div>"
 		);	
 	$("#newLoading").hide();
 	$("#middleLine").show();

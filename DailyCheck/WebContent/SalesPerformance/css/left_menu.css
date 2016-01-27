@@ -1,0 +1,14 @@
+@media only screen and (min-width: 600px) {
+	.menuButton{ font-size: 6; }
+	.chart_name_ss{ font-size: 6; }/*#logo3{ font-size: 11; }	*/
+}
+@media only screen and (min-width: 1000px) {
+	.menuButton{ font-size: 14; }	
+	.chart_name_ss{ font-size: 12; }/*#logo3{ font-size: 11; }	*/
+}
+
+@media only screen and (min-width: 1800px) {
+	.menuButton{ font-size: 18; }
+	.chart_name_ss{ font-size: 16; }/*#logo3{ font-size: 11; }	*/
+
+}

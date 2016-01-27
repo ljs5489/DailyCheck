@@ -1,0 +1,28 @@
+@media only screen and (min-width: 600px) {
+	*{ font-size: 12; }
+	.chart_name_s{ font-size: 20; }
+	.chart_name{ font-size: 20; font-weight: bold; }
+	
+}
+@media only screen and (min-width: 1000px) {
+	*{ font-size: 21; }
+	.chart_name_s{ font-size: 30; }
+	.chart_name{ font-size: 36; font-weight: bold; }
+	
+	.chart_name_sub{ font-size: 32; font-weight: normal; }
+	
+	
+	/*datum의 font-size*/
+	div#chart_id2 div div div svg g:last-child g g text{ font-size:16px; }
+	div#chart_id div div div svg g:last-child g g text{ font-size:16px; }
+}
+@media only screen and (min-width: 1800px) {
+	*{ font-size: 26; }
+	.chart_name_s{ font-size: 39; }
+	.chart_name{ font-size: 45; font-weight: bold; }
+	.chart_name_sub{ font-size: 35; font-weight: normal; }
+		
+		/*datum의 font-size*/
+	div#chart_id2 div div div svg g:last-child g g text{ font-size:18px; }
+	div#chart_id div div div svg g:last-child g g text{ font-size:18px; }
+}
