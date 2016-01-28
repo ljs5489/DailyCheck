@@ -53,7 +53,7 @@ var graphColor = {
 	color3 : "#5BE1E1", 
 	color4 : "#AF4BAD",	
 };
-var today="20160128";
+
 var testing = true;
 var timeTerm = 5; // ~초 간격으로 넘김.
 var currentVersion = "1.005"; 
@@ -77,7 +77,13 @@ Date.prototype.yyyymmdd = function() {
 var d = new Date();
 d.setDate(d.getDate()-1);
 
-
+var today=d.yyyymmdd().replace(/-/gi,"");//.replace("-","");
+/*
+ * g : 발생할 모든 pattern에 대한 전역 검색
+ * i : 대/소문자 구분 안함
+ * m : 여러 줄 검색
+ */
+alert(today);
 
 function setAllElement(){
 	$("#menuBar").css("width",menuWidth);
