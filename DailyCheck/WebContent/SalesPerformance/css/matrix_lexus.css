@@ -1,7 +1,4 @@
-#chart_id{
-	position:absolute; 
 
-}
 
 #matrix_id td{
 	 border : 1px solid #D9E8F7;
@@ -34,10 +31,4 @@
 
 
 
-#chart_name{
-	position:absolute; 	
-	top:0px; 
-	color:white; 
-	text-align:center; 
-	text-size:10px;	
-}
+

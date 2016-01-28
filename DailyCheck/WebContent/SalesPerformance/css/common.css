@@ -2,6 +2,31 @@
     font-family: Arial;
 }
 
+#chart_id{
+	position:absolute; 
+}
+#chart_name{
+	position:absolute; 	
+	top:0px; 
+	color:white; 
+	text-align:center; 
+	text-size:10px;	
+}
+
+
+#chart_id2{
+	position:absolute; 
+	left:0px; 
+	bottom:0px;
+}
+#chart_name2{
+	position:absolute; 	
+	top:0px; 
+	color:white; 
+	text-align:center; 
+	text-size:10px;
+	
+}
 body{
 	margin:0px; 
 	position: absolute; 
@@ -32,9 +57,10 @@ body{
 	
 }
 
-#middleLine{
-	
+#middleLine{	
 	display :none;
+	position:fixed;
+	width:100%;
 	border: 1px solid white; 
 	box-shadow: 1px 1px 1px #eeeeee; 
 	border-style: groove;
@@ -46,8 +72,8 @@ body{
 	color:white;
 	text-align:right;	
 	height:25%;
-	width:100%;
-	margin-left:-3%;
+	width:101%;
+	margin-left:-5%;
 	padding-right:5%;
 	font-style: italic;
 	/*font-weight: bold;*/

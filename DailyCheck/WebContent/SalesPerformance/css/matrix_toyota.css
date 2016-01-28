@@ -1,8 +1,4 @@
-#chart_id2{
-	position:absolute; 
-	left:0px; 
-	bottom:0px;
-}
+
 #matrix_id2 td{
 	 border : 1px solid #D9E8F7;
 	 padding : 0px;
@@ -36,11 +32,4 @@
 
 
 
-#chart_name2{
-	position:absolute; 	
-	top:0px; 
-	color:white; 
-	text-align:center; 
-	text-size:10px;
-	
-}
+

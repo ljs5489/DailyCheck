@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="../css/matrix_lexus.css">
 <link rel="stylesheet" href="../css/matrix_toyota.css">
-<link rel="stylesheet" href="../css/font_size_both.css">
+<link rel="stylesheet" href="../css/font_size_each.css">
 <link rel="stylesheet" href="../css/left_menu.css">
 <link rel="stylesheet" href="../css/common.css">
 <script src="../js/timer.js"></script> 
@@ -25,89 +25,104 @@ var chart = function(){
 	this.on_id = "chart_id"; //#chart_id에 그린다.
 	this.on_head_id = "chart_name";	
 	this.sort = "A271";	
+	
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
-	this.graphHead_title = "LEXUS 영업 목표";
+	this.graphHead_title = "LEXUS 전체 금액 목표";
 	this.graphHead_subTitle = "1월달 전일자 누적  ";	
-	this.graphHead_title_left = "M/S";
-	this.graphHead_title_right = "금액(백 만원)";
-	this.dataTable = ld;	
+	this.graphHead_title_left = "백만";
+	this.graphHead_title_right = "";
+	
+	
+	this.dataTable = wl1;
+	
 	//graph 설정======================================
-	this.width = $(window).width()*(9/10)-leftSpace-30;
-	this.height = $(window).height()/2-15;
+	this.width = $(window).width()*(9/10)/2-leftSpace-40;
+	this.height = $(window).height()-15;
 	this.left = leftSpace + menuWidth;
 	this.top = 0;
 	this.margin = 15;
-	this.lineWidth = 3; //선의 굵기
+	this.lineWidth = 5; //선의 굵기
 
-	this.barWidth = "30%";
-	this.legendFontSize = 20;	
-	this.barMax = 2000;
-	this.lineMax = 80;
+	this.barWidth = "25%";
+	this.legendFontSize = 25;
+	
+	this.barMax = 0;
+	this.lineMax = 10000;
+	
 	this.series = {
-			0 : { targetAxisIndex : 1, },
-			1 : { targetAxisIndex : 1, },
-			2 : { targetAxisIndex : 0, type : 'line', },
-			3 : { targetAxisIndex : 0, type : 'line', },
-		},
-	this.chartArea = {						
-			left : "4%",
+		0 : { targetAxisIndex : 0, },
+		1 : { targetAxisIndex : 0, },
+		2 : { targetAxisIndex : 1, type : 'bar', },
+		3 : { targetAxisIndex : 1, type : 'bar', },
+	}
+	this.chartArea = {
+			left : "11%",
 			top : "15%",
-			width : "90%",
+			width : "87%",
 			height : "70%",			
 		}
-	//===============================================
-}	
+	//================================================
+}
+	
+	
 
 //OVERRIDE
 var chart2 = function(){
 	this.on_id = "chart_id2"; //#chart_id에 그린다.
 	this.on_head_id = "chart_name2";
-	this.sort = "A272";	
-	this.graphHead_left = menuWidth+15+leftSpace;	
-	this.graphHead_top = $(window).height()/2+header_name_margin_top;
-	this.graphHead_title = "TOYOTA 영업 목표";
+		
+	this.sort = "A271";
+		
+	this.graphHead_left = $(window).width()*(9/10)/2 + menuWidth+15+leftSpace;	
+	this.graphHead_top = 15;
+	this.graphHead_title = "LEXUS 전체 M/S 목표";
 	this.graphHead_subTitle = "1월달 전일자 누적  ";
+	this.graphHead_title_left = "M/S(%)";
+	this.graphHead_title_right = "";
 	
-
-	this.graphHead_title_left = "M/S";
-	this.graphHead_title_right = "금액(백 만원)";
+		
+	this.dataTable = wl2;
 	
-	this.dataTable = td;	
 	//graph 설정======================================
-	this.width = $(window).width()*(9/10)-leftSpace-30;
-	this.height = $(window).height()/2-15;
-	this.left = leftSpace + menuWidth;
-	this.top = $(window).height()/2;
+	this.width = $(window).width()*(9/10)/2-leftSpace-40;
+	this.height = $(window).height()-15;
+	this.left = $(window).width()*(9/10)/2 + leftSpace + menuWidth;
+	this.top = 0;
 	this.margin = 15;
-	this.lineWidth = 3; //선의 굵기
+	this.lineWidth = 5; //선의 굵기
 
-	this.barWidth = "30%";
-	this.legendFontSize = 20;	
-	this.barMax = 400;
+	this.barWidth = "25%";
+	this.legendFontSize = 25;
+	
+	this.barMax = 0;
 	this.lineMax = 80;
 	
 	this.series = {
-			0 : { targetAxisIndex : 1, },
-			1 : { targetAxisIndex : 1, },
-			2 : { targetAxisIndex : 0, type : 'line', },
-			3 : { targetAxisIndex : 0, type : 'line', },
+			0 : { targetAxisIndex : 0, },
+			1 : { targetAxisIndex : 0, },
+			2 : { targetAxisIndex : 1, type : 'bar', },
+			3 : { targetAxisIndex : 1, type : 'bar', },
 		},
-	this.chartArea = {						
-			left : "4%",
+	this.chartArea = {
+			left : "10%",
 			top : "15%",
-			width : "91%",
-			height : "70%",			
+			width : "87%",
+			height : "70%",		
 		}
 	//================================================
 }
 
-
-
 $(document).ready(function(){
 	setAllElement();   
-	$("#middleLine").css("margin-top",$(window).height()/2);
-	$("#middleLine").css("margin-left",menuWidth+15);
+	$("#menuWhole").css("background-color","#cccccc");
+	$("#menuWhole").css("color","#111111");
+	$("#menuWhole").css("font-weight","bold");
+	
+	$("#middleLine").css("margin-top",0);
+	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);
+	$("#middleLine").css("width",1);
+	$("#middleLine").css("height",$(window).height());
     $(window).resize(function(){    	
     	menuWidth = $(window).width()/10;      	
     	if(testing){
@@ -122,20 +137,22 @@ $(document).ready(function(){
     		getSalesWithAjax(new chart2);
     		//=============================================
     	}	
-    	setAllElement();   	    
-    	$("#middleLine").css("margin-top",$(window).height()/2);
-    	$("#middleLine").css("margin-left",menuWidth+15);
+    	setAllElement();   
+    	$("#middleLine").css("margin-top",0);
+    	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);
+    	$("#middleLine").css("width",1);
+    	$("#middleLine").css("height",$(window).height());
     });
 });
+
+
+
+
 $(function(){	
-	nextPage = "SP_Lexus";	
-	$("#menuMain").css("background-color","#cccccc");
-	$("#menuMain").css("color","#111111");
-	$("#menuMain").css("font-weight","bold");
+	nextPage = "SP_Both_Whole_Toyota";	
+
 	
-	
-	//setAllElement();
-		
+
 	if(testing){
 		//테스트용=====================================
 		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
@@ -158,10 +175,7 @@ $(function(){
 </head>
 <body>
 
-
-
-
-<div id="chart_id" onclick="toggleFullScreen()"></div>
+<div id="chart_id"></div>
 <div id="chart_name" class="chart_name_s"></div>
 
 <div id = "middleLine"></div>

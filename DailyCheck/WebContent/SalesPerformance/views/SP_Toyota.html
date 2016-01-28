@@ -7,42 +7,98 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="../js/SP_data.js"></script>
 <script src="../js/getAjax.js"></script>
-<script src="../js/sales_graph_lexus.js"></script>
-<script src="../js/sales_graph_toyota.js"></script>
 
-<link rel="stylesheet" href="../css/matrix_lexus.css">
-<link rel="stylesheet" href="../css/matrix_toyota.css">
+<script src="../js/sales_graph.js"></script>
 <link rel="stylesheet" href="../css/font_size_each.css">
 <link rel="stylesheet" href="../css/left_menu.css">
 <link rel="stylesheet" href="../css/common.css">
 <script src="../js/timer.js"></script> 
-
 <script>
 //OVERRIDE
-var TGraphX = $(window).width()*(9/10)-leftSpace; 
-var TGraphY = $(window).height()-5;
+var chart = function(){
+		this.on_id = "chart_id"; //#chart_id에 그린다.
+		this.on_head_id = "chart_name";
+		
+		this.sort = "A272";
+		
+		this.graphHead_left = menuWidth+15+leftSpace;	
+		this.graphHead_top = 15;
+		this.graphHead_title = "TOYOTA 영업 목표";
+		this.graphHead_subTitle = "1월달 전일자 누적  ";
+
+		this.graphHead_title_left = "M/S";
+		this.graphHead_title_right = "금액(백 만원)";
+		
+		this.dataTable = td;
+		
+		//graph 설정======================================
+		this.width = $(window).width()*(9/10)-leftSpace-30;
+		this.height = $(window).height()-30;
+		this.left = leftSpace + menuWidth;
+		this.top = 0;
+		this.margin = 15;
+		this.lineWidth = 5; //선의 굵기
+
+		this.barWidth = "30%";
+		this.legendFontSize = 20;
+		this.barMax = 400;
+
+		this.lineMax = 80;
+		this.series = {
+				0 : { targetAxisIndex : 1, },
+				1 : { targetAxisIndex : 1, },
+				2 : { targetAxisIndex : 0, type : 'line', },
+				3 : { targetAxisIndex : 0, type : 'line', },
+			},
+		this.chartArea = {						
+				left : "4%",
+				top : "15%",
+				width : "91%",
+				height : "70%",			
+			}
+		//================================================
+	}
+
+</script>
+
+<script>
+//왼쪽 메뉴바 셋팅
+$(document).ready(function(){
+	setAllElement();   
+    $(window).resize(function(){    	
+    	menuWidth = $(window).width()/10;      	
+    	if(testing){
+    		//테스트용=====================================
+    		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+    		//google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
+    		//============================================		
+    	}
+    	else{
+    		//실제 데이터용==================================
+    		getSalesWithAjax(new chart);
+    		//getSalesWithAjax(new chart2);
+    		//=============================================
+    	}	
+    	setAllElement();   	    	
+    });
+});
 
 $(function(){	
-	nextPage = "SP_Both";	
-	TLineWidth = 5; //선 굵기
-	
-	$("#chart_name2").css("margin-top",header_name_margin_top);
-	
+	nextPage = "SP_Both_Whole_Lexus";	
+	//LLineWidth = 5;	
+	//$("#chart_name").css("margin-top",header_name_margin_top);
 	$("#menuToyota").css("background-color","#cccccc");
 	$("#menuToyota").css("color","#111111");
-
 	$("#menuToyota").css("font-weight","bold");
-
-	
 	
 	if(testing){
 		//테스트용=====================================
-		google.charts.setOnLoadCallback(drawChart2);
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
 		//============================================		
 	}
 	else{
 		//실제 데이터용==================================
-		getSalesWithAjaxToyota();
+		getSalesWithAjax(new chart);
 		//=============================================
 	}
 });
@@ -56,9 +112,6 @@ $(function(){
 <div id="chart_id"></div>
 <div id="chart_name" class="chart_name"></div>
 
-<div id="chart_id2"></div>
-<div id="chart_name2" class="chart_name"></div>
-
 
 <div id="menuBar">
 	<img id="logo"  style="width:100%; "src="../img/financial.png"/>
@@ -69,12 +122,7 @@ $(function(){
 	
 	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
 	
-	<!-- 
-	<div id="pageMove" style="width:100%; margin:auto;margin-top:20px; height:8%">
-		<img id="arrow_l"  style="width:32%; float:left;" src="../img/arrow_l.png" onclick="location.href='SP_Toyota.html'"/>
-		<img id="arrow_r"  style="width:32%; float:right;"src="../img/arrow_r.png" onclick="location.href='SP_Lexus.html'"/>
-	</div>
-	 -->
+
 	<div style="height:10%;"></div>
 	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
 	<div style="height:2%;"></div>
