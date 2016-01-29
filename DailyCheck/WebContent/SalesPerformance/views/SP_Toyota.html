@@ -67,24 +67,17 @@ $(document).ready(function(){
 	setAllElement();   
     $(window).resize(function(){    	
     	menuWidth = $(window).width()/10;      	
-    	if(testing){
-    		//테스트용=====================================
-    		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-    		//google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
-    		//============================================		
-    	}
-    	else{
-    		//실제 데이터용==================================
-    		getSalesWithAjax(new chart);
-    		//getSalesWithAjax(new chart2);
-    		//=============================================
-    	}	
+		//getSalesWithAjax(new chart);
+		//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
     	setAllElement();   	    	
     });
 });
 
 $(function(){	
-	nextPage = "SP_Both_Whole_Lexus";	
+	nextPage = "SP_Both_Whole_Lexus";
+	//nextPage = "SP_Both";	
+	
 	//LLineWidth = 5;	
 	//$("#chart_name").css("margin-top",header_name_margin_top);
 	$("#menuToyota").css("background-color","#cccccc");

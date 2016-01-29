@@ -110,18 +110,13 @@ $(document).ready(function(){
 	$("#middleLine").css("margin-left",menuWidth+15);
     $(window).resize(function(){    	
     	menuWidth = $(window).width()/10;      	
-    	if(testing){
-    		//테스트용=====================================
-    		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-    		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
-    		//============================================		
-    	}
-    	else{
-    		//실제 데이터용==================================
-    		getSalesWithAjax(new chart);
-    		getSalesWithAjax(new chart2);
-    		//=============================================
-    	}	
+
+   		//getSalesWithAjax(new chart);
+   		//getSalesWithAjax(new chart2);
+   		//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
+   		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+   		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
+   
     	setAllElement();   	    
     	$("#middleLine").css("margin-top",$(window).height()/2);
     	$("#middleLine").css("margin-left",menuWidth+15);
@@ -161,7 +156,7 @@ $(function(){
 
 
 
-<div id="chart_id" onclick="toggleFullScreen()"></div>
+<div id="chart_id"></div>
 <div id="chart_name" class="chart_name_s"></div>
 
 <div id = "middleLine"></div>

@@ -23,6 +23,6 @@
 	.chart_name_sub{ font-size: 35; font-weight: normal; }
 		
 		/*datum의 font-size*/
-	div#chart_id2 div div div svg g:last-child g g text{ font-size:18px; }
-	div#chart_id div div div svg g:last-child g g text{ font-size:18px; }
+	div#chart_id2 div div div svg g:last-child g g text{ font-size:17px; }
+	div#chart_id div div div svg g:last-child g g text{ font-size:17px; }
 }

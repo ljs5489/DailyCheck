@@ -7,6 +7,10 @@
 	String salesDataSet ="";	
 	String id=request.getParameter("id").trim();
 	String code=request.getParameter("code").trim();
+	
+	System.out.println(id);
+	System.out.println(code);
+	
 
 	ArrayList<Sales> sales = SalesDAO.selectById(id,code);
 	

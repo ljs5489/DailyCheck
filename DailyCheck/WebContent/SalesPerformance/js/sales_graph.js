@@ -45,6 +45,8 @@ function drawCharts(obj) {
 	$(thisHeadDiv).css("margin-top",thisGraphHead_top);	
 
 	
+	console.log(obj.dataTable);
+	
 	var data = google.visualization.arrayToDataTable(obj.dataTable);
 	var options = {
 		backgroundColor : '#292929', //배경색

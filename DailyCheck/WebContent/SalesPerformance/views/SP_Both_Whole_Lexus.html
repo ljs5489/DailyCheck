@@ -96,7 +96,7 @@ var chart2 = function(){
 	this.legendFontSize = 25;
 	
 	this.barMax = 0;
-	this.lineMax = 80;
+	this.lineMax = 50;
 	
 	this.series = {
 			0 : { targetAxisIndex : 0, },
@@ -105,7 +105,7 @@ var chart2 = function(){
 			3 : { targetAxisIndex : 1, type : 'bar', },
 		},
 	this.chartArea = {
-			left : "10%",
+			left : "8%",
 			top : "15%",
 			width : "87%",
 			height : "70%",		
@@ -125,18 +125,18 @@ $(document).ready(function(){
 	$("#middleLine").css("height",$(window).height());
     $(window).resize(function(){    	
     	menuWidth = $(window).width()/10;      	
-    	if(testing){
+    	//if(testing){
     		//테스트용=====================================
     		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
     		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
     		//============================================		
-    	}
-    	else{
+    	//}
+    	//else{
     		//실제 데이터용==================================
-    		getSalesWithAjax(new chart);
-    		getSalesWithAjax(new chart2);
+    	//	getSalesWithAjax(new chart);
+    	//	getSalesWithAjax(new chart2);
     		//=============================================
-    	}	
+    	//}	
     	setAllElement();   
     	$("#middleLine").css("margin-top",0);
     	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);
@@ -153,18 +153,18 @@ $(function(){
 
 	
 
-	if(testing){
+	//if(testing){
 		//테스트용=====================================
 		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
 		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
 		//============================================		
-	}
-	else{
+	//}
+	//else{
 		//실제 데이터용==================================
-		getSalesWithAjax(new chart);
-		getSalesWithAjax(new chart2);
+	//	getSalesWithAjax(new chart);
+	//	getSalesWithAjax(new chart2);
 		//=============================================
-	}	
+	//}	
 
 });
 

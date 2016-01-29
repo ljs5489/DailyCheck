@@ -30,10 +30,10 @@ var td = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M
        ];
 
 //나중에 따로 빼기....
-var wl1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", 8870, 2773 ], ];
-var wl2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", 30.0, 24.78],  ];
-var wt1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", 1975, 1041 ], ];
-var wt2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", 25.0, 18.9], ];
+var wl1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", 8870, 5993 ], ];
+var wl2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", 30.0, 25.9],  ];
+var wt1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", 1975, 1471 ], ];
+var wt2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", 25.0, 17.9], ];
 
 
 var wd = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
@@ -55,7 +55,7 @@ var graphColor = {
 };
 
 var testing = true;
-var timeTerm = 5; // ~초 간격으로 넘김.
+var timeTerm = 60; // ~초 간격으로 넘김.
 var currentVersion = "1.005"; 
 
 var header_name_margin_top = 10;
@@ -83,7 +83,6 @@ var today=d.yyyymmdd().replace(/-/gi,"");//.replace("-","");
  * i : 대/소문자 구분 안함
  * m : 여러 줄 검색
  */
-alert(today);
 
 function setAllElement(){
 	$("#menuBar").css("width",menuWidth);
@@ -115,7 +114,7 @@ function setAllElement(){
 	+"<div id='menuMain' class='menuButton' onclick='location.href=\"SP_Both.html\"'>TARGET BY DEALER</div>"
 	+"<div id='menuLexus' class='menuButton' onclick='location.href=\"SP_Lexus.html\"'>LEXUS BY DEALER</div>"
 	+"<div id='menuToyota' class='menuButton' onclick='location.href=\"SP_Toyota.html\"'>TOYOTA BY DEALER</div>"
-	//+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_Comment.html\"'>COMMENT</div>"	
+	+"<div id='menuComment' class='menuButton' onclick='location.href=\"SP_Comment.html\"'>COMMENT</div>"	
 	+"";
 	$("#menus").html(menus);
 

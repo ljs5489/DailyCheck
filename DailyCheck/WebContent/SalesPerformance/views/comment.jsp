@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<% response.setContentType("text/html; charset=utf-8"); %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html style="background-color:#292929">
 
 <head>
@@ -53,13 +58,12 @@ $(function(){
  <script>
  
 
- function commentAjax(obj) { 
+ function submitComment(obj) { 
 	console.log(obj.writer);
  	$.ajax({
- 		url : 'func/commentAjax.jsp', 
+ 		url : 'func/submitComment.jsp', 
  		type : 'get',
  		data : {
- 			type : obj.type,
             writer : obj.writer,
             password : obj.password,
             content : obj.content,             
@@ -72,7 +76,7 @@ $(function(){
  		}
  	});
  }
-
+ 
  
  
  $(function(){
@@ -82,25 +86,19 @@ $(function(){
 	
 	
 	$("#ok").click(function(){
+
+		//alert($("#writerName").val() );
+		//alert($("#writerPW").val());
+		//alert($("#content").val());
+		
 		obj = {
-			 type : "save",
 			 writer : $("#writerName").val(),
              password : $("#writerPW").val(),
              content : $("#content").val(),             
 				
-		} 
-		commentAjax(obj);		
-	});
-	
-	$("#ok2").click(function(){
-		obj = {
-			 type : "get",
-			 writer : $("#writerName").val(),
-             password : $("#writerPW").val(),
-             content : $("#content").val(),             
-				
-		} 
-		commentAjax(obj);		
+		}
+		submitComment(obj);
+		
 	});
 	 
  });
@@ -161,8 +159,8 @@ $(function(){
 	#writeContent{
 		margin:auto;
 		width:80%; 
-		height:80px;
-		/*overflow:hidden;*/
+		height:60px;
+		overflow:hidden;
 	}
 	#content{
 		border : 1px solid blue;
@@ -173,12 +171,6 @@ $(function(){
 		float:left;
 	}
 	#ok{
-		border : 1px solid blue;
-		width:19%; 
-		float:left;
-		height:60px;
-	}
-	#ok2{
 		border : 1px solid blue;
 		width:19%; 
 		float:left;
@@ -229,7 +221,6 @@ $(function(){
 <div id="writeContent">
 <textarea id="content"></textarea>
 <button id="ok">Submmit</button>
-<button id="ok2">get</button>
 </div>
 
 </div>

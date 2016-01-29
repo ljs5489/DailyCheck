@@ -1,7 +1,7 @@
 
 function getSalesWithAjax(obj) { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 	var table = obj.dataTable;
-	
+	//alert(obj.sort);
 	$.ajax({
 		url : 'func/getSalesData.jsp', //바꿔줄것
 		type : 'get',
@@ -16,24 +16,31 @@ function getSalesWithAjax(obj) { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			for(var i=0;i<temp.length;i++){
 				temp[i]=temp[i].split('/');
 			}
+			//     [ '지점', '목표 금액', '현재 금액 ', '목표M/S', '현재M/S' ],
 			
-			for(var i=0;i<temp.length-1;i++){
+			table[0][0]="지점";
+			table[0][1]="목표 금액";
+			table[0][2]="현재 금액";
+			table[0][3]="목표M/S"
+			table[0][4]="현재M/S";
+			
+			for(var i=0;i<temp.length-2;i++){
 				var tempText="";
 				for(var j=0;j<temp[i].length;j++){
-					//console.log("temp "+i+" : "+j+" : "+temp[i][j]);
-					//console.log("arrayLexus "+i+" : "+j+" : "+arrayLexus[i][j]);
 					
 					arrayLexus[i][j] = temp[i][j]; 
 					tempText += "("+i+","+j+")"+arrayLexus[i][j]+", ";
 					//console.log(i+"행 "+j+"열"+arrayLexus[i][j]); //1614
 
-				}				
+				}	
 				
-				table[i][0]=(arrayLexus[i][1]+"(" + arrayLexus[i][3] + ")"); //목표금액
-				table[i][1]=Number(arrayLexus[i][5]); //목표금액
-				table[i][2]=Number(arrayLexus[i][13]); //현재 금액
-				table[i][3]=Number(arrayLexus[i][6]); //타겟MS
-				table[i][4]=Number(arrayLexus[i][9]); //현재MS
+				console.log(tempText);
+				
+				table[i+1][0]=(arrayLexus[i][1]+"(" + arrayLexus[i][3] + ")"); //목표금액
+				table[i+1][1]=Number(arrayLexus[i][5]); //목표금액
+				table[i+1][2]=Number(arrayLexus[i][13]); //현재 금액
+				table[i+1][3]=Number(arrayLexus[i][6]); //타겟MS
+				table[i+1][4]=Number(arrayLexus[i][9]); //현재MS
 			}		
 			//drawChart(); //lexus
 			//google.charts.setOnLoadCallback(drawCharts(obj));	

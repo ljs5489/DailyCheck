@@ -60,6 +60,38 @@ public class SalesDAO {
 				connection.close();
 		}
     }
+	
+	public static void insertComment(String wrtier, String password, String content) throws Exception{
+		Connection connection = null;
+		PreparedStatement statement = null;
+
+		try {
+			connection = DB.getConnection();
+			String sql = "";
+			sql += "INSERT INTO comment("
+					+ "writer"
+					+ ",password"
+					+ ",content)"
+					+ "VALUES ( "
+					+ "?, ?, ?)";
+			
+			System.out.println(sql);
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, wrtier);
+			statement.setString(2, password);
+			statement.setString(3, content);		
+			statement.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if (statement != null)
+				statement.close();
+			if (connection != null)
+				connection.close();
+		}
+		
+		
+	}
 
 	
 

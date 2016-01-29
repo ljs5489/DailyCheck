@@ -33,7 +33,7 @@ var chart = function(){
 	this.left = leftSpace + menuWidth;
 	this.top = 0;
 	this.margin = 15;
-	this.lineWidth = 3; //선의 굵기
+	this.lineWidth = 5; //선의 굵기
 
 	this.barWidth = "30%";
 	this.legendFontSize = 20;	
@@ -62,18 +62,11 @@ $(document).ready(function(){
 	setAllElement();   
     $(window).resize(function(){    	
     	menuWidth = $(window).width()/10;      	
-    	if(testing){
-    		//테스트용=====================================
-    		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-    		//google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
-    		//============================================		
-    	}
-    	else{
-    		//실제 데이터용==================================
-    		getSalesWithAjax(new chart);
-    		//getSalesWithAjax(new chart2);
-    		//=============================================
-    	}	
+		
+    	//getSalesWithAjax(new chart);
+		//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+		
     	setAllElement();   	    	
     });
 });
@@ -94,7 +87,7 @@ $(function(){
 	}
 	else{
 		//실제 데이터용==================================
-		getSalesWithAjax(chart);
+		getSalesWithAjax(new chart);
 		//=============================================
 	}
 });
