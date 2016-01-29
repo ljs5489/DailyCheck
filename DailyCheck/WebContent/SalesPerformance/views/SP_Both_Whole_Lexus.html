@@ -55,13 +55,24 @@ var chart = function(){
 		1 : { targetAxisIndex : 0, },
 		2 : { targetAxisIndex : 1, type : 'bar', },
 		3 : { targetAxisIndex : 1, type : 'bar', },
-	}
+	};
 	this.chartArea = {
 			left : "11%",
 			top : "15%",
 			width : "87%",
 			height : "70%",			
-		}
+		};
+	this.graphColor = {/*
+			color1 : "#2478FF",
+			color2 : "#53FF4C",
+			color3 : "#5BE1E1", 
+			color4 : "#AF4BAD",	
+			*/
+				color1 : "#2478FF",
+				color2 : "#53FF4C",
+				color3 : "#5BE1E1", 
+				color4 : "#AF4BAD",	
+		};
 	//================================================
 }
 	
@@ -103,13 +114,24 @@ var chart2 = function(){
 			1 : { targetAxisIndex : 0, },
 			2 : { targetAxisIndex : 1, type : 'bar', },
 			3 : { targetAxisIndex : 1, type : 'bar', },
-		},
+		};
 	this.chartArea = {
 			left : "8%",
 			top : "15%",
 			width : "87%",
 			height : "70%",		
-		}
+	};
+	this.graphColor = {/*
+		color1 : "#2478FF",
+		color2 : "#53FF4C",
+		color3 : "#5BE1E1", 
+		color4 : "#AF4BAD",	
+		*/
+			color1 : "#5BE1E1",
+			color2 : "#AF4BAD",
+			color3 : "#5BE1E1", 
+			color4 : "#AF4BAD",	
+	};
 	//================================================
 }
 
@@ -128,6 +150,8 @@ $(document).ready(function(){
     	//if(testing){
     		//테스트용=====================================
     		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+
+    		
     		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
     		//============================================		
     	//}

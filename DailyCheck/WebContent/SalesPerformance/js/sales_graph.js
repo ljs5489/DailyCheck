@@ -24,6 +24,7 @@ function drawCharts(obj) {
 	var thisSubTitle = obj.graphHead_subTitle;
 	var thisLegendFontSize = obj.legendFontSize;
 	var thisBarWith = obj.barWidth;
+	var thisGraphColor = obj.graphColor;
 
 	//var chart_nameLeft = chart_nameLeft;
 
@@ -97,7 +98,7 @@ function drawCharts(obj) {
 		},
 		seriesType : 'bars',
 		series : obj.series,
-		colors : [  graphColor.color1,graphColor.color2,graphColor.color3, graphColor.color4 ], //#A7CF25도 있음. 차트의 색깔.
+		colors : [  thisGraphColor.color1,thisGraphColor.color2,thisGraphColor.color3, thisGraphColor.color4 ], //#A7CF25도 있음. 차트의 색깔.
 		chartArea : obj.chartArea,
 
 		animation : {

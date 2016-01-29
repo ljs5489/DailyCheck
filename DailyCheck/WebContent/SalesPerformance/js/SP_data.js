@@ -47,14 +47,9 @@ var wd = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M
 google.charts.load('current', {'packages':['corechart']});
 
 
-var graphColor = {
-	color1 : "#2478FF",
-	color2 : "#53FF4C",
-	color3 : "#5BE1E1", 
-	color4 : "#AF4BAD",	
-};
 
-var testing = true;
+
+var testing = false;
 var timeTerm = 60; // ~초 간격으로 넘김.
 var currentVersion = "1.005"; 
 
@@ -114,7 +109,7 @@ function setAllElement(){
 	+"<div id='menuMain' class='menuButton' onclick='location.href=\"SP_Both.html\"'>TARGET BY DEALER</div>"
 	+"<div id='menuLexus' class='menuButton' onclick='location.href=\"SP_Lexus.html\"'>LEXUS BY DEALER</div>"
 	+"<div id='menuToyota' class='menuButton' onclick='location.href=\"SP_Toyota.html\"'>TOYOTA BY DEALER</div>"
-	+"<div id='menuComment' class='menuButton' onclick='location.href=\"SP_Comment.html\"'>COMMENT</div>"	
+	//+"<div id='menuComment' class='menuButton' onclick='location.href=\"SP_Comment.html\"'>COMMENT</div>"	
 	+"";
 	$("#menus").html(menus);
 
