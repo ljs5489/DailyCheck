@@ -16,4 +16,7 @@
 <link rel="stylesheet" href="../css/common.css">
 <script src="../js/timer.js"></script>
 
+<link href="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
 <%@ include file="/SalesPerformance/import/SetVals.jsp" %>

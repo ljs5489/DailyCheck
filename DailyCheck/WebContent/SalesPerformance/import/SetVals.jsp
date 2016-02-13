@@ -20,7 +20,7 @@ var currentVersion = <%= currentVersion %>
 
 var header_name_margin_top = 10;
 var menuWidth = $(window).width()/10;
-var leftSpace = 15;//(window).width()*(1.2/10);
+var leftSpace = <%= margin %>;
 
 var timerOnOff='off';
 var myTimer;
@@ -30,10 +30,17 @@ var temp=0;
 
 
 $(function(){		
+	//$("body").width($("html").width());
+	//$("body").height($("html").height());
+	//$("html").width($(window).width());
+	//$("html").height($(window).height());
+	
 	setAllElement(); //반응형
 	var onResizeStop;
 	$(window).resize(function(){ 		
 		//console.log("resizing..."+onResizeStop);
+		//$("html").width($(window).width());
+		//$("html").height($(window).height());
 		clearInterval(onResizeStop);
 		onResizeStop = setInterval(function(){ 
 			setAllElement();
@@ -76,10 +83,11 @@ function setAllElement(){
 	$("#logo3").html("Version "+currentVersion+"<div style='height:50px;'></div> COPYRIGHT 2016 TOYOTA FINANCIAL ALL RIGHT RESERVED.");
 		
 	$(".main").css("width",$(window).width()*(9/10)-leftSpace-30);
-	$(".main").css("height",$(window).height()/2-15);
+	$(".main").css("height",$(window).height()-30);
 	$(".main").css("margin",<%= margin %>);
 	$(".main").css("position","absolute");
-	$(".main").css("right","0");	
+	$(".main").css("right","0");
+	$(".main").css("bottom","0");
 	/*
 	//메뉴 추가==================================================================================
 	var menus = ""

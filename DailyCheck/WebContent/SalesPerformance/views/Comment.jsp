@@ -8,8 +8,7 @@
 <head>
 
 <%@ include file="/SalesPerformance/import/include.jsp" %>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
 
 
 
@@ -23,6 +22,8 @@
     select[name=ss] { width: 100px; margin-left: 100px; }
     table.table th:first-child { width: 20px; }
     tbody tr:hover { background-color: #FFC; cursor: pointer; }
+    
+
 </style>
 
 
@@ -42,7 +43,7 @@ $(function(){
         $("form").submit();
     })
     $("tbody tr").click(function() {
-      //  location.href = "article.jsp" + location.search + "&aid=" + $(this).attr("data-id");
+        location.href = "Comment_Article.jsp" + location.search + "?aid=" + $(this).attr("data-id");
     })
     $("div.pagination a").click(function() {
         $("input[name=pg]").val($(this).attr("data-page"));
@@ -90,7 +91,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
         <input type="hidden" name="pg" value="1" />
 
         <div class="form-inline">
-            정렬:
+            <span>정렬:</span>
             <select name="od"> 
 				<option value="0" <%= order==0 ? "selected" : "" %>>없음</option>
 				<option value="1" <%= order==1 ? "selected" : "" %>>제목</option>
@@ -115,19 +116,23 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th><input type="checkbox" /></th>
-                    <th>사용자</th>
-                    <th>제목</th>                    
+                    <th>번호</th>
+                    <th>제목</th>    
+                    <th>글쓴이</th>                
                     <th>일시</th>
+                    <th>조회</th>                     
+                    <th>추천</th>
                 </tr>
             </thead>
             <tbody>                
                 <% for (Comment cmt : comments) { %>
-                     <tr>                      
-                        <td><%= cmt.getId() %></td>
-                        <td><%= cmt.getWriter() %></td>
-                        <td><%= cmt.getTitle() %></td>
-                        <td><%= cmt.getEntry_date() %></td>
+                     <tr data-id="<%= cmt.getId() %>" >                      
+                        <td style="width:10%"><%= cmt.getId() %></td>
+                        <td style="width:45%"><%= cmt.getTitle() %></td>
+                        <td style="width:15%"><%= cmt.getWriter() %></td>        
+                        <td style="width:20%"><%= cmt.getEntry_date() %></td>
+						<td style="width:5%"><%= 1 %></td>
+						<td style="width:5%"><%= 2 %></td>
                     </tr>
                 <% } %>
                 
@@ -137,7 +142,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
             <button type="submit" class="btn btn-small">삭제</button>
         </div>
         <div class="pull-right form-inline">
-            화면크기:
+            <span>화면크기:</span>
             <select name="sz">
                 <option <%= pageSize==10 ? "selected" : "" %>>10</option>
                 <option <%= pageSize==15 ? "selected" : "" %>>15</option>
