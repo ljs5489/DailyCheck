@@ -1,21 +1,9 @@
-<html style="background-color:#292929">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<html>
 
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../js/SP_data.js"></script>
-<script src="../js/getAjax.js"></script>
-
-<script src="../js/sales_graph.js"></script>
-
-<link rel="stylesheet" href="../css/matrix_lexus.css">
-<link rel="stylesheet" href="../css/matrix_toyota.css">
-<link rel="stylesheet" href="../css/font_size_both.css">
-<link rel="stylesheet" href="../css/left_menu.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/timer.js"></script> 
+<%@ include file="/SalesPerformance/import/include.jsp" %>
 
 <script>
 
@@ -125,34 +113,37 @@ var chart2 = function(){
 }
 
 
+//Override용
+function onResized(){
+	menuWidth = $(window).width()/10;      	
 
-$(document).ready(function(){
-	setAllElement();   
+		//getSalesWithAjax(new chart);
+		//getSalesWithAjax(new chart2);
+		//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
+   
 	$("#middleLine").css("margin-top",$(window).height()/2);
 	$("#middleLine").css("margin-left",menuWidth+15);
-    $(window).resize(function(){    	
-    	menuWidth = $(window).width()/10;      	
+}
 
-   		//getSalesWithAjax(new chart);
-   		//getSalesWithAjax(new chart2);
-   		//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
-   		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-   		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
-   
-    	setAllElement();   	    
-    	$("#middleLine").css("margin-top",$(window).height()/2);
-    	$("#middleLine").css("margin-left",menuWidth+15);
-    });
+
+$(document).ready(function(){
+	$("#middleLine").css("margin-top",$(window).height()/2);
+	$("#middleLine").css("margin-left",menuWidth+15);
+
 });
+<%@ page import= " tools.EnvVal " %>
+
 $(function(){	
-	nextPage = "SP_Lexus";	
+	nextPage = "<%= EnvVal.NEXT_BothTarget %>";
+	
+	
 	$("#menuMain").css("background-color","#cccccc");
 	$("#menuMain").css("color","#111111");
 	$("#menuMain").css("font-weight","bold");
 	
 	
-	//setAllElement();
-		
 	if(testing){
 		//테스트용=====================================
 		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
@@ -175,9 +166,6 @@ $(function(){
 </head>
 <body>
 
-
-
-
 <div id="chart_id"></div>
 <div id="chart_name" class="chart_name_s"></div>
 
@@ -186,27 +174,7 @@ $(function(){
 <div id="chart_id2"></div>
 <div id="chart_name2" class="chart_name_s"></div>
 
-
-<div id="menuBar">
-	<img id="logo"  style="width:100%; "src="../img/financial.png"/>
-	
-	<div style="height:50px;"></div>
-	<img id="timerPlay" src="../img/play.png"/>
-	<img id="timerStop" src="../img/pause.png"/>
-	
-	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
-
-	<div style="height:10%;"></div>
-	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
-	<div style="height:2%;"></div>
-	<div style="height:13%;" id="menus"></div>
-
-	<div style="height:10%;"></div>
-	
-	<div id="logo3" class="chart_name_ss"></div>
-</div>
-
-
+<%@ include file="/SalesPerformance/import/nav.jsp" %>
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>
 

@@ -1,21 +1,11 @@
-<html style="background-color:#292929">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
+<html>
 
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../js/SP_data.js"></script>
-<script src="../js/getAjax.js"></script>
 
-<script src="../js/sales_graph.js"></script>
-
-<link rel="stylesheet" href="../css/matrix_lexus.css">
-<link rel="stylesheet" href="../css/matrix_toyota.css">
-<link rel="stylesheet" href="../css/font_size_each.css">
-<link rel="stylesheet" href="../css/left_menu.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/timer.js"></script> 
+<%@ include file="/SalesPerformance/import/include.jsp" %>
 
 <script>
 
@@ -24,17 +14,17 @@
 var chart = function(){
 	this.on_id = "chart_id"; //#chart_id에 그린다.
 	this.on_head_id = "chart_name";	
-	this.sort = "A271";	
+	this.sort = "A272";	
 	
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
-	this.graphHead_title = "LEXUS 전체 금액 목표";
+	this.graphHead_title = "TOYOTA 전체 금액 목표";
 	this.graphHead_subTitle = "1월달 전일자 누적  ";	
 	this.graphHead_title_left = "백만";
 	this.graphHead_title_right = "";
 	
 	
-	this.dataTable = wl1;
+	this.dataTable = wt1;
 	
 	//graph 설정======================================
 	this.width = $(window).width()*(9/10)/2-leftSpace-40;
@@ -48,7 +38,7 @@ var chart = function(){
 	this.legendFontSize = 25;
 	
 	this.barMax = 0;
-	this.lineMax = 10000;
+	this.lineMax = 3000;
 	
 	this.series = {
 		0 : { targetAxisIndex : 0, },
@@ -57,7 +47,7 @@ var chart = function(){
 		3 : { targetAxisIndex : 1, type : 'bar', },
 	};
 	this.chartArea = {
-			left : "11%",
+			left : "10%",
 			top : "15%",
 			width : "87%",
 			height : "70%",			
@@ -68,12 +58,14 @@ var chart = function(){
 			color3 : "#5BE1E1", 
 			color4 : "#AF4BAD",	
 			*/
-				color1 : "#2478FF",
-				color2 : "#53FF4C",
-				color3 : "#5BE1E1", 
-				color4 : "#AF4BAD",	
+			color1 : "#2478FF",
+			color2 : "#53FF4C",
+			color3 : "#5BE1E1", 
+			color4 : "#AF4BAD",	
 		};
-	//================================================
+	
+	
+//================================================
 }
 	
 	
@@ -83,17 +75,17 @@ var chart2 = function(){
 	this.on_id = "chart_id2"; //#chart_id에 그린다.
 	this.on_head_id = "chart_name2";
 		
-	this.sort = "A271";
+	this.sort = "A272";
 		
 	this.graphHead_left = $(window).width()*(9/10)/2 + menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
-	this.graphHead_title = "LEXUS 전체 M/S 목표";
+	this.graphHead_title = "TOYOTA 전체 M/S 목표";
 	this.graphHead_subTitle = "1월달 전일자 누적  ";
 	this.graphHead_title_left = "M/S(%)";
 	this.graphHead_title_right = "";
 	
 		
-	this.dataTable = wl2;
+	this.dataTable = wt2;
 	
 	//graph 설정======================================
 	this.width = $(window).width()*(9/10)/2-leftSpace-40;
@@ -120,60 +112,62 @@ var chart2 = function(){
 			top : "15%",
 			width : "87%",
 			height : "70%",		
-	};
+		};
 	this.graphColor = {/*
-		color1 : "#2478FF",
-		color2 : "#53FF4C",
-		color3 : "#5BE1E1", 
-		color4 : "#AF4BAD",	
-		*/
-			color1 : "#5BE1E1",
-			color2 : "#AF4BAD",
+			color1 : "#2478FF",
+			color2 : "#53FF4C",
 			color3 : "#5BE1E1", 
 			color4 : "#AF4BAD",	
-	};
+			*/
+				color1 : "#5BE1E1",
+				color2 : "#AF4BAD",
+				color3 : "#5BE1E1", 
+				color4 : "#AF4BAD",	
+		};
 	//================================================
 }
 
-$(document).ready(function(){
-	setAllElement();   
-	$("#menuWhole").css("background-color","#cccccc");
-	$("#menuWhole").css("color","#111111");
-	$("#menuWhole").css("font-weight","bold");
-	
+
+//Override용
+function onResized(){
+	menuWidth = $(window).width()/10;      	
+	//if(testing){
+		//테스트용=====================================
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
+		//============================================		
+	//}
+	//else{
+		//실제 데이터용==================================
+	//	getSalesWithAjax(new chart);
+	//	getSalesWithAjax(new chart2);
+		//=============================================
+	//}	
+	   
 	$("#middleLine").css("margin-top",0);
 	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);
 	$("#middleLine").css("width",1);
-	$("#middleLine").css("height",$(window).height());
-    $(window).resize(function(){    	
-    	menuWidth = $(window).width()/10;      	
-    	//if(testing){
-    		//테스트용=====================================
-    		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+	$("#middleLine").css("height",$(window).height());    	
+}
 
-    		
-    		google.charts.setOnLoadCallback(function(){drawCharts(new chart2)});
-    		//============================================		
-    	//}
-    	//else{
-    		//실제 데이터용==================================
-    	//	getSalesWithAjax(new chart);
-    	//	getSalesWithAjax(new chart2);
-    		//=============================================
-    	//}	
-    	setAllElement();   
-    	$("#middleLine").css("margin-top",0);
-    	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);
-    	$("#middleLine").css("width",1);
-    	$("#middleLine").css("height",$(window).height());
-    });
+$(document).ready(function(){
+	$("#menuWhole2").css("background-color","#cccccc");
+	$("#menuWhole2").css("color","#111111");
+	$("#menuWhole2").css("font-weight","bold");
+	
+	$("#middleLine").css("margin-top",$(window).height()/8);
+	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);
+	$("#middleLine").css("width",1);
+	$("#middleLine").css("height",$(window).height()*(6/8));
+	
 });
 
 
 
+<%@ page import= " tools.EnvVal " %>
 
 $(function(){	
-	nextPage = "SP_Both_Whole_Toyota";	
+	nextPage = "<%= EnvVal.NEXT_ToyotaWhole %>";
 
 	
 
@@ -207,26 +201,7 @@ $(function(){
 <div id="chart_id2"></div>
 <div id="chart_name2" class="chart_name_s"></div>
 
-
-<div id="menuBar">
-	<img id="logo"  style="width:100%; "src="../img/financial.png"/>
-	
-	<div style="height:50px;"></div>
-	<img id="timerPlay" src="../img/play.png"/>
-	<img id="timerStop" src="../img/pause.png"/>
-	
-	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
-
-	<div style="height:10%;"></div>
-	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
-	<div style="height:2%;"></div>
-	<div style="height:13%;" id="menus"></div>
-
-	<div style="height:10%;"></div>
-	
-	<div id="logo3" class="chart_name_ss"></div>
-</div>
-
+<%@ include file="/SalesPerformance/import/nav.jsp" %>
 
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.util.ArrayList, tools.*, pages.*, java.text.SimpleDateFormat, java.util.Calendar "%>
+<%@ page import="java.sql.*, java.util.ArrayList, tools.*, pages.*, comments.*, java.text.SimpleDateFormat, java.util.Calendar "%>
 <%@page import="org.json.simple.JSONObject"%>
 
 
@@ -25,7 +25,7 @@
 		System.out.println(content);
 		
 		
-		SalesDAO.insertComment(writer,password,content);
+		CommentDAO.insertComment(writer,password,content,"테스트입니다...");
 		
 	}else{
 		System.out.println("!!");

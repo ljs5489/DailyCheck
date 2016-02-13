@@ -61,16 +61,16 @@ public class SalesDAO {
 		}
     }
 	
-	public static void insertComment(String wrtier, String password, String content) throws Exception{
+	public static void insertComment(String wrtier, String pw, String content) throws Exception{
 		Connection connection = null;
 		PreparedStatement statement = null;
 
 		try {
 			connection = DB.getConnection();
 			String sql = "";
-			sql += "INSERT INTO comment("
+			sql += "INSERT INTO sp.comment("
 					+ "writer"
-					+ ",password"
+					+ ",pw"
 					+ ",content)"
 					+ "VALUES ( "
 					+ "?, ?, ?)";
@@ -78,7 +78,7 @@ public class SalesDAO {
 			System.out.println(sql);
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, wrtier);
-			statement.setString(2, password);
+			statement.setString(2, pw);
 			statement.setString(3, content);		
 			statement.executeUpdate();
 		} catch (Exception e) {

@@ -1,18 +1,8 @@
-<html style="background-color:#292929">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../js/SP_data.js"></script>
-<script src="../js/getAjax.js"></script>
+<%@ include file="/SalesPerformance/import/include.jsp" %>
 
-<script src="../js/sales_graph.js"></script>
-<link rel="stylesheet" href="../css/font_size_each.css">
-<link rel="stylesheet" href="../css/left_menu.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/timer.js"></script> 
 <script>
 //OVERRIDE
 var chart = function(){
@@ -73,20 +63,20 @@ var chart = function(){
 </script>
 
 <script>
-//왼쪽 메뉴바 셋팅
-$(document).ready(function(){
-	setAllElement();   
-    $(window).resize(function(){    	
-    	menuWidth = $(window).width()/10;      	
-		//getSalesWithAjax(new chart);
-		//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
-		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-    	setAllElement();   	    	
-    });
-});
+
+//Override용
+function onResized(){
+	menuWidth = $(window).width()/10;      	
+	//getSalesWithAjax(new chart);
+	//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
+	google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+	    	
+}
+
+<%@ page import= " tools.EnvVal " %>
 
 $(function(){	
-	nextPage = "SP_Both_Whole_Lexus";
+	nextPage = "<%= EnvVal.NEXT_ToyotaTarget %>";
 	//nextPage = "SP_Both";	
 	
 	//LLineWidth = 5;	
@@ -116,26 +106,8 @@ $(function(){
 <div id="chart_id"></div>
 <div id="chart_name" class="chart_name"></div>
 
+<%@ include file="/SalesPerformance/import/nav.jsp" %>
 
-<div id="menuBar">
-	<img id="logo"  style="width:100%; "src="../img/financial.png"/>
-	
-	<div style="height:50px;"></div>
-	<img id="timerPlay" src="../img/play.png"/>
-	<img id="timerStop" src="../img/pause.png"/>
-	
-	<div style="text-align:right; color:white; font-size:20px; margin:5px;">1 Min</div>
-	
-
-	<div style="height:10%;"></div>
-	<div style="text-align:right; color:white;" class="chart_name_ss">Sales Performance Report.</div>
-	<div style="height:2%;"></div>
-	<div style="height:13%;" id="menus"></div>
-
-	<div style="height:10%;"></div>
-	
-	<div id="logo3" class="chart_name_ss"></div>
-</div>
 
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>

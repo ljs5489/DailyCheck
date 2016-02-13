@@ -1,10 +1,5 @@
 $(function(){
 
-	$("#timerPlay").css("width",menuWidth*0.3);
-	$("#timerPlay").css("height",menuWidth*0.3);
-	$("#timerStop").css("width",menuWidth*0.3);
-	$("#timerSTop").css("height",menuWidth*0.3);
-	
 	var timer = location.search.split('timer=')[1];
 	if(timer=="on"){ 
 		setTimer(); 
@@ -24,7 +19,7 @@ $(function(){
 	function setTimer(){
 	    myTimer = setInterval(function(){
 		    console.log(temp++);
-		  	location.href = nextPage+'.html?timer='+timerOnOff;
+		  	location.href = nextPage+'?timer='+timerOnOff;
 	    }, 1000*timeTerm);	
 	}
 	$("#timerPlay").click(function(){

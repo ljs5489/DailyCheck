@@ -46,22 +46,6 @@ var wd = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M
 //google.charts.load('current', {'packages':["corechart", "gauge"]});
 google.charts.load('current', {'packages':['corechart']});
 
-
-
-
-var testing = false;
-var timeTerm = 60; // ~초 간격으로 넘김.
-var currentVersion = "1.005"; 
-
-var header_name_margin_top = 10;
-var menuWidth = $(window).width()/10;
-var leftSpace = 15;//(window).width()*(1.2/10);
-
-var myTimer;
-var temp=0;
-var timerOnOff='off';
-
-
 Date.prototype.yyyymmdd = function() {
 	   var yyyy = this.getFullYear().toString();
 	   var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
@@ -79,41 +63,6 @@ var today=d.yyyymmdd().replace(/-/gi,"");//.replace("-","");
  * m : 여러 줄 검색
  */
 
-function setAllElement(){
-	$("#menuBar").css("width",menuWidth);
-	$("#menuBar").css("height","100%");
-	$("#menuBar").css("position","absolute");
-	$("#menuBar").css("top",0);
-	$("#menuBar").css("left",0);
-	
-	$("#newLoading").css("top",($(window).height()/2-$(window).height()*(1/20)));
-	$("#newLoading").css("left",($(window).width()+menuWidth)/2-$(window).height()*(1/20));
-	$("#newLoading").css("width",$(window).height()*(1/10));
-	$("#newLoading").css("height",$(window).height()*(1/10));
-	
-	$("#logo").css("margin-top",menuWidth/2); //이미지마크로고	
-	$("#logo3").css("width",menuWidth); //all right reserverd.
-
-	
-	/*
-	$("#whole_chart_name").css("margin-left",whole_chart_name_left);	
-	$("#whole_chart_name").css("margin-top",header_name_margin_top);
-	*/
-	
-	$("#logo3").html("Version "+currentVersion+"<div style='height:50px;'></div> COPYRIGHT 2016 TOYOTA FINANCIAL ALL RIGHT RESERVED.");
-		
-	//메뉴 추가==================================================================================
-	var menus = ""
-	+"<div id='menuWhole' class='menuButton' onclick='location.href=\"SP_Both_Whole_Lexus.html\"'>LEXUS TARGET</div>"
-	+"<div id='menuWhole2' class='menuButton' onclick='location.href=\"SP_Both_Whole_Toyota.html\"'>TOYOTA TARGET</div>"
-	+"<div id='menuMain' class='menuButton' onclick='location.href=\"SP_Both.html\"'>TARGET BY DEALER</div>"
-	+"<div id='menuLexus' class='menuButton' onclick='location.href=\"SP_Lexus.html\"'>LEXUS BY DEALER</div>"
-	+"<div id='menuToyota' class='menuButton' onclick='location.href=\"SP_Toyota.html\"'>TOYOTA BY DEALER</div>"
-	//+"<div id='menuComment' class='menuButton' onclick='location.href=\"SP_Comment.html\"'>COMMENT</div>"	
-	+"";
-	$("#menus").html(menus);
-
-}
 
 
 
