@@ -8,6 +8,19 @@
 <head>
 
 <%@ include file="/SalesPerformance/import/include.jsp"%>
+
+<%
+
+RequestParameter param = new RequestParameter(request);
+int aid = param.getInt("aid", 0);
+
+Comment cmt = CommentDAO.selectById(aid);
+String urlDelete = "articleAction.jsp?cmd=delete&" + request.getQueryString();
+
+
+
+%>
+
 <title>Comment</title>
 
 
@@ -19,26 +32,44 @@
 	}
 
 	$(function() {
-
+		$("#deleteArticle").click(function(){
+			 location.href = "<%= urlDelete %>";
+			 
+			
+		});
 	})
 </script>
 
 
 </head>
-<%
-	
-%>
+
 <body>
 
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
 
 	<div class="container main">
 		<h1>제목입니다.</h1>
+		
+		<div>
+			<span>  제목 </span>
+			<span><%= cmt.getTitle() %></span>
+		</div>
+		<div>
+			<span>  글쓴이 </span>
+			<span><%= cmt.getWriter() %></span>
+			
+			<span>  조회 </span>
+			<span><%= 20 %></span>
+			
+			<span>  댓글 </span>
+			<span><%= 20 %></span>
+		</div>
 		<hr />
-
-		<form>
-			<h3>내용입니다.</h3>
-			<h4>
+		<div style="min-height: 300px;">
+			<h4><%= cmt.getContent() %>	</h4>
+			<!-- 
+			
+			
 				회사가 당신에게 알려주지 않는 50가지 비밀
 				<책 Corporate Confidential 신시야 샤피로 지음> 오늘도 일 잘하고 회사에 돈도 마니 벌어 주는
 				많은 직장인들이 이유도 모르는 채로 소리없이 밀려나고 있다. 일만 잘 한다고 안전빵은 아니다. 직원을 회사로부터 보호하는
@@ -71,10 +102,14 @@
 				창피를 줬다고 여기면 물불을 안 가린다. 당신이 얼마나 잘난 지 보여주려고 위에 돌아갈 공을 낚아채거나 절대로 당신이
 				그보다 더 잘할 수 있다고 여기지 말라. 자신이 잘 나 입사했다고들 여기지만 회사는 직원이 회사에 존경심을 보이기 이전에
 				잘난 체 하는 것을 아주 싫어한다. 남보다 내가 똑똑하다는 것을 보여주려고 튀지 마라. 
-			</h4>
-
-		</form>
-
+		
+ 				-->
+		</div>
+		<hr />
+  		<div class="pull-right" style="bottom:0px;">
+			<button id="deleteArticle" class="btn btn-small">삭제</button>
+			<button type="submit" class="btn btn-small">수정</button>
+        </div>
 	</div>
 </body>
 </html>

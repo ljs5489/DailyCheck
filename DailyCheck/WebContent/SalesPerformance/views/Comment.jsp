@@ -43,7 +43,7 @@ $(function(){
         $("form").submit();
     })
     $("tbody tr").click(function() {
-        location.href = "Comment_Article.jsp" + location.search + "?aid=" + $(this).attr("data-id");
+        location.href = "Comment_Article.jsp" + location.search + "&aid=" + $(this).attr("data-id");
     })
     $("div.pagination a").click(function() {
         $("input[name=pg]").val($(this).attr("data-page"));
@@ -139,7 +139,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
             </tbody>
         </table>
         <div class="pull-left">
-            <button type="submit" class="btn btn-small">삭제</button>
+            <button type="submit" class="btn btn-small">글쓰기</button>
         </div>
         <div class="pull-right form-inline">
             <span>화면크기:</span>

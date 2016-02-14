@@ -36,7 +36,7 @@ public class CommentDAO {
 		//@srchType INT,          /* 검색대상(0: 검색없음, 1: 익명아이디, 2: 제목, 3: 내용 ) */
 		//@srchText NVARCHAR(50)  /* 검색문자열*/
 		
-        String sql = "EXEC sp.selectAll ?, ?, ?, ?, ?";
+        String sql = "EXEC jslee.sp.selectAll ?, ?, ?, ?, ?";
 
         try (Connection con = DB.getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -66,7 +66,7 @@ public class CommentDAO {
 	public static void insertComment(String wrtier, String pw, String title, String content) throws Exception{
 		Connection connection = null;
 		PreparedStatement statement = null;				
-        String sql = "EXEC sp.insertComment ?, ?, ?, ?";
+        String sql = "EXEC jslee.sp.insertComment ?, ?, ?, ?";
 
         try (Connection con = DB.getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -93,7 +93,7 @@ public class CommentDAO {
 		
 	}
 	public static int getRecordCount(/*int boardId,*/ int srchType, String srchText/*, int category*/) throws Exception {
-        String sql = "EXEC sp.commentRecordCount ?, ?";
+        String sql = "EXEC jslee.sp.commentRecordCount ?, ?";
         try (Connection con = DB.getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
 			   // stmt.setInt(1, boardId);
@@ -103,6 +103,18 @@ public class CommentDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 return rs.next() ? rs.getInt(1) : 0;
             }
+        }
+    }
+    public static Comment selectById(int id) throws Exception {
+        String sql = "SELECT * FROM [JSLEE].[sp].[comment] WHERE [id] = ?";
+       
+        System.out.println(sql);
+        
+        try (Connection con = DB.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next()? makeComment(rs) : null;
         }
     }
 
