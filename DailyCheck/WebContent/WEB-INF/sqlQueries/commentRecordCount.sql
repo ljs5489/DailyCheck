@@ -2,11 +2,11 @@
 sp.commentRecordCount '3','..'
 
 alter PROCEDURE sp.commentRecordCount
-    --@currentPage INT,       /* ÇöÀçÆäÀÌÁö¹øÈ£*/
-    --@pageSize INT,          /* ÇÑÆäÀÌÁöÀÇ·¹ÄÚµå¼ö*/
-    --@order INT,             /* Á¤·Ä¹æ¹ý(0: ±âº»Å°, 1: Á¦¸ñ, 2:ÀÍ¸í¾ÆÀÌµð, 3: ±Û¾´¼ø¼­) */
-    @srchType INT,          /* °Ë»ö´ë»ó(0: °Ë»ö¾øÀ½, 1: ÀÍ¸í¾ÆÀÌµð, 2: Á¦¸ñ, 3: ³»¿ë ) */
-    @srchText NVARCHAR(50)  /* °Ë»ö¹®ÀÚ¿­*/
+    --@currentPage INT,       /* í˜„ìž¬íŽ˜ì´ì§€ë²ˆí˜¸*/
+    --@pageSize INT,          /* í•œíŽ˜ì´ì§€ì˜ë ˆì½”ë“œìˆ˜*/
+    --@order INT,             /* ì •ë ¬ë°©ë²•(0: ê¸°ë³¸í‚¤, 1: ì œëª©, 2:ìµëª…ì•„ì´ë””, 3: ê¸€ì“´ìˆœì„œ) */
+    @srchType INT,          /* ê²€ìƒ‰ëŒ€ìƒ(0: ê²€ìƒ‰ì—†ìŒ, 1: ìµëª…ì•„ì´ë””, 2: ì œëª©, 3: ë‚´ìš© ) */
+    @srchText NVARCHAR(50)  /* ê²€ìƒ‰ë¬¸ìžì—´*/
 AS
 BEGIN
     SET NOCOUNT ON;

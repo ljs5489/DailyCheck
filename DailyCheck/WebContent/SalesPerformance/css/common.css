@@ -1,3 +1,11 @@
+@media only screen and (min-width: 0px) { /*width이 1000이상부터는.*/
+	#menuBar{ display : none; }
+}
+@media only screen and (min-width: 1200px) { /*width이 1000이상부터는.*/
+	#menuBar{ display : block; }
+	
+}
+
 *{
     font-family: Arial;
     line-height: normal;

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ page import="java.util.*"%>
+<%@ page import="java.util.*, java.net.*"%>
 <%@ page import="comments.*, tools.* "%>
 
 <html>
@@ -9,16 +9,27 @@
 
 <%@ include file="/SalesPerformance/import/include.jsp"%>
 
+
+
 <%
+	InetAddress Address = InetAddress.getLocalHost();
+	String userIP = Address.getHostAddress();
+	String userName = Address.getHostName();
 
-RequestParameter param = new RequestParameter(request);
-int aid = param.getInt("aid", 0);
+	RequestParameter param = new RequestParameter(request);
+	int aid = param.getInt("aid", 0);
 
-Comment cmt = CommentDAO.selectById(aid);
-String urlDelete = "articleAction.jsp?cmd=delete&" + request.getQueryString();
+	System.out.println(aid);
+	System.out.println(userIP);
+	System.out.println(userName);
 
-
-
+	Comment cmt = CommentDAO.selectById(aid, userIP, userName);
+	String urlDelete = "Comment_Delete.jsp?cmd=delete&"
+			+ request.getQueryString();
+	String urlList = "Comment.jsp?"
+			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
+	String urlEdit = "Comment_Edit_Check.jsp?cmd=delete&"
+			+ request.getQueryString();
 %>
 
 <title>Comment</title>
@@ -33,9 +44,13 @@ String urlDelete = "articleAction.jsp?cmd=delete&" + request.getQueryString();
 
 	$(function() {
 		$("#deleteArticle").click(function(){
-			 location.href = "<%= urlDelete %>";
-			 
-			
+			 location.href = "<%=urlDelete%>";			
+		});
+		$("#gotoList").click(function(){
+			 location.href = "<%=urlList%> ";
+		});
+		$("#editArticle").click(function(){
+			 location.href = "<%=urlEdit%>";	
 		});
 	})
 </script>
@@ -47,29 +62,43 @@ String urlDelete = "articleAction.jsp?cmd=delete&" + request.getQueryString();
 
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
 
-	<div class="container main">
+	<div class="container main" style="overflow-y: auto;">
 		<h1>제목입니다.</h1>
-		
-		<div>
-			<span>  제목 </span>
-			<span><%= cmt.getTitle() %></span>
-		</div>
-		<div>
-			<span>  글쓴이 </span>
-			<span><%= cmt.getWriter() %></span>
-			
-			<span>  조회 </span>
-			<span><%= 20 %></span>
-			
-			<span>  댓글 </span>
-			<span><%= 20 %></span>
-		</div>
-		<hr />
-		<div style="min-height: 300px;">
-			<h4><%= cmt.getContent() %>	</h4>
-			<!-- 
-			
-			
+		<form style="margin-bottom:10px;">
+			<div>
+				<span> 제목 </span> <span><%=cmt.getTitle()%></span>
+			</div>
+			<div>
+				<span> 글쓴이 </span> <span><%=cmt.getWriter()%></span> <span>
+					조회 </span> <span><%=cmt.getView()%></span> <span> 댓글 </span> <span><%=20%></span>
+
+
+
+				<div id="deleteArticle" style="margin: 5px; float: right"
+					class="btn btn-default">
+					<i class="fa fa-yelp"></i> 삭제
+				</div>
+				<div id="editArticle" style="margin: 5px; float: right"
+					class="btn btn-default">
+					<i class="fa fa-stack-overflow"></i> 수정
+				</div>
+
+				<div id="gotoList" style="margin: 5px; float: right"
+					class="btn btn-default">
+					<i class="fa fa-file-text-o"></i> 목록
+				</div>
+
+				<div id="likeIt" style="margin: 5px; float: right"
+					class="btn btn-default">
+					<i class="fa fa-thumbs-o-up"></i> 좋아요!
+				</div>
+			</div>
+			<hr />
+			<div style="min-height: 300px;">
+				<h4><%=cmt.getContent()%>
+				</h4>
+				<!-- 
+			<h5>
 				회사가 당신에게 알려주지 않는 50가지 비밀
 				<책 Corporate Confidential 신시야 샤피로 지음> 오늘도 일 잘하고 회사에 돈도 마니 벌어 주는
 				많은 직장인들이 이유도 모르는 채로 소리없이 밀려나고 있다. 일만 잘 한다고 안전빵은 아니다. 직원을 회사로부터 보호하는
@@ -102,14 +131,29 @@ String urlDelete = "articleAction.jsp?cmd=delete&" + request.getQueryString();
 				창피를 줬다고 여기면 물불을 안 가린다. 당신이 얼마나 잘난 지 보여주려고 위에 돌아갈 공을 낚아채거나 절대로 당신이
 				그보다 더 잘할 수 있다고 여기지 말라. 자신이 잘 나 입사했다고들 여기지만 회사는 직원이 회사에 존경심을 보이기 이전에
 				잘난 체 하는 것을 아주 싫어한다. 남보다 내가 똑똑하다는 것을 보여주려고 튀지 마라. 
-		
- 				-->
+		</h5>
+			 -->
+
+			</div>
+			<hr />
+
+		</form>
+		<div>	
+			<div style="float:left;"><h5>작성자:</h5> <input type="text" name="writer" value="" /></div>				
+			<div style="float:left; margin-left:10px;"><h5>비밀번호:</h5> <input type="text" name="title" value="" /></div>
+				
 		</div>
-		<hr />
-  		<div class="pull-right" style="bottom:0px;">
-			<button id="deleteArticle" class="btn btn-small">삭제</button>
-			<button type="submit" class="btn btn-small">수정</button>
-        </div>
+					<div id="gotoList" style="margin: 5px; float: right"
+					class="btn btn-default">
+					<i class="fa fa-file-text-o"></i> 등록
+			</div>	
+		<textarea id="articleComment" style="width:100%"></textarea>
+		</div>
+
+		<br />
+		
+		
+		<br />
 	</div>
 </body>
 </html>

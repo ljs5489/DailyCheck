@@ -14,7 +14,7 @@
     //response.sendRedirect("Comment.jsp");
     
     
-    Comment article = CommentDAO.selectById(aid);
+   // Comment article = CommentDAO.selectById(aid);
     
     if (cmd.equals("delete")) {
         //if (boardService.canDeleteArticle()) {

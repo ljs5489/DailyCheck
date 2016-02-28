@@ -7,6 +7,8 @@ public class Comment {
 	private String title;
 	private String content;
 	private String entry_date;
+	private int view;
+	
 	
 	public int getId() {
 		return id;
@@ -43,6 +45,12 @@ public class Comment {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getView() {
+		return view;
+	}
+	public void setView(int view) {
+		this.view = view;
 	}
 
 	

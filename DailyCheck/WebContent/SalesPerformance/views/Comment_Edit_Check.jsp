@@ -58,7 +58,7 @@
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
 
 	<div class="container main">
-		<h1><%=aid%>번 글을 삭제합니다.
+		<h1><%=aid%>번 글을 수정합니다.
 		</h1>
 
 		<hr />

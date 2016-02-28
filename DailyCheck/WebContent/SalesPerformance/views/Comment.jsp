@@ -14,7 +14,7 @@
 
 <title>Comment</title>
 <style>
-    div.container.main { min-height: 700px; }
+    div.container.main { min-height: 500px; }
     thead { background-color: #eee; }
     div.form-inline { margin-bottom: 5px; }
     select[name=sz] { width: 60px; }
@@ -45,6 +45,10 @@ $(function(){
     $("tbody tr").click(function() {
         location.href = "Comment_Article.jsp" + location.search + "&aid=" + $(this).attr("data-id");
     })
+    $("#createArticle").click(function() {
+        location.href = "Comment_Create.jsp" + location.search ;
+    })    
+    
     $("div.pagination a").click(function() {
         $("input[name=pg]").val($(this).attr("data-page"));
         $("form").submit();
@@ -83,7 +87,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
 
 <%@ include file="/SalesPerformance/import/nav.jsp" %>
 
-<div class="container main">
+<div class="container main" style="overflow-y:auto;">
     <h1>Comments</h1>
     <hr />
 
@@ -116,31 +120,33 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th>번호</th>
-                    <th>제목</th>    
-                    <th>글쓴이</th>                
-                    <th>일시</th>
-                    <th>조회</th>                     
-                    <th>추천</th>
+                    <th style="width:10%">번호</th>
+                    <th style="width:45%">제목</th>    
+                    <th style="width:15%">글쓴이</th>                
+                    <th style="width:20%">일시</th>
+                    <th style="width:5%">조회</th>                     
+                    <th style="width:5%">추천</th>
                 </tr>
             </thead>
             <tbody>                
                 <% for (Comment cmt : comments) { %>
                      <tr data-id="<%= cmt.getId() %>" >                      
-                        <td style="width:10%"><%= cmt.getId() %></td>
-                        <td style="width:45%"><%= cmt.getTitle() %></td>
-                        <td style="width:15%"><%= cmt.getWriter() %></td>        
-                        <td style="width:20%"><%= cmt.getEntry_date() %></td>
-						<td style="width:5%"><%= 1 %></td>
-						<td style="width:5%"><%= 2 %></td>
+                        <td><%= cmt.getId() %></td>
+                        <td><%= cmt.getTitle() %></td>
+                        <td><%= cmt.getWriter() %></td>        
+                        <td><%= cmt.getEntry_date() %></td>
+						<td><%= cmt.getView() %></td>
+						<td><%= 0 %></td>
                     </tr>
                 <% } %>
                 
             </tbody>
         </table>
-        <div class="pull-left">
-            <button type="submit" class="btn btn-small">글쓰기</button>
-        </div>
+        <div style="float:left" id="createArticle" class="btn btn-default">
+      		<i class="fa fa-plus-square-o"></i> 글쓰기
+      	</div>
+
+
         <div class="pull-right form-inline">
             <span>화면크기:</span>
             <select name="sz">
