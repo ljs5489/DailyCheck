@@ -16,9 +16,9 @@ var chart = function(){
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
 	this.graphHead_title = "LEXUS 영업 목표";
-	this.graphHead_subTitle = "1월달 전일자 누적  ";	
-	this.graphHead_title_left = "M/S";
-	this.graphHead_title_right = "금액(백 만원)";
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";	
+	this.graphHead_title_left = "M/S(%)";
+	this.graphHead_title_right = "금액(백만)";
 	this.dataTable = ld;	
 	//graph 설정======================================
 	this.width = $(window).width()*(9/10)-leftSpace-30;
@@ -30,8 +30,8 @@ var chart = function(){
 
 	this.barWidth = "30%";
 	this.legendFontSize = 20;	
-	this.barMax = 2000;
-	this.lineMax = 80;
+	this.barMax = 3000;
+	this.lineMax = 100;
 	this.series = {
 			0 : { targetAxisIndex : 1, },
 			1 : { targetAxisIndex : 1, },
@@ -66,11 +66,11 @@ var chart2 = function(){
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = $(window).height()/2+header_name_margin_top;
 	this.graphHead_title = "TOYOTA 영업 목표";
-	this.graphHead_subTitle = "1월달 전일자 누적  ";
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";
 	
 
-	this.graphHead_title_left = "M/S";
-	this.graphHead_title_right = "금액(백 만원)";
+	this.graphHead_title_left = "M/S(%)";
+	this.graphHead_title_right = "금액(백만)";
 	
 	this.dataTable = td;	
 	//graph 설정======================================
@@ -83,8 +83,8 @@ var chart2 = function(){
 
 	this.barWidth = "30%";
 	this.legendFontSize = 20;	
-	this.barMax = 400;
-	this.lineMax = 80;
+	this.barMax = 600;
+	this.lineMax = 100;
 	
 	this.series = {
 			0 : { targetAxisIndex : 1, },

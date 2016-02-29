@@ -11,8 +11,8 @@ alter procedure sp.insertComment
 AS
 BEGIN
 
-INSERT INTO sp.comment(writer,pw,content,entry_date,entry_idno,updat_date,updat_idno) 
-VALUES(@wrtier,@pw,@content,GETDATE(),@wrtier,GETDATE(),@wrtier)
+INSERT INTO sp.comment(writer,pw,content,entry_date) 
+VALUES(@wrtier,@pw,@content,GETDATE())
 
 END
 

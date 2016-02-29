@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="java.util.*, pages.*" %>
 
 <html>
 
@@ -7,7 +7,14 @@
 
 <%@ include file="/SalesPerformance/import/include.jsp" %>
 
+<% Sales v = SalesDAO.getTotal("a272"); %>
+
 <script>
+
+if(testing == false){
+	wt1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", <%= v.getTarget_amt() %>, <%= v.getTm_t_funded_amt() %> ], ];
+	wt2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", <%= v.getTarget_ms() %>, <%= v.getMs_all() %> ],  ];
+}
 
 
 //OVERRIDE
@@ -19,8 +26,8 @@ var chart = function(){
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
 	this.graphHead_title = "TOYOTA 전체 금액 목표";
-	this.graphHead_subTitle = "1월달 전일자 누적  ";	
-	this.graphHead_title_left = "백만";
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";	
+	this.graphHead_title_left = "금액(백만)";
 	this.graphHead_title_right = "";
 	
 	
@@ -80,7 +87,7 @@ var chart2 = function(){
 	this.graphHead_left = $(window).width()*(9/10)/2 + menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
 	this.graphHead_title = "TOYOTA 전체 M/S 목표";
-	this.graphHead_subTitle = "1월달 전일자 누적  ";
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";
 	this.graphHead_title_left = "M/S(%)";
 	this.graphHead_title_right = "";
 	
