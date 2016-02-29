@@ -21,8 +21,6 @@
 RequestParameter param = new RequestParameter(request);
 int boardId = param.getInt("bid", 0);
 int articleId = param.getInt("aid", 0);
-String cmd = param.getString("cmd", "");
-
 int category = param.getInt("ct", 0);
 
 boolean notice = param.getBoolean("notice", false);
@@ -32,7 +30,7 @@ String errMsg = null;
 String urlList = "Comment.jsp?"+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
 
 
-
+String cmd = param.getString("cmd", "");
 String title = param.getString("title", "");
 String writer = param.getString("writer", "");
 String pw = param.getString("pw", "");
@@ -46,7 +44,7 @@ if(request.getMethod().equals("POST")){
 		
 	if ("저장".equals(cmd)) {
 	    if (title.length() > 0) {
-	        if (content.length() > 13) {
+	        if (content.length() > 0) {
 	            CommentDAO.insertComment(writer, pw, title, content);
 	    		response.sendRedirect(urlList);
 	            

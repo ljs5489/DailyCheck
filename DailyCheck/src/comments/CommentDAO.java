@@ -20,6 +20,7 @@ public class CommentDAO {
 		cmt.setPw(resultSet.getString("pw").trim());
 		cmt.setEntry_date(resultSet.getString("entry_date").trim());
 		try{ cmt.setView(resultSet.getInt("view")); } catch(Exception e){ cmt.setView(0); }
+		try{ cmt.setReplyCount(resultSet.getInt("reply")); } catch(Exception e){ cmt.setReplyCount(0); }
 		
 		return cmt;
 

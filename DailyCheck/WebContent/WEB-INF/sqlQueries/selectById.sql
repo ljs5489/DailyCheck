@@ -19,10 +19,10 @@ insert into comment_log(article_id,userIp,userName,entry_date)
 values(@article_id,@user_id,@user_name,GETDATE())
 
 SELECT *,(SELECT COUNT(*) FROM comment_log WHERE article_id = @article_id) 'view'
-FROM [JSLEE].[sp].[comment] WHERE [id] = @article_id
+,(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply'	
+FROM [JSLEE].[sp].[comment] cmt WHERE [id] = @article_id
 
 END
-
 
 
 

@@ -10,8 +10,9 @@ BEGIN
 
     SELECT *
     FROM 
-    (   SELECT [id],[writer],[pw],[title],[content],[entry_date],
-		(SELECT COUNT(*) FROM comment_log WHERE article_id = [id]) 'view',
+    (   SELECT cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],
+		(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.[id]) 'view',
+		(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply',		
             ROW_NUMBER() OVER (
                 ORDER BY
                     CASE WHEN @order = 0 THEN [id] END DESC,
@@ -19,9 +20,9 @@ BEGIN
                         WHEN 1 THEN [title]
                         WHEN 2 THEN [writer]
                         WHEN 3 THEN [entry_date]
-                    END
+                    END DESC
             ) AS recordNo
-        FROM sp.comment --LEFT JOIN dbo.[User] ON [Log].[userId] = [User].[id]
+        FROM sp.comment cmt --LEFT JOIN dbo.[User] ON [Log].[userId] = [User].[id]
         WHERE 
             (@srchType = 0) OR
             (@srchType = 1 AND @srchText = [writer]) OR
@@ -34,6 +35,8 @@ BEGIN
 END
 
 
-sp.selectAll '1','10','0','0','0'
+sp.selectAll '1','100','0','0','0'
 
 SELECT COUNT(*) FROM comment_log WHERE id = '46'
+
+SELECT COUNT(*) FROM sp.reply WHERE pid = 12

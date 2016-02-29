@@ -1,14 +1,14 @@
 package comments;
 
-public class Comment {
-	private int id;
-	private String writer;
-	private String pw;
-	private String title;
-	private String content;
-	private String entry_date;
-	private int view;
-	private int replyCount;
+public class Reply {
+	int id;
+	int pid;
+	String writer;
+	String pw;
+	String content;
+	String entry_date;
+	
+	
 	
 	
 	public int getId() {
@@ -16,6 +16,12 @@ public class Comment {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 	public String getWriter() {
 		return writer;
@@ -41,28 +47,11 @@ public class Comment {
 	public void setEntry_date(String entry_date) {
 		this.entry_date = entry_date;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public int getView() {
-		return view;
-	}
-	public void setView(int view) {
-		this.view = view;
-	}
-	public int getReplyCount() {
-		return replyCount;
-	}
-	public void setReplyCount(int replyCount) {
-		this.replyCount = replyCount;
-	}
-
+	
+	
+	
+	
 	
 	
 	
 }
-
-

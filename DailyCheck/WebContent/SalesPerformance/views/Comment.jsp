@@ -60,8 +60,14 @@ $(function(){
 </head>
 <%
 
-RequestParameter param = new RequestParameter(request);
 
+if(request.getQueryString() == null){
+	response.sendRedirect("Comment.jsp?pg=1&od=0&ss=0&st=&sz=10");
+}
+
+
+
+RequestParameter param = new RequestParameter(request);
 String pg = param.getString("pg", "1");
 String sz = param.getString("sz", "10");
 String od = param.getString("od", "0");
@@ -132,7 +138,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
                 <% for (Comment cmt : comments) { %>
                      <tr data-id="<%= cmt.getId() %>" >                      
                         <td><%= cmt.getId() %></td>
-                        <td><%= cmt.getTitle() %></td>
+                        <td><%= cmt.getTitle() %> <span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span></td>
                         <td><%= cmt.getWriter() %></td>        
                         <td><%= cmt.getEntry_date() %></td>
 						<td><%= cmt.getView() %></td>
