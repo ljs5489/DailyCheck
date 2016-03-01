@@ -118,15 +118,22 @@ public class SalesDAO {
 	}
 	public static Sales getTotal(String code) throws Exception{
 		
-		ArrayList<Sales> temp = selectTotal(code);
-		int tot = temp.size()-1;
+		try{
+			ArrayList<Sales> temp = selectTotal(code);
+			int tot = temp.size()-1;
+			return temp.get(tot);
+		}
+		catch(Exception e){
+			return null;
+		}
+
 		//System.out.println(temp.get(tot).getDealer());
 		//System.out.println(temp.get(tot).getTarget_amt());
 		//System.out.println(temp.get(tot).getTm_t_funded_amt());		
 		//System.out.println(temp.get(tot).getTarget_ms());
 		//System.out.println(temp.get(tot).getMs_all());
 		
-		return temp.get(tot);
+		
 		
 	}
 	public static ArrayList<Sales> selectTotal(String code) throws Exception {

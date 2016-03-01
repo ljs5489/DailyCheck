@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import pages.Sales;
 import tools.DB;
+import tools.UserService;
 
 public class ReplyDAO {
 	private static Reply makeReply(ResultSet resultSet) throws SQLException {
@@ -35,7 +36,7 @@ public class ReplyDAO {
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, pid);
 			stmt.setString(2, writer);
-			stmt.setString(3, pw);
+			stmt.setString(3, UserService.encryptToMD5(pw));
 			stmt.setString(4, content);
 
 			stmt.execute();

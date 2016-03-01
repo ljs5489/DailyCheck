@@ -7,7 +7,7 @@
 
 <%@ include file="/SalesPerformance/import/include.jsp" %>
 
-
+<%@ page import= " tools.EnvVal " %>
 <% Sales v = SalesDAO.getTotal("a271"); %>
 
 <script>
@@ -16,7 +16,10 @@ if(testing == false){
 	wl1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", <%= v.getTarget_amt() %>, <%= v.getTm_t_funded_amt() %> ], ];
 	wl2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", <%= v.getTarget_ms() %>, <%= v.getMs_all() %> ],  ];
 }
-
+else{
+	wl1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", 1, 2 ], ];
+	wl2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", 30.6, 52.5],  ];
+}
 
 
 //OVERRIDE

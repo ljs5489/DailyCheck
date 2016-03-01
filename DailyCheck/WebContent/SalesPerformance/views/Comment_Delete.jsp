@@ -45,9 +45,15 @@
 	}
 
 	$(function() {
+		$("#submit").click(function(){
+			$("form").submit();
+		});
 		$("#gotoList").click(function(){
 			 location.href = "<%=urlList%> ";
 
+		});
+		$("#goback").click(function(){
+			window.history.back();			
 		});
 	})
 </script>
@@ -72,15 +78,18 @@
 				<div align="center">
 					<input name="usrText" type="text" style="width: 50%;" />
 				</div>
+			</form>
+			
+			
 				<div align="center">
-					<button type="submit" class="btn btn-small"
+					<button id="submit" class="btn btn-small"
 						style="width: 70px; height: 40px;">확인</button>
-					<button id="gotoList" ype="submit" class="btn btn-small"
+					<button id="gotoList" class="btn btn-small"
 						style="width: 70px; height: 40px;">목록</button>
-					<button type="submit" class="btn btn-small"
+					<button id="goback" class="btn btn-small"
 						style="width: 70px; height: 40px;">이전</button>
 				</div>
-			</form>
+			
 		</div>
 		<hr />
 

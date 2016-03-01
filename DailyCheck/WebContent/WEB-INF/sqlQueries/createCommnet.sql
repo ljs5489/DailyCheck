@@ -1,1 +1,1 @@
-create table sp.comment(id	int identity(1,1),writer	varchar(30),pw	varchar(30),title	varchar(50),[content]	varchar(1000),entry_date	varchar(30))drop table sp.comment
+create table sp.comment(id	int identity(1,1),writer	varchar(100),pw	varchar(100),title	varchar(100),[content]	varchar(1000),entry_date	varchar(30))drop table sp.comment

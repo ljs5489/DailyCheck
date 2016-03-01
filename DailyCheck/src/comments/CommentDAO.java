@@ -1,5 +1,6 @@
 package comments;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 
 import pages.Sales;
 import tools.DB;
+import tools.UserService;
 
 public class CommentDAO {
 	private static Comment makeComment(ResultSet resultSet) throws SQLException {
@@ -70,12 +72,14 @@ public class CommentDAO {
 			String content) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
+		
+		//System.out.println("도대체 뭐냐고"+UserService.encryptToMD5(pw));
 		String sql = "EXEC jslee.sp.insertComment ?, ?, ?, ?";
 
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setString(1, wrtier);
-			stmt.setString(2, pw);
+			stmt.setString(2, UserService.encryptToMD5(pw));
 			stmt.setString(3, title);
 			stmt.setString(4, content);
 
@@ -134,15 +138,20 @@ public class CommentDAO {
 			
 			try (ResultSet rs = stmt.executeQuery()) {
 				rs.next();
-				System.out.println(rs.getInt("pw"));
-				System.out.println(pw);
+				//System.out.println(rs.getInt("pw"));
 				
-				if(pw.trim().equals((""+rs.getInt("pw")).trim())){					
-					System.out.println(123);
+				String check1 = rs.getString("pw");
+				String check2 = UserService.encryptToMD5(""+pw);
+				//System.out.println(check1);
+				//System.out.println(check2);
+					
+				
+				if(check1.trim().equals(check2.trim())){					
+					//System.out.println(123);
 					return true;
 				}
 				else{
-					System.out.println(321);
+					//System.out.println(321);
 					
 				}
 				return false;
@@ -176,12 +185,8 @@ public class CommentDAO {
 
 	}
 	public static void main(String[] args) {
-		try {
-			// CommentDAO.insertComment("","","");
-			CommentDAO.selectAll("1", "10", "0", "0", "0");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		
+		
 	}
 
 }

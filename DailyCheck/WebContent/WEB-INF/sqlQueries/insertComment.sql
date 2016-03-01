@@ -5,14 +5,15 @@
 */
 
 alter procedure sp.insertComment
-	@wrtier varchar(30),
-	@pw varchar(30),
+	@wrtier varchar(100),
+	@pw varchar(100),
+	@title varchar(100),
 	@content varchar(1000)
 AS
 BEGIN
 
-INSERT INTO sp.comment(writer,pw,content,entry_date) 
-VALUES(@wrtier,@pw,@content,GETDATE())
+INSERT INTO sp.comment(writer,pw,title,content,entry_date) 
+VALUES(@wrtier,@pw,@title,@content,GETDATE())
 
 END
 
