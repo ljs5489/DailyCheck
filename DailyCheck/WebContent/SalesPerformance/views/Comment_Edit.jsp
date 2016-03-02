@@ -19,44 +19,77 @@
 
 <%
 RequestParameter param = new RequestParameter(request);
-int boardId = param.getInt("bid", 0);
-int articleId = param.getInt("aid", 0);
+
+int aid = param.getInt("aid", 0);
+String urlList = "Comment.jsp?"+ request.getQueryString();
+String urlEditCheck = "Comment_Edit_Check.jsp?"+ request.getQueryString().replaceAll("&?key=[a-z0-9]+&?", "");
+
+
+String title="", writer="", pw="", content="";
+
 String cmd = param.getString("cmd", "");
-
-int category = param.getInt("ct", 0);
-
-boolean notice = param.getBoolean("notice", false);
-String errMsg = null;
-
-
-String urlList = "Comment.jsp?"+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
+String key = param.getString("key", "");
 
 
 
-String title = param.getString("title", "");
-String writer = param.getString("writer", "");
-String pw = param.getString("pw", "");
-String content = param.getString("content", "");
-
-if(request.getMethod().equals("POST")){	
-	System.out.println(title);
-	System.out.println(writer);
-	System.out.println(pw);
-	System.out.println(content);	
-		
-	if ("저장".equals(cmd)) {
-	    if (title.length() > 0) {
-	        if (content.length() > 13) {
-	            CommentDAO.insertComment(writer, pw, title, content);
-	    		response.sendRedirect(urlList);
-	            
-	        	//EXEC sp.insertComment  '1','2','3'
-	        } else
-	            %><script> alert("내용을 입력하세요"); </script><%
-	    } else
-	    	    %><script> alert("제목을 입력하세요"); </script><%
+if(request.getMethod().equals("GET")){	
+	Comment cmt = CommentDAO.selectByIdWithoutView(aid);
+	title   = param.getString("title", cmt.getTitle());
+	writer  = param.getString("writer", cmt.getWriter());
+	pw      = param.getString("pw", cmt.getPw());
+	content = param.getString("content", cmt.getContent());
+	/*
+	System.out.println("GET");
+	System.out.println("title"+cmt.getTitle());
+	System.out.println("pw"+cmt.getPw());
+	System.out.println("writer"+writer);
+	System.out.println("content.length()"+content.length());
+	*/
+	
+	if(CommentDAO.checkPW(aid,key,true) == false){	
+		System.out.println("비번 노일치!");
+		 %><script> 
+		 alert("비밀번호가 일치하지 않습니다.");
+		 location.href = "<%=urlEditCheck%> ";	
+		 </script><%
 	}
 }
+else if(request.getMethod().equals("POST")){	
+	title   = param.getString("title", "");
+	writer  = param.getString("writer", "");
+	pw      = param.getString("pw", "");
+	content = param.getString("content", "");
+	/*
+	System.out.println("POST");
+	System.out.println("content"+content);
+	System.out.println("writer"+writer);
+	System.out.println("content.length()"+content.length());
+	*/
+	
+    if (title.length() > 0) {
+        if (content.length() > 13) {
+        	
+            CommentDAO.updatComment(aid, writer, pw, title, content);
+            %>
+            <script> 
+            	alert("수정되었습니다."); 
+   				location.href = "<%=urlList%> ";
+            </script>	            
+            <%
+        } else
+            %><script> alert("내용을 입력하세요"); </script><%
+    } else
+    	    %><script> alert("제목을 입력하세요"); </script><%
+
+}
+else{
+	
+}
+
+
+
+
+
 
 %>
 
@@ -74,6 +107,13 @@ if(request.getMethod().equals("POST")){
 			 location.href = "<%=urlList%> ";
 
 		});
+		$("#edit").click(function(){
+			
+		});
+				
+		$("#menuComment").css("background-color","#cccccc");
+		$("#menuComment").css("color","#111111");
+		$("#menuComment").css("font-weight","bold");
 	})
 </script>
 </head>
@@ -83,22 +123,22 @@ if(request.getMethod().equals("POST")){
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
 
 	<div class="container main">
-		<h1>글을 추가합니다.</h1>
+		<h1>글을 수정합니다.</h1>
 
 		<hr />
 		<div style="min-height: 300px;">
 			<form method="post">
 				<div>	
-					<div style="float:left;"><h5>작성자:</h5> <input type="text" name="writer" value="<%= writer %>" /></div>				
-					<div style="float:left; margin-left:10px;"><h5>제목:</h5> <input type="text" name="title" value="<%= title %>" /></div>					
-					<div style="float:left; margin-left:10px;"><h5>비밀번호:</h5> <input type="text" name="pw" value="<%= pw %>" /></div>
+					<div style="float:left;"><h5>작성자 수정:</h5> <input type="text" name="writer" value="<%= writer %>" /></div>				
+					<div style="float:left; margin-left:10px;"><h5>제목 수정:</h5> <input type="text" name="title" value="<%= title %>" /></div>					
+					<div style="float:left; margin-left:10px;"><h5>비밀번호 수정:</h5> <input type="text" name="pw" value="" /></div>
 				</div>
 	
 				<textarea id="articleBody" name="content" style="width:100%" class="smarteditor2"><%= content %></textarea>
 				
 
-				<button style="margin:5px; float:right" type="submit" class="btn btn-default" name="cmd" value="저장">
-					<i class="fa fa-floppy-o"></i> 저장
+				<button id="edit" style="margin:5px; float:right"  type="submit"  class="btn btn-default">
+					<i class="fa fa-floppy-o"></i> 수정
 				</button>
 				<div id="gotoList" style="margin:5px; float:right" class="btn btn-default">
 					<i class="fa fa-file-text-o"></i> 목록

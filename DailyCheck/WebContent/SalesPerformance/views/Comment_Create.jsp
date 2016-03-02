@@ -72,6 +72,11 @@ if(request.getMethod().equals("POST")){
 			 location.href = "<%=urlList%> ";
 
 		});
+		
+		
+		$("#menuComment").css("background-color","#cccccc");
+		$("#menuComment").css("color","#111111");
+		$("#menuComment").css("font-weight","bold");
 	})
 </script>
 </head>

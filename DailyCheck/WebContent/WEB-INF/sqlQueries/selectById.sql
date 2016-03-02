@@ -15,10 +15,10 @@ SET NOCOUNT ON 이 빠져있거나 SET NOCOUNT OFF로 설정이 되어 있으면
 
 BEGIN
 
-insert into comment_log(article_id,userIp,userName,entry_date)
+insert into sp.comment_log(article_id,userIp,userName,entry_date)
 values(@article_id,@user_id,@user_name,GETDATE())
 
-SELECT *,(SELECT COUNT(*) FROM comment_log WHERE article_id = @article_id) 'view'
+SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = @article_id) 'view'
 ,(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply'	
 ,(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id and [likeType]='1') 'likeIt'
 FROM [JSLEE].[sp].[comment] cmt WHERE [id] = @article_id

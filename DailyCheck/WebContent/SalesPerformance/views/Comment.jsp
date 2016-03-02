@@ -53,6 +53,10 @@ $(function(){
         $("input[name=pg]").val($(this).attr("data-page"));
         $("form").submit();
     })
+    
+	$("#menuComment").css("background-color","#cccccc");
+	$("#menuComment").css("color","#111111");
+	$("#menuComment").css("font-weight","bold");
 })
 </script>
 

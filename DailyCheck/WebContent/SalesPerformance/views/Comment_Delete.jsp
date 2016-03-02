@@ -21,11 +21,19 @@
 
 	System.out.println(usrText);
 	if(request.getMethod().equals("POST")){
-		if(CommentDAO.checkDelte(aid,usrText)){
+		if(CommentDAO.checkPW(aid,usrText,false)){
 			
 			CommentDAO.deleteArticle(aid);
-			System.out.println(aid+"삭제됨.");
-			response.sendRedirect(urlList);
+			//System.out.println(aid+"삭제됨.");
+			//response.sendRedirect(urlList);
+	
+			 %>
+			 <script> 
+			 alert("삭제되었습니다.");
+			 location.href = "<%=urlList%> ";	 		
+			 </script>
+			 <%
+
 		}
 		else{
 		%> <script>alert("비밀번호가 틀립니다. 다시 시도해주세요.")</script> <%	
@@ -55,6 +63,11 @@
 		$("#goback").click(function(){
 			window.history.back();			
 		});
+		
+		
+		$("#menuComment").css("background-color","#cccccc");
+		$("#menuComment").css("color","#111111");
+		$("#menuComment").css("font-weight","bold");
 	})
 </script>
 </head>

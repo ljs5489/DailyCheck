@@ -25,6 +25,10 @@ String c_writer = param.getString("c_writer", "");
 String c_content = param.getString("c_content", "");
 String cmd = param.getString("cmd", "");
 
+System.out.println("=>"+cmd);
+
+Comment cmt;
+
 if(request.getMethod().equals("POST")){	
 	System.out.println(c_pw);
 	System.out.println(c_writer);
@@ -48,9 +52,15 @@ if(request.getMethod().equals("POST")){
 	}
 	else if ("좋아요".equals(cmd)) {
 		ReplyDAO.insertLike(aid, userIP, userName);
-		
+		System.out.println("좋아요");
 		 %><script> alert("좋아요!"); </script><%
 	}
+	cmt = CommentDAO.selectByIdWithoutView(aid);
+}
+else{
+	cmt = CommentDAO.selectById(aid, userIP, userName);
+	
+	
 }
 ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 //==============/코멘트 쪽=================================================
@@ -58,15 +68,14 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 %>
 
 <%
-
-
-	Comment cmt = CommentDAO.selectById(aid, userIP, userName);
+	//cmt = CommentDAO.selectByIdWithoutView(aid);
 	
+	//
 	String urlDelete = "Comment_Delete.jsp?cmd=delete&"
 			+ request.getQueryString();
 	String urlList = "Comment.jsp?"
 			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
-	String urlEdit = "Comment_Edit_Check.jsp?cmd=delete&"
+	String urlEdit = "Comment_Edit_Check.jsp?"
 			+ request.getQueryString();
 	
 
@@ -93,6 +102,11 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 		$("#editArticle").click(function(){
 			 location.href = "<%=urlEdit%>";	
 		});
+		
+		
+		$("#menuComment").css("background-color","#cccccc");
+		$("#menuComment").css("color","#111111");
+		$("#menuComment").css("font-weight","bold");
 		
 	})
 </script>

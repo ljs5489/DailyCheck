@@ -15,21 +15,22 @@
 	RequestParameter param = new RequestParameter(request);
 	int aid = param.getInt("aid", 0);
 	String usrText = param.getString("usrText", "");
+	
+	String url = request.getQueryString();
+	
+	System.out.println("url"+url);
 
 	String urlList = "Comment.jsp?"
 			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
 
 	System.out.println(usrText);
 	if(request.getMethod().equals("POST")){
-		if(CommentDAO.checkDelte(aid,usrText)){
-			
-			CommentDAO.deleteArticle(aid);
-			System.out.println(aid+"삭제됨.");
-			response.sendRedirect(urlList);
-		}
-		else{
-		%> <script>alert("비밀번호가 틀립니다. 다시 시도해주세요.")</script> <%	
-		}
+		
+		String temp = "Comment_Edit.jsp?key="+UserService.encryptToMD5(usrText)+"&"+url;		
+		System.out.println("GET : "+temp);
+		
+    	response.sendRedirect(temp);
+
 	}
 
 	//Comment cmt = CommentDAO.selectById(aid);
@@ -45,10 +46,21 @@
 	}
 
 	$(function() {
+		$("#submit").click(function(){
+			$("form").submit();
+		});
 		$("#gotoList").click(function(){
 			 location.href = "<%=urlList%> ";
 
 		});
+		$("#goback").click(function(){
+			window.history.back();			
+		});
+		
+		
+		$("#menuComment").css("background-color","#cccccc");
+		$("#menuComment").css("color","#111111");
+		$("#menuComment").css("font-weight","bold");
 	})
 </script>
 </head>
@@ -72,15 +84,18 @@
 				<div align="center">
 					<input name="usrText" type="text" style="width: 50%;" />
 				</div>
+			</form>
+			
+			
 				<div align="center">
-					<button type="submit" class="btn btn-small"
+					<button id="submit" class="btn btn-small"
 						style="width: 70px; height: 40px;">확인</button>
-					<button id="gotoList" ype="submit" class="btn btn-small"
+					<button id="gotoList" class="btn btn-small"
 						style="width: 70px; height: 40px;">목록</button>
-					<button type="submit" class="btn btn-small"
+					<button id="goback" class="btn btn-small"
 						style="width: 70px; height: 40px;">이전</button>
 				</div>
-			</form>
+			
 		</div>
 		<hr />
 

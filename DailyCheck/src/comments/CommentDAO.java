@@ -99,6 +99,37 @@ public class CommentDAO {
 		}
 
 	}
+	public static void updatComment(int pid, String wrtier, String pw, String title, String content) throws Exception {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		//System.out.println("도대체 뭐냐고"+UserService.encryptToMD5(pw));
+		String sql = "EXEC jslee.sp.updatComment ?, ?, ?, ?, ?";
+
+		try (Connection con = DB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setInt(1, pid);
+			stmt.setString(2, wrtier);
+			stmt.setString(3, UserService.encryptToMD5(pw));
+			stmt.setString(4, title);
+			stmt.setString(5, content);
+
+			stmt.execute();
+			/*
+			 * executeUpdate() -> database UPDATE statements executeQuery() ->
+			 * database QUERY statements execute() -> anything that comes in
+			 */
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		} finally {
+			if (statement != null)
+				statement.close();
+			if (connection != null)
+				connection.close();
+		}
+
+	}
+	//updatComment
 
 	public static int getRecordCount(/* int boardId, */int srchType,
 			String srchText/* , int category */) throws Exception {
@@ -129,9 +160,28 @@ public class CommentDAO {
 			System.out.println(rs.toString());
 			return rs.next() ? makeComment(rs) : null;
 		}
-
 	}
-	public static boolean checkDelte(int article_id, String pw) throws Exception {
+	public static Comment selectByIdWithoutView(int article_id) throws Exception {
+		String sql = 
+		" SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id =?) 'view' "
+		+",(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply' "	
+		+" ,(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id and [likeType]='1') 'likeIt' "
+		+" FROM [JSLEE].[sp].[comment] cmt WHERE [id] = ? ";
+		
+		System.out.println(sql);
+		System.out.println(article_id);
+		
+		try (Connection con = DB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setInt(1, article_id);
+			stmt.setInt(2, article_id);
+			ResultSet rs = stmt.executeQuery();
+			
+			System.out.println(rs.toString());
+			return rs.next() ? makeComment(rs) : null;
+		}
+	}
+	public static boolean checkPW(int article_id, String pw, boolean encrypted) throws Exception {
 		String sql = " SELECT PW FROM [JSLEE].[sp].[comment] WHERE id = ?";
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -142,9 +192,14 @@ public class CommentDAO {
 				//System.out.println(rs.getInt("pw"));
 				
 				String check1 = rs.getString("pw");
-				String check2 = UserService.encryptToMD5(""+pw);
-				//System.out.println(check1);
-				//System.out.println(check2);
+				String check2;
+				if(encrypted) check2 = pw;
+				else check2 = UserService.encryptToMD5(""+pw);
+				
+				System.out.println("check1 : "+check1);
+				
+				System.out.println("pw : "+pw);				
+				System.out.println("check2 : "+check2);
 					
 				
 				if(check1.trim().equals(check2.trim())){					
@@ -167,6 +222,7 @@ public class CommentDAO {
 		}
 
 	}
+	
 	public static void deleteArticle(int article_id) throws Exception {
 		String sql = " EXEC sp.deleteArticle ?";
 
