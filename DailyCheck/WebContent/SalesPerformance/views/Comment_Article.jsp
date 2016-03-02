@@ -15,12 +15,16 @@ int aid = param.getInt("aid", 0);
 %>
 
 <%
+InetAddress Address = InetAddress.getLocalHost();
+String userIP = Address.getHostAddress();
+String userName = Address.getHostName();
 
 //==============코멘트 쪽=================================================
 String c_pw = param.getString("c_pw", "");
 String c_writer = param.getString("c_writer", "");
 String c_content = param.getString("c_content", "");
-String cmd = param.getString("cmd", "");	
+String cmd = param.getString("cmd", "");
+
 if(request.getMethod().equals("POST")){	
 	System.out.println(c_pw);
 	System.out.println(c_writer);
@@ -42,6 +46,11 @@ if(request.getMethod().equals("POST")){
 		} else
 			 %><script> alert("작성자를 입력하세요"); </script><%
 	}
+	else if ("좋아요".equals(cmd)) {
+		ReplyDAO.insertLike(aid, userIP, userName);
+		
+		 %><script> alert("좋아요!"); </script><%
+	}
 }
 ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 //==============/코멘트 쪽=================================================
@@ -49,9 +58,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 %>
 
 <%
-	InetAddress Address = InetAddress.getLocalHost();
-	String userIP = Address.getHostAddress();
-	String userName = Address.getHostName();
+
 
 	Comment cmt = CommentDAO.selectById(aid, userIP, userName);
 	
@@ -86,6 +93,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 		$("#editArticle").click(function(){
 			 location.href = "<%=urlEdit%>";	
 		});
+		
 	})
 </script>
 
@@ -100,9 +108,10 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 		<h1><%=cmt.getTitle()%></h1>
 			<form method="post" style="margin-bottom:10px;">
 				<div>
-					<span> 글쓴이 </span> <span><%=cmt.getWriter()%></span> <span>
-						조회 </span> <span><%=cmt.getView()%></span> <span> 댓글 </span> <span><%= cmt.getReplyCount() %></span>
-	
+					<span> 글쓴이 </span> <span><%=cmt.getWriter()%></span> 
+					<span> 조회 </span> <span><%=cmt.getView()%></span> 
+					<span> 댓글 </span> <span><%= cmt.getReplyCount() %></span>
+					<span> 추천 </span> <span><%= cmt.getLikeIt() %></span>
 	
 	
 					<div id="deleteArticle" style="margin: 5px; float: right"
@@ -119,10 +128,11 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 						<i class="fa fa-file-text-o"></i> 목록
 					</div>
 	
-					<div id="likeIt" style="margin: 5px; float: right"
-						class="btn btn-default">
+					<button id="likeIt" type="submit" name="cmd" style="margin: 5px; float: right"
+						class="btn btn-default" value="좋아요">
 						<i class="fa fa-thumbs-o-up"></i> 좋아요!
-					</div>
+					</button>
+			
 				</div>
 				<hr />
 				<div style="min-height: 300px;">

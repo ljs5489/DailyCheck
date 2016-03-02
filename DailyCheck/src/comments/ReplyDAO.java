@@ -31,7 +31,7 @@ public class ReplyDAO {
 		PreparedStatement statement = null;
 		String sql =" INSERT INTO sp.reply(pid,writer,pw,content,entry_date) "
 				   +" VALUES(?,?,?,?,GETDATE()) ";
-	
+		//System.out.println(sql);
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, pid);
@@ -51,7 +51,32 @@ public class ReplyDAO {
 		}
 
 	}
+	public static void insertLike(int pid, String userIP, String userName) throws Exception {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		String sql =" INSERT INTO sp.likeit(pid,userIp,userName,likeType,entry_date) "
+				   +" VALUES(?,?,?,?,GETDATE()) ";
+		System.out.println(sql);
+		try (Connection con = DB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setInt(1, pid);
+			stmt.setString(2, userIP);
+			stmt.setString(3, userName);
+			stmt.setString(4, "1");
 
+			stmt.execute();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		} finally {
+			if (statement != null)
+				statement.close();
+			if (connection != null)
+				connection.close();
+		}
+
+	}
 	public static ArrayList<Reply> selectAll(int pid) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;

@@ -142,7 +142,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
                         <td><%= cmt.getWriter() %></td>        
                         <td><%= cmt.getEntry_date() %></td>
 						<td><%= cmt.getView() %></td>
-						<td><%= 0 %></td>
+						<td><%= cmt.getLikeIt() %></td>
                     </tr>
                 <% } %>
                 

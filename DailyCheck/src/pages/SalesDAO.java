@@ -26,7 +26,15 @@ public class SalesDAO {
 		sales.setTarget_ms(resultSet.getString("target_ms").trim());	
 		//sales.setCar_sales(resultSet.getString("car_sales").trim());	
 		//sales.setTfskr_funding(resultSet.getString("tfskr_funding").trim());	
-		sales.setMs_all(resultSet.getString("ms_all").trim());	
+		
+		
+		if(resultSet.getString("ms_all") == null){
+			sales.setMs_all("0");	
+		}
+		else{
+			sales.setMs_all(resultSet.getString("ms_all").trim());	
+		}
+		
 		//sales.setTm_applied(resultSet.getString("tm_applied").trim());	
 		//sales.setTm_t_approved(resultSet.getString("tm_t_approved").trim());	
 		//sales.setTm_t_approved_amt(resultSet.getString("tm_t_approved_amt").trim());	

@@ -9,6 +9,7 @@ public class Comment {
 	private String entry_date;
 	private int view;
 	private int replyCount;
+	private int likeIt;
 	
 	
 	public int getId() {
@@ -59,7 +60,13 @@ public class Comment {
 	public void setReplyCount(int replyCount) {
 		this.replyCount = replyCount;
 	}
-
+	public int getLikeIt() {
+		return likeIt;
+	}
+	public void setLikeIt(int likeIt) {
+		this.likeIt = likeIt;
+	}
+	
 	
 	
 	

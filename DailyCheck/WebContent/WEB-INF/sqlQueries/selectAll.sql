@@ -1,4 +1,11 @@
-ALTER PROCEDURE sp.selectAll
+USE [JSLEE]
+GO
+/****** Object:  StoredProcedure [sp].[selectAll]    Script Date: 03/02/2016 10:24:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [sp].[selectAll]
     @currentPage INT,       /* 현재페이지번호*/
     @pageSize INT,          /* 한페이지의레코드수*/
     @order INT,             /* 정렬방법(0: 기본키, 1: 제목, 2:익명아이디, 3: 글쓴순서) */
@@ -17,7 +24,7 @@ BEGIN
                 ORDER BY
                     CASE WHEN @order = 0 THEN [id] END DESC,
                     CASE @order 
-                        WHEN 1 THEN [title]
+                        WHEN 1 THEN [title] 
                         WHEN 2 THEN [writer]
                         WHEN 3 THEN [entry_date]
                     END DESC
@@ -34,9 +41,3 @@ BEGIN
     ORDER BY recordNo
 END
 
-
-sp.selectAll '1','100','0','0','0'
-
-SELECT COUNT(*) FROM comment_log WHERE id = '46'
-
-SELECT COUNT(*) FROM sp.reply WHERE pid = 12
