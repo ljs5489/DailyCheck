@@ -10,8 +10,7 @@
 <%@ include file="/SalesPerformance/import/include.jsp"%>
 
 
-<script src="../SmartEditor/js/HuskyEZCreator.js"></script>
-<script src="../js/se_init.js"></script>
+
 
 
 <title>Comment</title>

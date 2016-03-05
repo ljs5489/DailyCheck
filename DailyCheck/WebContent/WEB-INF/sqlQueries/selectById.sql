@@ -1,4 +1,7 @@
---use jslee
+use jslee
+
+
+
 alter procedure sp.selectById
 	@article_id int,
 	@user_id varchar(50),
@@ -18,7 +21,7 @@ BEGIN
 insert into sp.comment_log(article_id,userIp,userName,entry_date)
 values(@article_id,@user_id,@user_name,GETDATE())
 
-SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = @article_id) 'view'
+SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.id) 'view'
 ,(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply'	
 ,(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id and [likeType]='1') 'likeIt'
 FROM [JSLEE].[sp].[comment] cmt WHERE [id] = @article_id

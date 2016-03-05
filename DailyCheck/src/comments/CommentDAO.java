@@ -24,6 +24,7 @@ public class CommentDAO {
 		try{ cmt.setView(resultSet.getInt("view")); } catch(Exception e){ cmt.setView(0); }
 		try{ cmt.setReplyCount(resultSet.getInt("reply")); } catch(Exception e){ cmt.setReplyCount(0); }
 		try{ cmt.setLikeIt(resultSet.getInt("likeIt")); } catch(Exception e){ cmt.setReplyCount(0); }
+		try{ cmt.setPicture(resultSet.getInt("picture")); } catch(Exception e){ cmt.setPicture(0); }
 		
 		return cmt;
 

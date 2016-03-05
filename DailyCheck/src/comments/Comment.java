@@ -10,6 +10,7 @@ public class Comment {
 	private int view;
 	private int replyCount;
 	private int likeIt;
+	private int picture;
 	
 	
 	public int getId() {
@@ -65,6 +66,12 @@ public class Comment {
 	}
 	public void setLikeIt(int likeIt) {
 		this.likeIt = likeIt;
+	}
+	public int getPicture() {
+		return picture;
+	}
+	public void setPicture(int picture) {
+		this.picture = picture;
 	}
 	
 	

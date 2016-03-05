@@ -96,6 +96,16 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 		$("#deleteArticle").click(function(){
 			 location.href = "<%=urlDelete%>";			
 		});
+		$("#deleteReply").click(function(){
+			var pw = prompt("비밀번호를 입력하세요", "password");
+		    
+		    if (pw != null) {
+		       
+		    }else{
+		    	alert("비밀번호가 입력되지 않았습니다.");		    	
+		    }
+		});
+		
 		$("#gotoList").click(function(){
 			 location.href = "<%=urlList%> ";
 		});
@@ -158,7 +168,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 				 <% for (Reply reply : replies) { %>				
 				 <div data-id="<%= reply.getId() %>">
 					<h5> 작성자 : <%= reply.getWriter() %>/ 작성일 : <%= reply.getEntry_date() %>					
-					<button style="margin:5px; float:right" type="submit" class="btn btn-default" name="cmd" value="삭제">
+					<button id = "deleteReply" style="margin:5px; float:right" class="btn btn-default" name="cmd" value="삭제">
 						<i class="fa fa-yelp"></i> 삭제 
 					</button></h5>
 					<div><h4> <%= reply.getContent() %> </h4>

@@ -1,4 +1,6 @@
 
+
+
 function drawCharts(obj) {
 	var thisGraphX = obj.width;
 	var thisGraphY = obj.height;

@@ -6,7 +6,7 @@
 <%@ include file="/SalesPerformance/import/include.jsp" %>
 
 <script>
-
+///DailyCheck/SalesPerformance/views/BothTarget.jsp
 
 //OVERRIDE
 var chart = function(){

@@ -20,7 +20,8 @@ BEGIN
     (   SELECT cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],
 		(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.[id]) 'view',
 		(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply',		
-		(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id) 'likeIt',		
+		(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id) 'likeIt',	
+		CASE CHARINDEX('<img src=', cmt.[content]) WHEN '0' THEN '0' ELSE '1' END 'picture',
             ROW_NUMBER() OVER (
                 ORDER BY
                     CASE WHEN @order = 0 THEN [id] END DESC,

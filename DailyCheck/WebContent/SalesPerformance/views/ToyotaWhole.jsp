@@ -7,14 +7,28 @@
 
 <%@ include file="/SalesPerformance/import/include.jsp" %>
 
-<% Sales v = SalesDAO.getTotal("a272"); %>
+<%@ page import= " tools.EnvVal " %>
+
+
+<% 
+Sales v = new Sales();
+if(EnvVal.TESTING.equals("1")){	
+	v.setTarget_amt("4000");	
+	v.setTm_t_funded_amt("3000");
+	v.setTarget_ms("38.5");
+	v.setMs_all("20.6");	
+}else{
+	v = SalesDAO.getTotal("a272");	
+}
+%>
+
 
 <script>
 
-if(testing == false){
-	wt1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", <%= v.getTarget_amt() %>, <%= v.getTm_t_funded_amt() %> ], ];
-	wt2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", <%= v.getTarget_ms() %>, <%= v.getMs_all() %> ],  ];
-}
+
+wt1 = [ [ '지점', '목표 금액', '달성 금액 '], [ "목표금액 합산", <%= v.getTarget_amt() %>, <%= v.getTm_t_funded_amt() %> ], ];
+wt2 = [ [ '지점', '목표 M/S', '달성 M/S '], [ "목표 평균M/S", <%= v.getTarget_ms() %>, <%= v.getMs_all() %> ],  ];
+
 
 
 //OVERRIDE

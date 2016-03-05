@@ -142,7 +142,13 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
                 <% for (Comment cmt : comments) { %>
                      <tr data-id="<%= cmt.getId() %>" >                      
                         <td><%= cmt.getId() %></td>
-                        <td><%= cmt.getTitle() %> <span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span></td>
+                        <td>
+                        		<% if(cmt.getPicture()==1){ %>
+                        		   <i class="fa fa-file-picture-o"></i>         				
+                        		<% } %>
+                        		<%= cmt.getTitle() %> 
+                        		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>
+                        </td>
                         <td><%= cmt.getWriter() %></td>        
                         <td><%= cmt.getEntry_date() %></td>
 						<td><%= cmt.getView() %></td>

@@ -10,12 +10,14 @@ public class EnvVal {
 	public static String TIME_TERM;
 	public static String CURRENT_VERSION;
 	
+
 	public static String NEXT_LexusWhole; 
 	public static String NEXT_ToyotaWhole; 
 	public static String NEXT_BothTarget; 
 	public static String NEXT_LexusTarget; 
 	public static String NEXT_ToyotaTarget;
-	public static String NEXT_Comment;     
+	public static String NEXT_Comment;    
+
 
 	
 	public static void getEnvSetVals() throws IOException {
@@ -27,6 +29,7 @@ public class EnvVal {
 		TESTING = properties.getProperty("TESTING").trim();
 		TIME_TERM = properties.getProperty("TIME_TERM").trim();
 		CURRENT_VERSION = properties.getProperty("CURRENT_VERSION").trim();
+
 		
 		NEXT_LexusWhole = properties.getProperty("NEXT_LexusWhole").trim();
 		NEXT_ToyotaWhole = properties.getProperty("NEXT_ToyotaWhole").trim();

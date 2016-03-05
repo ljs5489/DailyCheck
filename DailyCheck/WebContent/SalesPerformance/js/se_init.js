@@ -4,7 +4,7 @@ function se2_init(id) {
     nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,
         elPlaceHolder: id,
-        sSkinURI: "../SmartEditor/SmartEditor2Skin.html",
+        sSkinURI: "/DailyCheck/SalesPerformance/SmartEditor/SmartEditor2Skin.html",
         htParams: {
             bUseToolbar: true,
             fOnBeforeUnload: function () { },

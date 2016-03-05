@@ -38,7 +38,10 @@ if(is != null) {
 }
 os.flush();
 os.close();
-sFileInfo += "&bNewLine=true&sFileName="+ name+"&sFileURL="+"/upload/"+realname;
+//sFileInfo += "&bNewLine=true&sFileName="+ name+"&sFileURL="+"../../upload/"+realname;
+sFileInfo += "&bNewLine=true&sFileName="+ name+"&sFileURL="+"/DailyCheck/upload/"+realname;
+
+
 out.println(sFileInfo);
 
 
