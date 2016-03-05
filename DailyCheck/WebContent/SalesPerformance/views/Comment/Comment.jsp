@@ -22,7 +22,7 @@
     select[name=ss] { width: 100px; margin-left: 100px; }
     table.table th:first-child { width: 20px; }
     tbody tr:hover { background-color: #FFC; cursor: pointer; }
-    
+
 
 </style>
 
@@ -97,7 +97,7 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
 
 <%@ include file="/SalesPerformance/import/nav.jsp" %>
 
-<div class="container main" style="overflow-y:auto;">
+<div class="container main" style="overflow-y:auto; overflow-x:hidden;">
     <h1>Comments</h1>
     <hr />
 
@@ -130,29 +130,36 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width:10%">번호</th>
-                    <th style="width:45%">제목</th>    
-                    <th style="width:15%">글쓴이</th>                
-                    <th style="width:20%">일시</th>
-                    <th style="width:5%">조회</th>                     
-                    <th style="width:5%">추천</th>
+                    <th style="width:5%;"><h5 style="color:black;">번호</h5></th>
+                    <th style="width:55%;"><h5 style="color:black;">제목</h5></th>    
+                    <th style="width:15%;"><h5 style="color:black;">글쓴이</h5></th>                
+                    <th style="width:15%;"><h5 style="color:black;">일시</h5></th>
+                    <th style="width:5%;"><h5 style="color:black;">조회</h5></th>                     
+                    <th style="width:5%;"><h5 style="color:black;">추천</h5></th>
                 </tr>
             </thead>
             <tbody>                
                 <% for (Comment cmt : comments) { %>
                      <tr data-id="<%= cmt.getId() %>" >                      
-                        <td><%= cmt.getId() %></td>
+                        <td><h5><%= cmt.getId() %></h5></td>
                         <td>
+                        
+                        <div style="width: 400px; "> 
+                        <h4  style="width: 300px; overflow: hidden; text-overflow: ellipsis;" >                    
                         		<% if(cmt.getPicture()==1){ %>
                         		   <i class="fa fa-file-picture-o"></i>         				
                         		<% } %>
                         		<%= cmt.getTitle() %> 
-                        		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>
+                        		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>  
+       					
+                        		</h4>  
+                       </div>
+                        		
                         </td>
-                        <td><%= cmt.getWriter() %></td>        
-                        <td><%= cmt.getEntry_date() %></td>
-						<td><%= cmt.getView() %></td>
-						<td><%= cmt.getLikeIt() %></td>
+                        <td><h4><%= cmt.getWriter() %></h4></td>        
+                        <td><h5><%= cmt.getEntry_date() %></h5></td>
+						<td><h5><%= cmt.getView() %></h5></td>
+						<td><h5><%= cmt.getLikeIt() %></h5></td>
                     </tr>
                 <% } %>
                 

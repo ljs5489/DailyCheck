@@ -19,7 +19,7 @@ SET NOCOUNT ON 이 빠져있거나 SET NOCOUNT OFF로 설정이 되어 있으면
 BEGIN
 
 insert into sp.comment_log(article_id,userIp,userName,entry_date)
-values(@article_id,@user_id,@user_name,GETDATE())
+values(@article_id,@user_id,@user_name,Convert(varchar(30),Getdate(),120))
 
 SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.id) 'view'
 ,(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply'	
@@ -27,7 +27,6 @@ SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.id) 'view'
 FROM [JSLEE].[sp].[comment] cmt WHERE [id] = @article_id
 
 END
-
 
 
 EXEC jslee.sp.selectById '46','127.0.0.1','JSLEE'

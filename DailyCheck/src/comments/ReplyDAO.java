@@ -30,7 +30,7 @@ public class ReplyDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		String sql =" INSERT INTO sp.reply(pid,writer,pw,content,entry_date) "
-				   +" VALUES(?,?,?,?,GETDATE()) ";
+				   +" VALUES(?,?,?,?,Convert(varchar(30),Getdate(),120)) ";
 		//System.out.println(sql);
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -105,8 +105,62 @@ public class ReplyDAO {
 				connection.close();
 		}
 	}
+	public static boolean checkPW(String sid, String pid, String pw, boolean encrypted) throws Exception {
+		String sql =   " SELECT PW "
+					  +" FROM [JSLEE].[sp].[reply] "
+					  +" WHERE 1=1 "
+					  +" AND id = ? "
+					  +" AND pid = ? ";
+		try (Connection con = DB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setString(1, sid);
+			stmt.setString(2, pid);
+			
+			try (ResultSet rs = stmt.executeQuery()) {
+				rs.next();				
+				String check1 = rs.getString("pw");
+				String check2 = pw;
+				
+				System.out.println(check1);
+				System.out.println(check2);
+				
+				if(encrypted) check2 = pw;
+				else check2 = UserService.encryptToMD5(""+pw);
+				
+				if(check1.trim().equals(check2.trim())) return true;				
+				
+				return false;
+			}finally{
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();				
+			}
+		}
 
-	
+	}
+	public static void deleteReply(String sid, String pid) throws Exception {
+		String sql = " DELETE FROM [JSLEE].[sp].[reply] WHERE id = ? AND pid = ? ";
+		
+		try (Connection con = DB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setString(1, sid.trim());
+			stmt.setString(2, pid.trim());
+			
+			try  {
+				stmt.execute();
+				System.out.println(sql);
+				System.out.println(sid);
+				System.out.println(pid);
+			}finally{
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();				
+			}
+		}
+
+	}
 	public static void main(String[] args) {
 		try {
 			// ReplyDAO.insertReply("","","");

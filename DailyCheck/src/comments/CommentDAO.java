@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import pages.Sales;
 import tools.DB;
+import tools.EnvVal;
 import tools.UserService;
 
 public class CommentDAO {
@@ -75,7 +76,8 @@ public class CommentDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
-		//System.out.println("도대체 뭐냐고"+UserService.encryptToMD5(pw));
+		System.out.println(content);
+		
 		String sql = "EXEC jslee.sp.insertComment ?, ?, ?, ?";
 
 		try (Connection con = DB.getConnection();
@@ -169,8 +171,12 @@ public class CommentDAO {
 		+" ,(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id and [likeType]='1') 'likeIt' "
 		+" FROM [JSLEE].[sp].[comment] cmt WHERE [id] = ? ";
 		
-		System.out.println(sql);
-		System.out.println(article_id);
+		//System.out.println(sql);
+		//System.out.println(article_id);
+		
+		if(EnvVal.TESTING.equals("1")){
+			System.out.println("selectByIdWithoutView가 실행됨.article_id : "+article_id);
+		}
 		
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -178,7 +184,7 @@ public class CommentDAO {
 			stmt.setInt(2, article_id);
 			ResultSet rs = stmt.executeQuery();
 			
-			System.out.println(rs.toString());
+			//System.out.println(rs.toString());
 			return rs.next() ? makeComment(rs) : null;
 		}
 	}
@@ -197,22 +203,12 @@ public class CommentDAO {
 				if(encrypted) check2 = pw;
 				else check2 = UserService.encryptToMD5(""+pw);
 				
-				System.out.println("check1 : "+check1);
-				
-				System.out.println("pw : "+pw);				
-				System.out.println("check2 : "+check2);
-					
-				
-				if(check1.trim().equals(check2.trim())){					
-					//System.out.println(123);
+				if(check1.trim().equals(check2.trim())){	
 					return true;
 				}
-				else{
-					//System.out.println(321);
-					
+				else{					
 				}
 				return false;
-				//return rs.next() ? rs.getInt(1) : 0;
 			}finally{
 				if (stmt != null)
 					stmt.close();

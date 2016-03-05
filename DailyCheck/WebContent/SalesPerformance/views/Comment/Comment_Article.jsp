@@ -12,6 +12,9 @@
 <% 
 RequestParameter param = new RequestParameter(request); 
 int aid = param.getInt("aid", 0);
+
+
+
 %>
 
 <%
@@ -25,7 +28,7 @@ String c_writer = param.getString("c_writer", "");
 String c_content = param.getString("c_content", "");
 String cmd = param.getString("cmd", "");
 
-System.out.println("=>"+cmd);
+//System.out.println("=>"+cmd);
 
 Comment cmt;
 
@@ -38,10 +41,12 @@ if(request.getMethod().equals("POST")){
 		if(c_writer.length() > 0 ){
 		    if (c_pw.length() > 0) {
 		        if (c_content.length() > 0) {
-		            ReplyDAO.insertReply(aid,c_writer,c_pw,c_content);
+		            ReplyDAO.insertReply(aid,c_writer,c_pw,c_content);		          	
 		            c_pw="";
 		            c_writer="";
 		            c_content="";
+		            response.sendRedirect("Comment_Article.jsp?"+ request.getQueryString());
+		            //그냥 냅두면 F5누를시 댓글이 또 생성됨. 이것을 막기 위함.
 		            
 		        } else
 		            %><script> alert("내용을 입력하세요"); </script><%
@@ -96,11 +101,30 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 		$("#deleteArticle").click(function(){
 			 location.href = "<%=urlDelete%>";			
 		});
-		$("#deleteReply").click(function(){
-			var pw = prompt("비밀번호를 입력하세요", "password");
+		$(".deleteReply").click(function(){
+			var pw = prompt("비밀번호를 입력하세요", "password");			
+			var thisId = $(this).parent(); 			
 		    
 		    if (pw != null) {
-		       
+		    	$.ajax({
+		    		url : 'func/ReplyDeleteAjax.jsp',
+		    		type : 'get',
+		    		dataType : 'json',
+		    		data : {
+		    			chkPW:pw,
+		    			sid : $(thisId).attr("data-id"),
+		    			pid : <%= aid %>,
+		    			
+		            },
+		    		success : function(data) {	
+		    			alert(data.res);		
+		    			//alert( $(thisId).attr("data-id") );
+		    			if(data.processed == true){
+		    				$(thisId).hide();
+		    			}
+		    			
+		    		}
+		    	});
 		    }else{
 		    	alert("비밀번호가 입력되지 않았습니다.");		    	
 		    }
@@ -128,7 +152,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
 
-	<div class="container main" style="overflow-y: auto;">
+	<div class="container main" style="overflow-y: auto; overflow-x: hidden;">
 		<h1><%=cmt.getTitle()%></h1>
 			<form method="post" style="margin-bottom:10px;">
 				<div>
@@ -160,21 +184,22 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 				</div>
 				<hr />
 				<div style="min-height: 300px;">
-					<h4><%=cmt.getContent()%></h4>
+					<h4 style="word-break:break-all;"><%=cmt.getContent()%></h4>
 				</div>
 				<hr />
 				
 				
 				 <% for (Reply reply : replies) { %>				
 				 <div data-id="<%= reply.getId() %>">
-					<h5> 작성자 : <%= reply.getWriter() %>/ 작성일 : <%= reply.getEntry_date() %>					
-					<button id = "deleteReply" style="margin:5px; float:right" class="btn btn-default" name="cmd" value="삭제">
-						<i class="fa fa-yelp"></i> 삭제 
-					</button></h5>
-					<div><h4> <%= reply.getContent() %> </h4>
+				 	<div class = "deleteReply btn btn-default" style="margin:5px; position:absolute; right:10px;" value="삭제">
+							<i class="fa fa-yelp"></i> 삭제 
+					</div>
+					<h5> 
+						작성자 : <%= reply.getWriter() %>/ 작성일 : <%= reply.getEntry_date() %>
+					</h5>
 
-					
-					</div>					
+					<h5 style="width: 90%; word-break:break-all; "> <%= reply.getContent() %> </h5>
+				
 		
 					<hr />
 				</div>

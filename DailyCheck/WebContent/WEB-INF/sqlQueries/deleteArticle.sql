@@ -7,7 +7,7 @@ begin
 
 DELETE FROM [JSLEE].[sp].[comment] WHERE  id = @article_id
 DELETE FROM [JSLEE].[sp].[comment_log] WHERE article_id = @article_id
-
+DELETE FROM [JSLEE].[sp].[likeIt] WHERE pid = @article_id
 
 --print 1
 end

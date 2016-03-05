@@ -130,11 +130,12 @@ html body .container tbody td { color:white; }
 html body .container tbody tr:nth-child(2n) { background-color:#363636; }
 html body .container tbody tr:hover { background-color:#eeeeee; }         
 
+html body hr { margin-top: 15px; margin-bottom: 15px;  }
 html body .container h1 { color:white; }
 html body .container h2 { color:white; }
 html body .container h3 { color:white; }
-html body .container h4 { color:white; }
-html body .container h5 { color:white; }
+html body .container h4 { color:white; font-weight: normal; margin-top: 5px; margin-bottom:5px; text-align:left; }
+html body .container h5 { color:white; font-weight: normal; margin-top: 3px; margin-bottom:3px; text-align:left;  }
 
 html body .container span { color:white; }
     
