@@ -21,8 +21,10 @@
 RequestParameter param = new RequestParameter(request);
 
 int aid = param.getInt("aid", 0);
-String urlList = "Comment.jsp?"+ request.getQueryString();
+
+String urlList = "Comment.jsp?"+ request.getQueryString().replaceAll("&?key=[a-z0-9]+&?", "");
 String urlEditCheck = "Comment_Edit_Check.jsp?"+ request.getQueryString().replaceAll("&?key=[a-z0-9]+&?", "");
+
 
 
 String title="", writer="", pw="", content="";

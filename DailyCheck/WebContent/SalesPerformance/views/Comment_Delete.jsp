@@ -17,7 +17,7 @@
 	String usrText = param.getString("usrText", "");
 
 	String urlList = "Comment.jsp?"
-			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
+			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "").replaceAll("&?cmd=[a-z]+&?", "");;
 
 	System.out.println(usrText);
 	if(request.getMethod().equals("POST")){

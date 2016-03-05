@@ -37,11 +37,22 @@
 	//File API 지원 여부로 결정
 	function checkDragAndDropAPI(){
 		try{
+			/*
+			크롬으로 진행시 자동으로 HTML5를 이용한 다중파일업로드 화면이 출력되므로
+			싱글업로드를 화면에 띄우기 위해서는 IE10이하에서 진행하시거나
+			/photo_uploader/popup/attach_photo.js 파일의
+			약 38번째 줄에 있는 checkDragAndDropAPI 함수내에
+			위와 같은 코드가 있습니다.
+ 			else 부분의 true 값을 false로 변경을 해주시면
+ 			크롬에서도 싱글파일업로드 구현이 가능합니다.
+			*/
+			
 			if( !oNavigator.ie ){
 				if(!!oNavigator.safari && oNavigator.version <= 5){
 					bSupportDragAndDropAPI = false;
 				}else{
-					bSupportDragAndDropAPI = true;
+					//bSupportDragAndDropAPI = true;
+					bSupportDragAndDropAPI = false; //여기 수정
 				}
 			} else {
 				bSupportDragAndDropAPI = false;
@@ -328,13 +339,22 @@
     
     /**
      * HTML5 DragAndDrop으로 사진을 추가하고, 확인버튼을 누른 경우에 동작한다.
+     * 여기서 데이터를 준다 ajax를 이용함.
      * @return
      */
     function html5Upload() {	
     	var tempFile,
     		sUploadURL;
     	
-    	sUploadURL= 'file_uploader_html5.php'; 	//upload URL
+    	
+    	
+		/*
+		이어서  HTML5를 이용한 다중파일업로드를 구현 해보도록 하겠습니다.
+		attach_photo.js파일에 약 333라인에 html5Upload 함수가 존재합니다.
+		위 변수의 값을 본인이 작성하고자 하는 페이지명으로 정의해주시면 됩니다.
+		*/
+    	//sUploadURL= 'file_uploader_html5.php'; 	//upload URL
+    	sUploadURL= 'file_uploader_html5.jsp';
     	
     	//파일을 하나씩 보내고, 결과를 받음.
     	for(var j=0, k=0; j < nImageInfoCnt; j++) {
@@ -477,9 +497,32 @@
  	 * jindo에 파일 업로드 사용.(iframe에 Form을 Submit하여 리프레시없이 파일을 업로드하는 컴포넌트)
  	 */
  	function callFileUploader (){
+		//alert("test!");
  		oFileUploader = new jindo.FileUploader(jindo.$("uploadInputBox"),{
- 			sUrl  : location.href.replace(/\/[^\/]*$/, '') + '/file_uploader.php',	//샘플 URL입니다.
- 	        sCallback : location.href.replace(/\/[^\/]*$/, '') + '/callback.html',	//업로드 이후에 iframe이 redirect될 콜백페이지의 주소
+ 			/*
+	 			코드를 보시면 479번째 라인에 callFileUploader 함수가 있습니다.
+				이 함수가 싱글파일업로드를 처리하는 함수입니다.
+				위 코드를 다음처럼 변경합니다
+				file_uploader.jsp 는 별도로 추가해주었고 callback.html 파일은 
+				이미 smarteditor 코드내에 존재하므로 
+				본인의 경로에 맞춰서 변경을 해주도록 합니다.
+				저는 제 환경에 맞춰 다음처럼 변경하였습니다. 
+				sUrl에 정의된 페이지는 파일업로드를 처리하는 URL이고
+ 				sCallback은 sUrl에서 파일처리한 다음 파일정보 return 해주는데 
+				바로 이 return 값들을 callback.html에서 처리를 해주는 것입니다			
+ 			 */
+
+ 			//sUrl  : location.href.replace(/\/[^\/]*$/, '') + '/file_uploader.php',	//샘플 URL입니다.
+ 	        //sCallback : location.href.replace(/\/[^\/]*$/, '') + '/callback.html',	//업로드 이후에 iframe이 redirect될 콜백페이지의 주소
+			//sUrl  : '/file_uploader.jsp',   //변경 URL입니다.
+			//sCallback : '/smarteditor/photo_uploader/popup/callback.html',  //업로드 이후에 iframe이 redirect될 콜백페이지의 주소
+ 			sUrl  : 'file_uploader.jsp',  //변경 URL입니다.
+ 			
+			sCallback : 'callback.html',  //업로드 이후에 iframe이 redirect될 콜백페이지의 주소
+
+ 	        
+ 	        
+ 	        
  	    	sFiletype : "*.jpg;*.png;*.bmp;*.gif",						//허용할 파일의 형식. ex) "*", "*.*", "*.jpg", 구분자(;)	
  	    	sMsgNotAllowedExt : 'JPG, GIF, PNG, BMP 확장자만 가능합니다',	//허용할 파일의 형식이 아닌경우에 띄워주는 경고창의 문구
  	    	bAutoUpload : false,									 	//파일이 선택됨과 동시에 자동으로 업로드를 수행할지 여부 (upload 메소드 수행)
@@ -525,7 +568,12 @@
  	    		//}
  	    		//var wel = jindo.$Element("info");
  	    		//wel.html(oCustomEvent.htResult.errstr);
- 	    		alert(oCustomEvent.htResult.errstr);
+ 	    		
+ 	    		
+ 	    		
+ 	    		//alert(oCustomEvent.htResult.errstr);
+ 	    		
+ 	    		alert("업로드에 실패했습니다.");
  	    	}
  	    });
  	}
