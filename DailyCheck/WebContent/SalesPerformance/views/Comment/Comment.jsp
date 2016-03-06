@@ -150,15 +150,28 @@ for (int i=0;i<comments.size();i++) {
             <tbody>                
                 <% for (Comment cmt : comments) { %>
                      <tr data-id="<%= cmt.getId() %>" >                      
-                        <td><h5><%= cmt.getId() %></h5></td>
-                        <td><h4>                    
-                        		<% if(cmt.getPicture()==1){ %>
-                        		   <i class="fa fa-file-picture-o"></i>         				
-                        		<% } %>
-                        		<%= cmt.getTitle() %> 
-                        		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>      					
+                        <td>
+                        	<% if(cmt.getNotify().equals("Y")){ %>
+                        	<h5 style="color:yellow;">[공지]</h5>
+                        	<% } else { %>
+                        	<h5><%= cmt.getId() %></h5>
+                        	<% }%>                        	
+                        </td>
+                        <td><h4>
+                        	<% if(cmt.getNotify().equals("Y")){ %>
+                        		<i style="color:yellow;" class="fa fa-bell-o"></i>
+                        	<% } %>
+                                            
+                       		<% if(cmt.getPicture()==1){ %>
+                       		   <i style="color:#CEFFC7;" class="fa fa-file-picture-o"></i>         				
+                       		<% } %>
+                       		
+                       		
+                       		
+                       		<%= cmt.getTitle() %> 
+                       		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>      					
                         </h4></td>
-                        <td><h4><%= cmt.getWriter() %></h4></td>        
+                        <td><h4 style="text-align:center;"><%= cmt.getWriter() %></h4></td>        
                         <td><h5><%= cmt.getEntry_date() %></h5></td>
 						<td><h5><%= cmt.getView() %></h5></td>
 						<td><h5><%= cmt.getLikeIt() %></h5></td>

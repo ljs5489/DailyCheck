@@ -14,10 +14,26 @@ ALTER PROCEDURE [sp].[selectAll]
 AS
 BEGIN
     SET NOCOUNT ON;
+	
+	DECLARE @notifyCnt int
+	SET @notifyCnt = (SELECT COUNT(*) FROM sp.comment cmt WHERE cmt.notify = 'Y')
+	SET @pageSize = @pageSize - @notifyCnt
+	
+		SELECT cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],cmt.[notify],
+		(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.[id]) 'view',
+		(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply',		
+		(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id) 'likeIt',	
+		CASE CHARINDEX('<img src=', cmt.[content]) WHEN '0' THEN '0' ELSE '1' END 'picture',
+		recordNo = '0'
+		FROM sp.comment cmt
+		WHERE cmt.notify = 'Y'
+		
+	union
 
     SELECT *
     FROM 
-    (   SELECT cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],
+    (      
+		SELECT cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],cmt.[notify],
 		(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.[id]) 'view',
 		(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply',		
 		(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id) 'likeIt',	
@@ -33,10 +49,11 @@ BEGIN
             ) AS recordNo
         FROM sp.comment cmt --LEFT JOIN dbo.[User] ON [Log].[userId] = [User].[id]
         WHERE 
-            (@srchType = 0) OR
-            (@srchType = 1 AND CHARINDEX(@srchText, [writer]) > 0) OR
-            (@srchType = 2 AND CHARINDEX(@srchText, [title]) > 0) OR
-            (@srchType = 3 AND CHARINDEX(@srchText, [content]) > 0) 
+			[notify] <> 'Y' AND	(
+				(@srchType = 0) OR
+				(@srchType = 1 AND CHARINDEX(@srchText, [writer]) > 0) OR
+				(@srchType = 2 AND CHARINDEX(@srchText, [title]) > 0) OR
+				(@srchType = 3 AND CHARINDEX(@srchText, [content]) > 0) )
     ) subQuery
     WHERE recordNo > (@currentPage - 1 ) * @pageSize
     AND   recordNo <= @currentPage * @pageSize

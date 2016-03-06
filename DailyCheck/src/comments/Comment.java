@@ -11,6 +11,7 @@ public class Comment {
 	private int replyCount;
 	private int likeIt;
 	private int picture;
+	private String notify;
 	
 	
 	public int getId() {
@@ -72,6 +73,12 @@ public class Comment {
 	}
 	public void setPicture(int picture) {
 		this.picture = picture;
+	}
+	public String getNotify() {
+		return notify;
+	}
+	public void setNotify(String notify) {
+		this.notify = notify;
 	}
 	
 	
