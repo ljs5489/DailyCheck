@@ -3,7 +3,7 @@ use JSLEE
 drop table sp.likeit
 
 create table sp.likeit(
-	id int identity(1,1) primary key,
+	--id int identity(1,1) primary key,
 	pid int,
 	userIp varchar(50),
 	userName varchar(50),

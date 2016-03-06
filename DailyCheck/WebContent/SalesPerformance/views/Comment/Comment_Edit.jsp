@@ -69,8 +69,8 @@ else if(request.getMethod().equals("POST")){
 	*/
 	
     if (title.length() > 0) {
-        if (content.length() > 13) {
-        	
+        if (content.length() > 0) {
+        	if (pw.length() > 0) {        	
             CommentDAO.updatComment(aid, writer, pw, title, content);
             %>
             <script> 
@@ -78,6 +78,8 @@ else if(request.getMethod().equals("POST")){
    				location.href = "<%=urlList%> ";
             </script>	            
             <%
+        	} else
+        	%><script> alert("비밀번호를 입력하세요"); </script><%
         } else
             %><script> alert("내용을 입력하세요"); </script><%
     } else

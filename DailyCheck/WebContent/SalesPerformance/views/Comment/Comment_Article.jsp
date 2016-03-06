@@ -28,6 +28,9 @@ String c_writer = param.getString("c_writer", "");
 String c_content = param.getString("c_content", "");
 String cmd = param.getString("cmd", "");
 
+
+
+
 //System.out.println("=>"+cmd);
 
 Comment cmt;
@@ -56,18 +59,33 @@ if(request.getMethod().equals("POST")){
 			 %><script> alert("작성자를 입력하세요"); </script><%
 	}
 	else if ("좋아요".equals(cmd)) {
-		ReplyDAO.insertLike(aid, userIP, userName);
-		System.out.println("좋아요");
-		 %><script> alert("좋아요!"); </script><%
+		
+		if(ReplyDAO.chkLikeIt(aid, userIP, userName) > 0){
+			 %><script> alert("\"좋아요\"는 내일 다시 가능합니다."); </script><%
+			 System.out.println("좋아요 1회 원칙");
+		}
+		else{
+			ReplyDAO.insertLike(aid, userIP, userName);
+			System.out.println("좋아요");
+			%><script> alert("좋아요!"); </script><%
+		}
+	
 	}
 	cmt = CommentDAO.selectByIdWithoutView(aid);
 }
 else{
-	cmt = CommentDAO.selectById(aid, userIP, userName);
-	
-	
+	cmt = CommentDAO.selectById(aid, userIP, userName);	
 }
+
+if(cmt.getWriter().length() > 12){
+	cmt.setWriter(cmt.getWriter().substring(0,12)+"...");
+}
+if(cmt.getTitle().length() > 55){
+	cmt.setTitle(cmt.getTitle().substring(0,55)+"...");
+}
+
 ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
+
 //==============/코멘트 쪽=================================================
 
 %>
@@ -153,14 +171,14 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
 
 	<div class="container main" style="overflow-y: auto; overflow-x: hidden;">
-		<h1><%=cmt.getTitle()%></h1>
+		<h1 style="word-break:break-all;"><%=cmt.getTitle()%></h1>
 			<form method="post" style="margin-bottom:10px;">
 				<div>
-					<span> 글쓴이 </span> <span><%=cmt.getWriter()%></span> 
-					<span> 조회 </span> <span><%=cmt.getView()%></span> 
-					<span> 댓글 </span> <span><%= cmt.getReplyCount() %></span>
-					<span> 추천 </span> <span><%= cmt.getLikeIt() %></span>
-	
+					<span> 글쓴이 : </span><span><%=cmt.getWriter()%></span> 
+					<span>| 조회 : </span><span><%=cmt.getView()%></span> 
+					<span>| 댓글 : </span><span><%= cmt.getReplyCount() %></span>
+					<span>| 추천 : </span><span><%= cmt.getLikeIt() %></span>
+					<span>| 작성일자 : </span><span><%= cmt.getEntry_date() %></span>
 	
 					<div id="deleteArticle" style="margin: 5px; float: right"
 						class="btn btn-default">

@@ -44,10 +44,13 @@ if(request.getMethod().equals("POST")){
 	if ("저장".equals(cmd)) {
 	    if (title.length() > 0) {
 	        if (content.length() > 0) {
-	            CommentDAO.insertComment(writer,pw, title, content);
-	    		response.sendRedirect(urlList);
-	            System.out.println("password : "+pw);
-	        	//EXEC sp.insertComment  '1','2','3'
+	        	if (pw.length() > 0) {
+		            CommentDAO.insertComment(writer,pw, title, content);
+		    		response.sendRedirect(urlList);
+		            System.out.println("password : "+pw);
+		        	//EXEC sp.insertComment  '1','2','3'
+	        	} else 
+	        	%><script> alert("비밀번호를 입력하세요"); </script><%
 	        } else
 	            %><script> alert("내용을 입력하세요"); </script><%
 	    } else

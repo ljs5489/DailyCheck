@@ -34,7 +34,7 @@ BEGIN
         FROM sp.comment cmt --LEFT JOIN dbo.[User] ON [Log].[userId] = [User].[id]
         WHERE 
             (@srchType = 0) OR
-            (@srchType = 1 AND @srchText = [writer]) OR
+            (@srchType = 1 AND CHARINDEX(@srchText, [writer]) > 0) OR
             (@srchType = 2 AND CHARINDEX(@srchText, [title]) > 0) OR
             (@srchType = 3 AND CHARINDEX(@srchText, [content]) > 0) 
     ) subQuery

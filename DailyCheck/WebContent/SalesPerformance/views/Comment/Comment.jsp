@@ -91,6 +91,16 @@ int basePage = ((currentPage - 1) / 10) * 10;
 
 ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
 
+for (int i=0;i<comments.size();i++) {
+	String tempTitle = comments.get(i).getTitle();
+	String tempWriter = comments.get(i).getWriter();
+	
+	//System.out.println(tempTitle+" : "+tempTitle.length());
+	//System.out.println(tempWriter+" : "+tempWriter.length());
+	
+	if(tempTitle.length() > 55)	comments.get(i).setTitle(tempTitle.substring(0,70)+"...");
+	if(tempWriter.length() > 15) comments.get(i).setWriter(tempWriter.substring(0,15)+"...");
+}
 
 %>
 <body>
@@ -116,14 +126,13 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
 				
             </select>
             <select name="ss">
-                <option value="0">검색없음</option>
-                <option value="1">사용자</option>
-                <option value="2">URL</option>
-                <option value="3">구분</option>
-                <option value="4">내용</option>
+                <option value="0"<%= srchType==0 ? "selected" : "" %>>검색없음</option>
+                <option value="1"<%= srchType==1 ? "selected" : "" %>>글쓴이</option>
+                <option value="2"<%= srchType==2 ? "selected" : "" %>>제목</option>
+                <option value="3"<%= srchType==3 ? "selected" : "" %>>내용</option>
             </select>
 
-            <input type="text" name="st" />
+            <input type="text" name="st" value="<%= st %>" />
             <button type="submit" class="btn btn-small search">검색</button>
         </div>
 
@@ -131,9 +140,9 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
             <thead>
                 <tr>
                     <th style="width:5%;"><h5 style="color:black;">번호</h5></th>
-                    <th style="width:55%;"><h5 style="color:black;">제목</h5></th>    
+                    <th class="title" style="width:55%;"><h5 style="color:black;">제목</h5></th>    
                     <th style="width:15%;"><h5 style="color:black;">글쓴이</h5></th>                
-                    <th style="width:15%;"><h5 style="color:black;">일시</h5></th>
+                    <th style="width:15%;"><h5 style="color:black;">작성일</h5></th>
                     <th style="width:5%;"><h5 style="color:black;">조회</h5></th>                     
                     <th style="width:5%;"><h5 style="color:black;">추천</h5></th>
                 </tr>
@@ -142,20 +151,13 @@ ArrayList<Comment> comments = CommentDAO.selectAll(pg,sz,od,ss,st);
                 <% for (Comment cmt : comments) { %>
                      <tr data-id="<%= cmt.getId() %>" >                      
                         <td><h5><%= cmt.getId() %></h5></td>
-                        <td>
-                        
-                        <div style="width: 400px; "> 
-                        <h4  style="width: 300px; overflow: hidden; text-overflow: ellipsis;" >                    
+                        <td><h4>                    
                         		<% if(cmt.getPicture()==1){ %>
                         		   <i class="fa fa-file-picture-o"></i>         				
                         		<% } %>
                         		<%= cmt.getTitle() %> 
-                        		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>  
-       					
-                        		</h4>  
-                       </div>
-                        		
-                        </td>
+                        		<span style="font-size:10px; color:orange;">[<%= cmt.getReplyCount() %>]</span>      					
+                        </h4></td>
                         <td><h4><%= cmt.getWriter() %></h4></td>        
                         <td><h5><%= cmt.getEntry_date() %></h5></td>
 						<td><h5><%= cmt.getView() %></h5></td>
