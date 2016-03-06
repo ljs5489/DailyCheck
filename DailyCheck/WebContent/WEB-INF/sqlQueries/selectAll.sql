@@ -19,15 +19,16 @@ BEGIN
 	SET @notifyCnt = (SELECT COUNT(*) FROM sp.comment cmt WHERE cmt.notify = 'Y')
 	SET @pageSize = @pageSize - @notifyCnt
 	
-		SELECT cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],cmt.[notify],
+	SELECT 
+		cmt.[id],cmt.[writer],cmt.[pw],cmt.[title],cmt.[content],cmt.[entry_date],cmt.[notify],
 		(SELECT COUNT(*) FROM sp.comment_log WHERE article_id = cmt.[id]) 'view',
 		(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply',		
 		(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id) 'likeIt',	
 		CASE CHARINDEX('<img src=', cmt.[content]) WHEN '0' THEN '0' ELSE '1' END 'picture',
 		recordNo = '0'
-		FROM sp.comment cmt
-		WHERE cmt.notify = 'Y'
-		
+	FROM sp.comment cmt
+	WHERE cmt.notify = 'Y'
+	
 	union
 
     SELECT *
