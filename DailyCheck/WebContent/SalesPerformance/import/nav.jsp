@@ -23,7 +23,7 @@
 		<div id='menuMain' class='menuButton' onclick='location.href="<%= tempNav %>/views/BothTarget.jsp"'>TARGET BY DEALER</div>
 		<div id='menuLexus' class='menuButton' onclick='location.href="<%= tempNav %>/views/LexusTarget.jsp"'>LEXUS BY DEALER</div>
 		<div id='menuToyota' class='menuButton' onclick='location.href="<%= tempNav %>/views/ToyotaTarget.jsp"'>TOYOTA BY DEALER</div>
-		<div id='menuComment' class='menuButton' onclick='location.href="<%= tempNav %>/views/Comment/Comment.jsp?pg=1&od=0&ss=0&st=&sz=10"'>COMMENT</div>
+		<div id='menuComment' class='menuButton' onclick='location.href="<%= tempNav %>/views/Comment/Comment.jsp?pg=1&od=0&ss=0&st=&sz=10"'>Board</div>
 	</div>
 
 	<div style="height:10%;"></div>

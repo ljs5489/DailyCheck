@@ -12,7 +12,7 @@
 
 
 
-<title>Comment</title>
+<title>Board</title>
 <style>
     div.container.main { min-height: 500px; }
     thead { background-color: #eee; }
@@ -70,13 +70,19 @@ if(request.getQueryString() == null){
 }
 
 
-
+request.setCharacterEncoding("UTF-8");
 RequestParameter param = new RequestParameter(request);
+
+
+
 String pg = param.getString("pg", "1");
 String sz = param.getString("sz", "10");
 String od = param.getString("od", "0");
 String ss = param.getString("ss", "0");
 String st = param.getString("st", "");
+st = new String(st.getBytes("8859_1"),"utf-8"); //get방식으로 한글이 넘어갈때 처리...
+
+//System.out.println("st : "+st);
 
 int currentPage = Integer.parseInt(pg);
 int pageSize = Integer.parseInt(sz);
@@ -108,7 +114,7 @@ for (int i=0;i<comments.size();i++) {
 <%@ include file="/SalesPerformance/import/nav.jsp" %>
 
 <div class="container main" style="overflow-y:auto; overflow-x:hidden;">
-    <h1>Comments</h1>
+    <h1>Board</h1>
     <hr />
 
     <form>

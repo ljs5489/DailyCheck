@@ -128,11 +128,14 @@ body{
 
 html body .container tbody td { color:white; }    
 html body .container tbody tr:nth-child(2n) { background-color:#363636; }
-html body .container tbody tr:hover { background-color:#eeeeee; }     
+html body .container tbody tr:hover { background-color:#aaaaaa; color:black; }     
+html body .container tbody tr:hover td h4{ color:black; }
+html body .container tbody tr:hover td h5{ color:black; }
+  
 html body .container table thead tr th h5{ text-align:center; } 
 html body .container table tbody tr td h5{ text-align:center; }     
 
-html body hr { margin-top: 15px; margin-bottom: 15px;  }
+html body hr { margin-top: 20px; margin-bottom: 20px;  }
 html body .container h1 { color:white; }
 html body .container h2 { color:white; }
 html body .container h3 { color:white; }

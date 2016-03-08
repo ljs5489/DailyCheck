@@ -14,7 +14,7 @@
 <script src="../js/se_init.js"></script>
 
 
-<title>Comment</title>
+<title>Board_Edit</title>
 
 
 <%

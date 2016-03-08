@@ -13,7 +13,7 @@
 
 
 
-<title>Comment</title>
+<title>Board_Create</title>
 
 
 <%

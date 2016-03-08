@@ -60,12 +60,13 @@ if(request.getMethod().equals("POST")){
 	}
 	else if ("좋아요".equals(cmd)) {
 		
-		if(ReplyDAO.chkLikeIt(aid, userIP, userName) > 0){
+		if(false && ReplyDAO.chkLikeIt(aid, userIP, userName) > 0){
 			 %><script> alert("\"좋아요\"는 내일 다시 가능합니다."); </script><%
 			 System.out.println("좋아요 1회 원칙");
 		}
 		else{
 			ReplyDAO.insertLike(aid, userIP, userName);
+			
 			System.out.println("좋아요");
 			%><script> alert("좋아요!"); </script><%
 		}
@@ -105,7 +106,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 	
 %>
 
-<title>Comment</title>
+<title>Board_Article</title>
 
 
 

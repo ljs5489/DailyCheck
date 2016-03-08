@@ -8,7 +8,7 @@
 <head>
 
 <%@ include file="/SalesPerformance/import/include.jsp"%>
-<title>Comment</title>
+<title>Board_Edit_Check</title>
 
 
 <%

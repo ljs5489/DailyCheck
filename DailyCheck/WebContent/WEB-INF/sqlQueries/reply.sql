@@ -1,5 +1,7 @@
 use jslee
+
 drop table sp.reply
+
 create table sp.reply(
 id	int identity(1,1),
 pid int,
