@@ -13,10 +13,10 @@ var chart = function(){
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
 	this.graphHead_title = "LEXUS 영업 목표";
-	this.graphHead_subTitle = "1월달 전일자 누적  ";	
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";
 
 	this.graphHead_title_left = "M/S";
-	this.graphHead_title_right = "금액(백 만원)";
+	this.graphHead_title_right = "금액(백만)";
 	this.dataTable = ld;	
 	//graph 설정======================================
 	this.width = $(window).width()*(9/10)-leftSpace-30;

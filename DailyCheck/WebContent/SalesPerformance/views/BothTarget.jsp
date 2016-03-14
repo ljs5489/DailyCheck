@@ -5,8 +5,22 @@
 <head>
 <%@ include file="/SalesPerformance/import/include.jsp" %>
 
+<%
+/*(
+RequestParameter param = new RequestParameter(request);
+String timer = ;
+
+if(param.getString("timer", ""))
+
+String timer = "BothTarget.jsp?timer=on";
+	
+response.sendRedirect(return1+return2+return3);
+*/
+%>
 <script>
-///DailyCheck/SalesPerformance/views/BothTarget.jsp
+
+
+
 
 //OVERRIDE
 var chart = function(){
