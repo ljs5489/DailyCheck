@@ -27,6 +27,9 @@ function drawCharts(obj) {
 	var thisLegendFontSize = obj.legendFontSize;
 	var thisBarWith = obj.barWidth;
 	var thisGraphColor = obj.graphColor;
+	var thisIsStacked = (obj.isStacked)?true:false;
+	
+	//alert("thisIsStacked : "+thisIsStacked);
 
 	//var chart_nameLeft = chart_nameLeft;
 
@@ -48,7 +51,7 @@ function drawCharts(obj) {
 	$(thisHeadDiv).css("margin-top",thisGraphHead_top);	
 
 	
-	console.log(obj.dataTable);
+	//console.log(obj.dataTable);
 	
 	var data = google.visualization.arrayToDataTable(obj.dataTable);
 	var options = {
@@ -122,7 +125,8 @@ function drawCharts(obj) {
 		},
 		lineWidth : thisLineWidth,
 		focusTarget : "datum",
-		/*isStacked: true*/
+		isStacked: thisIsStacked,
+		
 
 	};
 
