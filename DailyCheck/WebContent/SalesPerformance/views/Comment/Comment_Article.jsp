@@ -59,15 +59,17 @@ if(request.getMethod().equals("POST")){
 			 %><script> alert("작성자를 입력하세요"); </script><%
 	}
 	else if ("좋아요".equals(cmd)) {
+		String ipAddress= RequestParameter.getClientIP(request);
 		
-		if(false && ReplyDAO.chkLikeIt(aid, userIP, userName) > 0){
+		//if(ReplyDAO.chkLikeIt(aid, ipAddress, userName) > 0){
+		if(ReplyDAO.chkLikeIt(aid, ipAddress, "TFSKR") > 0){				
 			 %><script> alert("\"좋아요\"는 내일 다시 가능합니다."); </script><%
 			 System.out.println("좋아요 1회 원칙");
 		}
 		else{
-			ReplyDAO.insertLike(aid, userIP, userName);
-			
-			System.out.println("좋아요");
+			//ReplyDAO.insertLike(aid, ipAddress, userName);
+			ReplyDAO.insertLike(aid, ipAddress, "TFSKR");			
+			System.out.println(ipAddress+"의 좋아요");
 			%><script> alert("좋아요!"); </script><%
 		}
 	

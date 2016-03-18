@@ -10,7 +10,7 @@
 
 	<div data-role="main" class="ui-content">
 		<h2 align="center">저장되었습니다.</h2>
-		<p align="center">관련 항목 : precheck</p>
+		<p align="center">      </p>
 		<div align="center">
 			<a href="#"
 				class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left"
