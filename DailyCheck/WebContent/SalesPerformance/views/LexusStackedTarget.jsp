@@ -82,9 +82,9 @@ function onResized(){
 $(function(){	
 	nextPage = "<%= EnvVal.NEXT_LexusTarget %>";
 	
-	$("#stackedTarget").css("background-color","#cccccc");
-	$("#stackedTarget").css("color","#111111");
-	$("#stackedTarget").css("font-weight","bold");
+	$("#lexusStackedTarget").css("background-color","#cccccc");
+	$("#lexusStackedTarget").css("color","#111111");
+	$("#lexusStackedTarget").css("font-weight","bold");
 	    
 	
 	if(testing){

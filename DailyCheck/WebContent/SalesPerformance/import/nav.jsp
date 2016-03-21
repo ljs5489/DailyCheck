@@ -19,10 +19,12 @@
 	
 	<div style="height:13%;" id="menus">
 		
+	
+		<div id='lexusStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/LexusStackedTarget.jsp?timer=off"'>LEXUS STACK</div>
+		<div id='toyotaStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/ToyotaStackedTarget.jsp?timer=off"'>TOYOTA STACK</div>
 		<!-- 
-		<div id='stackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/StackedTarget.jsp?timer=off"'>STACKED TARGET</div>
 		<div id='bothStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/BothStackedTarget.jsp?timer=off"'>BOTH STACKED</div>
-		 -->
+		-->
 		
 		<div id='menuWhole' class='menuButton' onclick='location.href="<%= tempNav %>/views/LexusWhole.jsp?timer=off"'>LEXUS TARGET</div>
 		<div id='menuWhole2' class='menuButton' onclick='location.href="<%= tempNav %>/views/ToyotaWhole.jsp?timer=off"'>TOYOTA TARGET</div>

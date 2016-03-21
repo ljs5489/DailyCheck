@@ -23,10 +23,7 @@
 	if(request.getMethod().equals("POST")){
 		if(CommentDAO.checkPW(aid,usrText,false)){
 			
-			CommentDAO.deleteArticle(aid);
-			//System.out.println(aid+"삭제됨.");
-			//response.sendRedirect(urlList);
-	
+			CommentDAO.deleteArticle(aid);	
 			 %>
 			 <script> 
 			 alert("삭제되었습니다.");
