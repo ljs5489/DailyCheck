@@ -12,7 +12,7 @@ public class PrecheckDAO {
 		precheck.setId(resultSet.getString("id").trim());
 		precheck.setCheckTime(resultSet.getString("checkTime"));
 		
-		System.out.println("check3: "+resultSet.getString("checkTime"));
+		//System.out.println("check3: "+resultSet.getString("checkTime"));
 		
 		precheck.setChecker(resultSet.getString("checker").trim());
 		precheck.setArs(resultSet.getString("ars"));
@@ -33,8 +33,8 @@ public class PrecheckDAO {
 		precheck.setTra2time(resultSet.getString("tra2time"));
 		precheck.setTra2val(resultSet.getString("tra2val"));		
 		
-		System.out.println(resultSet.getString("tra1time"));
-		System.out.println(resultSet.getString("tra1val"));
+		//System.out.println(resultSet.getString("tra1time"));
+		//System.out.println(resultSet.getString("tra1val"));
 
 		precheck.setWMtime(resultSet.getString("WMtime"));
 		precheck.setWMstate(resultSet.getString("WMstate"));
@@ -75,7 +75,8 @@ public class PrecheckDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [precheck] WHERE [id]='" + id + "'";
 
-			System.out.println(sql);
+			//System.out.println(sql);
+			GetDate.makeLog("Precheck Select");
 
 			statement = connection.prepareStatement(sql);
 			// statement.setString(1, id);
@@ -118,7 +119,12 @@ public class PrecheckDAO {
 					+ ") " + "VALUES (" + "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			System.out.println(sql);
+			
+			
+			//System.out.println(sql);
+			GetDate.makeLog("Precheck Insert");
+
+			
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
 			statement.setString(2, checktime);
@@ -282,7 +288,11 @@ public class PrecheckDAO {
 			statement.setString(39,tra2val);						
 			statement.setString(40,id);
 			
-			System.out.println(sql);
+			
+			
+			//System.out.println(sql);
+			GetDate.makeLog("Precheck Update");
+			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);

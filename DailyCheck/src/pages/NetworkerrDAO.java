@@ -46,7 +46,13 @@ public class NetworkerrDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [networkerr] WHERE [id]='" + id + "'";
 
-			System.out.println(sql);
+			
+			
+			//System.out.println(sql);
+			GetDate.makeLog("Networkerr Select");
+			
+			
+			
 			statement = connection.prepareStatement(sql);
 			resultSet = statement.executeQuery();
 			if (resultSet.next())
@@ -116,7 +122,11 @@ public class NetworkerrDAO {
 					+ "?, ?, ?, " 
 					+ "?, ?, ?, ?)";
 			
-			System.out.println(sql);
+			
+			
+			//System.out.println(sql);
+			GetDate.makeLog("Networkerr Insert");
+			
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
 			statement.setString(2, checktime);
@@ -221,7 +231,14 @@ public class NetworkerrDAO {
 			statement.setString(16,ifany);
 			statement.setString(17, id);
 			
-			System.out.println(sql);
+			
+			
+			//System.out.println(sql);
+			GetDate.makeLog("Networkerr Update");
+			
+			
+			
+			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);

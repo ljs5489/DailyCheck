@@ -20,12 +20,12 @@
 	,ifany = "";
 
 	String id=request.getParameter("id").trim();
-	System.out.println("?"+id);
+	//System.out.println("?" + id);
 	Ipt ipt = IptDAO.selectById(id);
 
 	if (ipt != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
-		System.out.println("GET!");
+		//System.out.println("GET!");
 
 		checktime = ipt.getCheckTime();
 		checker = ipt.getChecker();
@@ -67,7 +67,7 @@
 	out.print(json);
 	
 	if (request.getMethod().equals("POST")) {
-		System.out.println("AJAX POST!!!");
+		//System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
@@ -89,11 +89,11 @@
 
 		if (ipt == null) {
 			IptDAO.insertInfo(id, checktime, checker, trunk	,idle,temperature,in_serv_tru1,in_serv_tru2	,gateway,ipt_alarm,idle_val,temp_val,ifany);
-			System.out.println("인서트!");
+			//System.out.println("인서트!");
 		} else {
 			//update	
 			IptDAO.updateInfo(id, checktime, checker, trunk	,idle,temperature,in_serv_tru1,in_serv_tru2	,gateway,ipt_alarm,idle_val,temp_val,ifany);
-			System.out.println("업데이트!");
+			//System.out.println("업데이트!");
 		}
 	}
 %>

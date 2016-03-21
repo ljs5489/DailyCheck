@@ -8,16 +8,16 @@ import tools.*;
 
 public class BatchjobDAO {
 	private static Batchjob makebatchjob(ResultSet resultSet) throws SQLException {
+		
+		
+		//GetDate.makeLog("");
+		
 		Batchjob batchjob = new Batchjob();
 		batchjob.setId(resultSet.getString("id").trim());
-		batchjob.setCheckTime(resultSet.getString("checkTime"));
-		
-		
+		batchjob.setCheckTime(resultSet.getString("checkTime"));		
 		batchjob.setChecker(resultSet.getString("checker").trim());
-		batchjob.setEbilling(resultSet.getString("ebilling"));
-		
-		System.out.println("check3: "+resultSet.getString("ebilling"));
-		
+		batchjob.setEbilling(resultSet.getString("ebilling"));		
+		//System.out.println("check3: "+resultSet.getString("ebilling"));		
 		batchjob.setFin_SMS(resultSet.getString("fin_SMS"));
 		batchjob.setFunding_SMS(resultSet.getString("funding_SMS"));
 		batchjob.setDel_M(resultSet.getString("del_M"));
@@ -39,7 +39,8 @@ public class BatchjobDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [batchjob] WHERE [id]='" + id + "'";
 
-			System.out.println(sql);
+			//System.out.println(sql);
+			GetDate.makeLog("Batchjob Select");			
 
 			statement = connection.prepareStatement(sql);
 			// statement.setString(1, id);
@@ -91,7 +92,10 @@ public class BatchjobDAO {
 					+ "VALUES (" 
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?)";
-			System.out.println(sql);
+			
+			//System.out.println(sql);
+			GetDate.makeLog("Batchjob Insert");	
+			
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
 			statement.setString(2, checktime);
@@ -161,7 +165,9 @@ public class BatchjobDAO {
 			statement.setString(10,id);
 
 			
-			System.out.println(sql);
+			//System.out.println(sql);
+			GetDate.makeLog("Batchjob Update");	
+			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);

@@ -14,12 +14,12 @@
 	
 
 	String id=request.getParameter("id").trim();
-	System.out.println("?"+id);
+	//System.out.println("?" + id);
 	Dmzserver dmzserver = DmzserverDAO.selectById(id);
 
 	if (dmzserver != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
-		System.out.println("GET!");
+		//System.out.println("GET!");
 
 		checktime = dmzserver.getCheckTime();
 		checker = dmzserver.getChecker();
@@ -60,7 +60,7 @@
 	json.put("name", "테스트 입니다...");
 
 	json.put("checktime", checktime);
-	System.out.println("check: " + checktime);
+	//System.out.println("check: " + checktime);
 	json.put("checker", checker);
 			
 	json.put("NWCPU", NWCPU);
@@ -93,7 +93,7 @@
 
 	out.print(json);
 	if (request.getMethod().equals("POST")) {
-		System.out.println("AJAX POST!!!");
+		//System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
@@ -157,7 +157,7 @@
 
 					ifany
 					);
-			System.out.println("인서트!");
+			//System.out.println("인서트!");
 		} else {
 			//update	
 			DmzserverDAO.updateInfo(
@@ -190,7 +190,7 @@
 					ifany
 					);
 
-			System.out.println("업데이트!");
+			//System.out.println("업데이트!");
 		}
 	}
 %>

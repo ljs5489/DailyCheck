@@ -44,11 +44,11 @@
 
 	String id = request.getParameter("id").trim();
 	Server server = ServerDAO.selectById(id);
-	System.out.println("?" + id);
+	//System.out.println("?" + id);
 
 	if (server != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
-		System.out.println("GET!");
+		//System.out.println("GET!");
 
 		checktime = server.getCheckTime();
 		checker = server.getChecker();
@@ -235,7 +235,7 @@
 	JSONObject json = new JSONObject();
 
 	json.put("checktime", checktime);
-	System.out.println("check: " + checktime);
+	//System.out.println("check: " + checktime);
 	json.put("checker", checker);
 
 	json.put("WEB_CPU", WEB_CPU);
@@ -416,7 +416,7 @@
 	out.print(json);
 
 	if (request.getMethod().equals("POST")) {
-		System.out.println("AJAX POST!!!");
+		//System.out.println("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
@@ -624,7 +624,7 @@
 					LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2, ADV2_disk1, ADV2_disk2,
 
 			ifany);
-			System.out.println("인서트!");
+			//System.out.println("인서트!");
 		} else {
 			//update	
 			ServerDAO.updateInfo(id, checktime, checker, WEB_CPU, WEB_memory, WEB_value, WEB_vaccine,
@@ -654,7 +654,7 @@
 					LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2, ADV2_disk1, ADV2_disk2,
 
 			ifany);
-			System.out.println("업데이트!");
+			//System.out.println("업데이트!");
 		}
 	}
 %>

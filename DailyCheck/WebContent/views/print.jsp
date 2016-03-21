@@ -17,16 +17,16 @@ catch(Exception e){
 }
 
 
+System.out.println("=========Print Data...============");
 Precheck precheck = PrecheckDAO.selectById(theDate);
 Server server = ServerDAO.selectById(theDate);
 Mobileserver mobileserver = MobileserverDAO.selectById(theDate);
 Dmzserver dmzserver = DmzserverDAO.selectById(theDate);
-
 Batchjob batchjob = BatchjobDAO.selectById(theDate);
 Ipt ipt = IptDAO.selectById(theDate);
 Networkerr networkerr = NetworkerrDAO.selectById(theDate);
 Backup backup = BackupDAO.selectById(theDate);
-
+System.out.println("=========/Print Data...============");
 
 %>
 

@@ -202,7 +202,9 @@ public class ServerDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [server_] WHERE [id]='" + id + "'";
 
-			System.out.println(sql);
+			
+			GetDate.makeLog("Server Select");
+			//System.out.println(sql);
 
 			statement = connection.prepareStatement(sql);
 			// statement.setString(1, id);
@@ -606,7 +608,10 @@ public class ServerDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ? )";
-			System.out.println(sql);
+			
+			//System.out.println(sql);			
+			GetDate.makeLog("Server Insert");
+			
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
 			statement.setString(2, checktime);
@@ -1348,7 +1353,9 @@ public class ServerDAO {
 			statement.setString(174,ifany);
 			statement.setString(175,id);
 			
-			System.out.println(sql);
+			//System.out.println(sql);
+			GetDate.makeLog("Server Update");
+			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
