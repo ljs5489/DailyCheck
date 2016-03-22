@@ -5,7 +5,20 @@
 <head>
 <%@ include file="/SalesPerformance/import/include.jsp"%>
 
+<script>
+var LProData = [
+               /*[id, name, normal_val, promotion_val],*/
+               [1,"저금리 프로모션","30","20"],
+               [2,"저금리 프로모션","30","20"],
+               [3,"저금리 프로모션","30","20"],
+               [4,"저금리 프로모션","30","20"],
+               [5,"저금리 프로모션","30","20"]
+               
+               ];
 
+
+
+</script>
 
 <script>
       //google.charts.load('current', {'packages':['corechart']});
@@ -45,44 +58,138 @@
    		console.log(thisMatrixMarginX);
     	*/  
 		 
-		$(thisDiv).css("width", thisGraphX - thisMatrixMarginX * 2);   
-		
-		$(thisDiv).css("height", thisGraphY - thisMatrixMarginY * 2);
+		//$(thisDiv).css("width", thisGraphX - thisMatrixMarginX * 2);   		
+		$(thisDiv).css("height", thisGraphY - thisMatrixMarginY * 2 - thisGraphMargin/2);
+		$(thisDiv).css("width", thisGraphY - thisMatrixMarginY * 2);   		
 		
 		//$(thisDiv).css("left", thisGraphLeft);
 		$(thisDiv).css("top", thisGraphTop);
 		$(thisDiv).css("margin", thisGraphMargin);
+		$(thisDiv).css("margin-left", 15+leftSpace+obj.left);
+		
+		//$("table").css("margin-left", menuWidth+15+leftSpace+400);
+		
 		
 		$(thisHeadDiv).css("width", thisGraphX - thisMatrixMarginX * 2);
 		$(thisHeadDiv).css("margin-left",thisGraphLeft);	
 		$(thisHeadDiv).css("margin-top",thisGraphHead_top);	    		
-    		
-        var data = google.visualization.arrayToDataTable([
-          ['Effort', 'Amount given'],
-          ['My all',     80],
-          ['Test',     20],
-        ]);
+    	
+		//alert(obj.data);
+		
+        var data = google.visualization.arrayToDataTable(obj.data);
 
         var options = {
-          backgroundColor: "#292929",
-          pieHole: 0.5,
-          pieSliceTextStyle: {
-            color: 'black',
-          },
-          legend: 'none',
+          	title: obj.title,
+          	titleTextStyle:{ 
+          		color: "white",
+          		/*fontName: <string>,*/
+          		/*fontSize: <number>,*/
+          		bold:   true,
+          		italic: true 
+          	},
+			backgroundColor: "#292929",
+			pieHole: 0.5,
+			pieSliceTextStyle: {
+				color: "black", 
+				/*fontName: <string>,*/ 
+				fontSize: 16
+			},
+			legend: {
+				position: 'top', 
+				textStyle: {color: 'white', fontSize: 16}
+			},
+			chartArea: obj.chartArea,
+			width: "30px",
+			slices: {
+	            0: { color: "#2478FF" },
+		        1: { color: "#53FF4C" }
+	           /* 1: { color: 'transparent' }*/
+	          },
+	        tooltip:{
+	        	textStyle: {
+	        		color: "black",
+	        		/*fontName: <string>,*/
+	        		fontSize: 20,
+	        		bold: true,
+	        		italic: false
+	        	}, 
+	        	showColorCode: true,
+	        	ignoreBounds:false,
+	        },
+          
         };
         
         //alert(obj.on_id);
 
         var chart = new google.visualization.PieChart(document.getElementById(obj.on_id));
         chart.draw(data, options);
+        
+    	$("#newLoading").hide();
       }
+</script>
+
+<script>
+/*
+$(".promotionButton").click(function(){
+	alert($(this));
+	
+	
+});
+*/
+
+	function changeVal(chart, id){
+		var normal = 0;
+		var promotion = 0;
+		
+		//alert($('[data-id=L2]'));
+		//alert('[data-id='+id+']');
+		//alert($('[data-id='+id+']'));
+		
+		normal    = $('[data-id='+id+']').attr("data-val1");
+		promotion = $('[data-id='+id+']').attr("data-val2");
+		
+		//alert(normal);
+		//alert(promotion);
+		
+		/*
+		
+		switch(id){
+		case 1:
+			normal = 230;
+			promotion = 300;
+			break;
+		case 2:
+			normal = 2230;
+			promotion = 3300;
+			break;
+		case 3:
+			normal = 2340;
+			promotion = 3500;
+			break;
+		case 4:
+			normal = 25530;
+			promotion = 32200;
+			break;
+		
+		}
+		*/
+		
+		
+		chart.data = [
+			             ['Type', 'Sales'],
+			             ['Normal',    normal],
+			             ['Promotion', promotion],
+			           ];
+		drawChart1(chart);
+	}
+
 </script>
 
 
 <script>
 
 var chart1 = function(){
+	this.title = "Lexus Promotion Ratio";
 	this.on_id = "chart_id1"; //#chart_id에 그린다.
 	this.on_head_id = "chart_name1";	
 	this.sort = "A271";	
@@ -100,17 +207,22 @@ var chart1 = function(){
 	//graph 설정======================================
 	this.width = $(window).width()*(5/10);
 	this.height = $(window).height()/2;
-	this.left = menuWidth;
+	this.left = menuWidth+40;
 	this.top = 0;
 	this.margin = 15;
 	this.lineWidth = 5; //선의 굵기
 
 	this.chartArea = {						
-			left : "4%",
+			left : "8%",
 			top : "15%",
-			width : "90%",
-			height : "70%",			
+			width : "80%",
+			height : "80%",			
 		};
+	this.data = [
+	             ['Type', 'Sales'],
+	             ['Normal',    50],
+	             ['Promotion', 120],
+	           ];
 
 }	
 
@@ -119,6 +231,7 @@ var chart1 = function(){
 <script>
 
 var chart2 = function(){
+	this.title = "Toyota Promotion Ratio";
 	this.on_id = "chart_id2"; //#chart_id에 그린다.
 	this.on_head_id = "chart_name2";	
 	this.sort = "A271";	
@@ -136,7 +249,7 @@ var chart2 = function(){
 	//graph 설정======================================
 	this.width =  $(window).width()*(5/10);
 	this.height = $(window).height()/2;
-	this.left = menuWidth;
+	this.left = menuWidth+40;
 	this.top = $(window).height()/2;
 	this.margin = 15;
 	this.lineWidth = 5; //선의 굵기
@@ -152,24 +265,19 @@ var chart2 = function(){
 			2 : { targetAxisIndex : 0, type : 'line', },
 			3 : { targetAxisIndex : 0, type : 'line', },
 		};
+
 	this.chartArea = {						
-			left : "4%",
+			left : "8%",
 			top : "15%",
-			width : "90%",
-			height : "70%",			
+			width : "80%",
+			height : "80%",			
 		};
-	this.graphColor = {/*
-			color1 : "#2478FF",
-			color2 : "#53FF4C",
-			color3 : "#5BE1E1", 
-			color4 : "#AF4BAD",	
-			*/
-			color1 : "#2478FF",
-			color2 : "#53FF4C",
-			color3 : "#5BE1E1", 
-			color4 : "#AF4BAD",	
-		};
-	this.isStacked = true;
+	this.data = [
+	             ['Type', 'Sales'],
+	             ['Normal',    78],
+	             ['Promotion', 100],
+	           ];
+	//this.isStacked = true;
 	//===============================================
 }	
 
@@ -229,18 +337,34 @@ $(function(){
 </head>
 <body>
 	<!-- <div id="chart_name1" class="chart_name">123</div> -->
-	<div id="chart_id1"></div>
+	<div id="chart_id1"></div>	
+	
+	<div class="promotionMenu" style="height:35%; width:45%; position:absolute; left:45%; top: 10%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px; overflow-x:hidden; overflow-y:auto;" id="menus">
+		<h3 style="padding-left:15px; color:white;">Lexus Promotion List</h3>	
+		<%	for(int i=0;i<5;i++){ %>
+			<div class='promotionButton' data-id="L<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart1,'L<%= i %>');">저금리 프로모션</div>				
+		<% 	} %>
+		
+	</div>
+
 	<!-- <div id="chart_name2" class="chart_name">345</div> -->
 	<div id="chart_id2"></div>
-
+	
+	
+	
+	<div class="promotionMenu"  style="height:35%; width:45%; position:absolute; left:45%; top: 60%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px;   overflow-x:hidden; overflow-y:auto;" id="menus">
+		<h3 style="padding-left:15px; color:white;">Toyota Promotion List</h3>	
+		<%	for(int i=0;i<15;i++){ %>
+			<div class='promotionButton' data-val1="20" data-val2="50" onclick="changeVal(new chart2,<%= (i+1) %>);">저금리 프로모션</div>				
+		<% 	} %>
+	</div>
 
 
 	<%@ include file="/SalesPerformance/import/nav.jsp"%>
-	
- 	
+
+
 	<img style="position: fixed;" id="newLoading"
 		src="../img/support-loading.gif" />
-
 
 
 </body>

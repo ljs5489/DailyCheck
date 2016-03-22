@@ -100,6 +100,10 @@ body{
 	box-shadow: 0px 1px 1px #eeeeee; 
 	line-height: 35px;
 }
+
+
+
+
 .menuButton:hover{
 	background: #cccccc;
 	color:#111111;		
@@ -110,8 +114,35 @@ body{
 	color:#111111;	
 	font-weight: bold;
 }
+.promotionMenu{
+	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	
+}
 
-
+.promotionButton{
+	border-bottom : 1px solid white;
+	/*background: #363636;*/
+	color:white;
+	text-align:left;	
+	height:10%;
+	width:101%;
+	padding-left:5%;
+	/*font-style: italic;*/
+	/*font-weight: bold;*/
+	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */	
+	box-shadow: 0px 1px 1px #eeeeee; 
+	line-height: 35px;
+}
+.promotionButton:hover{
+	background: #cccccc;
+	color:#111111;		
+	font-weight: bold;
+}
+.promotionButton:active{
+	background: #cccccc;
+	color:#111111;	
+	font-weight: bold;
+}
 
 
 
