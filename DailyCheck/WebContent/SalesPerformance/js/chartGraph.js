@@ -1,6 +1,6 @@
-google.charts.load('current', {
-	'packages' : [ 'corechart' ]
-});
+/*
+
+google.charts.load('current', { 'packages' : [ 'corechart' ] });
 google.charts.setOnLoadCallback(drawVisualization);
 
 function drawVisualization() {
@@ -65,3 +65,5 @@ function drawVisualization() {
 			.getElementById('chart_div'));
 	chart.draw(data, options);
 }
+
+*/

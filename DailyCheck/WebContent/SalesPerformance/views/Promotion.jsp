@@ -145,35 +145,9 @@ $(".promotionButton").click(function(){
 		//alert('[data-id='+id+']');
 		//alert($('[data-id='+id+']'));
 		
-		normal    = $('[data-id='+id+']').attr("data-val1");
-		promotion = $('[data-id='+id+']').attr("data-val2");
-		
-		//alert(normal);
-		//alert(promotion);
-		
-		/*
-		
-		switch(id){
-		case 1:
-			normal = 230;
-			promotion = 300;
-			break;
-		case 2:
-			normal = 2230;
-			promotion = 3300;
-			break;
-		case 3:
-			normal = 2340;
-			promotion = 3500;
-			break;
-		case 4:
-			normal = 25530;
-			promotion = 32200;
-			break;
-		
-		}
-		*/
-		
+		normal    = Number($('[data-id='+id+']').attr("data-val1"));
+		promotion = Number($('[data-id='+id+']').attr("data-val2"));
+
 		
 		chart.data = [
 			             ['Type', 'Sales'],
@@ -310,9 +284,9 @@ $(function(){
 	
 		//nextPage = "<%=EnvVal.NEXT_LexusTarget%>";
 
-		//$("#lexusStackedTarget").css("background-color", "#cccccc");
-		//$("#lexusStackedTarget").css("color", "#111111");
-		//$("#lexusStackedTarget").css("font-weight", "bold");
+		$("#menuPromotion").css("background-color","#cccccc");
+		$("#menuPromotion").css("color","#111111");
+		$("#menuPromotion").css("font-weight","bold");
 
 		if (testing) {
 			//테스트용=====================================				
@@ -339,9 +313,9 @@ $(function(){
 	<!-- <div id="chart_name1" class="chart_name">123</div> -->
 	<div id="chart_id1"></div>	
 	
-	<div class="promotionMenu" style="height:35%; width:45%; position:absolute; left:45%; top: 10%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px; overflow-x:hidden; overflow-y:auto;" id="menus">
+	<div class="promotionMenu" style="height:35%; width:50%; position:absolute; left:45%; top: 10%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px; overflow-x:hidden; overflow-y:auto;" id="menus">
 		<h3 style="padding-left:15px; color:white;">Lexus Promotion List</h3>	
-		<%	for(int i=0;i<5;i++){ %>
+		<%	for(int i=1;i<=5;i++){ %>
 			<div class='promotionButton' data-id="L<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart1,'L<%= i %>');">저금리 프로모션</div>				
 		<% 	} %>
 		
@@ -352,10 +326,10 @@ $(function(){
 	
 	
 	
-	<div class="promotionMenu"  style="height:35%; width:45%; position:absolute; left:45%; top: 60%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px;   overflow-x:hidden; overflow-y:auto;" id="menus">
+	<div class="promotionMenu"  style="height:35%; width:50%; position:absolute; left:45%; top: 60%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px;   overflow-x:hidden; overflow-y:auto;" id="menus">
 		<h3 style="padding-left:15px; color:white;">Toyota Promotion List</h3>	
-		<%	for(int i=0;i<15;i++){ %>
-			<div class='promotionButton' data-val1="20" data-val2="50" onclick="changeVal(new chart2,<%= (i+1) %>);">저금리 프로모션</div>				
+		<%	for(int i=1;i<=15;i++){ %>
+			<div class='promotionButton' data-id="T<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart2,'T<%= (i+1) %>');">저금리 프로모션</div>				
 		<% 	} %>
 	</div>
 

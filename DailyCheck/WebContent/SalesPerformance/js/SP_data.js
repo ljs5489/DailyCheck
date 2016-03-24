@@ -77,7 +77,7 @@ var wd = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M
 
 
 //google.charts.load('current', {'packages':["corechart", "gauge"]});
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['corechart', 'bar']});
 
 Date.prototype.yyyymmdd = function() {
 	   var yyyy = this.getFullYear().toString();

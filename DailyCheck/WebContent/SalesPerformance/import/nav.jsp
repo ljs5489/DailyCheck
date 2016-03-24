@@ -22,6 +22,9 @@
 	
 		<div id='lexusStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/LexusStackedTarget.jsp?timer=off"'>LEXUS STACK</div>
 		<div id='toyotaStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/ToyotaStackedTarget.jsp?timer=off"'>TOYOTA STACK</div>
+		<div id='menuPromotion' class='menuButton' onclick='location.href="<%= tempNav %>/views/Promotion.jsp?timer=off"'>PROMOTION RATIO</div>
+		<div id='menuSalesman' class='menuButton' onclick='location.href="<%= tempNav %>/views/Salesman.jsp?timer=off"'>SALESMAN</div>
+		
 		<!-- 
 		<div id='bothStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/BothStackedTarget.jsp?timer=off"'>BOTH STACKED</div>
 		-->
