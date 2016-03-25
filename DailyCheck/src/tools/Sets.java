@@ -1,12 +1,26 @@
 package tools;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Sets {
+	public static void main(String[] args){
+	//	System.out.println(getCurrentTime());
+	}
+	
 	public static String changeFormatYYYYMMDD(String date){
+		
+		//System.out.println(date);
 		return date.replaceFirst("(\\d{4})(\\d{2})(\\d{2})", "$1-$2-$3");	
 	}
+	public static String getCurrentTime(){
+	     Calendar cal = Calendar.getInstance();
+	     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	    
+	     return sdf.format(cal.getTime());
+	}
+	
 	public static String getToday() {
 		Date date = new Date();
 		return new SimpleDateFormat("yyyyMMdd").format(date);

@@ -20,6 +20,8 @@ var LProData = [
 
 </script>
 
+
+
 <script>
       //google.charts.load('current', {'packages':['corechart']});
       
@@ -60,7 +62,7 @@ var LProData = [
 		 
 		//$(thisDiv).css("width", thisGraphX - thisMatrixMarginX * 2);   		
 		$(thisDiv).css("height", thisGraphY - thisMatrixMarginY * 2 - thisGraphMargin/2);
-		$(thisDiv).css("width", thisGraphY - thisMatrixMarginY * 2);   		
+		$(thisDiv).css("width", thisGraphY*2 - thisMatrixMarginY * 2);   		
 		
 		//$(thisDiv).css("left", thisGraphLeft);
 		$(thisDiv).css("top", thisGraphTop);
@@ -95,14 +97,14 @@ var LProData = [
 				fontSize: 16
 			},
 			legend: {
-				position: 'top', 
+				position: 'right', 
 				textStyle: {color: 'white', fontSize: 16}
 			},
 			chartArea: obj.chartArea,
 			width: "30px",
 			slices: {
 	            0: { color: "#2478FF" },
-		        1: { color: "#53FF4C" }
+		        /*1: { color: "#53FF4C" }
 	           /* 1: { color: 'transparent' }*/
 	          },
 	        tooltip:{
@@ -151,8 +153,10 @@ $(".promotionButton").click(function(){
 		
 		chart.data = [
 			             ['Type', 'Sales'],
-			             ['Normal',    normal],
-			             ['Promotion', promotion],
+			             ['LS',    normal],
+			             ['ES', promotion],
+			             ['RX', promotion],
+			             ['IS', promotion],
 			           ];
 		drawChart1(chart);
 	}
@@ -194,8 +198,10 @@ var chart1 = function(){
 		};
 	this.data = [
 	             ['Type', 'Sales'],
-	             ['Normal',    50],
-	             ['Promotion', 120],
+	             ['Camry',    78],
+	             ['Prius', 100],
+	             ['Rav', 100],
+	             ['Toyota86', 100],
 	           ];
 
 }	
@@ -249,7 +255,9 @@ var chart2 = function(){
 	this.data = [
 	             ['Type', 'Sales'],
 	             ['Normal',    78],
-	             ['Promotion', 100],
+	             ['Promotion1', 100],
+	             ['Promotion2', 100],
+	             ['Promotion3', 100],
 	           ];
 	//this.isStacked = true;
 	//===============================================
@@ -288,6 +296,20 @@ $(function(){
 		$("#menuPromotion").css("color","#111111");
 		$("#menuPromotion").css("font-weight","bold");
 
+		
+		
+		
+		$(".promotionMenu div").click(function(){
+			$(this).parent().find("div").css("background-color","#121212");		
+			$(this).parent().find("div").css("font-weight","normal");
+			$(this).parent().find("div").css("color","white");
+			
+			
+			$(this).css("background-color","#cccccc");
+			$(this).css("color","#111111");
+			$(this).css("font-weight","bold");
+		});
+		
 		if (testing) {
 			//테스트용=====================================				
 			google.charts.setOnLoadCallback(function(){
@@ -304,6 +326,12 @@ $(function(){
 			//getSalesWithAjax();
 			//=============================================
 		}
+		
+		
+		$(".promotionMenu div").click();
+		
+		//alert(1)
+		
 	
 	});
 </script>
@@ -313,7 +341,7 @@ $(function(){
 	<!-- <div id="chart_name1" class="chart_name">123</div> -->
 	<div id="chart_id1"></div>	
 	
-	<div class="promotionMenu" style="height:35%; width:50%; position:absolute; left:45%; top: 10%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px; overflow-x:hidden; overflow-y:auto;" id="menus">
+	<div class="promotionMenu" style="height:35%; width:37%; position:absolute; left:58%; top: 10%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px; overflow-x:hidden; overflow-y:auto;" id="menus">
 		<h3 style="padding-left:15px; color:white;">Lexus Promotion List</h3>	
 		<%	for(int i=1;i<=5;i++){ %>
 			<div class='promotionButton' data-id="L<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart1,'L<%= i %>');">저금리 프로모션</div>				
@@ -326,7 +354,7 @@ $(function(){
 	
 	
 	
-	<div class="promotionMenu"  style="height:35%; width:50%; position:absolute; left:45%; top: 60%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px;   overflow-x:hidden; overflow-y:auto;" id="menus">
+	<div class="promotionMenu"  style="height:35%; width:37%; position:absolute; left:58%; top: 60%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px;   overflow-x:hidden; overflow-y:auto;" id="menus">
 		<h3 style="padding-left:15px; color:white;">Toyota Promotion List</h3>	
 		<%	for(int i=1;i<=15;i++){ %>
 			<div class='promotionButton' data-id="T<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart2,'T<%= (i+1) %>');">저금리 프로모션</div>				

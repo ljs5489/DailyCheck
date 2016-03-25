@@ -400,11 +400,12 @@ function drawBarColors(obj) {
 			chartArea: obj.chartArea,
 			width: "30px",
 			slices: {
+				/*
 	            0: { color: "#2478FF" },
 		        1: { color: "#53FF4C" },
 		        2: { color: "GREEN" },
 		        3: { color: "#42ddac" },
-		        
+		        */
 	            /*2: { color: 'transparent' }*/
 	          },
 	        tooltip:{

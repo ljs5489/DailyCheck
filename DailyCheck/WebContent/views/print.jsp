@@ -7,12 +7,15 @@
 try{
 
 String theDate="";
+String currTime = Sets.getCurrentTime();
+
 try{
 	theDate = request.getParameter("date");
 	theDate=Sets.changeFormatYYYYMMDD(theDate);
 }
 catch(Exception e){
 	theDate=Sets.getToday();
+	theDate=Sets.changeFormatYYYYMMDD(theDate);
 	//System.out.println("!"+theDate);
 }
 
@@ -76,23 +79,26 @@ System.out.println("=========/Print Data...============");
 				<br/>
 				<h1 style="text-align:left; font-size:30px; margin:15px;">Daily System Check List</h1>
 				<br/>
-				<h3 style="margin:15px;">Date : <%= theDate %></h3>
-			
+				<h3 style="margin:8px;">Date : <%= theDate %></h3>
+				<h3 style="margin:8px;">Finish Time : <%= currTime %></h3>
 			</td>
 			<td class="t_r">
 				<br/>
 				<table style="width: 200px;">
 					<tr style="width:200px; height:40px; border-bottom:1px solid black;">
-						<td style="width:100px;"><h2>Date : </h2></td>
+						<td style="width:150px;"><h2>Date : </h2></td>
 						<td></td>
 					</tr>
 					<tr style="width:200px; height:40px; border-bottom:1px solid black;">					
-						<td style="width:100px;"><h2>IT Head : </h2></td>
+						<td style="width:150px;"><h2>IT Head : </h2></td>
 						<td></td>
-					</tr>					
+					</tr>		
+						
 				</table>
 			</td>
 		</tr>
+		
+		
 	</table>
 
 		<%= PrintSets.getWrap() %>

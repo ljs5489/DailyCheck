@@ -129,9 +129,13 @@ body{
 	padding-left:5%;
 	/*font-style: italic;*/
 	/*font-weight: bold;*/
-	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */	
+	background: #121212;/*-webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */	
 	box-shadow: 0px 1px 1px #eeeeee; 
 	line-height: 35px;
+}
+.promotionButton h3{
+	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */	
+	
 }
 .promotionButton:hover{
 	background: #cccccc;

@@ -42,7 +42,7 @@ var chart = function(){
 	this.margin = 15;
 	this.lineWidth = 3; //선의 굵기
 
-	this.barWidth = "30%";
+	this.barWidth = "40%";
 	this.legendFontSize = 20;	
 	this.barMax = 3000;
 	this.lineMax = 100;
