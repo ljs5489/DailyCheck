@@ -78,10 +78,8 @@ function onResized(){
 $(function(){	
 	nextPage = "<%= EnvVal.NEXT_LexusTarget %>";
 	
-	$("#menuLexus").css("background-color","#cccccc");
-	$("#menuLexus").css("color","#111111");
-	$("#menuLexus").css("font-weight","bold");
-	    
+
+	selectedMenu("menuLexus",1);
 	
 	if(testing){
 		//테스트용=====================================

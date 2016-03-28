@@ -54,9 +54,7 @@ $(function(){
         $("form").submit();
     })
     
-	$("#menuComment").css("background-color","#cccccc");
-	$("#menuComment").css("color","#111111");
-	$("#menuComment").css("font-weight","bold");
+    selectedMenu("menuComment",1);
 })
 </script>
 

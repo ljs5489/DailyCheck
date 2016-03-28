@@ -11,7 +11,8 @@ Calendar cal = Calendar.getInstance();
 SimpleDateFormat sdf = new SimpleDateFormat("yyyymmdd");
 System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
 
-System.out.println("simple data format : "+sdf.toString());
+//System.out.println("simple data format : "+sdf.toString());
+System.out.println("SalesMan ...");
 
 
 
@@ -35,7 +36,7 @@ int i = 0;
 for(Sales temp : sales){
 	data[i] = new DS();
 	
-	System.out.println(temp.getDealer());
+	//System.out.println(temp.getDealer());
 	data[i].salesMan   = temp.getTfskr_sales_rep();
 	data[i].dealerName = temp.getDealer();
 	data[i].target     = Double.parseDouble(temp.getTarget_amt());
@@ -49,7 +50,7 @@ i = 0;
 for(Sales temp : sales2){
 	data2[i] = new DS();
 	
-	System.out.println(temp.getDealer());
+	//System.out.println(temp.getDealer());
 	data2[i].salesMan   = temp.getTfskr_sales_rep();
 	data2[i].dealerName = temp.getDealer();
 	data2[i].target     = Double.parseDouble(temp.getTarget_amt());
@@ -276,7 +277,13 @@ function drawBarColors(obj) {
       	
       },
       chartArea: {width: '50%'},
-      colors: ['#5BE1E1', '#AF4BAD'],
+      /*
+		color1 : "#2478FF",
+		color2 : "#53FF4C",
+		color3 : "#5BE1E1", 
+		color4 : "#AF4BAD",	
+      */
+      colors: ['#2478FF', '#53FF4C'],
       hAxis: {
    	  textStyle: { 
    		  color: "white",
@@ -589,10 +596,8 @@ function onResized(){
 $(function(){	
 	
 		//nextPage = "<%=EnvVal.NEXT_LexusTarget%>";
-
-		$("#menuSalesman").css("background-color","#cccccc");
-		$("#menuSalesman").css("color","#111111");
-		$("#menuSalesman").css("font-weight","bold");
+		
+		selectedMenu("menuSalesman",2);
 
 		if (testing) {
 			//테스트용=====================================				

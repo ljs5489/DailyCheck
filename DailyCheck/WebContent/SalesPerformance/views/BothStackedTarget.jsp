@@ -157,10 +157,12 @@ $(function(){
 	nextPage = "<%= EnvVal.NEXT_BothTarget %>";
 	
 	
+	
+	/* 안쓰이는 화면 */
 	$("#bothStackedTarget").css("background-color","#cccccc");
 	$("#bothStackedTarget").css("color","#111111");
 	$("#bothStackedTarget").css("font-weight","bold");
-	
+	//selectedMenu("menuComment",2);
 	
 	if(testing){
 		//테스트용=====================================

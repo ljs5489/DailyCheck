@@ -169,9 +169,8 @@ function onResized(){
 
 
 $(document).ready(function(){
-	$("#menuWhole").css("background-color","#cccccc");
-	$("#menuWhole").css("color","#111111");
-	$("#menuWhole").css("font-weight","bold");
+	
+	selectedMenu("menuWhole",1);
 	
 	$("#middleLine").css("margin-top",$(window).height()/8);
 	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);

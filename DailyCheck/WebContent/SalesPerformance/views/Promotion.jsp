@@ -292,11 +292,8 @@ $(function(){
 	
 		//nextPage = "<%=EnvVal.NEXT_LexusTarget%>";
 
-		$("#menuPromotion").css("background-color","#cccccc");
-		$("#menuPromotion").css("color","#111111");
-		$("#menuPromotion").css("font-weight","bold");
 
-		
+		selectedMenu("menuPromotion",2);
 		
 		
 		$(".promotionMenu div").click(function(){

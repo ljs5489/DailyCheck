@@ -5,114 +5,138 @@
 <%@ include file="/SalesPerformance/import/include.jsp" %>
 
 <script>
-//OVERRIDE
-var chart = function(){
-	this.on_id = "chart_id"; //#chart_id에 그린다.
-	this.on_head_id = "chart_name";	
-	this.sort = "A271";	
-	this.graphHead_left = menuWidth+15+leftSpace;	
-	this.graphHead_top = 15;
-	this.graphHead_title = "월별 영업 목표/실적";
-	this.graphHead_subTitle = currentMonth+"월달 전일자까지  ";
+    //google.charts.load('current', {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var oldData = google.visualization.arrayToDataTable([
+      ['Name', '누적금액'],
+      ['Cesar', 250],
+      ['Rachel', 4200],
+      ['Patrick', 2900],
+      ['Eric', 8200],
+      ['Cesar', 250],
+      ['Rachel', 4200],
+      ['Patrick', 2900],
+      ['Eric', 8200],
+      ['Cesar', 250],
+      ['Rachel', 4200],
+      ['Patrick', 2900],
+      ['Eric', 8200]
+    ]);
 
-	this.graphHead_title_left = "M/S(%)";
-	this.graphHead_title_right = "금액(백만)";
-	//---------------------------
-	this.dataTable = stackedData1; //데이터 셋 설정
-	//---------------------------
-	
-	//graph 설정======================================
-	this.width = $(window).width()*(9/10)-leftSpace-30;
-	this.height = $(window).height()-30,
-	this.left = leftSpace + menuWidth;
-	this.top = 0;
-	this.margin = 15;
-	this.lineWidth = 5; //선의 굵기
+    var newData = google.visualization.arrayToDataTable([
+      ['Name', '누적금액'],
+      ['Cesar', 370],
+      ['Rachel', 600],
+      ['Patrick', 700],
+      ['Eric', 1500],
+      ['Cesar', 370],
+      ['Rachel', 600],
+      ['Patrick', 700],
+      ['Eric', 1500],
+      ['Cesar', 370],
+      ['Rachel', 600],
+      ['Patrick', 700],
+      ['Eric', 1500]
+    ]);
 
-	this.barWidth = "30%";
-	this.legendFontSize = 20;	
-	this.barMax = 2000;
+    var colChartBefore = new google.visualization.ColumnChart(document.getElementById('colchart_before'));
+    var colChartAfter = new google.visualization.ColumnChart(document.getElementById('colchart_after'));
+    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('colchart_diff'));
+    var barChartDiff = new google.visualization.BarChart(document.getElementById('barchart_diff'));
+    
+    
+	$("#colchart_diff").css("width", $(window).width()*(9/10));
+	$("#colchart_diff").css("height", $(window).height()*(9/10));
+	$("#chart_id").css("left", leftSpace + menuWidth);
+	$("#chart_id").css("top", 15);
+	$("#chart_id").css("margin", 15);
+    
+    
+    var options = { 
+    		diff: { newData: { widthFactor: 0.8 } },
+    		focusTarget : "category",
+    		chartArea : {
+    			left : "7%",
+    			top : "15%",
+    			width : "86%",
+    			height : "75%",	
+    			
+    		},
+    		legend : { //범례
+    			position : 'none',//'bottom',
+    			textStyle : {
+    				color : '#D9E8F7',
+    				fontSize: 15,
+    			}
+    		},
+    		colors : [ "#2478FF","#53FF4C" ],
+    		backgroundColor : '#292929', //배경색
 
-	this.lineMax = 100;
-	this.series = {
-			0 : { targetAxisIndex : 1, },
-			1 : { targetAxisIndex : 1, },
-			2 : { targetAxisIndex : 0, type : 'line', },
-			3 : { targetAxisIndex : 0, type : 'line', },
-		};
-	this.chartArea = {						
-			left : "4%",
-			top : "15%",
-			width : "90%",
-			height : "70%",			
-		};
-	this.graphColor = {/*
-			color1 : "#2478FF",
-			color2 : "#53FF4C",
-			color3 : "#5BE1E1", 
-			color4 : "#AF4BAD",	
-			*/
-			color1 : "#2478FF",
-			color2 : "#53FF4C",
-			color3 : "#5BE1E1", 
-			color4 : "#AF4BAD",	
-		};
-	this.isStacked = true;
-	//===============================================
-}	
+    		animation : {
+    			duration : 1000,
+    			easing : 'out',
+    			/*startup : true,*/
 
+    		},
+    		hAxis : {
+    			showTextEvery : 1, //얼마나 건너뛸지 정한다.
+    			textStyle : {
+    				color : '#D9E8F7', //강남, 서초, 용산등등의 색깔
+    				bold : false,
+    			},
+    		},
+    		vAxes : {
+    			0 : { //왼쪽 y축
+    				viewWindowMode : 'explicit',
+    				viewWindow : {
+    					//max : lineMax, //최대값
+    					min : 0
+    				//최소값
+    				},
+    				gridlines : {
+    					color : ''//가로선 색깔
+    				},
+    				textStyle : {
+    					color : '#D9E8F7'
+    				},
+    			},
+
+    		},
+    };
+
+    colChartBefore.draw(oldData, options);
+    colChartAfter.draw(newData, options);
+
+    var diffData = colChartDiff.computeDiff(oldData, newData);
+    colChartDiff.draw(diffData, options);
+    //barChartDiff.draw(diffData, options);
+    
+    
+    
+  }
+  
+  $(function(){
+  })
 </script>
 
-<script>
 
-
-
-//Override용
-function onResized(){
-	menuWidth = $(window).width()/10;      	
-	
-	//getSalesWithAjax(new chart);
-	//불러온 것으로 그려야 한다. 매번 요청하면 너무 느려진다.
-	google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-	 
-}
-
-<%@ page import= " tools.EnvVal " %>
-
-$(function(){	
-	nextPage = "<%= EnvVal.NEXT_LexusTarget %>";
-	
-	$("#lexusStackedTarget").css("background-color","#cccccc");
-	$("#lexusStackedTarget").css("color","#111111");
-	$("#lexusStackedTarget").css("font-weight","bold");
-	    
-	
-	if(testing){
-		//테스트용=====================================
-		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
-		//============================================		
-	}
-	else{
-		//실제 데이터용==================================
-		getSalesWithAjax(new chart);
-		//=============================================
-	}
-});
-
-
-</script>
  
 </head>
 <body>
 
-<div id="chart_id"></div>
 <div id="chart_name" class="chart_name"></div>
 
 <%@ include file="/SalesPerformance/import/nav.jsp" %>
 
 <img style="position:fixed; " id="newLoading" src="../img/support-loading.gif"/>
 
-
+<div id="chart_id" style="width:1000px; height:600px;">
+	<span id='colchart_before' style='display: none;'></span>
+	<span id='colchart_after' style='display: none;'></span>
+	<span id='barchart_diff' style='display: noine;'></span>
+	<span id='colchart_diff' style='display: inline-block'></span>
+</div>
 
 </body>
 </html>

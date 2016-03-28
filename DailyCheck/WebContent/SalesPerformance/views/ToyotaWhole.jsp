@@ -172,9 +172,8 @@ function onResized(){
 }
 
 $(document).ready(function(){
-	$("#menuWhole2").css("background-color","#cccccc");
-	$("#menuWhole2").css("color","#111111");
-	$("#menuWhole2").css("font-weight","bold");
+	
+	selectedMenu("menuWhole2",1);
 	
 	$("#middleLine").css("margin-top",$(window).height()/8);
 	$("#middleLine").css("margin-left",$(window).width()*9/10/2+menuWidth);

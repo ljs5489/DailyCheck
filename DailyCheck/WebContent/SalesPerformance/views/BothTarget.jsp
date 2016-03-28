@@ -152,10 +152,7 @@ $(document).ready(function(){
 $(function(){	
 	nextPage = "<%= EnvVal.NEXT_BothTarget %>";
 	
-	
-	$("#menuMain").css("background-color","#cccccc");
-	$("#menuMain").css("color","#111111");
-	$("#menuMain").css("font-weight","bold");
+	selectedMenu("menuMain",1);
 	
 	
 	if(testing){

@@ -78,12 +78,9 @@ function onResized(){
 $(function(){	
 	nextPage = "<%= EnvVal.NEXT_ToyotaTarget %>";
 	//nextPage = "SP_Both";	
+
+	selectedMenu("menuToyota",1);
 	
-	//LLineWidth = 5;	
-	//$("#chart_name").css("margin-top",header_name_margin_top);
-	$("#menuToyota").css("background-color","#cccccc");
-	$("#menuToyota").css("color","#111111");
-	$("#menuToyota").css("font-weight","bold");
 	
 	if(testing){
 		//테스트용=====================================

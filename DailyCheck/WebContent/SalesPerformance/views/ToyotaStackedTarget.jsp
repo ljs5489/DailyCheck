@@ -29,7 +29,7 @@ var chart = function(){
 	this.margin = 15;
 	this.lineWidth = 5; //선의 굵기
 
-	this.barWidth = "45%";
+	this.barWidth = "50%";
 	this.legendFontSize = 20;	
 	this.barMax = 2000;
 
@@ -81,11 +81,8 @@ function onResized(){
 
 $(function(){	
 	nextPage = "<%= EnvVal.NEXT_LexusTarget %>";
-	
-	$("#toyotaStackedTarget").css("background-color","#cccccc");
-	$("#toyotaStackedTarget").css("color","#111111");
-	$("#toyotaStackedTarget").css("font-weight","bold");
-	    
+
+	selectedMenu("toyotaStackedTarget",2);
 	
 	if(testing){
 		//테스트용=====================================
