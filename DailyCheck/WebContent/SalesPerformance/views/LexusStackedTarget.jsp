@@ -31,7 +31,7 @@ var chart = function(){
 
 	this.barWidth = "50%";
 	this.legendFontSize = 20;	
-	this.barMax = 2000;
+	/*this.barMax = 2000;*/
 
 	this.lineMax = 100;
 	this.series = {

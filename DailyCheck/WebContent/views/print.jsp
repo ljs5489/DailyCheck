@@ -1,13 +1,16 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, tools.*, pages.*"%>
+<%@ page import="java.sql.*, tools.*, pages.*, java.text.SimpleDateFormat, java.util.Calendar"%>
 
 <%
+
+String currTime2 = (new SimpleDateFormat("HH:mm:ss")).format(Calendar.getInstance().getTime()).toString();
+
 
 try{
 
 String theDate="";
-String currTime = Sets.getCurrentTime();
+String currTime = currTime2;//Sets.getCurrentTime();
 
 try{
 	theDate = request.getParameter("date");
@@ -80,7 +83,7 @@ System.out.println("=========/Print Data...============");
 				<h1 style="text-align:left; font-size:30px; margin:15px;">Daily System Check List</h1>
 				<br/>
 				<h3 style="margin:8px;">Date : <%= theDate %></h3>
-				<h3 style="margin:8px;">Finish Time : <%= currTime %></h3>
+				<h3 style="margin:8px;">Finish Time : <%= currTime2 %></h3>
 			</td>
 			<td class="t_r">
 				<br/>

@@ -44,7 +44,7 @@ var chart = function(){
 
 	this.barWidth = "30%";
 	this.legendFontSize = 20;	
-	this.barMax = 3000;
+	/*this.barMax = 3000;*/
 	this.lineMax = 100;
 	this.series = {
 			0 : { targetAxisIndex : 1, },
@@ -97,7 +97,7 @@ var chart2 = function(){
 
 	this.barWidth = "30%";
 	this.legendFontSize = 20;	
-	this.barMax = 800;
+	/*this.barMax = 800;*/
 	this.lineMax = 100;
 	
 	this.series = {

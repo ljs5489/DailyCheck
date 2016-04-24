@@ -59,7 +59,7 @@ var chart = function(){
 	this.legendFontSize = 25;
 	
 	this.barMax = 0;
-	this.lineMax = 5000;
+	/*this.lineMax = 5000;*/
 	
 	this.series = {
 		0 : { targetAxisIndex : 0, },

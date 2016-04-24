@@ -23,7 +23,7 @@ public class Main {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyymmdd");
 		System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
 		
-		System.out.println("simple data format : "+sdf.toString());
+		//System.out.println("simple data format : "+sdf.toString());
 		
 		
 		ArrayList<Sales> sales = null;

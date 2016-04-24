@@ -26,9 +26,9 @@ var chart = function(){
 	this.margin = 15;
 	this.lineWidth = 5; //선의 굵기
 
-	this.barWidth = "30%";
+	this.barWidth = "40%";
 	this.legendFontSize = 20;	
-	this.barMax = 2000;
+	/*this.barMax = 2000;*/
 
 	this.lineMax = 100;
 	this.series = {

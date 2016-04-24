@@ -1,18 +1,79 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 
 <html>
 <head>
 <%@ include file="/SalesPerformance/import/include.jsp"%>
+<%@ page import="java.util.ArrayList, java.util.HashSet" %>
+
+<% 
+
+
+class PS{
+	String PRO_NO;
+	String MDEL_CD;
+	int SALES_CNT;
+	boolean PRO_YN;	
+	
+	PS( String PRO_NO, String MDEL_CD, int SALES_CNT, boolean PRO_YN ){
+		this.PRO_NO = PRO_NO;
+		this.MDEL_CD = MDEL_CD;
+		this.SALES_CNT = SALES_CNT;
+		this.PRO_YN = PRO_YN;	
+	}
+}
+
+
+/* 임시 데이터 셋 */
+ArrayList<PS>       ps = new ArrayList<PS>();
+ArrayList<String> sort = new ArrayList<String>();
+
+
+//===================================================
+ps.add(new PS("P13010001","CT200h",5,true));
+ps.add(new PS("P13010001","CT200h",2,false));
+
+ps.add(new PS("P13010001","RX450h",5,true));
+ps.add(new PS("P13010001","RX450h",2,false));
+
+ps.add(new PS("P13030026","CT200h",2,true));
+ps.add(new PS("P13030026","CT200h",2,false));
+
+sort.add("저금리 프로모션");
+sort.add("저금리 프로모션");
+sort.add("저금리 프로모션");
+sort.add("저금리 프로모션");
+sort.add("할인쿠폰 프로모션");
+//====================================================
+
+ArrayList<String> sort2 = new ArrayList<String>(new HashSet<String>(sort));
+System.out.println(sort2);
+/*
+P13010001	LS460(운용) 차량용품 지원
+P13030026	CT200h(운용) 차량용품 지원
+P13060001	LS600h 차량용품 지원
+P13060002	RX450h 차량용품 지원
+P13070003	RX350 차량용품 지원
+P14030008	아발론 TMKR 보조금 프로모션
+*/
+
+
+
+%>
 
 <script>
 var LProData = [
                /*[id, name, normal_val, promotion_val],*/
-               [1,"저금리 프로모션","30","20"],
-               [2,"저금리 프로모션","30","20"],
-               [3,"저금리 프로모션","30","20"],
-               [4,"저금리 프로모션","30","20"],
-               [5,"저금리 프로모션","30","20"]
+               [1,"저금리 프로모션","LS","#ff0000"],
+               [2,"저금리 프로모션","LS","#0000ff"],
+               [3,"저금리 프로모션","ES","#ff2222"],
+               [4,"저금리 프로모션","ES","#2222ff"],
+               [5,"저금리 프로모션","GS","#ff4444"],
+               [6,"저금리 프로모션","GS","#4444ff"],
+               [7,"저금리 프로모션","LS","#ff0000"],
+               [8,"저금리 프로모션","LS","#ff0000"],
+               
                
                ];
 
@@ -102,11 +163,7 @@ var LProData = [
 			},
 			chartArea: obj.chartArea,
 			width: "30px",
-			slices: {
-	            0: { color: "#2478FF" },
-		        /*1: { color: "#53FF4C" }
-	           /* 1: { color: 'transparent' }*/
-	          },
+			slices: obj.series,
 	        tooltip:{
 	        	textStyle: {
 	        		color: "black",
@@ -139,7 +196,7 @@ $(".promotionButton").click(function(){
 });
 */
 
-	function changeVal(chart, id){
+	function changeVal(id){
 		var normal = 0;
 		var promotion = 0;
 		
@@ -147,17 +204,40 @@ $(".promotionButton").click(function(){
 		//alert('[data-id='+id+']');
 		//alert($('[data-id='+id+']'));
 		
-		normal    = Number($('[data-id='+id+']').attr("data-val1"));
-		promotion = Number($('[data-id='+id+']').attr("data-val2"));
-
+		normal       = 10;//Number($('[data-id='+id+']').attr("data-val1"));
+		promotion    = 20;//Number($('[data-id='+id+']').attr("data-val2"));
+		promotion_yn = 30;//Number($('[data-id='+id+']').attr("data-val3"));
 		
+		
+		if(id==1){
+			
+			
+		}
 		chart.data = [
 			             ['Type', 'Sales'],
-			             ['LS',    normal],
-			             ['ES', promotion],
-			             ['RX', promotion],
-			             ['IS', promotion],
+			             ['Camry',   11718],
+			             ['Prius', 1110],
+			             ['Rav', 15710],
+			             ['Toyota86', 204],
+			             ['Rav', 870],
+			             ['Toyota86', 140],
+			             ['RX', 16500],
+			             ['GS', 12550],
+			             ['Rav123', 330],
+			             ['To', 5805],
+			             ['Rv', 6053],
+			             ['T86', 160],
 			           ];
+			
+			/*[
+			             ['Type', 'Sales','Color'],
+			             <% for(int i=0;i<9;i++){ %>
+			             	['LS', 100,200],			             	 
+			            	 
+			             <% } %>
+			             
+			             
+			           ];*/
 		drawChart1(chart);
 	}
 
@@ -199,11 +279,44 @@ var chart1 = function(){
 	this.data = [
 	             ['Type', 'Sales'],
 	             ['Camry',    78],
-	             ['Prius', 100],
-	             ['Rav', 100],
-	             ['Toyota86', 100],
+	             ['Prius', 10],
+	             ['Rav', 50],
+	             ['Toyota86', 20],
+	             ['Rav', 80],
+	             ['Toyota86', 10],
+	             ['RX', 100],
+	             ['GS', 120],
+	             ['Rav123', 30],
+	             ['To', 50],
+	             ['Rv', 60],
+	             ['T86', 10],
+	             ['GS', 120],
+	             ['Rav123', 30],
+	             ['To', 50],
+	             ['Rv', 60],
+	             ['T86', 10],
 	           ];
-
+	this.series = {
+            0: { color: "#0000ff" },
+	        1: { color: "#1111ff" },
+	        2: { color: "#2222ff" },
+            3: { color: '#3333ff' },
+            4: { color: '#4444ff' },
+            5: { color: '#5555ff' },		           
+            6: { color: '#ff0000' },
+            7: { color: '#ff1111' },
+            8: { color: '#ff2222' },
+            9: { color: '#ff3333' },
+            10: { color: '#ff4444' },
+            11: { color: '#ff5555' },
+            12: { color: '#ff6666' },
+            13: { color: '#ff7777' },
+            14: { color: '#ff8888' },
+            15: { color: '#ff9999' },
+            16: { color: '#ffaaaa' },
+            
+            
+          };
 }	
 
 </script>
@@ -254,12 +367,34 @@ var chart2 = function(){
 		};
 	this.data = [
 	             ['Type', 'Sales'],
-	             ['Normal',    78],
-	             ['Promotion1', 100],
-	             ['Promotion2', 100],
-	             ['Promotion3', 100],
+	             ['Camry',   1718],
+	             ['Prius', 1110],
+	             ['Rav', 1570],
+	             ['Toyota86', 204],
+	             ['Rav', 870],
+	             ['Toyota86', 140],
+	             ['RX', 1600],
+	             ['GS', 1250],
+	             ['Rav123', 330],
+	             ['To', 580],
+	             ['Rv', 603],
+	             ['T86', 160],
 	           ];
-	//this.isStacked = true;
+	this.series = {
+            0: { color: "#0000ff" },
+	        1: { color: "#2222ff" },
+	        2: { color: "#4444ff" },
+            3: { color: '#6666ff' },
+            4: { color: '#8888ff' },
+            5: { color: '#aaaaff' },		           
+            6: { color: '#ff0000' },
+            7: { color: '#ff2222' },
+            8: { color: '#ff4444' },
+            9: { color: '#ff6666' },
+            10: { color: '#ff8888' },
+            11: { color: '#ffaaaa' },
+            
+          };
 	//===============================================
 }	
 
@@ -307,6 +442,9 @@ $(function(){
 			$(this).css("font-weight","bold");
 		});
 		
+		
+		
+		
 		if (testing) {
 			//테스트용=====================================				
 			google.charts.setOnLoadCallback(function(){
@@ -340,8 +478,8 @@ $(function(){
 	
 	<div class="promotionMenu" style="height:35%; width:37%; position:absolute; left:58%; top: 10%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px; overflow-x:hidden; overflow-y:auto;" id="menus">
 		<h3 style="padding-left:15px; color:white;">Lexus Promotion List</h3>	
-		<%	for(int i=1;i<=5;i++){ %>
-			<div class='promotionButton' data-id="L<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart1,'L<%= i %>');">저금리 프로모션</div>				
+		<%	for(int i=0;i<sort2.size();i++){ %>
+			<div class='promotionButton' onclick="changeVal(1)"><%= sort2.get(i) %></div>				
 		<% 	} %>
 		
 	</div>
@@ -353,9 +491,7 @@ $(function(){
 	
 	<div class="promotionMenu"  style="height:35%; width:37%; position:absolute; left:58%; top: 60%; border:2px double white; box-shadow: 3px 3px 2px grey; border-radius: 5px;   overflow-x:hidden; overflow-y:auto;" id="menus">
 		<h3 style="padding-left:15px; color:white;">Toyota Promotion List</h3>	
-		<%	for(int i=1;i<=15;i++){ %>
-			<div class='promotionButton' data-id="T<%= i %>" data-val1="<%= (i+20)*i %>" data-val2="<%= (i+80)*i %>" onclick="changeVal(new chart2,'T<%= (i+1) %>');">저금리 프로모션</div>				
-		<% 	} %>
+
 	</div>
 
 

@@ -57,16 +57,20 @@ function menuMgmt(obj){
 	<div style="height:13%;" id="menus">
 		
 		
-		
-		<div class='menuTab' >
-			<div id="menu1" onclick="menuMgmt(1);" style="color:black; background-color:#eeeeee; border: 1px solid white; width:40%; height:95%; border-top-right-radius:10px; float:left;">Menu1</div>
-			<div id="menu2" onclick="menuMgmt(2);" style="color:black; background-color:#eeeeee; border: 1px solid white; left:30px; width:40%; height:95%; border-top-right-radius:10px;  float:left;">Menu2</div>
-		</div>
-		<div id='lexusStackedTarget' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/LexusStackedTarget.jsp?timer=off"'>LEXUS STACK</div>
-		<div id='toyotaStackedTarget' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/ToyotaStackedTarget.jsp?timer=off"'>TOYOTA STACK</div>
-		<div id='menuPromotion' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/Promotion.jsp?timer=off"'>PROMOTION RATIO</div>
-		<div id='menuSalesman' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/Salesman.jsp?timer=off"'>SALESMAN</div>
-		
+		<!-- 
+		*<div class='menuTab' >
+			*<div id="menu1" onclick="menuMgmt(1);" style="color:black; background-color:#eeeeee; border: 1px solid white; width:40%; height:95%; border-top-right-radius:10px; float:left;">Menu1</div>
+			*<div id="menu2" onclick="menuMgmt(2);" style="color:black; background-color:#eeeeee; border: 1px solid white; left:30px; width:40%; height:95%; border-top-right-radius:10px;  float:left;">Menu2</div>
+		*</div>
+		-->
+		<!-- 
+		*<div id='lexusStackedTarget' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/LexusStackedTarget.jsp?timer=off"'>LEXUS STACK</div>
+		*<div id='toyotaStackedTarget' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/ToyotaStackedTarget.jsp?timer=off"'>TOYOTA STACK</div>
+		*<div id='menuPromotion' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/Promotion.jsp?timer=off"'>PROMOTION RATIO</div>
+		*<div id='menuSalesman' class='menuButton group2' onclick='location.href="<%= tempNav %>/views/Salesman.jsp?timer=off"'>SALESMAN</div>
+		 -->
+		 
+		 
 		<!-- 
 		<div id='bothStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/BothStackedTarget.jsp?timer=off"'>BOTH STACKED</div>
 		-->
