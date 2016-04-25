@@ -6,7 +6,7 @@
 <%
 	String checktime = "", checker = "",
 
-	WEB_CPU = "", WEB_memory = "", WEB_value = "", WEB_vaccine = "", WEB_update = "", WEB_status = "",
+			WEB_CPU = "", WEB_memory = "", WEB_value = "", WEB_vaccine = "", WEB_update = "", WEB_status = "",
 			DBM_CPU = "", DBM_memory = "", DBM_value = "", DBM_vaccine = "", DBM_update = "", DBM_DB = "",
 			DBM_status = "", DEW_CPU = "", DEW_memory = "", DEW_value = "", DEW_vaccine = "", DEW_update = "",
 			DEW_status = "", MAIL_CPU = "", MAIL_memory = "", MAIL_value = "", MAIL_vaccine = "",
@@ -24,23 +24,24 @@
 			ADV1_value = "", ADV1_vaccine = "", ADV1_update = "", ADV1_status = "", ADV2_CPU = "",
 			ADV2_memory = "", ADV2_value = "", ADV2_vaccine = "", ADV2_update = "", ADV2_status = "",
 
-	WEB_value_2 = "", DBM_value_2 = "", DEW_value_2 = "", MAIL_value_2 = "", APP_value_2 = "", FAX_value_2 = "",
-			ADN_value_2 = "", VRS_value_2 = "", FILE_value_2 = "", DEVN_value_2 = "", MSVM1_value_2 = "",
-			MSVM2_value_2 = "", LYNC_value_2 = "", ADV1_value_2 = "", ADV2_value_2 = "", WEB_disk1 = "",
-			WEB_disk2 = "", WEB_disk3 = "", WEB_disk4 = "", DBM_disk1 = "", DBM_disk2 = "", DBM_disk3 = "",
-			DBM_disk4 = "", DEW_disk1 = "", DEW_disk2 = "", MAIL_disk1 = "", MAIL_disk2 = "", MAIL_disk3 = "",
-			MAIL_disk4 = "", APP_disk1 = "", APP_disk2 = "", APP_disk3 = "", APP_disk4 = "", FAX_disk1 = "",
-			FAX_disk2 = "", ADN_disk1 = "", ADN_disk2 = "", ADN_disk3 = "", ADN_disk4 = "", VRS_disk1 = "",
-			VRS_disk2 = "", VRS_disk3 = "", VRS_disk4 = "", FILE_disk1 = "", FILE_disk2 = "", FILE_disk3 = "",
-			FILE_disk4 = "", DEVN_disk1 = "", DEVN_disk2 = "", DEVN_disk3 = "", DEVN_disk4 = "",
-			MSVM1_disk1 = "", MSVM1_disk2 = "", MSVM1_disk3 = "", MSVM1_disk4 = "", MSVM1_disk5 = "",
-			MSVM1_disk6 = "", MSVM1_disk7 = "", MSVM1_disk8 = "", MSVM1_disk9 = "", MSVM1_disk10 = "",
-			MSVM2_disk1 = "", MSVM2_disk2 = "", MSVM2_disk3 = "", MSVM2_disk4 = "", MSVM2_disk5 = "",
-			MSVM2_disk6 = "", MSVM2_disk7 = "", MSVM2_disk8 = "", MSVM2_disk9 = "", MSVM2_disk10 = "",
-			LYNC_disk1 = "", LYNC_disk2 = "", LYNC_disk3 = "", LYNC_disk4 = "", ADV1_disk1 = "",
-			ADV1_disk2 = "", ADV2_disk1 = "", ADV2_disk2 = "",
+			WEB_value_2 = "", DBM_value_2 = "", DEW_value_2 = "", MAIL_value_2 = "", APP_value_2 = "",
+			FAX_value_2 = "", ADN_value_2 = "", VRS_value_2 = "", FILE_value_2 = "", DEVN_value_2 = "",
+			MSVM1_value_2 = "", MSVM2_value_2 = "", LYNC_value_2 = "", ADV1_value_2 = "", ADV2_value_2 = "",
+			WEB_disk1 = "", WEB_disk2 = "", WEB_disk3 = "", WEB_disk4 = "", DBM_disk1 = "", DBM_disk2 = "",
+			DBM_disk3 = "", DBM_disk4 = "", DEW_disk1 = "", DEW_disk2 = "", MAIL_disk1 = "", MAIL_disk2 = "",
+			MAIL_disk3 = "", MAIL_disk4 = "", APP_disk1 = "", APP_disk2 = "", APP_disk3 = "", APP_disk4 = "",
+			FAX_disk1 = "", FAX_disk2 = "", FAX_disk3 = "", FAX_disk4 = "", ADN_disk1 = "", ADN_disk2 = "",
+			ADN_disk3 = "", ADN_disk4 = "", VRS_disk1 = "", VRS_disk2 = "", VRS_disk3 = "", VRS_disk4 = "",
+			FILE_disk1 = "", FILE_disk2 = "", FILE_disk3 = "", FILE_disk4 = "", DEVN_disk1 = "",
+			DEVN_disk2 = "", DEVN_disk3 = "", DEVN_disk4 = "", MSVM1_disk1 = "", MSVM1_disk2 = "",
+			MSVM1_disk3 = "", MSVM1_disk4 = "", MSVM1_disk5 = "", MSVM1_disk6 = "", MSVM1_disk7 = "",
+			MSVM1_disk8 = "", MSVM1_disk9 = "", MSVM1_disk10 = "", MSVM2_disk1 = "", MSVM2_disk2 = "",
+			MSVM2_disk3 = "", MSVM2_disk4 = "", MSVM2_disk5 = "", MSVM2_disk6 = "", MSVM2_disk7 = "",
+			MSVM2_disk8 = "", MSVM2_disk9 = "", MSVM2_disk10 = "", LYNC_disk1 = "", LYNC_disk2 = "",
+			LYNC_disk3 = "", LYNC_disk4 = "", ADV1_disk1 = "", ADV1_disk2 = "", ADV2_disk1 = "",
+			ADV2_disk2 = "",
 
-	ifany = "";
+			ifany = "";
 
 	String id = request.getParameter("id").trim();
 	Server server = ServerDAO.selectById(id);
@@ -181,6 +182,10 @@
 		APP_disk4 = server.getAPP_disk4();
 		FAX_disk1 = server.getFAX_disk1();
 		FAX_disk2 = server.getFAX_disk2();
+
+		FAX_disk3 = server.getFAX_disk3();
+		FAX_disk4 = server.getFAX_disk4();
+
 		ADN_disk1 = server.getADN_disk1();
 		ADN_disk2 = server.getADN_disk2();
 		ADN_disk3 = server.getADN_disk3();
@@ -366,6 +371,10 @@
 	json.put("APP_disk4", APP_disk4);
 	json.put("FAX_disk1", FAX_disk1);
 	json.put("FAX_disk2", FAX_disk2);
+
+	json.put("FAX_disk3", FAX_disk3);
+	json.put("FAX_disk4", FAX_disk4);
+
 	json.put("ADN_disk1", ADN_disk1);
 	json.put("ADN_disk2", ADN_disk2);
 	json.put("ADN_disk3", ADN_disk3);
@@ -547,8 +556,13 @@
 		APP_disk2 = param.getString("APP_disk2", "");
 		APP_disk3 = param.getString("APP_disk3", "");
 		APP_disk4 = param.getString("APP_disk4", "");
+
 		FAX_disk1 = param.getString("FAX_disk1", "");
 		FAX_disk2 = param.getString("FAX_disk2", "");
+
+		FAX_disk3 = param.getString("FAX_disk3", "");
+		FAX_disk4 = param.getString("FAX_disk4", "");
+
 		ADN_disk1 = param.getString("ADN_disk1", "");
 		ADN_disk2 = param.getString("ADN_disk2", "");
 		ADN_disk3 = param.getString("ADN_disk3", "");
@@ -611,19 +625,20 @@
 					LYNC_update, LYNC_status, ADV1_CPU, ADV1_memory, ADV1_value, ADV1_vaccine, ADV1_update,
 					ADV1_status, ADV2_CPU, ADV2_memory, ADV2_value, ADV2_vaccine, ADV2_update, ADV2_status,
 
-			WEB_value_2, DBM_value_2, DEW_value_2, MAIL_value_2, APP_value_2, FAX_value_2, ADN_value_2,
+					WEB_value_2, DBM_value_2, DEW_value_2, MAIL_value_2, APP_value_2, FAX_value_2, ADN_value_2,
 					VRS_value_2, FILE_value_2, DEVN_value_2, MSVM1_value_2, MSVM2_value_2, LYNC_value_2,
 					ADV1_value_2, ADV2_value_2, WEB_disk1, WEB_disk2, WEB_disk3, WEB_disk4, DBM_disk1,
 					DBM_disk2, DBM_disk3, DBM_disk4, DEW_disk1, DEW_disk2, MAIL_disk1, MAIL_disk2, MAIL_disk3,
-					MAIL_disk4, APP_disk1, APP_disk2, APP_disk3, APP_disk4, FAX_disk1, FAX_disk2, ADN_disk1,
-					ADN_disk2, ADN_disk3, ADN_disk4, VRS_disk1, VRS_disk2, VRS_disk3, VRS_disk4, FILE_disk1,
-					FILE_disk2, FILE_disk3, FILE_disk4, DEVN_disk1, DEVN_disk2, DEVN_disk3, DEVN_disk4,
-					MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5, MSVM1_disk6, MSVM1_disk7,
-					MSVM1_disk8, MSVM1_disk9, MSVM1_disk10, MSVM2_disk1, MSVM2_disk2, MSVM2_disk3, MSVM2_disk4,
-					MSVM2_disk5, MSVM2_disk6, MSVM2_disk7, MSVM2_disk8, MSVM2_disk9, MSVM2_disk10, LYNC_disk1,
-					LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2, ADV2_disk1, ADV2_disk2,
+					MAIL_disk4, APP_disk1, APP_disk2, APP_disk3, APP_disk4, FAX_disk1, FAX_disk2, FAX_disk3,
+					FAX_disk4, ADN_disk1, ADN_disk2, ADN_disk3, ADN_disk4, VRS_disk1, VRS_disk2, VRS_disk3,
+					VRS_disk4, FILE_disk1, FILE_disk2, FILE_disk3, FILE_disk4, DEVN_disk1, DEVN_disk2,
+					DEVN_disk3, DEVN_disk4, MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5,
+					MSVM1_disk6, MSVM1_disk7, MSVM1_disk8, MSVM1_disk9, MSVM1_disk10, MSVM2_disk1, MSVM2_disk2,
+					MSVM2_disk3, MSVM2_disk4, MSVM2_disk5, MSVM2_disk6, MSVM2_disk7, MSVM2_disk8, MSVM2_disk9,
+					MSVM2_disk10, LYNC_disk1, LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2,
+					ADV2_disk1, ADV2_disk2,
 
-			ifany);
+					ifany);
 			//System.out.println("인서트!");
 		} else {
 			//update	
@@ -641,19 +656,20 @@
 					LYNC_update, LYNC_status, ADV1_CPU, ADV1_memory, ADV1_value, ADV1_vaccine, ADV1_update,
 					ADV1_status, ADV2_CPU, ADV2_memory, ADV2_value, ADV2_vaccine, ADV2_update, ADV2_status,
 
-			WEB_value_2, DBM_value_2, DEW_value_2, MAIL_value_2, APP_value_2, FAX_value_2, ADN_value_2,
+					WEB_value_2, DBM_value_2, DEW_value_2, MAIL_value_2, APP_value_2, FAX_value_2, ADN_value_2,
 					VRS_value_2, FILE_value_2, DEVN_value_2, MSVM1_value_2, MSVM2_value_2, LYNC_value_2,
 					ADV1_value_2, ADV2_value_2, WEB_disk1, WEB_disk2, WEB_disk3, WEB_disk4, DBM_disk1,
 					DBM_disk2, DBM_disk3, DBM_disk4, DEW_disk1, DEW_disk2, MAIL_disk1, MAIL_disk2, MAIL_disk3,
-					MAIL_disk4, APP_disk1, APP_disk2, APP_disk3, APP_disk4, FAX_disk1, FAX_disk2, ADN_disk1,
-					ADN_disk2, ADN_disk3, ADN_disk4, VRS_disk1, VRS_disk2, VRS_disk3, VRS_disk4, FILE_disk1,
-					FILE_disk2, FILE_disk3, FILE_disk4, DEVN_disk1, DEVN_disk2, DEVN_disk3, DEVN_disk4,
-					MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5, MSVM1_disk6, MSVM1_disk7,
-					MSVM1_disk8, MSVM1_disk9, MSVM1_disk10, MSVM2_disk1, MSVM2_disk2, MSVM2_disk3, MSVM2_disk4,
-					MSVM2_disk5, MSVM2_disk6, MSVM2_disk7, MSVM2_disk8, MSVM2_disk9, MSVM2_disk10, LYNC_disk1,
-					LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2, ADV2_disk1, ADV2_disk2,
+					MAIL_disk4, APP_disk1, APP_disk2, APP_disk3, APP_disk4, FAX_disk1, FAX_disk2, FAX_disk3,
+					FAX_disk4, ADN_disk1, ADN_disk2, ADN_disk3, ADN_disk4, VRS_disk1, VRS_disk2, VRS_disk3,
+					VRS_disk4, FILE_disk1, FILE_disk2, FILE_disk3, FILE_disk4, DEVN_disk1, DEVN_disk2,
+					DEVN_disk3, DEVN_disk4, MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5,
+					MSVM1_disk6, MSVM1_disk7, MSVM1_disk8, MSVM1_disk9, MSVM1_disk10, MSVM2_disk1, MSVM2_disk2,
+					MSVM2_disk3, MSVM2_disk4, MSVM2_disk5, MSVM2_disk6, MSVM2_disk7, MSVM2_disk8, MSVM2_disk9,
+					MSVM2_disk10, LYNC_disk1, LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2,
+					ADV2_disk1, ADV2_disk2,
 
-			ifany);
+					ifany);
 			//System.out.println("업데이트!");
 		}
 	}

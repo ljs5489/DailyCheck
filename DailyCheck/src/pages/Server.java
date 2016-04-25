@@ -134,6 +134,10 @@ public class Server {
 	private String APP_disk4;
 	private String FAX_disk1;
 	private String FAX_disk2;
+	
+	private String FAX_disk3;
+	private String FAX_disk4;
+	
 	private String ADN_disk1;
 	private String ADN_disk2;
 	private String ADN_disk3;
@@ -397,6 +401,18 @@ public class Server {
 	}
 	public void setFAX_disk2(String fAX_disk2) {
 		FAX_disk2 = fAX_disk2;
+	}
+	public String getFAX_disk3() {
+		return FAX_disk3;
+	}
+	public void setFAX_disk3(String fAX_disk3) {
+		FAX_disk3 = fAX_disk3;
+	}
+	public String getFAX_disk4() {
+		return FAX_disk4;
+	}
+	public void setFAX_disk4(String fAX_disk4) {
+		FAX_disk4 = fAX_disk4;
 	}
 	public String getADN_disk1() {
 		return ADN_disk1;
@@ -1238,6 +1254,7 @@ public class Server {
 	public void setIfany(String ifany) {
 		this.ifany = ifany;
 	}
+
 	
 	
 	

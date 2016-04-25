@@ -131,8 +131,14 @@ function postWithAjax() {
 		APP_disk2 : $("#APP_disk2").val(),
 		APP_disk3 : $("#APP_disk3").val(),
 		APP_disk4 : $("#APP_disk4").val(),
+		
 		FAX_disk1 : $("#FAX_disk1").val(),
 		FAX_disk2 : $("#FAX_disk2").val(),
+		
+		FAX_disk3 : $("#FAX_disk3").val(),
+		FAX_disk4 : $("#FAX_disk4").val(),
+		
+		
 		ADN_disk1 : $("#ADN_disk1").val(),
 		ADN_disk2 : $("#ADN_disk2").val(),
 		ADN_disk3 : $("#ADN_disk3").val(),
@@ -328,8 +334,13 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#APP_disk2").val(data.APP_disk2).textinput('refresh');
 			$("#APP_disk3").val(data.APP_disk3).textinput('refresh');
 			$("#APP_disk4").val(data.APP_disk4).textinput('refresh');
+			
 			$("#FAX_disk1").val(data.FAX_disk1).textinput('refresh');
 			$("#FAX_disk2").val(data.FAX_disk2).textinput('refresh');
+			
+			$("#FAX_disk3").val(data.FAX_disk3).textinput('refresh');
+			$("#FAX_disk4").val(data.FAX_disk4).textinput('refresh');
+			
 			$("#ADN_disk1").val(data.ADN_disk1).textinput('refresh');
 			$("#ADN_disk2").val(data.ADN_disk2).textinput('refresh');
 			$("#ADN_disk3").val(data.ADN_disk3).textinput('refresh');

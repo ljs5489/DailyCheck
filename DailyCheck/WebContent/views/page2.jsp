@@ -251,6 +251,10 @@
 						<%=Sets.setText("a", "FAX_disk1", "tel")%>
 						<%=Sets.setText("b", "FAX_disk2", "tel")%>
 					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "FAX_disk3", "tel")%>
+						<%=Sets.setText("b", "FAX_disk4", "tel")%>
+					</div>
 
 				</div>
 				<br />
