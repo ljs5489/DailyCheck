@@ -29,6 +29,20 @@ var td = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M
 			//[ "합계"     , 1975, 1041, 25.0,18.9 ], //"합계",
        ];
 
+
+
+var staffData = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ],
+           [ '지점', '목표 금액', '현재 금액 ', '달성율(%)' ],
+			[ "표제헌", 1, 1, 24.5],
+			[ "문정수", 2, 2, 21.3], 
+			[ "이일형", 3, 3, 24.0 ], 
+			[ "이주훈", 4, 4, 26.7 ],
+			[ "합계", 5,  5, 32.4], 
+			//[ "합계"     , 1975, 1041, 25.0,18.9 ], //"합계",
+      ];
+
+
+
 var stackedData1 = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
            [ '지점', '누적 금액', '목표 차액 ', '목표M/S', '평균M/S' ],
            [ "4월", 1321, -231, 31.1,13.15 ], //	
@@ -98,45 +112,7 @@ var today=d.yyyymmdd().replace(/-/gi,"");//.replace("-","");
  * m : 여러 줄 검색
  */
 
-
-
-
-
-
-
-
-
-
-/*
-var ld = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
-			[ "1", 0, 0, 0,0 ], //"강남", 
-			[ "2", 0, 0, 0,0 ], //"서초",
-			[ "3", 0, 0, 0,0 ], //"용산", 
-			[ "4", 0, 0, 0,0 ], //"분당", 
-			[ "5", 0, 0, 0,0 ], //"부산", 
-			[ "6", 0, 0, 0,0], //"광주",			
-			[ "7", 0, 0, 0,0 ], //"인천", 
-			[ "8", 0, 0, 0,0], //"대구",
-			[ "9", 0, 0, 0,0 ], //"대전",
-			[ "합계", 0, 0, 0,0 ], //"합계",
-         ];
-
-
-
-var td = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ], 
-			[ "1", 0, 0, 0,0],
-			[ "2", 0, 0, 0,0], 
-			[ "3", 0, 0, 0,0 ], 
-			[ "4", 0, 0, 0,0 ],
-			[ "5", 0, 0, 0,0 ], 
-			[ "6", 0, 0, 0,0 ], 
-			[ "7", 0, 0, 0,0 ],			
-			[ "8", 0, 0, 0,0 ],
-			[ "9", 0, 0, 0,0 ],
-			[ "합계"     , 0, 0, 0,0 ], //"합계",
-       ];
-*/
-var arrayLexus = new Array( 
+var arrays = new Array( 
 		new Array(20), 
 		new Array(20),
 		new Array(20),
@@ -148,51 +124,6 @@ var arrayLexus = new Array(
 		new Array(20),
 		new Array(20)
 	);
-
-var arrayToyota = new Array( 
-		new Array(20), 
-		new Array(20),
-		new Array(20),
-		new Array(20),
-		new Array(20),
-		new Array(20),
-		new Array(20),
-		new Array(20),
-		new Array(20),
-		new Array(20)
-	);
-
-
-
-
-
-
-
-
-
-/*
-function createTable(dataSet, id){ //데이터 셋을 이용해서 테이블을 만들어준다.
-	var i,html="";
-	var SP_data = dataSet;
-	//html+="<p style='margin:0'>(금액 : 백만, 점유율 : %)</p>";
-	html+="<tr style='background: #111111;''><td>Dealer</td><td>목표금액</td><td>현재금액</td><td>목표M/S</td><td>현재M/S</td></tr>";	
-	for(i =0;i<SP_data.length-1;i++){
-		html+="<tr>";
-		for(var j=0;j<SP_data[i].length;j++){
-			html+="<td>"+SP_data[i][j].toLocaleString()+"</td>";	
-		}		
-		html += "</tr>";
-	}
-	html += "<tr style='background: #111111;'>";
-	for(var j=0;j<SP_data[i].length;j++){
-		html+="<td>"+SP_data[i][j].toLocaleString()+"</td>";	
-	}		
-	html += "</tr>";	
-	$(id).html(html);	
-}
-
-*/
-
 
 
 

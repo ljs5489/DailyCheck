@@ -44,7 +44,5 @@ public class DB {
         DB_URL = properties.getProperty("DB_URL");
         USER_ID = properties.getProperty("USER_ID");
         USER_PASSWORD = properties.getProperty("USER_PASSWORD");
-    }
-
-    
+    }    
 }

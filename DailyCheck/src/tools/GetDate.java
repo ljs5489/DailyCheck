@@ -24,7 +24,7 @@ public class GetDate {
 	}	
 	public static void makeLog(String txt){
 		//String ipAddress= RequestParameter.getClientIP(request);
-		System.out.println(GetDate.getCurrentTime()+" "+txt);		
+		System.out.println("makelog : "+GetDate.getCurrentTime()+" "+txt);		
 	}
 	
 }

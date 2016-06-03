@@ -9,10 +9,10 @@
 
 Calendar cal = Calendar.getInstance();
 SimpleDateFormat sdf = new SimpleDateFormat("yyyymmdd");
-System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
+//System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
 
 //System.out.println("simple data format : "+sdf.toString());
-System.out.println("SalesMan ...");
+//System.out.println("SalesMan ...");
 
 
 
@@ -26,7 +26,7 @@ class DS{
 }
 
 
-ArrayList<Sales>  sales = SalesDAO.selectWholeData("A271");
+ArrayList<Sales> sales = SalesDAO.selectWholeData("A271");
 ArrayList<Sales> sales2 = SalesDAO.selectWholeData("A272");
 
 DS data[]  = new DS[10];

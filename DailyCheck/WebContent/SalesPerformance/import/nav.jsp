@@ -75,8 +75,11 @@ function menuMgmt(obj){
 		<div id='bothStackedTarget' class='menuButton' onclick='location.href="<%= tempNav %>/views/BothStackedTarget.jsp?timer=off"'>BOTH STACKED</div>
 		-->
 		
+		
+
 		<div id='menuWhole' class='menuButton group1' onclick='location.href="<%= tempNav %>/views/LexusWhole.jsp?timer=off"'>LEXUS TARGET</div>
 		<div id='menuWhole2' class='menuButton group1' onclick='location.href="<%= tempNav %>/views/ToyotaWhole.jsp?timer=off"'>TOYOTA TARGET</div>
+		<div id='staffTarget' class='menuButton group1' onclick='location.href="<%= tempNav %>/views/StaffTarget.jsp?timer=off"'>TARGET BY STAFF</div>
 		<div id='menuMain' class='menuButton group1' onclick='location.href="<%= tempNav %>/views/BothTarget.jsp?timer=off"'>TARGET BY DEALER</div>
 		<div id='menuLexus' class='menuButton group1' onclick='location.href="<%= tempNav %>/views/LexusTarget.jsp?timer=off"'>LEXUS BY DEALER</div>
 		<div id='menuToyota' class='menuButton group1' onclick='location.href="<%= tempNav %>/views/ToyotaTarget.jsp?timer=off"'>TOYOTA BY DEALER</div>

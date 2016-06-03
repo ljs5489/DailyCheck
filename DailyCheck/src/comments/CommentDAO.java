@@ -80,7 +80,7 @@ public class CommentDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
-		System.out.println(content);
+		System.out.println("insertComment : "+content);
 		
 		String sql = "EXEC jslee.sp.insertComment ?, ?, ?, ?";
 

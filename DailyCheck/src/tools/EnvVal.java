@@ -13,6 +13,8 @@ public class EnvVal {
 
 	public static String NEXT_LexusWhole; 
 	public static String NEXT_ToyotaWhole; 
+	public static String NEXT_TargetStaff; 
+	
 	public static String NEXT_BothTarget; 
 	public static String NEXT_LexusTarget; 
 	public static String NEXT_ToyotaTarget;
@@ -33,6 +35,7 @@ public class EnvVal {
 		
 		NEXT_LexusWhole = properties.getProperty("NEXT_LexusWhole").trim();
 		NEXT_ToyotaWhole = properties.getProperty("NEXT_ToyotaWhole").trim();
+		NEXT_TargetStaff = properties.getProperty("NEXT_TargetStaff").trim();
 		NEXT_BothTarget = properties.getProperty("NEXT_BothTarget").trim();
 		NEXT_LexusTarget = properties.getProperty("NEXT_LexusTarget").trim();
 		NEXT_ToyotaTarget = properties.getProperty("NEXT_ToyotaTarget").trim();
