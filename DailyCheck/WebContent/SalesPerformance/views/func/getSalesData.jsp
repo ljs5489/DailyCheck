@@ -60,7 +60,9 @@
  	Calendar cal = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 	//System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기..."+id+", "+code);
-	System.out.println(sdf.format(cal.getTime()) + " getSalesData.jsp : "+id+", "+code);
+	
+	//System.out.println(sdf.format(cal.getTime()) + " getSalesData.jsp : "+id+", "+code);
+	System.out.println(sdf.format(cal.getTime()) + " getSalesData.jsp : "+code);
 	
 	JSONObject json = new JSONObject();
 	json.put("name", "테스트 입니다...");	

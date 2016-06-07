@@ -47,28 +47,8 @@ function getSalesWithAjax(obj) { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 	});
 }
 
-/*
-  var staffData = [ //[ '지점', '목표 금액', '현재 금액 ', '목표M/S','현재M/S' ],
-           [ '지점', '목표 금액', '현재 금액 ', '목표M/S', '현재M/S' ],
-			[ "표제헌", 7320, 172, 24.5,22.7],
-			[ "문정수", 6120, 90, 21.3,9.7], 
-			[ "이일형", 3180, 108, 24.0,16.0 ], 
-			[ "이주훈", 3380, 109, 26.7,12.0 ],
-			[ "합계", 20000,  149, 32.4,22.2 ], 
-			//[ "합계"     , 1975, 1041, 25.0,18.9 ], //"합계",
-      ];
-  */
 function getStaffSales(obj) { //오직 StaffTarget.jsp에서만 쓰임.
-	var table = obj.dataTable;
-	var result = [
-	              [ '지점', '목표 금액', '현재 금액 ', '달성율(%)' ],
-	              ["표제헌",0,0,0], //사람, 목표매출, 실제매출
-	              ["문정수",0,0,0],
-	              ["이일형",0,0,0],
-	              ["이주훈",0,0,0],
-	              ["합계"  ,0,0,0],
-	              ];
-	
+	var result = obj.dataTable;
 	
 	function addSales(val,i){		
 		//합계
@@ -145,31 +125,41 @@ function getStaffSales(obj) { //오직 StaffTarget.jsp에서만 쓰임.
 					}
 					
 					
-					for(var i=1;i<=4;i++){
+					for(var i=1;i<=5;i++){ //달성률 소수 둘째짜리 까지 끊기.
 						result[i][3]=Math.floor(result[i][2]/result[i][1]*10000)/100;
 					}
 					
+			
+					
+					
 					console.log("표제헌");
-					console.log(result[0][1]);
-					console.log(result[0][2]);			
-					console.log(result[0][3]);	
-
-					console.log("문정수");
 					console.log(result[1][1]);
-					console.log(result[1][2]);	
+					console.log(result[1][2]);			
 					console.log(result[1][3]);	
 
-					console.log("이일형");
+					console.log("문정수");
 					console.log(result[2][1]);
-					console.log(result[2][2]);
+					console.log(result[2][2]);	
 					console.log(result[2][3]);	
 
-					console.log("이주훈");
+					console.log("이일형");
 					console.log(result[3][1]);
 					console.log(result[3][2]);
 					console.log(result[3][3]);	
+
+					console.log("이주훈");
+					console.log(result[4][1]);
+					console.log(result[4][2]);
+					console.log(result[4][3]);	
 					
-					obj.dataTable = result;
+					console.log("합계");
+					console.log(result[5][1]);
+					console.log(result[5][2]);
+					console.log(result[5][3]);	
+					
+					
+					//result[5][3] = //Math.floor(result[5][3]/4*100)/100;
+					
 					google.charts.setOnLoadCallback(function(){drawCharts(obj)});
 				}
 			});

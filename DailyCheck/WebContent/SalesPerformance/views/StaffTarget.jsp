@@ -83,7 +83,7 @@ $(function(){
 	
 	if(testing){
 		//테스트용=====================================
-		google.charts.setOnLoadCallback(function(){drawCharts(new chart)});
+		google.charts.setOnLoadCallback(function(){drawCharts(chart)});
 		//============================================		
 	}
 	else{
