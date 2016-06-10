@@ -76,7 +76,7 @@ function onResized(){
 <%@ page import= " tools.EnvVal " %>
 
 $(function(){	
-	nextPage = "<%= EnvVal.NEXT_LexusTarget %>";
+	nextPage = "<%= EnvVal.NEXT_TargetStaff %>";
 	
 
 	selectedMenu("staffTarget",1);

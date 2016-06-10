@@ -12,7 +12,7 @@ public class DB_sales {
 	private static String JDBC_DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static String DB_URL = "jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB";
 	private static String USER_ID = "DBWeb1";
-	private static String USER_PASSWORD_DBWeb1 = "DB02@Web#0425";
+	private static String USER_PASSWORD_DBWeb1 = "DB02@Web#0611";
 
     public static Connection getConnection() throws Exception {
     	if (JDBC_DRIVER_NAME == null) readProperties();

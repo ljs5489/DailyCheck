@@ -120,7 +120,7 @@ var chart2 = function(){
 	this.legendFontSize = 25;
 	
 	this.barMax = 0;
-	this.lineMax = 50;
+	//this.lineMax = 50;
 	
 	this.series = {
 			0 : { targetAxisIndex : 0, },

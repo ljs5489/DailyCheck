@@ -209,7 +209,7 @@ public class ServerDAO {
 
 			
 			GetDate.makeLog("Server Select");
-			//System.out.println(sql);
+			System.out.println(sql);
 
 			statement = connection.prepareStatement(sql);
 			// statement.setString(1, id);
@@ -619,8 +619,8 @@ public class ServerDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, "
-					+ "?, ?, ?, ?, ?, ? )";
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
+					+ "?, ?, ?, ?, ?, ?, ? )";
 			
 			//System.out.println(sql);			
 			GetDate.makeLog("Server Insert");
