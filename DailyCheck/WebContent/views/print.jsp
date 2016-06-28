@@ -140,7 +140,7 @@ System.out.println("=========/Print Data...============");
 						PrintSets.onToY(precheck.getFont()),
 						PrintSets.onToY(precheck.getLinks()),
 						PrintSets.onToY(precheck.getBbs()), 
-						precheck.getIndexsize()})%>
+						precheck.getIndexsize()+"B"})%>
 				</tr>
 				<tr>
 					<td colspan="2"><b>Internet Traffic( <%= precheck.getTra1time() %> )</b></td>					

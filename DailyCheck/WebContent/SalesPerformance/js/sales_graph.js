@@ -138,7 +138,7 @@ function drawCharts(obj) {
 	$(thisHeadDiv).html(
 			"<div style='left:1%; width:30%; bottom:15px; position:absolute; text-align:left; font-weight: normal;'>"+obj.graphHead_title_left+"</div>"
 			+thisGraphHead_title+"<br/>"
-			+"<div class='chart_name_sub'>"+thisSubTitle+"("+d.yyyymmdd()+")</div>"
+			+"<div class='chart_name_sub'>"+thisSubTitle+"</div>"
 			+"<div style='right:1%; width:30%; bottom:15px; position:absolute; text-align:right; font-weight: normal;'>"+obj.graphHead_title_right+"</div>"
 		);
 	$("#newLoading").hide();

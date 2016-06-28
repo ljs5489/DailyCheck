@@ -10,7 +10,7 @@
 RequestParameter param = new RequestParameter(request);
 String timer = ;
 
-if(param.getString("timer", ""))
+if(param.getString("timer", ""))r
 
 String timer = "BothTarget.jsp?timer=on";
 	
@@ -29,20 +29,22 @@ var chart = function(){
 	this.sort = "A271";	
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
-	this.graphHead_title = "LEXUS 영업 목표";
-	this.graphHead_subTitle = currentMonth+"월달 전일자 누적 ("+d.yyyymmdd()+")";	
+	this.graphHead_title = "LEXUS 영업 달성";
+	this.graphHead_subTitle = "FY"+currentYear+" 회계년도 누적";
+	
 	this.graphHead_title_left = "M/S(%)";
 	this.graphHead_title_right = "금액(백만)";
-	this.dataTable = ld;	
+	this.dataTable = FYld;	
 	//graph 설정======================================
 	this.width = $(window).width()*(9/10)-leftSpace-30;
+	
 	this.height = $(window).height()/2-15;
 	this.left = leftSpace + menuWidth;
 	this.top = 0;
 	this.margin = 15;
-	this.lineWidth = 3; //선의 굵기
+	this.lineWidth = 4; //선의 굵기
 
-	this.barWidth = "30%";
+	this.barWidth = "50%";
 	this.legendFontSize = 20;	
 	/*this.barMax = 3000;*/
 	this.lineMax = 100;
@@ -55,7 +57,7 @@ var chart = function(){
 	this.chartArea = {						
 			left : "4%",
 			top : "15%",
-			width : "90%",
+			width : "91%",
 			height : "70%",			
 		},
 		this.graphColor = {/*
@@ -72,6 +74,7 @@ var chart = function(){
 	//===============================================
 }	
 
+
 //OVERRIDE
 var chart2 = function(){
 	this.on_id = "chart_id2"; //#chart_id에 그린다.
@@ -79,23 +82,23 @@ var chart2 = function(){
 	this.sort = "A272";	
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = $(window).height()/2+header_name_margin_top;
-	this.graphHead_title = "TOYOTA 영업 목표";
-	this.graphHead_subTitle = currentMonth+"월달 전일자 누적 ("+d.yyyymmdd()+")";
+	this.graphHead_title = "TOYOTA 영업 달성";
+	this.graphHead_subTitle = "FY"+currentYear+" 회계년도 누적";
 	
 
 	this.graphHead_title_left = "M/S(%)";
 	this.graphHead_title_right = "금액(백만)";
 	
-	this.dataTable = td;	
+	this.dataTable = FYtd;	
 	//graph 설정======================================
 	this.width = $(window).width()*(9/10)-leftSpace-30;
 	this.height = $(window).height()/2-15;
 	this.left = leftSpace + menuWidth;
 	this.top = $(window).height()/2;
 	this.margin = 15;
-	this.lineWidth = 3; //선의 굵기
+	this.lineWidth = 4; //선의 굵기
 
-	this.barWidth = "30%";
+	this.barWidth = "50%";
 	this.legendFontSize = 20;	
 	/*this.barMax = 800;*/
 	this.lineMax = 100;

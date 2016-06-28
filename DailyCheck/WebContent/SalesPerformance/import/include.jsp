@@ -4,6 +4,20 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--
+HTML에서 캐시제거 
+<meta http-equiv="Cache-Control" content="no-cache"/> 
+<meta http-equiv="Expires" content="0"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+ -->
+<%
+	//========================================
+	//System.out.println("delete Cache");
+	response.setHeader("cache-control","no-cache"); 
+	response.setHeader("expires","0"); 
+	response.setHeader("pragma","no-cache");
+	//========================================
+%> 
 
 <% String tempInclude = "/DailyCheck/SalesPerformance"; %>
 
@@ -26,3 +40,5 @@
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <%@ include file="/SalesPerformance/import/SetVals.jsp" %>
+
+

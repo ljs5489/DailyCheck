@@ -39,7 +39,7 @@ var chart = function(){
 	this.graphHead_left = menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
 	this.graphHead_title = "LEXUS 전체 금액 목표";
-	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";	
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적 ("+d.yyyymmdd()+")";	
 	this.graphHead_title_left = "금액(백만)";
 	this.graphHead_title_right = "";
 	
@@ -98,7 +98,7 @@ var chart2 = function(){
 	this.graphHead_left = $(window).width()*(9/10)/2 + menuWidth+15+leftSpace;	
 	this.graphHead_top = 15;
 	this.graphHead_title = "LEXUS 전체 M/S 목표";
-	this.graphHead_subTitle = currentMonth+"월달 전일자 누적  ";
+	this.graphHead_subTitle = currentMonth+"월달 전일자 누적 ("+d.yyyymmdd()+")";
 	this.graphHead_title_left = "M/S(%)";
 	this.graphHead_title_right = "";
 	

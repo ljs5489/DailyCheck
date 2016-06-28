@@ -7,6 +7,7 @@
 	String salesDataSet ="";	
 	String id=request.getParameter("id").trim();
 	String code=request.getParameter("code").trim();
+	String ipAddress= RequestParameter.getClientIP(request);
 	
 	//System.out.println(id);
 	//System.out.println(code);
@@ -62,7 +63,7 @@
 	//System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기..."+id+", "+code);
 	
 	//System.out.println(sdf.format(cal.getTime()) + " getSalesData.jsp : "+id+", "+code);
-	System.out.println(sdf.format(cal.getTime()) + " getSalesData.jsp : "+code);
+	System.out.println(sdf.format(cal.getTime()) + " getSalesData.jsp : "+code+" / IP : "+ipAddress);
 	
 	JSONObject json = new JSONObject();
 	json.put("name", "테스트 입니다...");	
