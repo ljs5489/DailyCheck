@@ -17,6 +17,7 @@ String timer = "BothTarget.jsp?timer=on";
 response.sendRedirect(return1+return2+return3);
 */
 %>
+
 <script>
 
 //test

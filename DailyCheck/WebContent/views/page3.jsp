@@ -61,7 +61,7 @@
 			<div class="diskUsage">
 				<h4>Disk Usage check</h4>
 				<div class="ui-grid-a">
-					<%=Sets.setText("a", "MOBH1_disk1", "tel")%>
+					<%=Sets.setText("a", "MOBH1_disk1", "tel")  %>
 					<%=Sets.setText("b", "MOBH1_disk2", "tel")%>
 				</div>
 
