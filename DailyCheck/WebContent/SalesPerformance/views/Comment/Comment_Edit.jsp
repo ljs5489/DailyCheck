@@ -41,15 +41,15 @@ if(request.getMethod().equals("GET")){
 	pw      = param.getString("pw", cmt.getPw());
 	content = param.getString("content", cmt.getContent());
 	/*
-	System.out.println("GET");
-	System.out.println("title"+cmt.getTitle());
-	System.out.println("pw"+cmt.getPw());
-	System.out.println("writer"+writer);
-	System.out.println("content.length()"+content.length());
+	SystemWriterLog.writeLog("GET");
+	SystemWriterLog.writeLog("title"+cmt.getTitle());
+	SystemWriterLog.writeLog("pw"+cmt.getPw());
+	SystemWriterLog.writeLog("writer"+writer);
+	SystemWriterLog.writeLog("content.length()"+content.length());
 	*/
 	
 	if(CommentDAO.checkPW(aid,key,true) == false){	
-		System.out.println("비번 노일치!");
+		SystemWriterLog.writeLog("비번 노일치!");
 		 %><script> 
 		 alert("비밀번호가 일치하지 않습니다.");
 		 location.href = "<%=urlEditCheck%> ";	
@@ -62,10 +62,10 @@ else if(request.getMethod().equals("POST")){
 	pw      = param.getString("pw", "");
 	content = param.getString("content", "");
 	/*
-	System.out.println("POST");
-	System.out.println("content"+content);
-	System.out.println("writer"+writer);
-	System.out.println("content.length()"+content.length());
+	SystemWriterLog.writeLog("POST");
+	SystemWriterLog.writeLog("content"+content);
+	SystemWriterLog.writeLog("writer"+writer);
+	SystemWriterLog.writeLog("content.length()"+content.length());
 	*/
 	
     if (title.length() > 0) {

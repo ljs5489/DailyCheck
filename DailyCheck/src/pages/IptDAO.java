@@ -40,7 +40,7 @@ public class IptDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [ipt] WHERE [id]='" + id + "'";
 
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Ipt Select");
 			
 			statement = connection.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class IptDAO {
 					+ "?,?,?)";
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Ipt Insert");
 			
 			statement = connection.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class IptDAO {
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -154,12 +154,12 @@ public class IptDAO {
 			
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("DMZserver Update");
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();

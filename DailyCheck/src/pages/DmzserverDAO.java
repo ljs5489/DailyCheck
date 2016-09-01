@@ -56,7 +56,7 @@ public class DmzserverDAO {
 			String sql = "SELECT * FROM [dmzserver] WHERE [id]='" + id + "'";
 
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("DMZserver Select");	
 			
 			statement = connection.prepareStatement(sql);
@@ -149,7 +149,7 @@ public class DmzserverDAO {
 					+ ")";
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("DMZserver Insert");	
 			
 			statement = connection.prepareStatement(sql);
@@ -184,7 +184,7 @@ public class DmzserverDAO {
 			statement.setString(24,ifany);			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -291,12 +291,12 @@ public class DmzserverDAO {
 			
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("DMZserver Update");
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();

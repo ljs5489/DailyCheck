@@ -118,14 +118,14 @@ public class SalesDAO {
 					+ "VALUES ( "
 					+ "?, ?, ?)";
 			
-			System.out.println(sql);
+			SystemWriterLog.writeLog(sql);
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, wrtier);
 			statement.setString(2, password);
 			statement.setString(3, content);		
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -148,7 +148,7 @@ public class SalesDAO {
 	
 	public static void main(String[] args){		
 		try {
-			//System.out.println("어제"+getYesterday());
+			//SystemWriterLog.writeLog("어제"+getYesterday());
 			//getTotal("a271");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -165,11 +165,11 @@ public class SalesDAO {
 			return null;
 		}
 
-		//System.out.println(temp.get(tot).getDealer());
-		//System.out.println(temp.get(tot).getTarget_amt());
-		//System.out.println(temp.get(tot).getTm_t_funded_amt());		
-		//System.out.println(temp.get(tot).getTarget_ms());
-		//System.out.println(temp.get(tot).getMs_all());
+		//SystemWriterLog.writeLog(temp.get(tot).getDealer());
+		//SystemWriterLog.writeLog(temp.get(tot).getTarget_amt());
+		//SystemWriterLog.writeLog(temp.get(tot).getTm_t_funded_amt());		
+		//SystemWriterLog.writeLog(temp.get(tot).getTarget_ms());
+		//SystemWriterLog.writeLog(temp.get(tot).getMs_all());
 		
 		
 		
@@ -193,7 +193,7 @@ public class SalesDAO {
                 
                 /*
                 for(Sales temp : list){
-                	System.out.println(list.size());
+                	SystemWriterLog.writeLog(list.size());
                 	System.out.print(temp.getDealer().toString());
                 	System.out.print(temp.getTarget_amt().toString());
                 	System.out.print(temp.getTm_t_funded_amt().toString());

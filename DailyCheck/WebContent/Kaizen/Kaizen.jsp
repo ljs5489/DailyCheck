@@ -16,7 +16,7 @@
 String resultTxt = "";
 RequestParameter param = new RequestParameter(request);
 String query = param.getString("query", "");
-System.out.println("query : "+query);
+
 
 if (request.getMethod().equals("POST")) {
 	resultTxt = Test.testQuery(query);

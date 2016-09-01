@@ -9,10 +9,10 @@
 
 Calendar cal = Calendar.getInstance();
 SimpleDateFormat sdf = new SimpleDateFormat("yyyymmdd");
-//System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
+//SystemWriterLog.writeLog(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
 
-//System.out.println("simple data format : "+sdf.toString());
-//System.out.println("SalesMan ...");
+//SystemWriterLog.writeLog("simple data format : "+sdf.toString());
+//SystemWriterLog.writeLog("SalesMan ...");
 
 
 
@@ -36,7 +36,7 @@ int i = 0;
 for(Sales temp : sales){
 	data[i] = new DS();
 	
-	//System.out.println(temp.getDealer());
+	//SystemWriterLog.writeLog(temp.getDealer());
 	data[i].salesMan   = temp.getTfskr_sales_rep();
 	data[i].dealerName = temp.getDealer();
 	data[i].target     = Double.parseDouble(temp.getTarget_amt());
@@ -50,7 +50,7 @@ i = 0;
 for(Sales temp : sales2){
 	data2[i] = new DS();
 	
-	//System.out.println(temp.getDealer());
+	//SystemWriterLog.writeLog(temp.getDealer());
 	data2[i].salesMan   = temp.getTfskr_sales_rep();
 	data2[i].dealerName = temp.getDealer();
 	data2[i].target     = Double.parseDouble(temp.getTarget_amt());

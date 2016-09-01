@@ -13,14 +13,14 @@
 			EEaircon = "", EEtemperature = "", ifany = "";
 
 	String id=request.getParameter("id").trim();
-	//System.out.println("?" + id);
+	//SystemWriterLog.writeLog("?" + id);
 	Precheck precheck = PrecheckDAO.selectById(id);
 
 	if (precheck != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
 		
-		//System.out.println("GET!");
-		//System.out.println();
+		//SystemWriterLog.writeLog("GET!");
+		//SystemWriterLog.writeLog();
 		
 		checktime = precheck.getCheckTime();
 		
@@ -79,7 +79,7 @@
 	json.put("name", "테스트 입니다...");
 	
 	json.put("checktime", checktime);	
-	//System.out.println("check: "+checktime);
+	//SystemWriterLog.writeLog("check: "+checktime);
 	
 	json.put("checker", checker);
 	json.put("ars", ars);
@@ -125,7 +125,7 @@
 	out.print(json);
 
 	if (request.getMethod().equals("POST")) {
-		//System.out.println("AJAX POST!!!");
+		//SystemWriterLog.writeLog("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		
@@ -181,7 +181,7 @@
 					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
 					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
 					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val);
-			//System.out.println("인서트!");
+			//SystemWriterLog.writeLog("인서트!");
 		} else {
 			//update	
 			PrecheckDAO.updateInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
@@ -189,7 +189,7 @@
 					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
 					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val);
 
-			//System.out.println("업데이트!");
+			//SystemWriterLog.writeLog("업데이트!");
 		}
 	}
 %>

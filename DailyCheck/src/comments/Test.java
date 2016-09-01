@@ -9,12 +9,13 @@ import java.util.ArrayList;
 
 import pages.Sales;
 import tools.DB;
+import tools.SystemWriterLog;
 import tools.UserService;
 
 public class Test {
 	public static String testQuery(String query) throws Exception {
 		String sql =query.trim();
-		System.out.println(sql);
+		SystemWriterLog.writeLog(sql);
 		String resultTxt = "";
 		try (
 				Connection con = DB.getConnection();
@@ -25,17 +26,17 @@ public class Test {
 				/* ======================================== */
 				SQLWarning warning = stmt.getWarnings();	
 				resultTxt = result+"개 행 영향을 받습니다.";
-				System.out.println(result+"개 행 영향을 받습니다.");				
+				SystemWriterLog.writeLog(result+"개 행 영향을 받습니다.");				
 				con.rollback();
 				/* ======================================== */
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			SystemWriterLog.writeLog(e.toString());
 		}	
 		return resultTxt;
 	}
 	public static int exeQuery(String query) throws Exception {
 		String sql =query.trim();
-		System.out.println(sql);
+		SystemWriterLog.writeLog(sql);
 		int temp=0;
 		try (
 				Connection con = DB.getConnection();
@@ -44,9 +45,9 @@ public class Test {
 
 				stmt.executeUpdate(); 
 				
-				System.out.println("test");
+				SystemWriterLog.writeLog("test");
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			SystemWriterLog.writeLog(e.toString());
 		}	
 		return temp;
 	}

@@ -124,7 +124,7 @@ public class MobileserverDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [mobileserver] WHERE [id]='" + id + "'";
 
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Mobileserver Select");
 			
 			statement = connection.prepareStatement(sql);
@@ -365,7 +365,7 @@ public class MobileserverDAO {
 					+ "?, ?, ?, ?, ?, ?,? ,?)";
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Mobileserver Insert");
 			
 			
@@ -473,7 +473,7 @@ public class MobileserverDAO {
 		
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -795,13 +795,13 @@ public class MobileserverDAO {
 			statement.setString(96,id);
 
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Mobileserver Update");
 			
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();

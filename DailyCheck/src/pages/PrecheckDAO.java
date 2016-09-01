@@ -12,7 +12,7 @@ public class PrecheckDAO {
 		precheck.setId(resultSet.getString("id").trim());
 		precheck.setCheckTime(resultSet.getString("checkTime"));
 		
-		//System.out.println("check3: "+resultSet.getString("checkTime"));
+		//SystemWriterLog.writeLog("check3: "+resultSet.getString("checkTime"));
 		
 		precheck.setChecker(resultSet.getString("checker").trim());
 		precheck.setArs(resultSet.getString("ars"));
@@ -33,8 +33,8 @@ public class PrecheckDAO {
 		precheck.setTra2time(resultSet.getString("tra2time"));
 		precheck.setTra2val(resultSet.getString("tra2val"));		
 		
-		//System.out.println(resultSet.getString("tra1time"));
-		//System.out.println(resultSet.getString("tra1val"));
+		//SystemWriterLog.writeLog(resultSet.getString("tra1time"));
+		//SystemWriterLog.writeLog(resultSet.getString("tra1val"));
 
 		precheck.setWMtime(resultSet.getString("WMtime"));
 		precheck.setWMstate(resultSet.getString("WMstate"));
@@ -75,7 +75,7 @@ public class PrecheckDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [precheck] WHERE [id]='" + id + "'";
 
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Precheck Select");
 
 			statement = connection.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class PrecheckDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Precheck Insert");
 
 			
@@ -180,7 +180,7 @@ public class PrecheckDAO {
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -290,12 +290,12 @@ public class PrecheckDAO {
 			
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Precheck Update");
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -316,10 +316,10 @@ public class PrecheckDAO {
 					+ "', mail='" + mail + "'," + "ifany='" + ifany + "' where id='" + id + "'";
 
 			statement = connection.prepareStatement(sql);
-			System.out.println(sql);
+			SystemWriterLog.writeLog(sql);
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();

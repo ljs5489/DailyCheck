@@ -12,7 +12,6 @@ HTML에서 캐시제거
  -->
 <%
 	//========================================
-	//System.out.println("delete Cache");
 	response.setHeader("cache-control","no-cache"); 
 	response.setHeader("expires","0"); 
 	response.setHeader("pragma","no-cache");

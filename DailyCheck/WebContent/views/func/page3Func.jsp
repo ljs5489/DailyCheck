@@ -32,14 +32,14 @@
 	String id = request.getParameter("id").trim();
 	
 	
-	//System.out.println("?" + id);
+	//SystemWriterLog.writeLog("?" + id);
 	
 	
 	Mobileserver mobileserver = MobileserverDAO.selectById(id);
 
 	if (mobileserver != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
-		//System.out.println("GET!");
+		//SystemWriterLog.writeLog("GET!");
 
 		checktime = mobileserver.getCheckTime();
 		checker = mobileserver.getChecker();
@@ -147,7 +147,7 @@
 	//PrintWriter out= response.getWriter();  
 	JSONObject json = new JSONObject();
 	json.put("checktime", checktime);
-	//System.out.println("check: " + checktime);
+	//SystemWriterLog.writeLog("check: " + checktime);
 	json.put("checker", checker);
 
 	json.put("MOBH1_CPU", MOBH1_CPU);
@@ -250,7 +250,7 @@
 
 	out.print(json);
 	if (request.getMethod().equals("POST")) {
-		//System.out.println("AJAX POST!!!");
+		//SystemWriterLog.writeLog("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
@@ -383,7 +383,7 @@
 					ifany
 
 			);
-			//System.out.println("인서트!");
+			//SystemWriterLog.writeLog("인서트!");
 		} else {
 			//update	
 			MobileserverDAO.updateInfo(id, checktime, checker,
@@ -410,7 +410,7 @@
 					DB2_c_val,
 					ifany);
 
-			//System.out.println("업데이트!");
+			//SystemWriterLog.writeLog("업데이트!");
 		}
 	}
 %>

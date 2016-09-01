@@ -38,7 +38,7 @@ public class BackupDAO {
 			connection = DB.getConnection();
 			String sql = "SELECT * FROM [backup_] WHERE [id]='" + id + "'";
 
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Backup Select");		
 			
 
@@ -105,8 +105,8 @@ public class BackupDAO {
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?)";
-			//System.out.println(sql);
-			System.out.println(GetDate.getCurrentTime()+"Backup Insert");
+			//SystemWriterLog.writeLog(sql);
+			SystemWriterLog.writeLog(GetDate.getCurrentTime()+" Backup Insert");
 			
 			
 			statement = connection.prepareStatement(sql);
@@ -131,7 +131,7 @@ public class BackupDAO {
 
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -204,11 +204,11 @@ public class BackupDAO {
 			statement.setString(15, id);
 
 			
-			//System.out.println(sql);			
-			System.out.println(GetDate.getCurrentTime()+"Backup Update");
+			//SystemWriterLog.writeLog(sql);			
+			SystemWriterLog.writeLog(GetDate.getCurrentTime()+"Backup Update");
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();

@@ -80,7 +80,6 @@ String ss = param.getString("ss", "0");
 String st = param.getString("st", "");
 st = new String(st.getBytes("8859_1"),"utf-8"); //get방식으로 한글이 넘어갈때 처리...
 
-//System.out.println("st : "+st);
 
 int currentPage = Integer.parseInt(pg);
 int pageSize = Integer.parseInt(sz);
@@ -99,9 +98,7 @@ for (int i=0;i<comments.size();i++) {
 	String tempTitle = comments.get(i).getTitle();
 	String tempWriter = comments.get(i).getWriter();
 	
-	//System.out.println(tempTitle+" : "+tempTitle.length());
-	//System.out.println(tempWriter+" : "+tempWriter.length());
-	
+
 	if(tempTitle.length() > 55)	comments.get(i).setTitle(tempTitle.substring(0,70)+"...");
 	if(tempWriter.length() > 15) comments.get(i).setWriter(tempWriter.substring(0,15)+"...");
 }

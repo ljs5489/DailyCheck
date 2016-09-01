@@ -19,7 +19,7 @@
 	String urlList = "Comment.jsp?"
 			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "").replaceAll("&?cmd=[a-z]+&?", "");
 
-	System.out.println(usrText);
+	SystemWriterLog.writeLog(usrText);
 	if(request.getMethod().equals("POST")){
 		if(CommentDAO.checkPW(aid,usrText,false)){
 			

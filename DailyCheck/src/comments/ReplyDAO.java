@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import pages.Sales;
 import tools.DB;
+import tools.SystemWriterLog;
 import tools.UserService;
 
 public class ReplyDAO {
@@ -42,7 +43,7 @@ public class ReplyDAO {
 				stmt.execute();
 
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			SystemWriterLog.writeLog(e.toString());
 		}
 	}
 	
@@ -54,10 +55,10 @@ public class ReplyDAO {
 			+" AND [userName] = ? "
 			+" AND CONVERT(varchar(8),entry_date,112) = CONVERT(varchar(8),GETDATE(),112) ";
 		
-		System.out.println(sql);
-		System.out.println(pid);
-		System.out.println(userIP);
-		System.out.println(userName);
+		SystemWriterLog.writeLog(sql);
+		SystemWriterLog.writeLog(pid);
+		SystemWriterLog.writeLog(userIP);
+		SystemWriterLog.writeLog(userName);
 		
 		try (
 				Connection con = DB.getConnection();
@@ -70,7 +71,7 @@ public class ReplyDAO {
 
 			rs.next();				
 			int check1 = rs.getInt("chk");				
-			System.out.println(check1);
+			SystemWriterLog.writeLog(check1);
 			
 			return check1;
 		}
@@ -78,7 +79,7 @@ public class ReplyDAO {
 	public static void insertLike(int pid, String userIP, String userName) throws Exception {
 		String sql =" INSERT INTO sp.likeit(pid,userIp,userName,likeType,entry_date) "
 				   +" VALUES(?,?,?,?,GETDATE()) ";
-		System.out.println(sql);
+		SystemWriterLog.writeLog(sql);
 		try (
 				Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)
@@ -89,7 +90,7 @@ public class ReplyDAO {
 				stmt.setString(4, "1");
 				stmt.execute();
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			SystemWriterLog.writeLog(e.toString());
 		}
 
 	}
@@ -128,8 +129,8 @@ public class ReplyDAO {
 			String check1 = rs.getString("pw");
 			String check2 = pw;
 			
-			System.out.println(check1);
-			System.out.println(check2);
+			SystemWriterLog.writeLog(check1);
+			SystemWriterLog.writeLog(check2);
 			
 			if(encrypted) check2 = pw;
 			else check2 = UserService.encryptToMD5(""+pw);
@@ -151,9 +152,9 @@ public class ReplyDAO {
 			stmt.setString(2, pid.trim());
 		
 			stmt.execute();
-			//System.out.println(sql);
-			//System.out.println(sid);
-			//System.out.println(pid);
+			//SystemWriterLog.writeLog(sql);
+			//SystemWriterLog.writeLog(sid);
+			//SystemWriterLog.writeLog(pid);
 		}
 
 	}
@@ -162,7 +163,7 @@ public class ReplyDAO {
 			// ReplyDAO.insertReply("","","");
 			ReplyDAO.selectAll(12);
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		}
 	}
 

@@ -20,7 +20,6 @@
         //if (boardService.canDeleteArticle()) {
         //    ArticleDAO.deleteById(aid);
         //} else 
-        	System.out.println(2);
         	response.sendRedirect("Comment.jsp");
         	//throw new UnauthorizedAccessException("게시글 삭제 권한 없음");
     } 
@@ -32,6 +31,6 @@
     }*/
     //String targetUrl = "Comment.jsp?" + 
     //        request.getQueryString().replaceAll("&?aid=[0-9]+","").replaceAll("&?cmd=[a-z]+", "");
-	//System.out.println(targetUrl);
+
     //response.sendRedirect(targetUrl);
 %>

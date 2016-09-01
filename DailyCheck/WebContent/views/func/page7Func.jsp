@@ -25,12 +25,12 @@
 			ifany = "";
 
 	String id=request.getParameter("id").trim();
-	//System.out.println("?" + id);
+	//SystemWriterLog.writeLog("?" + id);
 	Networkerr networkerr = NetworkerrDAO.selectById(id);
 
 	if (networkerr != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
-		//System.out.println("GET!");
+		//SystemWriterLog.writeLog("GET!");
 		
 		checktime = networkerr.getCheckTime();		
 		checker = networkerr.getChecker();
@@ -65,7 +65,7 @@
 	
 	json.put("checktime", checktime);		
 	
-	//System.out.println("check: "+checktime);
+	//SystemWriterLog.writeLog("check: "+checktime);
 	
 	json.put("checker", checker);
 	
@@ -90,7 +90,7 @@
 	out.print(json);
 
 	if (request.getMethod().equals("POST")) {
-		//System.out.println("AJAX POST!!!");
+		//SystemWriterLog.writeLog("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
@@ -115,12 +115,12 @@
 		if (networkerr == null) {
 			NetworkerrDAO.insertInfo(id, checktime, checker,network_conn,firm_banking,vpn_21
 					,vpn_31,vpn_200,vpn_254,network_err,internet_spd,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2,ifany);
-			//System.out.println("인서트!");
+			//SystemWriterLog.writeLog("인서트!");
 		} else {
 			//update	
 			NetworkerrDAO.updateInfo(id, checktime, checker,network_conn,firm_banking,vpn_21,vpn_31,vpn_200,vpn_254,network_err,internet_spd
 					,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2,ifany);
-			//System.out.println("업데이트!");
+			//SystemWriterLog.writeLog("업데이트!");
 		}
 	}
 %>

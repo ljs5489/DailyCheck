@@ -18,16 +18,16 @@
 	String urlGoBack = "Comment_Article.jsp?"+request.getQueryString();
 	String url = request.getQueryString();
 	
-	System.out.println("url"+url);
+	SystemWriterLog.writeLog("url"+url);
 
 	String urlList = "Comment.jsp?"
 			+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
 
-	System.out.println(usrText);
+	SystemWriterLog.writeLog(usrText);
 	if(request.getMethod().equals("POST")){
 		
 		String temp = "Comment_Edit.jsp?key="+UserService.encryptToMD5(usrText)+"&"+url;		
-		System.out.println("GET : "+temp);
+		SystemWriterLog.writeLog("GET : "+temp);
 		
     	response.sendRedirect(temp);
 

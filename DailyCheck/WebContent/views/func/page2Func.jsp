@@ -45,11 +45,11 @@
 
 	String id = request.getParameter("id").trim();
 	Server server = ServerDAO.selectById(id);
-	//System.out.println("?" + id);
+	//SystemWriterLog.writeLog("?" + id);
 
 	if (server != null && request.getMethod().equals("GET")) {
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
-		//System.out.println("GET!");
+		//SystemWriterLog.writeLog("GET!");
 
 		checktime = server.getCheckTime();
 		checker = server.getChecker();
@@ -240,7 +240,7 @@
 	JSONObject json = new JSONObject();
 
 	json.put("checktime", checktime);
-	//System.out.println("check: " + checktime);
+	//SystemWriterLog.writeLog("check: " + checktime);
 	json.put("checker", checker);
 
 	json.put("WEB_CPU", WEB_CPU);
@@ -425,7 +425,7 @@
 	out.print(json);
 
 	if (request.getMethod().equals("POST")) {
-		//System.out.println("AJAX POST!!!");
+		//SystemWriterLog.writeLog("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
 		checktime = param.getString("checktime", "");
@@ -639,7 +639,7 @@
 					ADV2_disk1, ADV2_disk2,
 
 					ifany);
-			//System.out.println("인서트!");
+			//SystemWriterLog.writeLog("인서트!");
 		} else {
 			//update	
 			ServerDAO.updateInfo(id, checktime, checker, WEB_CPU, WEB_memory, WEB_value, WEB_vaccine,
@@ -670,7 +670,7 @@
 					ADV2_disk1, ADV2_disk2,
 
 					ifany);
-			//System.out.println("업데이트!");
+			//SystemWriterLog.writeLog("업데이트!");
 		}
 	}
 %>

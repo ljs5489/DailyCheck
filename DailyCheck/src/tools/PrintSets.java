@@ -1,6 +1,7 @@
 package tools;
 
-public class PrintSets {
+public class PrintSets {	
+	
 	public static String getTd(int index, String arr[]){
 		String returnIt="";
 		
@@ -69,7 +70,7 @@ public class PrintSets {
 		}
 	}
 	public static String setC(String val){
-		//System.out.println(val);
+		//SystemWriterLog.writeLog(val);
 		try{
 			String temp=(val).replaceAll("ºC","");
 			return temp+"ºC";
@@ -82,7 +83,7 @@ public class PrintSets {
 	
 	}
 	public static String whenOverLimit(String val,int limit){
-		//System.out.println(val);
+		//SystemWriterLog.writeLog(val);
 		try{
 			Integer temp=Integer.parseInt((val).replaceAll("%",""));
 			if(temp>=limit){

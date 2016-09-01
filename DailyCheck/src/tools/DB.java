@@ -30,7 +30,8 @@ public class DB {
     static String USER_PASSWORD;
     
     public static Connection getConnection() throws Exception {
-        if (JDBC_DRIVER_NAME == null) readProperties();
+        //if (JDBC_DRIVER_NAME == null) 
+        	readProperties();
         Class.forName(JDBC_DRIVER_NAME);
         return DriverManager.getConnection(DB_URL, USER_ID, USER_PASSWORD);
     }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import pages.Sales;
 import tools.DB;
 import tools.EnvVal;
+import tools.SystemWriterLog;
 import tools.UserService;
 
 public class CommentDAO {
@@ -80,7 +81,7 @@ public class CommentDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
-		System.out.println("insertComment : "+content);
+		SystemWriterLog.writeLog("insertComment : "+content);
 		
 		String sql = "EXEC jslee.sp.insertComment ?, ?, ?, ?";
 
@@ -97,7 +98,7 @@ public class CommentDAO {
 			 * database QUERY statements execute() -> anything that comes in
 			 */
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			SystemWriterLog.writeLog(e.toString());
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -110,7 +111,6 @@ public class CommentDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
-		//System.out.println("도대체 뭐냐고"+UserService.encryptToMD5(pw));
 		String sql = "EXEC jslee.sp.updatComment ?, ?, ?, ?, ?";
 
 		try (Connection con = DB.getConnection();
@@ -127,7 +127,7 @@ public class CommentDAO {
 			 * database QUERY statements execute() -> anything that comes in
 			 */
 		} catch (Exception e) {
-			System.out.println(e.toString());
+			SystemWriterLog.writeLog(e.toString());
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -164,7 +164,7 @@ public class CommentDAO {
 			ResultSet rs = stmt.executeQuery();
 			//ResultSet rs = stmt.
 			
-			System.out.println(rs.toString());
+			SystemWriterLog.writeLog(rs.toString());
 			return rs.next() ? makeComment(rs) : null;
 		}
 	}
@@ -175,11 +175,9 @@ public class CommentDAO {
 		+" ,(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id and [likeType]='1') 'likeIt' "
 		+" FROM [JSLEE].[sp].[comment] cmt WHERE [id] = ? ";
 		
-		//System.out.println(sql);
-		//System.out.println(article_id);
-		
+
 		if(EnvVal.TESTING.equals("1")){
-			System.out.println("selectByIdWithoutView가 실행됨.article_id : "+article_id);
+			SystemWriterLog.writeLog("selectByIdWithoutView가 실행됨.article_id : "+article_id);
 		}
 		
 		try (Connection con = DB.getConnection();
@@ -188,7 +186,6 @@ public class CommentDAO {
 			stmt.setInt(2, article_id);
 			ResultSet rs = stmt.executeQuery();
 			
-			//System.out.println(rs.toString());
 			return rs.next() ? makeComment(rs) : null;
 		}
 	}
@@ -200,7 +197,6 @@ public class CommentDAO {
 			
 			try (ResultSet rs = stmt.executeQuery()) {
 				rs.next();
-				//System.out.println(rs.getInt("pw"));
 				
 				String check1 = rs.getString("pw");
 				String check2;

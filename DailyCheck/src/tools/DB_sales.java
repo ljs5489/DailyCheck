@@ -1,5 +1,4 @@
 package tools;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -9,23 +8,27 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DB_sales {
-	private static String JDBC_DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private static String DB_URL = "jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB";
-	private static String USER_ID = "DBWeb1";
-	private static String USER_PASSWORD_DBWeb1 = "DB02@Web#0611";
-
+    static String SP_JDBC_DRIVER_NAME;
+    static String SP_DB_URL;
+    static String SP_USER_ID;
+    static String SP_USER_PASSWORD;
+    
     public static Connection getConnection() throws Exception {
-    	if (JDBC_DRIVER_NAME == null) readProperties();
-        Class.forName(JDBC_DRIVER_NAME);
-        Connection connection = DriverManager.getConnection(DB_URL, USER_ID, USER_PASSWORD_DBWeb1);
-        return connection;
+        //if (SP_JDBC_DRIVER_NAME == null) 
+        	readProperties();
+        Class.forName(SP_JDBC_DRIVER_NAME);    
+        return DriverManager.getConnection(SP_DB_URL, SP_USER_ID, SP_USER_PASSWORD);
     }
     
     static void readProperties() throws IOException {
         Properties properties = new Properties();
-        InputStream inputstream = 
-                DB.class.getClassLoader().getResourceAsStream("DB.properties");
+        InputStream inputstream = DB_sales.class.getClassLoader().getResourceAsStream("DB.properties");
         properties.load(inputstream);
-        USER_PASSWORD_DBWeb1 = properties.getProperty("USER_PASSWORD_DBWeb1");
-    }
+        SP_JDBC_DRIVER_NAME = properties.getProperty("SP_JDBC_DRIVER_NAME");
+        SP_DB_URL = properties.getProperty("SP_DB_URL");
+        SP_USER_ID = properties.getProperty("SP_USER_ID");
+        SP_USER_PASSWORD = properties.getProperty("SP_USER_PASSWORD");
+
+        
+    }    
 }

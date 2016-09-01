@@ -21,9 +21,8 @@ public class Main {
 	public static void main(String[] args){
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyymmdd");
-		//System.out.println(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");
-		
-		//System.out.println("simple data format : "+sdf.toString());
+		//SystemWriterLog.writeLog(sdf.format(cal.getTime()) + "Sales Performance 자료 가져오기...");		
+		//SystemWriterLog.writeLog("simple data format : "+sdf.toString());
 		
 		
 		ArrayList<Sales> sales = null;

@@ -31,14 +31,14 @@ String cmd = param.getString("cmd", "");
 
 
 
-//System.out.println("=>"+cmd);
+//SystemWriterLog.writeLog("=>"+cmd);
 
 Comment cmt;
 
 if(request.getMethod().equals("POST")){	
-	System.out.println(c_pw);
-	System.out.println(c_writer);
-	System.out.println(c_content);	
+	SystemWriterLog.writeLog(c_pw);
+	SystemWriterLog.writeLog(c_writer);
+	SystemWriterLog.writeLog(c_content);	
 		
 	if ("저장".equals(cmd)) {
 		if(c_writer.length() > 0 ){
@@ -64,12 +64,12 @@ if(request.getMethod().equals("POST")){
 		//if(ReplyDAO.chkLikeIt(aid, ipAddress, userName) > 0){
 		if(ReplyDAO.chkLikeIt(aid, ipAddress, "TFSKR") > 0){				
 			 %><script> alert("\"좋아요\"는 내일 다시 가능합니다."); </script><%
-			 System.out.println("좋아요 1회 원칙");
+			 SystemWriterLog.writeLog("좋아요 1회 원칙");
 		}
 		else{
 			//ReplyDAO.insertLike(aid, ipAddress, userName);
 			ReplyDAO.insertLike(aid, ipAddress, "TFSKR");			
-			System.out.println(ipAddress+"의 좋아요");
+			SystemWriterLog.writeLog(ipAddress+"의 좋아요");
 			%><script> alert("좋아요!"); </script><%
 		}
 	

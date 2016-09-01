@@ -48,7 +48,7 @@ sort.add("할인쿠폰 프로모션");
 //====================================================
 
 ArrayList<String> sort2 = new ArrayList<String>(new HashSet<String>(sort));
-System.out.println(sort2);
+
 /*
 P13010001	LS460(운용) 차량용품 지원
 P13030026	CT200h(운용) 차량용품 지원

@@ -48,7 +48,7 @@ public class NetworkerrDAO {
 
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Networkerr Select");
 			
 			
@@ -124,7 +124,7 @@ public class NetworkerrDAO {
 			
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Networkerr Insert");
 			
 			statement = connection.prepareStatement(sql);
@@ -150,7 +150,7 @@ public class NetworkerrDAO {
 
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();
@@ -233,7 +233,7 @@ public class NetworkerrDAO {
 			
 			
 			
-			//System.out.println(sql);
+			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Networkerr Update");
 			
 			
@@ -241,7 +241,7 @@ public class NetworkerrDAO {
 			
 			statement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			SystemWriterLog.writeLog(e);
 		} finally {
 			if (statement != null)
 				statement.close();

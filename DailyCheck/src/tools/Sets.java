@@ -13,7 +13,7 @@ public class Sets {
 	
 	public static String changeFormatYYYYMMDD(String date){
 		
-		//System.out.println(date);
+		//SystemWriterLog.writeLog(date);
 		return date.replaceFirst("(\\d{4})(\\d{2})(\\d{2})", "$1-$2-$3");	
 	}
 	public static String getCurrentTime(){

@@ -19,11 +19,11 @@ try{
 catch(Exception e){
 	theDate=Sets.getToday();
 	theDate=Sets.changeFormatYYYYMMDD(theDate);
-	//System.out.println("!"+theDate);
+	//SystemWriterLog.writeLog("!"+theDate);
 }
 
 
-System.out.println("=========Print Data...============");
+SystemWriterLog.writeLog("=========Print Data...============");
 Precheck precheck = PrecheckDAO.selectById(theDate);
 Server server = ServerDAO.selectById(theDate);
 Mobileserver mobileserver = MobileserverDAO.selectById(theDate);
@@ -32,7 +32,7 @@ Batchjob batchjob = BatchjobDAO.selectById(theDate);
 Ipt ipt = IptDAO.selectById(theDate);
 Networkerr networkerr = NetworkerrDAO.selectById(theDate);
 Backup backup = BackupDAO.selectById(theDate);
-System.out.println("=========/Print Data...============");
+SystemWriterLog.writeLog("=========/Print Data...============");
 
 %>
 

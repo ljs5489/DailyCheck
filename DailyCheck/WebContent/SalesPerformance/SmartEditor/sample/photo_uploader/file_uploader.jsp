@@ -43,9 +43,7 @@ if (ServletFileUpload.isMultipartContent(request)){
                 if(!file.exists()) {
                     file.mkdirs();
                     
-                    System.out.println("path : "+path);
                 }
-                System.out.println("path : "+path);
                 //서버에 업로드 할 파일명(한글문제로 인해 원본파일은 올리지 않는것이 좋음)
                 String realname = UUID.randomUUID().toString() + "." + ext;
                 ///////////////// 서버에 파일쓰기 ///////////////// 
