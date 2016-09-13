@@ -66,6 +66,16 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 	height:10px;
 }
 
+.tempThead{
+	 font-size: 12px;
+	 border-top:2px solid #808080;
+	 font-weight: bold;
+
+}
+html body .tempThead th{
+	 font-weight: bold; /* 2016-09-12 Chrome의 버그로 thead가 안먹혔음... */
+
+}
 
 </style>
 </head>
@@ -114,11 +124,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "16%", "16%", "13%", "13%", "13%", "13%", "16%" })%>
 			</colgroup>
-			<thead>
-				<tr>
-					<%=PrintSets.getTh(new String[] { "Check Name", "ARS(8:50,9:00)", "Mail", "Fax", "VRS", "Messanger", "Lease&Loan" })%>
-				</tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Check Name", "ARS(8:50,9:00)", "Mail", "Fax", "VRS", "Messanger", "Lease&Loan" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(0, new String[] { 
 						"<b>Connect Status</b>", 
@@ -190,11 +198,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "16%", "9%", "16%", "9%", "10%", "10%", "10%", "10%", "10%" })%>
 			</colgroup>
-			<thead>
-				<tr>
-					<%=PrintSets.getTh(new String[] { "Server Name", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%>
-				</tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Server Name", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRWEB</b>", "Xen", "<td style='padding:0px;'>"+PrintSets.setTable(2, new String[] {server.getWEB_disk1(),server.getWEB_disk2(),server.getWEB_disk3(),server.getWEB_disk4()})+"</td>", "-", PrintSets.onToY(server.getWEB_CPU())+" "+server.getWEB_value(), PrintSets.onToY(server.getWEB_memory())+" / "+PrintSets.whenOverLimit(server.getWEB_value_2(),65), PrintSets.onToY(server.getWEB_vaccine()),PrintSets.onToY(server.getWEB_update()),PrintSets.onToGood(server.getWEB_status()) })%></tr>
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRDBM</b>", "Xen", "<td style='padding:0px;'>"+PrintSets.setTable(2, new String[] {server.getDBM_disk1(),server.getDBM_disk1(),server.getDBM_disk1(),server.getDBM_disk1()})+"</td>", PrintSets.onToY(server.getDBM_DB()), PrintSets.onToY(server.getDBM_CPU())+" "+server.getDBM_value(), PrintSets.onToY(server.getDBM_memory())+" / "+PrintSets.whenOverLimit(server.getDBM_value_2(),65), PrintSets.onToY(server.getDBM_vaccine()),PrintSets.onToY(server.getDBM_update()),PrintSets.onToGood(server.getDBM_status()) })%></tr>
@@ -228,9 +234,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "16%", "9%", "16%", "9%", "10%", "10%", "10%", "10%", "10%" })%>
 			</colgroup>
-			<thead>
-				<tr><%=PrintSets.getTh(new String[] { "Mobile Server", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%></tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Mobile Server", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%></tr>
+			<!-- </thead> -->
 			<tbody>
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBH1</b>", "Host", "<td style='padding:0px;'>"+PrintSets.setTable(4, new String[] {mobileserver.getMOBH1_disk1(),mobileserver.getMOBH1_disk2(),mobileserver.getMOBH1_disk3(),mobileserver.getMOBH1_disk4(),mobileserver.getMOBH1_disk1_2(),mobileserver.getMOBH1_disk2_2(),mobileserver.getMOBH1_disk3_2(),mobileserver.getMOBH1_disk4_2()})+"</td>", "-", PrintSets.onToY(mobileserver.getMOBH1_CPU())+" "+mobileserver.getMOBH1_c_val(), PrintSets.onToY(mobileserver.getMOBH1_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getMOBH1_m_val(),65), PrintSets.onToY(mobileserver.getMOBH1_vaccine()), PrintSets.onToY(mobileserver.getMOBH1_update()), PrintSets.onToGood(mobileserver.getMOBH1_status()) })%></tr>
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSMOBILE-DC2</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {mobileserver.getDC2_disk1(),mobileserver.getDC2_disk2()})+"</td>", "-", PrintSets.onToY(mobileserver.getDC2_CPU())+" "+mobileserver.getDC2_c_val(), PrintSets.onToY(mobileserver.getDC2_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getDC2_m_val(),65), PrintSets.onToY(mobileserver.getDC2_vaccine()), PrintSets.onToY(mobileserver.getDC2_update()), PrintSets.onToGood(mobileserver.getDC2_status()) })%></tr>
@@ -255,9 +261,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "16%", "9%", "16%", "9%", "10%", "10%", "10%", "10%", "10%" })%>
 			</colgroup>
-			<thead>
-				<tr><%=PrintSets.getTh(new String[] { "Mobile Server", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%></tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Mobile Server", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSITNWEB</b>", "Host", "<td style='padding:0px;'>"+PrintSets.setTable(2, new String[] {dmzserver.getWEB_disk1(),dmzserver.getWEB_disk2(),dmzserver.getWEB_disk3(),dmzserver.getWEB_disk4()})+"</td>", "-", PrintSets.onToY(dmzserver.getNWCPU())+" "+dmzserver.getNWCPU_val(), PrintSets.onToY(dmzserver.getNWmemory())+" / "+PrintSets.whenOverLimit(dmzserver.getNWmemory_val(),65), PrintSets.onToY(dmzserver.getNWvaccine()),PrintSets.onToY(dmzserver.getNWupdate()),PrintSets.onToGood(dmzserver.getNWstatus()) })%></tr>
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSITNSPAM</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {dmzserver.getSPAM_disk1(),dmzserver.getSPAM_disk2()})+"</td>", "-", PrintSets.onToY(dmzserver.getNSCPU())+" "+dmzserver.getNSCPU_val(), PrintSets.onToY(dmzserver.getNSmemory())+" / "+PrintSets.whenOverLimit(dmzserver.getNSmemory_val(),65), PrintSets.onToY(dmzserver.getNSvaccine()),PrintSets.onToY(dmzserver.getNSupdate()),PrintSets.onToGood(dmzserver.getNSstatus()) })%></tr>
@@ -278,9 +284,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "15.5%", "9%", "9%", "15%", "9%", "9%","15.5%", "9%", "9%" })%>
 			</colgroup>
-			<thead>
-				<tr><%=PrintSets.getTh(new String[] { "Job", "Result", "Detail", "Job", "Result", "Detail", "Job","Result","Detail" })%></tr>
-			</thead>
+			<!-- <thead>  -->
+			<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Job", "Result", "Detail", "Job", "Result", "Detail", "Job","Result","Detail" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Ebilling</b>", PrintSets.onToY(batchjob.getEbilling()), "", "<b>자금상환SMS</b>", PrintSets.onToY(batchjob.getFin_SMS()), "", "<b>Funding SMS</b>",PrintSets.onToY(batchjob.getFunding_SMS()),"" })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Delinquency M.</b>", PrintSets.onToY(batchjob.getDel_M()), "", "<b>Leave Mng.</b>", PrintSets.onToY(batchjob.getLeave_Mng()), "", "<b>Fax SMS</b>",PrintSets.onToY(batchjob.getFax_SMS()),"" })%></tr>
@@ -297,9 +303,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "26%", "12%", "12%", "26%", "12%", "12%" })%>
 			</colgroup>
-			<thead>
-				<tr><%=PrintSets.getTh(new String[] { "Part", "Result", "Detail", "Part", "Result", "Detail" })%></tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Part", "Result", "Detail", "Part", "Result", "Detail" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Trunk</b>", PrintSets.onToY(ipt.getTrunk()), "", "<b>Idle</b>", PrintSets.onToY(ipt.getIdle()), PrintSets.whenOverLimit(ipt.getIdle_val(),101) })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>In-Service Trunk1</b>", PrintSets.onToY(ipt.getIn_serv_tru1()), "", "<b>In-Service Trunk2</b>", PrintSets.onToY(ipt.getIn_serv_tru2()), "" })%></tr>
@@ -318,9 +324,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "13%", "26%", "11%", "13%", "28%", "11%" })%>
 			</colgroup>
-			<thead>
-				<tr><%=PrintSets.getTh(new String[] { "Part", "Test Method", "Result", "Part", "Test Method", "Result" })%></tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Part", "Test Method", "Result", "Part", "Test Method", "Result" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Network Err</b>", "Netstat -e", "Err. No: "+networkerr.getNetwork_err(), "<b>Network Conn</b>", "Netstat -na",PrintSets.onToY(networkerr.getNetwork_conn())  })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Internet Speed</b>", "http://speed.nia.or.kr", networkerr.getInternet_spd()+" / "+networkerr.getInternet_spd_2()+" Mbps", "<b>Traffic (IDC)</b>", "IDC Homepage", networkerr.getTraffic_IDC()+" / "+networkerr.getTraffic_IDC_2()+" Mbps" })%></tr>
@@ -340,9 +346,9 @@ SystemWriterLog.writeLog("=========/Print Data...============");
 			<colgroup>
 				<%=PrintSets.getCol(new String[] { "20%", "10%","10%", "10%", "20%", "10%","10%", "10%" })%>
 			</colgroup>
-			<thead>
-				<tr><%=PrintSets.getTh(new String[] { "Server", "File", "DB", "Cycle", "Server", "File", "DB", "Cycle" })%></tr>
-			</thead>
+			<!-- <thead>  -->
+				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Server", "File", "DB", "Cycle", "Server", "File", "DB", "Cycle" })%></tr>
+			<!-- </thead>  -->
 			<tbody>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>1. TFSKRWEB</b>", PrintSets.onToY(backup.getWeb()), "", "Daily", "<b>2. TFSKRDBM</b>", "", PrintSets.onToY(backup.getDBM()), "Daily" })%></tr>				
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>3. TFSKRDEW</b>", PrintSets.onToY(backup.getDew()), "", "Daily", "<b>4. TFSKRMAIL</b>", PrintSets.onToY(backup.getMail()), "", "Daily" })%></tr>				

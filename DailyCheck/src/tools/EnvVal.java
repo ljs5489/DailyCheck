@@ -20,7 +20,7 @@ public class EnvVal {
 	public static String NEXT_ToyotaTarget;
 	public static String NEXT_Comment;    
 
-
+	public static String AUTH_PASSWORD; 
 	
 	public static void getEnvSetVals() throws IOException {
 		Properties properties = new Properties();
@@ -41,6 +41,8 @@ public class EnvVal {
 		NEXT_ToyotaTarget = properties.getProperty("NEXT_ToyotaTarget").trim();
 		NEXT_Comment = properties.getProperty("NEXT_Comment").trim();
 		
+		AUTH_PASSWORD = properties.getProperty("AUTH_PASSWORD").trim();
 	}
 
+	
 }

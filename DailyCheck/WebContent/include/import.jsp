@@ -11,3 +11,32 @@
 
 <script src="../js/func.js"></script>
 <link rel="stylesheet" href="../css/style.css">
+
+
+
+
+
+<%@ page import=" tools.* "%>
+<% 
+	String clientIP = RequestParameter.getClientIP(request);
+	SystemWriterLog.writeLog(GetDate.getCurrentTime()+" / "+clientIP);
+	
+	EnvVal.getEnvSetVals();	
+	//System.out.println(EnvVal.AUTH_PASSWORD);
+	
+	
+	//System.out.println(request.getServletPath().toString()); // /views/page7.jsp
+	//System.out.println(request.getRequestURL().toString()); // http://localhost:50006/DailyCheck/views/page7.jsp
+	//System.out.println(request.getRequestURI().toString()); // /DailyCheck/views/page7.jsp
+	
+	if (UserService.isCurrentUserLoggedIn(session) == false) { 
+		
+		UserService.setCurrURL(session, request.getRequestURI().toString()); //세션에 현재의 URI를 넣어줌.
+			
+		SystemWriterLog.writeLog("No Authority!");
+		String returnUrl = "/DailyCheck/views/login.jsp";	//Console에서 에러가 나면 안된다.	
+		response.sendRedirect(returnUrl);
+ 	} 
+%>
+
+

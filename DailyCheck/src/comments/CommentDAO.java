@@ -48,7 +48,7 @@ public class CommentDAO {
 		// @srchType INT, /* 검색대상(0: 검색없음, 1: 익명아이디, 2: 제목, 3: 내용 ) */
 		// @srchText NVARCHAR(50) /* 검색문자열*/
 
-		String sql = "EXEC jslee.sp.selectAll ?, ?, ?, ?, ?";
+		String sql = "EXEC DailyCheck.sp.selectAll ?, ?, ?, ?, ?";
 
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -83,7 +83,7 @@ public class CommentDAO {
 		
 		SystemWriterLog.writeLog("insertComment : "+content);
 		
-		String sql = "EXEC jslee.sp.insertComment ?, ?, ?, ?";
+		String sql = "EXEC DailyCheck.sp.insertComment ?, ?, ?, ?";
 
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -111,7 +111,7 @@ public class CommentDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
-		String sql = "EXEC jslee.sp.updatComment ?, ?, ?, ?, ?";
+		String sql = "EXEC DailyCheck.sp.updatComment ?, ?, ?, ?, ?";
 
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -140,7 +140,7 @@ public class CommentDAO {
 
 	public static int getRecordCount(/* int boardId, */int srchType,
 			String srchText/* , int category */) throws Exception {
-		String sql = "EXEC jslee.sp.commentRecordCount ?, ?";
+		String sql = "EXEC DailyCheck.sp.commentRecordCount ?, ?";
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			// stmt.setInt(1, boardId);
@@ -155,7 +155,7 @@ public class CommentDAO {
 
 	public static Comment selectById(int article_id, String user_ip,
 			String user_name) throws Exception {
-		String sql = "EXEC jslee.sp.selectById ?, ?, ?";
+		String sql = "EXEC DailyCheck.sp.selectById ?, ?, ?";
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, article_id);
@@ -173,7 +173,7 @@ public class CommentDAO {
 		" SELECT *,(SELECT COUNT(*) FROM sp.comment_log WHERE article_id =?) 'view' "
 		+",(SELECT COUNT(*) FROM sp.reply WHERE pid = cmt.id) 'reply' "	
 		+" ,(SELECT COUNT(*) FROM sp.likeit WHERE pid = cmt.id and [likeType]='1') 'likeIt' "
-		+" FROM [JSLEE].[sp].[comment] cmt WHERE [id] = ? ";
+		+" FROM [DailyCheck].[sp].[comment] cmt WHERE [id] = ? ";
 		
 
 		if(EnvVal.TESTING.equals("1")){
@@ -190,7 +190,7 @@ public class CommentDAO {
 		}
 	}
 	public static boolean checkPW(int article_id, String pw, boolean encrypted) throws Exception {
-		String sql = " SELECT PW FROM [JSLEE].[sp].[comment] WHERE id = ?";
+		String sql = " SELECT PW FROM [DailyCheck].[sp].[comment] WHERE id = ?";
 		try (Connection con = DB.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, article_id);

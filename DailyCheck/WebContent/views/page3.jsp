@@ -3,6 +3,17 @@
 <%@ page import="java.sql.*, tools.*, pages.*"%>
 <html>
 <head>
+
+
+	<% 
+	
+		//SystemWriterLog.writeLog("logout!");
+		//UserService.logout(session);
+		//return;
+	
+	%>
+
+
 <%@ include file="/../include/import.jsp"%>
 <script src="../js/page3Ajax.js"></script>
 <script src="../js/diskUsage.js"></script>
@@ -15,6 +26,7 @@
 
 </head>
 <body>
+
 	<!-- page ------------------------------------------------------------------------------------------------------------------------------------------->
 	<div data-role="page" id="page3">
 		<%@ include file="explain/forPage3.jsp"%>

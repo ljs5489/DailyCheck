@@ -209,7 +209,7 @@ public class ServerDAO {
 
 			
 			GetDate.makeLog("Server Select");
-			SystemWriterLog.writeLog(sql);
+			//SystemWriterLog.writeLog(sql);
 
 			statement = connection.prepareStatement(sql);
 			// statement.setString(1, id);

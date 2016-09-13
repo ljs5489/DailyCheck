@@ -49,7 +49,7 @@ public class ReplyDAO {
 	
 	public static int chkLikeIt(int pid, String userIP, String userName) throws Exception {
 		String sql =""
-			+"SELECT chk = COUNT(*) FROM [JSLEE].[sp].[likeit] WHERE 1=1"
+			+"SELECT chk = COUNT(*) FROM [DailyCheck].[sp].[likeit] WHERE 1=1"
 			+" AND [pid] = ? "
 			+" AND [userIp] = ? "
 			+" AND [userName] = ? "
@@ -113,7 +113,7 @@ public class ReplyDAO {
 	}
 	public static boolean checkPW(String sid, String pid, String pw, boolean encrypted) throws Exception {
 		String sql =   " SELECT PW "
-					  +" FROM [JSLEE].[sp].[reply] "
+					  +" FROM [DailyCheck].[sp].[reply] "
 					  +" WHERE 1=1 "
 					  +" AND id = ? "
 					  +" AND pid = ? ";
@@ -142,7 +142,7 @@ public class ReplyDAO {
 
 	}
 	public static void deleteReply(String sid, String pid) throws Exception {
-		String sql = " DELETE FROM [JSLEE].[sp].[reply] WHERE id = ? AND pid = ? ";
+		String sql = " DELETE FROM [DailyCheck].[sp].[reply] WHERE id = ? AND pid = ? ";
 		
 		try (
 				Connection con = DB.getConnection();

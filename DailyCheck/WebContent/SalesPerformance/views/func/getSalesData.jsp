@@ -56,9 +56,9 @@
 	
 	//======================================================================================
 
- 	Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-	SystemWriterLog.writeLog(sdf.format(cal.getTime()) + " getSalesData.jsp : "+code+" / IP : "+ipAddress);
+ 	//Calendar cal = Calendar.getInstance();
+    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	//SystemWriterLog.writeLog(sdf.format(cal.getTime()) + " getSalesData.jsp : "+code+" / IP : "+ipAddress);
 	
 	JSONObject json = new JSONObject();
 	json.put("name", "테스트 입니다...");	

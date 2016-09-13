@@ -1,3 +1,4 @@
+
 function getCurrentTime() {
 	var currentdate = new Date();
 	var datetime = ("0" + currentdate.getHours()).slice(-2) + ":" + ("0" + currentdate.getMinutes()).slice(-2);

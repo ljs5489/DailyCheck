@@ -10,6 +10,31 @@ HTML에서 캐시제거
 <meta http-equiv="Expires" content="0"/> 
 <meta http-equiv="Pragma" content="no-cache"/>
  -->
+ 
+ 
+ <%
+ 
+ 	//=========== 2016-09-12 권한체크 =================
+	String clientIP = RequestParameter.getClientIP(request);
+ 	String currPg = request.getRequestURL().toString();
+ 
+ 
+ 
+	SystemWriterLog.writeLog(GetDate.getCurrentTime()+" | "+clientIP +" | "+currPg);	
+	String returnUrl = "/DailyCheck/SalesPerformance/views/Login.jsp";	//Console에서 에러가 나면 안된다.	
+	
+	
+	
+	if (UserService.isCurrentUserLoggedIn(session) == false && currPg.contains(returnUrl) == false) { 
+			
+		SystemWriterLog.writeLog("No Authority!");				
+		response.sendRedirect(returnUrl);
+		return;
+ 	} 
+ 	//=========== /2016-09-12 권한체크 =================
+%>
+ 
+ 
 <%
 	//========================================
 	response.setHeader("cache-control","no-cache"); 
