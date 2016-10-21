@@ -98,8 +98,9 @@
 				</div>
 				<div class="ui-grid-c">
 					<%=Sets.setBlock("a", "WMstate", "Good", "Bad", true)%>
-					<%=Sets.setBlock("b", "WMpump", "N", "A", true)%>
-					<%=Sets.setBlock("c", "WMaircon", "N", "A", true)%>
+					
+					<%= Sets.setBlock("b", "WMpump", "Y", "N", true) %>
+					<%= Sets.setBlock("c", "WMaircon", "Y", "N", true) %>
 					<div class="ui-block-d">
 						<label for="WMtemperature">Temperature:</label> <input type="tel"
 							name="WMtemperature" id="WMtemperature">

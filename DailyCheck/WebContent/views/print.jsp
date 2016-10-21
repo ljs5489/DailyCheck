@@ -115,6 +115,8 @@ html body .tempThead th{
 	</table>
 
 		<%= PrintSets.getWrap() %>
+			<p style="margin:0px; width:200%;font-size:11px; text-align:right;">[ Y : Normal, N : Not Normal, N/A : Not Applicable ]</p>
+	
 		<%= PrintSets.getHeader(
 				"Precheck", 
 				"Min Park", 
@@ -162,9 +164,12 @@ html body .tempThead th{
 							"<b>State( "+PrintSets.timeFormat(precheck.getWMtime())+" )</b>", 
 							PrintSets.onToGood(precheck.getWMstate()), 
 							"<b>Aircon</b>", 
-							PrintSets.onToN(precheck.getWMaircon())+" / "+PrintSets.setC(precheck.getWMtemperature()), 
+							//PrintSets.onToN(precheck.getWMaircon())+" / "+PrintSets.setC(precheck.getWMtemperature()),
+							PrintSets.onToY(precheck.getWMaircon())+" / "+PrintSets.setC(precheck.getWMtemperature()), 
+							
 							"<b>Water Pump</b>", 
-							PrintSets.onToN(precheck.getWMpump()) })
+							//PrintSets.onToN(precheck.getWMpump()) })
+							PrintSets.onToY(precheck.getWMpump()) })
 					%>
 				</tr>
 <!-- 
@@ -185,7 +190,7 @@ html body .tempThead th{
 				<tr><td><b>If Any</b></td><td colspan="6"><%= precheck.getIfany() %></td></tr>	
 			</tbody>
 		</table>
-		<p style="margin:0px; font-size:8px;">※ N(Normal)/A(Abnormal), Y(Normal)/N(Not Normal)</p>
+		<!-- <p style="margin:0px; font-size:8px;">※ N(Normal)/A(Abnormal), Y(Normal)/N(Not Normal)</p>  -->
 		<%= PrintSets.getFooter() %>
 
 		 <br/>

@@ -10,27 +10,39 @@
 <%
 	String errMsg = null;
 	RequestParameter param = new RequestParameter(request);
-	String loginId = param.getString("loginId", "");
+	
+	
+	
+	boolean autoLogin = false;
+	String pw = param.getString("pw", "");	
+	if( pw.equals(EnvVal.AUTH_PASSWORD) ){
+		autoLogin = true;
+		SystemWriterLog.writeLog("Auto Login...");
+	}
+	//System.out.println("pw : "+pw);
+	
 
-	if (request.getMethod().equals("POST")) {
+	
+	if (request.getMethod().equals("POST") || autoLogin==true) {
+		
+		//System.out.println("...1");
+		
 		User user = new User();//UserDAO.selectByLoginId(loginId);
-		if (user != null) {
-			String passwd = param.getString("passwd", "");
-			//String encryptedPasswd = UserService.encryptToMD5(passwd);
+		String passwd = param.getString("passwd", "");			
+		
+		if (passwd.equals(EnvVal.AUTH_PASSWORD) || autoLogin==true) { 
 			
-			//System.out.println(EnvVal.AUTH_PASSWORD);
+			//System.out.println("...2");
 			
-			
-			if (passwd.equals(EnvVal.AUTH_PASSWORD)) { //이것은 추후 변경할 수 있도록 하자.
-				UserService.login(session, user);
+			UserService.login(session, user);
 
-				String returnUrl = "/DailyCheck/SalesPerformance/views/StaffTarget.jsp?timer=on"; //Console에서 에러가 나면 안된다.	
-				response.sendRedirect(returnUrl);
+			String returnUrl = "/DailyCheck/SalesPerformance/views/BothTarget.jsp?timer=on"; //Console에서 에러가 나면 안된다.	
+			response.sendRedirect(returnUrl);
 
-				return;
-			} else
-				errMsg = "비밀번호가 잘못되었습니다.";
-		}
+			return;
+		} else
+			errMsg = "비밀번호가 잘못되었습니다.";
+	
 	}
 %>
 

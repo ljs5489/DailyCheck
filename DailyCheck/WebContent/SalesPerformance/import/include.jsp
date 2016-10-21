@@ -14,6 +14,17 @@ HTML에서 캐시제거
  
  <%
  
+ 
+ 	
+ 	//========== 2016-10-11 ===========
+ 	if("on".equals(request.getParameter("timer"))){ //timer가 on이어서 넘어온 것이라면,
+ 		//session.setMaxInactiveInterval(1800); //세션 유지... 		
+ 	 	//SystemWriterLog.writeLog("Auto Timer Access | Session was postponed... "+session.getMaxInactiveInterval());
+ 		SystemWriterLog.writeLog("Auto Timer Access | Session was postponed... "+session.isNew());
+ 		
+ 	}
+ 	//========== /2016-10-11 ===========
+ 
  	//=========== 2016-09-12 권한체크 =================
 	String clientIP = RequestParameter.getClientIP(request);
  	String currPg = request.getRequestURL().toString();

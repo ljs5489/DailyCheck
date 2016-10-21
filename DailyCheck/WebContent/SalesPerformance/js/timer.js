@@ -24,6 +24,9 @@ $(function(){
 	    myTimer = setInterval(function(){
 		    console.log(temp++);
 		  	location.href = nextPage+'?timer='+timerOnOff;
+		  	
+		  	
+		  	
 	    }, 1000*timeTerm);	
 	}
 	$("#timerPlay").click(function(){

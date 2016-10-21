@@ -51,7 +51,8 @@ public class PrintSets {
 		returnIt+=" <table width='100%' cellpadding='0' cellspacing='0' class='title'>";
 		returnIt+=" <colgroup> <col width='65%' /> <col width='35%' /> </colgroup> <tr>";
 		returnIt+=" <td><h2>●"+name+" ( "+checker+" ) : ( "+checkTime+" )</hs2></td>";
-		returnIt+=" <td>___________"+checker2+"____________ [ Error : N ]</td>";
+		//returnIt+=" <td>___________"+checker2+"____________ [ Error : N ]</td>";
+		returnIt+=" <td>___________"+checker2+"____________ </td>";		
 		returnIt+=" </tr><tr></tr></table>";
 		
 		return returnIt;
@@ -122,8 +123,12 @@ public class PrintSets {
 		else return "<b><u>Bad</u></b>";		
 	}
 	public static String onToY(String on){
-		if((on).equals("on")) return "Y";
-		else return "<b><u>N</u></b>";		
+		if((on).equals("on"))
+			return "Y";
+		else if((on).equals("off"))
+			return "<b><u>N</u></b>";
+		else
+			return "<b><u>N/A</u></b>";
 	}
 	public static String onToN(String on){
 		if((on).equals("on")) return "N";

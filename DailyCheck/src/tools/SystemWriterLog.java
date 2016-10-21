@@ -40,7 +40,7 @@ public class SystemWriterLog{
     	
         filePath = fileName+"\\"+getTodayYYYYMMDD()+"_log.txt";        
         
-        System.out.println(txt);
+       // System.out.println(txt);
         
         try{
         	makeFolder(fileName); //파일 만들기
