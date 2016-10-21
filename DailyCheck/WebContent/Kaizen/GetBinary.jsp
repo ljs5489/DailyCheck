@@ -5,28 +5,43 @@
 <%@ page import="java.lang.*"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.net.*"%>
-
-
+<%@ page import="tools.GetDate"%>
+<%@ page import="tools.SystemWriterLog"%>
 
 <%
 
+
+    
+
+
 	String p_date = request.getParameter("p_date");//
 	String p_id   = request.getParameter("U_ID");//
+	
+	String reg_dayMMDD = p_date.substring(4, 8);	
+	String todayMMDD   = GetDate.getDate().replaceAll("-","").substring(4, 8);
+	
+	
 	
 	if(p_id == null || p_id.equals("")){		
 		p_id = "Unknown";
 	}
 	
-	String basic_path = "C:\\inetpub\\wwwroot\\test\\";
-	// 서버에 실제 저장된 파일명
-	String filename = p_id+"_"+p_date+"_CMS";
+	
+	
+	
+	
+	String basic_path = MB_DAO.getCMSpath();//"C:\\inetpub\\wwwroot\\test\\"; // 서버에 실제 저장된 파일명
+	String filename = "AE5119"+reg_dayMMDD+todayMMDD+"099"+"9965913443";
+	
+	//System.out.println(basic_path);
+	SystemWriterLog.writeLog(basic_path + filename);
 
 	MakeFileTool.makeFileFromDB(p_date, basic_path + filename); //파일 만든다.
 
 
 	//경로
 	String realPath = basic_path + filename;
-	System.out.println(realPath);
+	//System.out.println(realPath);
 	
 	
 	File file = new File(realPath);

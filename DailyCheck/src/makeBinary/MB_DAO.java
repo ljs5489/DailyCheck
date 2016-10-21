@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Blob;
@@ -12,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import comments.Comment;
 import tools.DB;
@@ -20,7 +22,20 @@ public class MB_DAO {
 	
 	static int block = 0;
 	static int space = 0;
-
+	static String cms_file_path = "";
+	
+	
+	
+    public static String getCMSpath() throws Exception {
+    	if("".equals(cms_file_path)){
+            Properties properties = new Properties();
+            InputStream inputstream = MB_DAO.class.getClassLoader().getResourceAsStream("envSet.properties");
+            properties.load(inputstream);
+            cms_file_path = properties.getProperty("CMS_FILE_PATH");    		
+    	}
+    	return cms_file_path;
+    }   
+    
 	public static int getAllRecordCount(String date) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -67,13 +82,19 @@ public class MB_DAO {
 		ResultSet resultSet = null;
 		
 		String sql = Queries.select1(date);				
-					
-		try (Connection con = DB_makeBin.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+		//int K =0;			
+		
+		
+		try (Connection con = DB_makeBin.getConnection(); 
+				PreparedStatement stmt = con.prepareStatement(sql)) {
 
 			try (ResultSet rs = stmt.executeQuery()) {
 				while (rs.next()){
-					System.out.println(4);
+					//System.out.println(rs.toString());
+					//K++;
+					//if(K!=1) continue;
 					makeDataRecords(rs);
+					//System.out.println(K);
 				}
 			}
 		} finally {
@@ -120,9 +141,7 @@ public class MB_DAO {
 
 		if( !(binaryData.length == 0) ){			
 			// 채워줘야 하는 공백 계산
-			System.out.println(binaryData.length);
 			space = (int) (1024 - ((binaryData.length + 141) % 1024));			
-			System.out.println(space);
 		}
 		else {
 			space = 883;
@@ -147,21 +166,14 @@ public class MB_DAO {
 		+ AN(5, FILE_EXTENSION) // 15. 동의자료 확장자
 		+  N(7, FILE_SIZE) 		// 16. 동의자료 길이
 		+ "";
-		 
-		byte[] binData = strData.getBytes();
-		MakeFileTool.targetFile.write(binData);
-		//MakeFileTool.targetFile.write(binaryData);		
-		
-		//calBlockCnt(strData); // Block 개수 계산
-
+		byte[] recordData = strData.getBytes();				
 		byte[] tmp = new byte[10];		
 		
+		// 17. 동의자료 Data
 		if ( binaryData != null ){
 			tmp = binaryData;
 		}
-		
-		byte[] recordData = strData.getBytes();
-		
+				
 		byte[] tmpdata = new byte[tmp.length+ recordData.length];
 		System.arraycopy(recordData, 0, tmpdata, 0, recordData.length );
 		System.arraycopy(tmp, 0, tmpdata, recordData.length, tmp.length);
@@ -170,7 +182,7 @@ public class MB_DAO {
 		
 		
 		// ================= 18. FILLER =======================
-		strData = rpad(strData," ",space); //나중에 수정
+		strData = rpad(""," ",space); 
 		tmp = strData.getBytes();		
 		byte[] data = new byte[tmp.length + tmpdata.length];
 		System.arraycopy(tmpdata, 0, data, 0, tmpdata.length );
@@ -184,7 +196,7 @@ public class MB_DAO {
 
 
 	public static void makeTailerRecord(String date) throws Exception {		
-		String strHeader = ""
+		String strHeader = "\n\n\n"
 		 + AN(6, "AE5119")                 // 1. 업무 구분 코드 AE5119
 		 +  N(2, "33") 	                   // 2. 데이터 구분 코드 
 		 +  N(7, "9999999")               // 3. 일련 번호
@@ -246,3 +258,4 @@ public class MB_DAO {
 	}
 	//=======================================================
 }
+

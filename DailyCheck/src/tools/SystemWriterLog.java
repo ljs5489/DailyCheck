@@ -45,6 +45,7 @@ public class SystemWriterLog{
         try{
         	makeFolder(fileName); //파일 만들기
         	writeTxt(txt); //텍스트 쓰기      
+        	System.out.println(txt);
         }
         catch(Exception e){
         	SystemWriterLog.writeLog(e);        	

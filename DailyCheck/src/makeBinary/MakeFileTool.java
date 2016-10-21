@@ -12,9 +12,19 @@ public class MakeFileTool {
 	static OutputStream targetFile = null;
 	static int TotCnt = 0;
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void makeFileFromDB(String date, String path) throws Exception {
-		
-		
+// wb_filedown.PageUrl = "http://dcsp.tfskr.co.kr:50002/DailyCheck/Kaizen/GetBinary.jsp?p_date="+date+"&U_ID="+U_ID;	
+// wb_filedown.Run();	
+
 		targetFile = new FileOutputStream(path);
 		TotCnt     = MB_DAO.getAllRecordCount(date);	
 		
@@ -26,11 +36,12 @@ public class MakeFileTool {
 			makeDataRecord(date);
 			makeTailerRecord(date);
 		}
-		catch(Exception e){
-			
+		catch(Exception e){			
 			
 		}
-		//SystemWriterLog.writeLog("path : "+path+" | date : "+date);
+		
+		
+		SystemWriterLog.writeLog("MakeFileTool.java | "+path+" | "+date);
 
 		// ==============Data Record ===============
 		
