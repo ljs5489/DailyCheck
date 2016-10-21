@@ -210,7 +210,39 @@ public class MB_DAO {
 		MakeFileTool.targetFile.write(data);
 	}
 	
-	
+	public static void insertBinaryData(byte[] binaryData, DataSetCust ds) throws Exception {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DB_makeBin.getConnection();
+			String sql = "";
+			sql ="" //+= "INSERT INTO CMSATTACH(test) VALUES ( ? ) ";
+			+ "INSERT INTO CMSATTACH(KY_NO,SIL_COUNT,CMS_NO,SEQ_NUM,FILE_ROW,FILE_BIN_DATA)" 
+			+ "VALUES(?,?,?,?,?,?)"
+			+ "";
+
+			System.out.println("hello : "+sql);
+
+			statement = connection.prepareStatement(sql);
+			statement.setString(1,ds.getKY_NO()); 
+			statement.setString(2,ds.getSIL_COUNT()); 
+			statement.setString(3,ds.getCMS_NO()); 
+			statement.setString(4,ds.getSEQ_NUM()); 
+			statement.setString(5,ds.getFILE_ROW());
+			statement.setBytes(6, binaryData); 
+
+			statement.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (statement != null)
+				statement.close();
+			if (connection != null)
+				connection.close();
+		}
+	}
 	
 	
 	//============= Block 개수 계산 ================
