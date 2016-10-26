@@ -37,7 +37,7 @@ public class MakeFileTool {
 			makeTailerRecord(date);
 		}
 		catch(Exception e){			
-			
+			//System.out.println(e);
 		}
 		
 		

@@ -65,7 +65,8 @@
 		} catch (Exception e) {
 			System.out.println("에러메세지: " + e.getMessage());
 		} finally {
-			if (output != null) {
+			if (output != null ) {
+				System.out.println(output.toString());
 				output.close();
 			}
 			if (input != null) {

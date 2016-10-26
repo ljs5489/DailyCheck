@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<Window>
+	<Form BKColor="white" Height="584" Id="Form1" Left="8" OnLoadCompleted="Form1_OnLoadCompleted" PidAttrib="7" Title="CMS&#32;Account&#32;Change" Top="8" Ver="1.1" Width="1000" WorkArea="TRUE">
+		<Datasets>
+			<Dataset DataSetType="Dataset" Id="Data_CMS" OnLoadCompleted="Data_CMS_OnLoadCompleted">
+				<Contents>
+					<colinfo id="KY_NO" size="10" summ="default" type="STRING"/>
+					<colinfo id="SIL_COUNT" size="3" summ="default" type="STRING"/>
+					<colinfo id="CF_HCODE" size="7" summ="default" type="STRING"/>
+					<colinfo id="CF_SCODE" size="3" summ="default" type="STRING"/>
+					<colinfo id="CMS_NO" size="20" summ="default" type="STRING"/>
+					<colinfo id="SEQ_NUM" size="7" summ="default" type="STRING"/>
+					<colinfo id="REG_DATE" size="8" summ="default" type="STRING"/>
+					<colinfo id="CF_BANKCODE" size="6" summ="default" type="STRING"/>
+					<colinfo id="CF_KEJWA_NO" size="16" summ="default" type="STRING"/>
+					<colinfo id="DEPOSIT_OWNER" size="60" summ="default" type="STRING"/>
+					<colinfo id="CF_SAUP_JUMIN" size="13" summ="default" type="STRING"/>
+					<colinfo id="REL_KUBUN" size="9" summ="default" type="STRING"/>
+					<colinfo id="CMS_STATUS" size="9" summ="default" type="STRING"/>
+					<colinfo id="KY_STATUS" size="9" summ="default" type="STRING"/>
+					<colinfo id="CF_BANKNAME" size="60" summ="default" type="STRING"/>
+					<colinfo id="REL_NAME" size="60" summ="default" type="STRING"/>
+					<colinfo id="CMS_STATUS_NAME" size="60" summ="default" type="STRING"/>
+					<colinfo id="KY_STATUS_NAME" size="60" summ="default" type="STRING"/>
+					<colinfo id="ENTRY_NAME" size="256" summ="default" type="STRING"/>
+					<colinfo id="ENTRY_DATE" size="256" summ="default" type="STRING"/>
+					<colinfo id="UPDAT_NAME" size="256" summ="default" type="STRING"/>
+					<colinfo id="UPDAT_DATE" size="256" summ="default" type="STRING"/>
+					<colinfo id="UPLOAD_YN" size="1" summ="default" type="STRING"/>
+					<colinfo id="FILE_PATH" size="256" summ="default" type="STRING"/>
+					<colinfo id="FILE_NAME" size="256" summ="default" type="STRING"/>
+					<colinfo id="EVIDENCE_TYPE" size="6" summ="default" type="STRING"/>
+					<colinfo id="EVIDENCE_TYPE_NAME" size="60" summ="default" type="STRING"/>
+					<colinfo id="EVIDENCE_REQUIRED_YN" size="1" summ="default" type="STRING"/>
+					<colinfo id="EVIDENCE_REG_USR" size="60" summ="default" type="STRING"/>
+					<colinfo id="APPL_CLSS_NM" size="60" summ="default" type="STRING"/>
+					<colinfo id="EB13_SEND_DATE" size="8" summ="default" type="STRING"/>
+					<colinfo id="EB14_YN" size="1" summ="default" type="STRING"/>
+					<colinfo id="RESULT_CD" size="1" summ="default" type="STRING"/>
+					<colinfo id="AE5119_REG_DATE" size="8" summ="default" type="STRING"/>
+				</Contents>
+			</Dataset>
+			<Dataset DataSetType="Dataset" Id="Data_B38" serviceID="testasp::bizcode_sl.asp?Code_First=B38">
+				<contents id="Data_B47">
+					<colinfo id="CODE_ENAME" size="60" type="STRING"/>
+					<colinfo id="CODE_FIRST" size="9" type="STRING"/>
+					<colinfo id="CODE_HNAME" size="40" type="STRING"/>
+					<colinfo id="CODE_KITA1" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA2" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA3" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA4" size="20" type="STRING"/>
+					<colinfo id="CODE_KITA5" size="20" type="STRING"/>
+					<colinfo id="CODE_USEYN" size="1" type="STRING"/>
+					<colinfo id="ENTRY_DATE" size="20" type="STRING"/>
+					<colinfo id="ENTRY_IDNO" size="13" type="STRING"/>
+					<colinfo id="SEARCH_SEQ" size="5" type="STRING"/>
+					<colinfo id="UPDAT_DATE" size="20" type="STRING"/>
+					<colinfo id="UPDAT_IDNO" size="13" type="STRING"/>
+					<colinfo id="UPDATE_YN" size="1" type="STRING"/>
+				</contents>
+			</Dataset>
+			<Dataset DataSetType="Dataset" Id="Data_A81" serviceID="testasp::bizcode_sl.asp?Code_First=A81">
+				<Contents>
+					<colinfo id="CODE_ENAME" size="60" type="STRING"/>
+					<colinfo id="CODE_FIRST" size="9" type="STRING"/>
+					<colinfo id="CODE_HNAME" size="40" type="STRING"/>
+					<colinfo id="CODE_KITA1" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA2" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA3" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA4" size="20" type="STRING"/>
+					<colinfo id="CODE_KITA5" size="20" type="STRING"/>
+					<colinfo id="CODE_USEYN" size="1" type="STRING"/>
+					<colinfo id="ENTRY_DATE" size="20" type="STRING"/>
+					<colinfo id="ENTRY_IDNO" size="13" type="STRING"/>
+					<colinfo id="SEARCH_SEQ" size="5" type="STRING"/>
+					<colinfo id="UPDAT_DATE" size="20" type="STRING"/>
+					<colinfo id="UPDAT_IDNO" size="13" type="STRING"/>
+					<colinfo id="UPDATE_YN" size="1" type="STRING"/>
+				</Contents>
+			</Dataset>
+			<Dataset DataSetType="Dataset" Id="dsKey" OnLoadCompleted="dsKey_OnLoadCompleted"></Dataset>
+			<Dataset DataSetType="Dataset" Id="dsUploadFile">
+				<Contents>
+					<colinfo id="SAVE_NAME" size="255" summ="default" type="STRING"/>
+					<colinfo id="FILE_PATH" size="255" summ="default" type="STRING"/>
+					<colinfo id="FILE_NAME" size="255" summ="default" type="STRING"/>
+					<colinfo id="FILE_SIZE" size="256" summ="default" type="STRING"/>
+					<colinfo id="FILE_EXTENSION" size="256" summ="default" type="STRING"/>
+					<colinfo encrypt="base64" id="FILE_BIN_DATA" size="-15536" summ="default" type="BLOB"/>
+					<colinfo encrypt="base64" id="FILE_BIN_DATA1" size="8000" summ="default" type="BLOB"/>
+				</Contents>
+			</Dataset>
+			<Dataset DataSetType="Dataset" Id="ds_file">
+				<Contents>
+					<colinfo id="FILE_SEQ" size="255" type="STRING"/>
+					<colinfo id="FILE_KEY" size="255" type="STRING"/>
+					<colinfo id="FILE_GUBUN" size="255" type="STRING"/>
+					<colinfo id="FILE_KIND" size="255" type="STRING"/>
+					<colinfo id="FILE_NAME" size="255" type="STRING"/>
+					<colinfo id="SAVE_NAME" size="255" type="STRING"/>
+					<colinfo id="FILE_PATH" size="255" type="STRING"/>
+					<colinfo id="ENTRY_DATE" size="255" type="STRING"/>
+					<colinfo id="ENTRY_IDNO" size="255" type="STRING"/>
+				</Contents>
+			</Dataset>
+			<Dataset DataSetType="Dataset" Id="Data_R80" serviceID="testasp::bizcode_sl.asp?Code_First=R80">
+				<contents id="Data_B47">
+					<colinfo id="CODE_ENAME" size="60" type="STRING"/>
+					<colinfo id="CODE_FIRST" size="9" type="STRING"/>
+					<colinfo id="CODE_HNAME" size="40" type="STRING"/>
+					<colinfo id="CODE_KITA1" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA2" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA3" size="18" type="STRING"/>
+					<colinfo id="CODE_KITA4" size="20" type="STRING"/>
+					<colinfo id="CODE_KITA5" size="20" type="STRING"/>
+					<colinfo id="CODE_USEYN" size="1" type="STRING"/>
+					<colinfo id="ENTRY_DATE" size="20" type="STRING"/>
+					<colinfo id="ENTRY_IDNO" size="13" type="STRING"/>
+					<colinfo id="SEARCH_SEQ" size="5" type="STRING"/>
+					<colinfo id="UPDAT_DATE" size="20" type="STRING"/>
+					<colinfo id="UPDAT_IDNO" size="13" type="STRING"/>
+					<colinfo id="UPDATE_YN" size="1" type="STRING"/>
+				</contents>
+			</Dataset>
+			<Dataset DataSetType="Dataset" Id="DATA_RES" OnLoadCompleted="DATA_RES_OnLoadCompleted">
+				<Contents>
+					<colinfo id="ErrorText" size="256" summ="default" type="STRING"/>
+					<colinfo id="ErrorType" size="256" summ="default" type="STRING"/>
+				</Contents>
+			</Dataset>
+		</Datasets>
+		<Static Align="Center" BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="157" Id="Static30" Left="16" TabOrder="16" Top="128" Width="968"></Static>
+		<Static BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="28" Id="Static13" Left="23" TabOrder="19" Top="192" Width="954"></Static>
+		<Static BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="32" Id="Static33" Left="15" TabOrder="68" Top="62" Width="968"></Static>
+		<Static BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="28" Id="Static25" Left="23" TabOrder="25" Top="138" Width="954"></Static>
+		<Static BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="28" Id="Static31" Left="23" TabOrder="17" Top="165" Width="954"></Static>
+		<edit BindDataset="Data_CMS" Border="Flat" Enable="FALSE" Height="19" Id="Txt_CustName" Left="460" TabOrder="9" Top="69" Width="215"></edit>
+		<edit Border="Flat" DisableBKColor="white" Height="19" Id="Txt_ConNo" Left="134" OnKeyDown="Txt_ConNo_OnKeyDown" TabOrder="1" Top="69" Width="74"></edit>
+		<Button Font="굴림,9" Height="24" Id="Maskedit2" Left="854" OnClick="Button_Search_OnClick" TabOrder="13" Text="Search" Top="66" Width="60"></Button>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="CMS_NO" Enable="FALSE" Height="19" Id="Txt_CMS_NO" Left="780" TabOrder="2" Top="170" Width="133"></edit>
+		<Maskedit BindDataset="Data_CMS" Border="Flat" Column="CF_HCODE" DisplayComma="FALSE" Enable="FALSE" Height="19" Id="Txt_CustNo" Left="679" Mask="@@@@@@@" TabOrder="10" Top="69" Type="STRING" Width="64"></Maskedit>
+		<Maskedit BindDataset="Data_CMS" Border="Flat" Column="CF_SCODE" DisplayComma="FALSE" Enable="FALSE" Height="19" Id="Txt_CustSeq" Left="746" Mask="@@@" TabOrder="11" Top="69" Type="STRING" Width="44"></Maskedit>
+		<Static Align="Center" BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="280" Id="Static49" Left="15" TabOrder="24" Top="290" Width="968"></Static>
+		<Button Font="굴림,9" Height="24" Id="cmdSave" Left="915" OnClick="Button2_OnClick" TabOrder="8" Text="Save" Top="66" Width="60"></Button>
+		<Static BorderColor="#01315e" Font="돋움,12,Bold" Height="20" Id="Static5" Left="24" TabOrder="26" Text="CMS&#32;Account&#32;Change" Top="8" Width="280"></Static>
+		<Static BKColor="#0843a4" Height="14" Id="Static4" Left="11" TabOrder="29" Top="10" Width="9"></Static>
+		<Static BKColor="#21a5a6" Height="10" Id="Static3" Left="11" TabOrder="30" Top="3" Width="9"></Static>
+		<Maskedit BindDataset="Data_CMS" Border="Flat" Column="SIL_COUNT" DisplayComma="FALSE" Enable="FALSE" Height="19" Id="Txt_SilCount" Left="212" Mask="@@@" TabOrder="12" Top="69" Type="STRING" Width="22"></Maskedit>
+		<Grid BindDataset="Data_CMS" BKColor="white" BkColor2="default" BoldHead="true" Border="Flat" Bottom="565" Enable="true" EndLineColor="default" Height="267" Id="Grid0" InputPanel="FALSE" Left="24" LineColor="default" OnCellClick="Grid0_OnCellClick" OnCellDBLClick="Grid0_OnCellDblClick" Right="976" TabOrder="15" TabStop="true" Top="298" UseDBuff="true" UsePopupMenu="true" UseSelColor="true" Visible="true" VLineColor="default" WheelScrollRow="1" Width="952">
+			<contents>
+				<format id="Default">
+					<columns>
+						<col width="100"/>
+						<col width="80"/>
+						<col width="65"/>
+						<col width="98"/>
+						<col width="103"/>
+						<col width="70"/>
+						<col width="115"/>
+						<col width="74"/>
+						<col width="110"/>
+						<col width="0"/>
+						<col width="0"/>
+						<col width="0"/>
+						<col width="0"/>
+						<col width="83"/>
+						<col width="110"/>
+						<col width="89"/>
+						<col width="120"/>
+						<col width="83"/>
+					</columns>
+					<head>
+						<cell bkcolor="#ffefde" col="0" display="text" text="Contract&#32;No."/>
+						<cell align="center" bkcolor="#ffefde" col="1" display="text" text="Due.Date"/>
+						<cell bkcolor="#ffefde" col="2" display="text" text="Bank"/>
+						<cell bkcolor="#ffefde" col="3" display="text" text="Account&#32;No."/>
+						<cell bkcolor="#ffefde" col="4" display="text" text="Acc.&#32;Owner"/>
+						<cell bkcolor="#ffefde" col="5" display="text" text="Relation"/>
+						<cell bkcolor="#ffefde" col="6" display="text" text="Social&#32;Sec.&#32;No."/>
+						<cell bkcolor="#ffefde" col="7" display="text" text="증빙구분"/>
+						<cell bkcolor="#ffefde" col="8" display="text" text="증빙자료&#32;접수자"/>
+						<cell bkcolor="#ffefde" col="9" display="text" text="상태"/>
+						<cell bkcolor="#ffefde" col="10" display="text" text="CMS&#32;송신날짜"/>
+						<cell bkcolor="#ffefde" col="11" display="text" text="신규등록&#32;결과수신"/>
+						<cell bkcolor="#ffefde" col="12" display="text" text="결과값"/>
+						<cell bkcolor="#ffefde" col="13" display="text" text="Entry&#32;User"/>
+						<cell bkcolor="#ffefde" col="14" display="text" text="Entry&#32;Date"/>
+						<cell bkcolor="#ffefde" col="15" display="text" text="Update&#32;User"/>
+						<cell bkcolor="#ffefde" col="16" display="text" text="Update&#32;Date"/>
+						<cell bkcolor="#ffefde" col="17" display="text" text="업로드&#32;여부"/>
+					</head>
+					<body>
+						<cell align="center" col="0" colid="KY_NO" display="text" expr="KY_NO&#32;+&#32;&apos;-&apos;&#32;+&#32;SIL_COUNT"/>
+						<cell align="center" col="1" colid="REG_DATE" display="text" Mask="@@@@-@@-@@"/>
+						<cell col="2" colid="CF_BANKNAME" display="text"/>
+						<cell col="3" colid="CF_KEJWA_NO" display="text"/>
+						<cell align="left" col="4" colid="DEPOSIT_OWNER" display="text"/>
+						<cell col="5" colid="REL_NAME" display="text"/>
+						<cell col="6" colid="CF_SAUP_JUMIN" display="text" Mask="@@@@@@-@@@@@@@"/>
+						<cell align="center" col="7" colid="EVIDENCE_TYPE_NAME" display="text"/>
+						<cell align="center" col="8" colid="EVIDENCE_REG_USR" display="text"/>
+						<cell align="center" col="9" colid="APPL_CLSS_NM" display="text"/>
+						<cell align="center" col="10" colid="EB13_SEND_DATE" display="text"/>
+						<cell align="center" col="11" colid="EB14_YN" display="text"/>
+						<cell align="center" col="12" colid="RESULT_CD" display="text"/>
+						<cell align="center" col="13" colid="ENTRY_NAME" display="text"/>
+						<cell align="center" col="14" colid="ENTRY_DATE" display="text"/>
+						<cell align="center" col="15" colid="UPDAT_NAME" display="text"/>
+						<cell align="center" col="16" colid="UPDAT_DATE" display="text"/>
+						<cell align="center" col="17" colid="UPLOAD_YN" display="text"/>
+					</body>
+				</format>
+			</contents>
+		</Grid>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static18" Left="648" TabOrder="36" Text="CMS&#32;No." Top="165" VAlign="Middle" Width="124"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static36" Left="648" TabOrder="36" Text="*Account&#32;Owner" Top="138" VAlign="Middle" Width="124"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static16" Left="328" TabOrder="36" Text="*Account&#32;No." Top="138" VAlign="Middle" Width="124"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Height="28" Id="Static17" Left="23" TabOrder="36" Text="*Bank" Top="138" VAlign="Middle" Width="116"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="#b1b1b1" Height="32" Id="Static7" Left="15" TabOrder="57" Text="Contract&#32;No." Top="62" VAlign="Middle" Width="112"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="#b1b1b1" Height="32" Id="Static24" Left="328" TabOrder="63" Text="Customer&#32;" Top="62" VAlign="Middle" Width="124"></Static>
+		<Static BorderColor="#01315e" Font="돋움,10,Bold" Height="14" Id="Static26" Left="33" TabOrder="64" Text="Search&#32;Condition" Top="43" Width="149"></Static>
+		<Static BKColor="#008aac" Height="10" Id="Static28" Left="20" TabOrder="65" Top="45" Width="9"></Static>
+		<Static BKColor="#e4e4e4" Border="Flat" Height="1" Id="Static29" Left="15" TabOrder="66" Top="33" Width="970"></Static>
+		<Static BKColor="#cecece" Height="2" Id="Static32" Left="15" TabOrder="67" Top="31" Width="970"></Static>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="DEPOSIT_OWNER" Height="19" Id="Edit_Owner" Left="780" TabOrder="3" Top="143" Width="168"></edit>
+		<Combo BindDataset="Data_CMS" CodeColumn="CODE_FIRST" Column="REL_KUBUN" DataColumn="CODE_HNAME" Height="19" Id="Com_Relation" InnerDataset="Data_A81" Left="147" TabOrder="4" Text="Combo0" Top="170" Width="174"></Combo>
+		<Combo BindDataset="Data_CMS" CodeColumn="CODE_FIRST" Column="CF_BANKCODE" DataColumn="CODE_HNAME" Height="19" Id="Com_Bank" InnerDataset="Data_B38" Left="147" OnChanged="Com_Bank_OnChanged" TabOrder="5" TabStop="FALSE" Text="Combo0" Top="143" Width="142"></Combo>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="CF_KEJWA_NO" Height="19" Id="Edit_Acc_No" Left="460" Number="TRUE" TabOrder="6" Top="143" Width="168"></edit>
+		<Maskedit BindDataset="Data_CMS" Border="Flat" Column="CF_SAUP_JUMIN" DisplayComma="FALSE" Height="19" Id="Txt_SSN" Left="460" Mask="######-#######" TabOrder="7" Top="170" Type="STRING" Width="88"></Maskedit>
+		<Static BKColor="#008aac" Height="10" Id="Static8" Left="20" TabOrder="36" Top="109" Width="9"></Static>
+		<Static BorderColor="#01315e" Font="돋움,10,Bold" Height="14" Id="Static9" Left="33" TabOrder="36" Text="Payment&#32;Information" Top="107" Width="149"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static0" Left="23" TabOrder="36" Text="*Relation" Top="165" VAlign="Middle" Width="116"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Height="28" Id="Static1" Left="23" TabOrder="37" Text="DueDate" Top="192" VAlign="Middle" Width="116"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static10" Left="328" TabOrder="37" Text="*Social&#32;Sec.&#32;No." Top="165" VAlign="Middle" Width="124"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static2" Left="328" TabOrder="39" Text="CMS&#32;Status" Top="192" VAlign="Middle" Width="124"></Static>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="CMS_STATUS_NAME" Enable="FALSE" Height="19" Id="edit2" Left="520" TabOrder="40" Top="197" Width="109"></edit>
+		<Maskedit BindDataset="Data_CMS" Border="Flat" Column="REG_DATE" DisplayComma="FALSE" Enable="FALSE" Height="19" Id="Maskedit0" Left="147" Mask="@@@@-@@-@@" TabOrder="40" Top="197" Type="STRING" Width="88"></Maskedit>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Font="돋움,10" Height="28" Id="Static6" Left="648" TabOrder="42" Text="Status" Top="192" VAlign="Middle" Width="124"></Static>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="KY_STATUS_NAME" Enable="FALSE" Height="19" Id="edit3" Left="843" TabOrder="43" Top="197" Width="129"></edit>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="KY_STATUS" DisableBKColor="white" Enable="FALSE" Height="19" Id="Edit_kyStatus" Left="780" OnKeyDown="Txt_ConNo_OnKeyDown" TabOrder="44" Top="197" Width="61"></edit>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="CMS_STATUS" Enable="FALSE" Height="19" Id="Edit_Cms_Status" Left="460" TabOrder="45" Top="197" Width="56"></edit>
+		<Static BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="32" Id="Static11" Left="24" TabOrder="47" Top="246" Width="953"></Static>
+		<Button Height="22" Id="Button_Open" Left="804" OnClick="Button_Open_OnClick" TabOrder="46" Text="Open&#32;File" Top="251" Width="80"></Button>
+		<Button Height="22" Id="Button0" Left="892" OnClick="Button0_OnClick" TabOrder="50" Text="Upload" Top="251" Width="80"></Button>
+		<TABSFileup Bottom="25" ChangingUploadFile="TABSFileup_ChangingUploadFile" CompletedPostMultipartFormData="TABSFileup_CompletedPostMultipartFormData" Height="23" Id="TABSFileup" Left="840" Right="871" Top="2" Visible="FALSE" Width="31"></TABSFileup>
+		<Button BKColor="#e1e1e1" Font="돋음,9" Height="24" Id="Button1" Left="889" OnClick="btn_Reset_OnClick" TabOrder="52" Text="Reset" Top="6" Width="86"></Button>
+		<WebBrowser Height="24" Id="wb_filedown" Left="792" TabOrder="53" Top="8" Visible="FALSE" Width="32"></WebBrowser>
+		<edit BindDataset="Data_CMS" Border="Flat" Column="SEQ_NUM" Enable="FALSE" Height="19" Id="txtSEQ_NUM" Left="648" TabOrder="54" Top="8" VAlign="BOTTOM" Visible="FALSE" Width="133"></edit>
+		<Edit BindDataset="Data_CMS" Border="Flat" BorderColor="SCROLLBAR" Column="FILE_NAME" Height="22" Id="txt_fileName" Left="147" TabOrder="48" Top="251" Width="640"></Edit>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Height="28" Id="Static14" Left="24" TabOrder="57" Text="*Bank" Top="221" VAlign="Middle" Width="116"></Static>
+		<Static BKColor="white" Border="Flat" BorderColor="#b1b1b1" Height="28" Id="Static15" Left="23" TabOrder="56" Top="219" Width="954"></Static>
+		<Combo BindDataset="Data_CMS" CodeColumn="CODE_FIRST" Column="EVIDENCE_TYPE" DataColumn="CODE_HNAME" Height="19" Id="cmbEvidence_Type" InnerDataset="Data_R80" Left="148" TabOrder="55" TabStop="FALSE" Text="Combo0" Top="224" Width="142"></Combo>
+		<Checkbox BindDataset="Data_CMS" Column="EVIDENCE_REQUIRED_YN" DisableBKColor="white" FalseValue="N" Height="21" Id="chkEvidence_Required_YN" Left="340" OnClick="chkEvidence_Required_YN_OnClick" TabOrder="59" Text="동의자료&#32;내&#32;필수정보&#32;포함" Top="223" TrueValue="Y" Width="290"></Checkbox>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Height="32" Id="Static12" Left="23" TabOrder="49" Text="File&#32;Name" Top="246" VAlign="Middle" Width="116"></Static>
+		<Static Align="Center" BKColor="#d7edea" Border="Flat" BorderColor="SCROLLBAR" Height="28" Id="Static19" Left="23" TabOrder="58" Text="*증빙구분" Top="219" VAlign="Middle" Width="116"></Static>
+		<FileDialog Bottom="29" Height="24" Id="FileDialog0" Left="560" Right="584" TabOrder="59" Top="5" Width="24"></FileDialog>
+		<File Bottom="29" Height="24" Id="File1" Left="500" Right="524" TabOrder="3" Top="5" Width="24"></File>
+		<Button Height="22" Id="upint" Left="804" OnClick="upint_OnClick" TabOrder="60" Text="Upload&#32;Internet" Top="225" Width="155"></Button>
+		<WebBrowser Border="Flat" Height="267" Id="WebBrowser0" Left="24" TabOrder="61" Top="298" Visible="FALSE" Width="952" WindowClosing="WebBrowser0_OnWindowClosing"></WebBrowser>
+	</Form>
+	<Script><![CDATA[#include "lib::common.js"
+var saveMode;
+var fileidx =0;
+var FILE_KEY = 0001;
+var strFile_temp= "N";
+var str_File_name_1 = "";
+//var currIP = "10.1.208.1"; 
+var currIP = "10.1.208.3"; 
+var ISTEST = true; //개발계인가?
+/**********************************************************************
+주의 : 운영계 반영할때
+var currIP = "10.1.208.3"; 
+var ISTEST = true; //개발계인가?
+
+***********************************************************************/
+
+function Txt_ConNo_OnKeyDown(obj,nChar,bShift,bCtrl,bAlt,LLParam,HLParam)
+{
+	if (nChar = 13) 
+	{  	
+	
+		var rt = Dialog("TFSKR::COM003P.XML","arg1=1 arg2=모달", 200,100, true, 100, 100);
+		
+		Txt_ConNo.value = RT[0] ;
+		Txt_SilCount.value = RT[1] ;
+		Txt_CustNo.value =RT[2];
+		Txt_CustSeq.value =RT[3];
+		Txt_CustName.Text = rt[4];
+		Txt_CMS_NO.Text = RT[0]+RT[1];
+		
+		Button_Search_OnClick();
+	
+	}
+}
+
+
+function Button2_OnClick(obj)
+{
+	makeLog(obj, this);
+
+	if (parent.id !="Main" )
+	{
+		//if( !g_auth()) return;
+	}
+	else
+	{
+		//if(!GLOBAL.MAIN.auth()) return;		  
+	}
+
+
+
+	if( !GLOBAL.MAIN.Valid_chk(Edit_Owner)) return;		// 예금주명
+	if( !GLOBAL.MAIN.Valid_chk(Com_Relation)) return; // 관계
+	if( !GLOBAL.MAIN.Valid_chk(Com_Bank)) return;			// 은행코
+	if( !GLOBAL.MAIN.Valid_chk(Edit_Acc_No)) return;	// 계좌번호
+	if( !GLOBAL.MAIN.Valid_chk(Txt_SSN)) return;			// 주민번호, 사업자 번호
+/*
+	if( Edit_kyStatus.Text <> "A461" ) {
+		alert("실행상태가 정상이 아니므로 수정할수 없습니다."		);
+		return;
+	}
+*/	
+	
+	if( length(trim(Edit_Acc_No.Value)) < 6 ){		// 계좌번호는 6자리 이상 입력해야 됨.
+		alert("계좌번호는 6자리 이상 입력해야 됩니다!!!");
+		return;	
+	}
+	
+
+	if( 
+	   trim(cmbEvidence_Type.Value) == "" 
+	|| trim(cmbEvidence_Type.Value) == null 
+	|| chkEvidence_Required_YN.Value == "N" ){
+		alert("증빙구분 항목은 필수 입력사항입니다.");
+		return;	
+	}
+	
+		
+	if(confirm("계좌번호를 수정 하시겠습니까?")) {
+		Transaction("ins_data", "TESTASP::REC013T_TR.ASP?EntryId="+U_ID, "input=Data_CMS:U", "Data_CMS=","a=1 b=2", "tr_result");	
+	}
+}
+
+
+function tr_result(srvid, ErrorCode, ErrorMag)
+{ 
+	if (srvid == "ins_data")
+	{
+		if (ErrorCode <> 0) 
+			alert(ErrorMag);
+		else {		
+			alert("처리가 완료되었습니다.");
+			Button_Search_OnClick();
+		}
+	} 
+}
+
+function Button_Search_OnClick(obj)
+{
+	makeLog(obj, this);
+
+	TABSFileup.RemoveAllFiles();
+	dsUploadFile.ClearData();
+
+	Data_CMS.ServiceID = 'testasp::REC013T_SL.asp?KyNo='+Txt_ConNo.value+'&SilCount='+Txt_SilCount.value;
+	Data_CMS.Load() ;
+}
+
+function Grid0_OnCellClick(obj,nRow,nCell,nX,nY)
+{
+// 맨마지막 데이터만 수정할수 있다.
+	if( nRow = 0 ) {
+		Edit_Owner.Enable = true;			// 예금주	
+		Com_Relation.Enable = true;		// 관계
+		Com_Bank.Enable = true;				// 은행코
+		Edit_Acc_No.Enable = true;		// 계좌번호
+		Txt_SSN.Enable = true;				// 주민번호, 사업자 번호	
+	} else {
+		Edit_Owner.Enable = false;		// 예금주	
+		Com_Relation.Enable = false;	// 관계
+		Com_Bank.Enable = false;			// 은행코
+		Edit_Acc_No.Enable = false;		// 계좌번호
+		Txt_SSN.Enable = false;				// 주민번호, 사업자 번호		
+	}
+}
+function Form1_OnLoadCompleted(obj)
+{
+    http.sync = true;
+	g_popLink_OnClick('REC013T');		
+	
+	
+	//if (POP_AUTH=="N") {close();}
+	
+	
+	
+	http.sync = false;
+	
+  Txt_ConNo.value = KY_NO ;
+  Txt_SilCount.value = SIL_COUNT ;
+  
+  IF (Txt_ConNo.VALUE <> '')
+     { 
+			Button_Search_OnClick();
+	   }
+}
+
+function Button_Open_OnClick(obj)
+{
+	makeLog(obj, this);
+
+	/*
+	if (!FileDialog0.Open()) return;
+	File0.FileName = FileDialog0.FilePath + "\\" + FileDialog0.FileName;
+	
+	txt_fileName.Text = File0.FileName;	
+	
+	Button0.Enable = true;
+	*/
+
+	var sbuff;
+/*
+	if (FileDialog0.Open())
+	{
+		File1.FileName = FileDialog0.FilePath + "\\" + FileDialog0.FileName;
+		
+trace("File1.FileName = ");
+trace(File1.FileName);
+		
+		if (File1.open('rb'))
+		{
+			
+			sbuff = File1.ReadBinary();
+			File1.Close();
+			//var nRow = dspic.row;
+			//dspic.SetColumn(nRow, "PIC_NAME", FileDialog0.FileName);
+			//dspic.SetColumn(nRow, "PIC_PHOTO", sbuff);
+			
+trace("sbuff = ");			
+trace(sbuff);
+
+trace(BinToText(sbuff));
+
+//dsUploadFile.AddRow();
+//dsUploadFile.SetColumn(0, "FILE_BIN_DATA", sbuff);
+trace(dsUploadFile.GetColumn(0,"FILE_BIN_DATA"));
+
+			
+		}
+	}
+*/	
+	//return;
+
+	
+	var strFile;
+	var idx;
+	var strFile_Extension;
+
+trace("before");
+	TABSFileup.AddFile();
+	
+	if ( fileidx > 1 )
+	{
+		alert("1개의 파일만 데이터 업로드를 할 수 있습니다.");
+		TabsFileup.RemoveAllFiles();
+		return;
+	}
+			
+trace("for");	
+			
+			
+	for ( var i = 0; i < fileidx ; i++ )
+	{	
+		txt_fileName.Text = TABSFileup.UploadFiles[i+1].SourceFile;
+		
+trace("SourceFile");		
+		strFile = split(TABSFileup.UploadFiles[i+1].SourceFile,"\\");
+		
+trace("split");		
+		strFile = strFile[strFile.length()-1];
+trace("length");		
+		var strSAVE_NAME = Txt_ConNo.Value + Txt_SilCount.Value + Txt_CMS_NO.Value + txtSEQ_NUM.Value + '_' + strFile;
+		
+		
+		File1.FileName = txt_fileName.Text;
+
+trace("File1.FileName = ");
+trace(File1.FileName);
+		
+		//if (File1.open('rb'))
+		//{
+			
+			File1.open('rb');
+			sbuff = File1.ReadBinary();
+			File1.Close();
+			//var nRow = dspic.row;
+			//dspic.SetColumn(nRow, "PIC_NAME", FileDialog0.FileName);
+			//dspic.SetColumn(nRow, "PIC_PHOTO", sbuff);
+			
+trace("sbuff = ");			
+trace(sbuff);
+
+trace(BinToText(sbuff));
+
+//dsUploadFile.AddRow();
+//dsUploadFile.SetColumn(0, "FILE_BIN_DATA", sbuff);
+trace(dsUploadFile.GetColumn(0,"FILE_BIN_DATA"));
+	
+		//}
+		
+		
+		
+		dsUploadFile.AddRow();
+		dsUploadFile.SetColumn(dsUploadFile.Row,"FILE_NAME", strFile );
+				
+		var row = dsUploadFile.row;
+		
+		dsUploadFile.SetColumn(row, "FILE_ROW", row+1);
+		dsUploadFile.SetColumn(row, "FILE_NAME", strFile);
+		dsUploadFile.SetColumn(row, "SAVE_NAME", strSAVE_NAME);
+		//dsUploadFile.SetColumn(row, "SAVE_NAME", strFile);			
+		//dsUploadFile.SetColumn(row, "FILE_PATH", getSavingPath()+"[!SEQ!]"+strFile);
+		dsUploadFile.SetColumn(row, "FILE_PATH", getSavingPath() + "" + strSAVE_NAME);
+		dsUploadFile.SetColumn(row, "DATE", today());	
+		dsUploadFile.SetColumn(row, "FILE_SIZE", File1.GetLength());
+		
+		dsUploadFile.SetColumn(row, "FILE_BIN_DATA", sbuff);
+		
+		dsUploadFile.SetColumn(row, "FILE_BIN_DATA1", Midb(sbuff, 1, 8000 ));
+		
+		//dsUploadFile.SetColumn(row, "FILE_BIN_DATA1", Midb(dsUploadFile.GetColumn(row,"FILE_BIN_DATA"), 8001, 8000));
+		
+		
+		
+
+trace("FILE_BIN_DATA");
+//trace(dsUploadFile.GetColumn(0,"FILE_BIN_DATA"));
+
+trace("saveXML");
+trace(dsUploadFile.SaveXML(dsUploadFile));
+
+
+		
+		
+		idx = IndexOf(strFile, ".");
+		trace(idx);
+		strFile_Extension = ToLower(Substr(strFile, idx+1));
+		trace(Substr(strFile, idx+1));
+		
+		trace("strFile_Extension");
+		trace(strFile_Extension);
+		dsUploadFile.SetColumn(row, "FILE_EXTENSION", strFile_Extension);
+		
+		trace("EVIDENCE_TYPE");
+		trace(Data_CMS.GetColumn(0, "EVIDENCE_TYPE"));		
+		
+		trace("AE5119_REG_DATE = ");
+		trace(Data_CMS.GetColumn(0, "AE5119_REG_DATE"));
+		
+		
+		if (Data_CMS.GetColumn(0, "EVIDENCE_TYPE") == "" || Data_CMS.GetColumn(0, "EVIDENCE_TYPE") == NULL){
+		
+			alert("증빙구분 저장 후 파일 등록해주세요!");
+			return;
+			
+		}
+		
+		if (Data_CMS.GetColumn(0, "EVIDENCE_REQUIRED_YN") == "" || Data_CMS.GetColumn(0, "EVIDENCE_REQUIRED_YN") == NULL){
+		
+			alert("증빙구분 체크 후 파일 등록해주세요!");
+			return;
+			
+		}
+		
+trace("AE5119_REG_DATE = ");		
+trace(Data_CMS.GetColumn(0, "AE5119_REG_DATE"));
+		
+		if (Data_CMS.GetColumn(0, "AE5119_REG_DATE") != "" && Data_CMS.GetColumn(0, "AE5119_REG_DATE") != NULL){
+		
+			//alert("AE5119 전문이 생성되어 변경할 수 없습니다!");
+			//return;
+			
+		}
+		
+		
+		if (Data_CMS.GetColumn(0, "EVIDENCE_TYPE") = 'R80001'// 서면
+			&&  (strFile_Extension <> 'jpg' &&
+				 strFile_Extension <> 'jpeg' &&
+				 strFile_Extension <> 'gif' &&
+				 strFile_Extension <> 'tif' &&
+				 strFile_Extension <> 'pdf')
+			)
+		{
+			alert("증빙구분이 서면인 경우 jpg, jpeg, gif, tif, pdf 파일 확장자만 등록할 수 있습니다.");
+			txt_fileName.Text = "";
+			TabsFileup.RemoveAllFiles();
+			return;
+			
+		} else if (Data_CMS.GetColumn(0, "EVIDENCE_TYPE") = 'R80004'// 녹취
+			&&  (strFile_Extension <> 'mp3' &&
+				 strFile_Extension <> 'wav' &&
+				 strFile_Extension <> 'wma')
+			)
+		{
+			alert("증빙구분이 녹취인 경우 mp3, wav, wma 파일 확장자만 등록할 수 있습니다.");
+			txt_fileName.Text = "";
+			TabsFileup.RemoveAllFiles();
+			return;
+		}
+		
+		trace("SAVE_NAME");
+		trace(Txt_ConNo.Value + Txt_SilCount.Value + Txt_CMS_NO.Value + txtSEQ_NUM.Value + '_' + strFile);
+		trace("FILE_PATH");
+		trace(getSavingPath() + "" + strSAVE_NAME);
+		
+	}
+	str_File_name_1 = strFile;
+}
+
+
+function Button0_OnClick(obj)
+{
+	makeLog(obj, this);
+
+	if (parent.id !="Main" )
+	{
+		//if( !g_auth()) return;
+	}
+	else
+	{
+		//if(!GLOBAL.MAIN.auth()) return;		  
+	}
+	
+	//if(!GLOBAL.MAIN.auth()) return;		// 등록권한
+	/*
+	if (lengthb(FileDialog0.FileName) <= 0) return;
+	
+	if (Right(FileDialog0.FileName,3) <> 'xls') return;
+	if( !GLOBAL.MAIN.Valid_chk(cmb_dealer)) return;		// 필수항목
+
+	
+	File0.Open("rb");
+	
+	// 레코드를 추가한다.
+	dsUploadFile.ClearData();
+	var row = dsUploadFile.AddRow();
+		
+	var blobbuffer = File0.ReadBinary();
+	
+	dsUploadFile.SetColumn(0, "filesize", File0.GetLength());
+	dsUploadFile.SetColumn(0, "file_name", FileDialog0.FileName);
+	
+	File0.Close();
+	
+	// 읽은 파일 내용을 dataset에 저장한다.
+	dsUploadFile.SetColumn(0, "content", blobbuffer);	
+ 
+
+	
+  // 파일을 올려 처리.
+	Transaction('Fileup','TestAsp::ACC016T_TR3.ASP','input=dsUploadFile','','','tr_result');
+	*/
+	//alert(1);
+	//Transaction('Fileup','TestJsp::postTest.jsp','input=dsUploadFile','','','');
+	saveData();
+}
+
+function getFilePath(idx)
+{
+	return TABSFileup.UploadFiles[idx].SourceFile;
+}
+
+function getFileName(filename)
+{
+		var sFile = split(filename,"\\");
+		
+		return sFile[sFile.length()-1];	
+}
+
+function getSavingPath(){
+
+	var upload_path = "F:\\Site\\wwwroot\\Upload_File\\"; //운영
+	if(ISTEST) upload_path = "C:\\Site\\wwwroot_dev\\Upload_File\\"; //개발
+
+	
+	upload_path = upload_path+"EI13\\";
+		
+	if(U_ID != ""){
+		upload_path = upload_path + U_ID+"\\";
+	} 
+	else{
+		upload_path = upload_path + "UnKnown\\"; //유저아이디가 없으면 UnKnown으로 넣어줌.
+	}
+	
+	return upload_path;
+}
+
+function TABSFileup_ChangingUploadFile(obj,TotalCount,TotalFileSize)
+{
+	fileidx = totalCount;
+			
+	// 파일추가 취소하였을때 기존 데이터셋 추가 억제
+	strFile_temp = obj;
+}
+
+function getFileData()
+{
+	if(length(FILE_KEY) > 0) 
+		saveMode = "U";
+	else 
+		saveMode = "I";
+}
+function saveData()
+{
+	setWaitCursor(true);
+	
+	dsKey.AddColumn("file_key","STRING",10);
+	dsKey.Load();
+}
+function dsKey_OnLoadCompleted(obj,nErrorCode,strErrorMsg,nReason)
+{
+	//alert(dsKey.RowCount());
+	
+	if(dsKey.RowCount() > 0)
+	{
+		FILE_KEY = dsKey.GetColumn(0,"file_key");
+		//alert(FILE_KEY);
+	}
+	
+	if ( fileidx > 0 ) sendFile();
+}
+
+function sendFile()
+{		
+	//TABSFileup.UploadURL="http://10.1.208.1/services/DLF008T_TR_FILE.ASP?ID_NO="+U_ID;  // + args;
+	TABSFileup.UploadURL="http://10.1.208.3/services/UPLOAD_FILE_EI13.ASP?filename="+Txt_ConNo.Value + Txt_SilCount.Value + Txt_CMS_NO.Value + txtSEQ_NUM.Value + "&ID_NO="+U_ID;  // + args;		
+	TABSFileup.PostMultipartFormData();
+}
+
+
+function TABSFileup_CompletedPostMultipartFormData(obj,ErrorType,ErrorCode,ErrorText)
+{
+trace("TABSFileup_CompletedPostMultipartFormData ===========>");
+
+
+if(getValueFromParamWithIdOfTxt(obj.response,"ErrorType") == -1){
+	alert(getValueFromParamWithIdOfTxt(obj.response,"ErrorText"));
+	TABSFileup.RemoveAllFiles();
+	Button_Search_OnClick();
+	dsUploadFile.ClearData();
+	trace(dsUploadFile.savexml());
+	return;
+}
+
+trace(ErrorType);
+trace(ErrorCode);
+trace(ErrorText);
+	if (ErrorType != 0) 
+	{
+		alert("ErrType:" + ErrorType + " ErrCode:" + ErrorCode + " ErrText:" + ErrorText);
+	}
+	else if (ErrorCode != 0) 
+	{
+		alert("ErrType:" + ErrorType + " ErrCode:" + ErrorCode + " ErrText:" + ErrorText);	
+	} else {
+		//close(FILE_KEY);
+				
+		//setWaitCursor(true);		
+		http.sync = true;
+		//alert(12);
+		Transaction("ins_data", "testasp::REC013T_SL4.ASP?U_ID="+U_ID
+												+"&KY_NO="+Txt_ConNo.value
+												+"&SIL_COUNT="+Txt_SilCount.value
+												+"&CMS_NO="+Txt_CMS_NO.value
+												+"&SEQ_NUM="+txtSEQ_NUM.value
+					, "input=dsUploadFile:U", "dsKey=","a=1 b=2", "tr_result_check");
+/*					
+		Transaction("ins_data", "testasp::REC013T_SL4.ASP?U_ID="+U_ID
+												+"&KY_NO="+Txt_ConNo.value
+												+"&SIL_COUNT="+Txt_SilCount.value
+												+"&CMS_NO="+Txt_CMS_NO.value
+												+"&SEQ_NUM="+txtSEQ_NUM.value
+					, "input=dsUploadFile:U", "dsKey=","a=1 b=2", "tr_result_check");
+*/
+		//Transaction("ins_data", "testasp::CLA020T_FILE01.ASP?U_ID=T091&KY_NO="+TXT_KY_NO.value+"&SIL_COUNT="+TXT_SIL_COUNT.value, "input=dsUploadFile:A", "dsKey=","a=1 b=2", "tr_result_File");
+		http.sync = false;
+		
+
+	
+					
+		TabsFileup.RemoveAllFiles();
+		strFile_temp = "N";
+	}
+	
+trace("TABSFileup_CompletedPostMultipartFormData <===========");	
+}
+
+function tr_result_check(srvid, ErrorCode, ErrorMsg)
+{
+trace("tr_result_check ============>");
+
+trace(ErrorCode);
+trace(ErrorMsg);
+
+	if (srvid == "ins_data")
+	{
+		
+		if( ErrorCode == -1 ){ //이미 전송이 되었을 경우, 업로드 못함.
+			alert(ErrorMsg);
+		}
+		else if (ErrorCode <> 0)
+		{
+			var rt = Dialog("TFSKR::COM012P.XML","arg1="+UrlEncode(ErrorMsg)+" arg2="+ErrorCode, 200,100, true);
+			return;
+		} else {
+			alert("업로드가 완료되었습니다.");
+			Button_Search_OnClick();
+		}
+		  
+	}
+
+trace("tr_result_check <============");
+
+}
+function btn_Reset_OnClick(obj)
+{
+	Reload();
+}
+
+function Grid0_OnCellDblClick(obj,nRow,nCell,nX,nY,nPivotIndex)
+{
+	var FILE_ROW = dsUploadFile.GetColumn(nRow,"FILE_ROW");
+	var KY_NO = Txt_ConNo.value;
+	var SIL_COUNT = Txt_SilCount.value;
+	var CMS_NO = Txt_CMS_NO.value;
+	var SEQ_NUM = txtSEQ_NUM.value;
+	
+	var URL = "http://10.1.208.3/services/REC013T_SL3.ASP?KY_NO="+KY_NO+"&SIL_COUNT="+SIL_COUNT+"&CMS_NO="+CMS_NO+"&SEQ_NUM="+SEQ_NUM;
+	
+													
+	trace(URL);
+	
+	wb_filedown.PageUrl = URL;
+	wb_filedown.Run();
+}
+
+function chbEDMS_YN_OnClick(obj,strValue)
+{
+	
+}
+
+function TABSFileup_CompletedFileUpload(obj,ErrorType,ErrorCode,ErrorText)
+{
+	trace("TABSFileup_CompletedFileUpload");
+}
+
+function DATA_RES_OnLoadCompleted(obj,nErrorCode,strErrorMsg,nReason)
+{
+	trace(obj.saveXML());
+}
+
+function chkEvidence_Required_YN_OnClick(obj,strValue)
+{
+	
+}
+
+
+
+function getValueFromParamWithIdOfTxt(Txt, id){ //Response로부터 각 객체를 끄집어 낸다.
+	var ent    = Chr(13)+Chr(10);
+	var TxtArr = Split(Txt,ent);	
+	
+	for(var i=0;i<TxtArr.length;i++){				
+		if(left(trim(TxtArr[i]),10)=="<param id="){
+			var temp = trim(TxtArr[i]);
+			//============ Id    추출 =================
+			var id_       = IndexOf(temp,"id")  +3;			
+			var id_size   = IndexOf(temp,"type")-id_;
+			//============ Type  추출 =================
+			var type_     = IndexOf(temp,"type")+5;			
+			var type_size = IndexOf(temp,">")   -type_;
+			//============ Value 추출 =================						
+			var val_      = IndexOf(temp,">")   +1;						
+			var val_size  = IndexOf(temp,"</",) -val_;
+			
+			if(trim(id) == trim(Substr(temp,id_, id_size))){
+				return Replace(Substr(temp,val_, val_size),"&#32;"," "); //특수문자 변경해줌.
+			}	
+		}
+	}	
+}
+
+function Com_Bank_OnChanged(obj,strCode,strText,nOldIndex,nNewIndex)
+{
+	if(Data_B38.GetColumn(nNewIndex,"CODE_FIRST") = "B38005")
+	{
+		alert("구외한은 신규 등록이 불가능 합니다!!!");
+		return;	
+	}
+}
+
+function Data_CMS_OnLoadCompleted(obj,nErrorCode,strErrorMsg,nReason)
+{
+		trace("EVIDENCE_TYPE");
+		trace(Data_CMS.GetColumn(0, "EVIDENCE_TYPE"));		
+		
+}
+
+function upint_OnClick(obj)
+{
+	fileUploadPageOpen();
+}
+function fileUploadPageOpen(){	 
+	 
+	//==================== 2016-10-21 파일 업로드 ==========================
+	
+	WebBrowser0.Visible = true;
+	
+	//var KY_NO = "F081000124";
+	//var SIL_COUNT = "201";	
+	//var CMS_NO = "F081000124201";
+	
+	var KY_NO = "L0212T0277";	
+	var SIL_COUNT = "101";	
+	var CMS_NO = "L0212T0277101";
+	
+
+	var SEQ_NUM = 1;
+	var FILE_ROW = 1;
+	
+	var URL = "http://10.1.209.78:8080/DailyCheck/Kaizen/fileSelect.jsp"
+									+"?KY_NO="    +KY_NO
+									+"&SIL_COUNT="+SIL_COUNT
+									+"&CMS_NO="   +CMS_NO
+									+"&SEQ_NUM="  +SEQ_NUM
+									+"&FILE_ROW=" +FILE_ROW;
+	trace(URL);
+																		
+	WebBrowser0.PageUrl = URL;
+	WebBrowser0.Run();	
+	//==================== 2016-10-21 파일 업로드 ==========================	 
+	 
+}
+function WebBrowser0_OnWindowClosing(obj,bIsChild)
+{
+	alert("브라우저를 닫습니다...");
+	WebBrowser0.Visible = false;
+}
+
+
+]]></Script>
+</Window>

@@ -117,7 +117,7 @@ body{
 		<h4>업로드 된 파일명:</h4>
 		<%=filename%><br>	
 	<% }else{ %>
-		<h1>File Upload filed....!!!</h1>	
+		<h1>File Upload failed....!!!</h1>	
 		<h4>에러는 다음과 같습니다. IT팀에 문의해주세요. : </h4>
 		<hr/>
 		<h5><%= err %></h5>
