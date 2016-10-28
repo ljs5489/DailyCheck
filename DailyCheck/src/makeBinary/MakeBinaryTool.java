@@ -19,10 +19,11 @@ import org.apache.commons.io.IOUtils;
 import makeBinary.MyErr;
 
 public class MakeBinaryTool {
+/*	
 	public static void insertBinaryFileIntoDB(String FileName, DataSetCust ds) throws Exception {
 		
 		ByteArrayOutputStream os = null;
-		FileOutputStream out = null;
+//		FileOutputStream out = null;
 		InputStream is = null;
 		StringBuffer sb = null;
 		FileInputStream fis = null;
@@ -48,5 +49,37 @@ public class MakeBinaryTool {
 			
 		}
 	}
+*/
+
+	public static void updateBinaryFileIntoDB(String FileName, DataSetCust ds) throws Exception {
+		
+		ByteArrayOutputStream os = null;
+		FileOutputStream out = null;
+		InputStream is = null;
+		StringBuffer sb = null;
+		FileInputStream fis = null;
+
+		try {
+			byte[] evdcByteArray = null;
+
+			File file = new File(FileName);
+			fis = new FileInputStream(file);
+			evdcByteArray = IOUtils.toByteArray(fis);
+			
+			MB_DAO.updateBinaryData(evdcByteArray,ds);
+
+		} catch (Exception e) {
+			throw new MyErr("Exception"+e);
+		} finally {
+			if (out != null) {
+				out.close();
+			}
+			if (fis != null) {
+				fis.close();
+			}
+			
+		}
+	}
+	
 }
 

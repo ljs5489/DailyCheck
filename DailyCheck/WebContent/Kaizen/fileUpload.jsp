@@ -70,15 +70,15 @@ body{
 		String SIL_COUNT=multi.getParameter("SIL_COUNT");
 		String CMS_NO   =multi.getParameter("CMS_NO");
 		String SEQ_NUM  =multi.getParameter("SEQ_NUM");
-		String FILE_ROW =multi.getParameter("FILE_ROW");
+		String FILE_NAME =multi.getParameter("FILE_NAME");
 		
 		System.out.println(KY_NO);
 		System.out.println(SIL_COUNT);
 		System.out.println(CMS_NO);
 		System.out.println(SEQ_NUM);
-		System.out.println(FILE_ROW);
+		System.out.println(FILE_NAME);
 		
-		DataSetCust tmpDS = new DataSetCust(KY_NO,SIL_COUNT,CMS_NO,SEQ_NUM,FILE_ROW);
+		DataSetCust tmpDS = new DataSetCust(KY_NO,SIL_COUNT,CMS_NO,SEQ_NUM,FILE_NAME);
 		
 		
 		
@@ -88,12 +88,20 @@ body{
 		  Enumeration files = multi.getFileNames(); 
 	  
 		// 업로드한 파일들의 이름을 얻어옴
-		String file = (String)files.nextElement();
-		filename = multi.getFilesystemName(file); 
+		//String file = (String)files.nextElement();
+		//String file = "c:\\AE4119.tif";
+		//filename = multi.getFilesystemName(file); 
+		filename = FILE_NAME;
+		
+		
 		
 		System.out.println("path : "+uploadPath+"\\"+filename);
 
-		MakeBinaryTool.insertBinaryFileIntoDB(uploadPath+"\\"+filename,tmpDS);
+		//MakeBinaryTool.insertBinaryFileIntoDB(uploadPath+"\\"+filename,tmpDS);
+		
+		//MakeBinaryTool.updateBinaryFileIntoDB(uploadPath+"\\"+filename,tmpDS);
+		
+		MakeBinaryTool.updateBinaryFileIntoDB(filename,tmpDS);
 		
 		
 	 }

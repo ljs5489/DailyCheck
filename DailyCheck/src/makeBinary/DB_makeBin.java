@@ -24,8 +24,19 @@ public class DB_makeBin {
 
         SP_JDBC_DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         //SP_DB_URL = "jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB";
-        SP_DB_URL = "jdbc:sqlserver://10.1.208.15;databaseName=TFS_DB";        
+        
+        SP_DB_URL = "jdbc:sqlserver://10.1.208.15;databaseName=TFS_DB";
         SP_USER_ID = "DBDev5";
-        SP_USER_PASSWORD = "1q2w3e1^";        
+        SP_USER_PASSWORD = "1q2w3e1^";     
+        
+        
+        
+        /*
+			         * SP_JDBC_DRIVER_NAME=com.microsoft.sqlserver.jdbc.SQLServerDriver
+			SP_DB_URL=jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB
+			SP_USER_ID=DBWeb1
+			SP_USER_PASSWORD=DB02@Web#0912
+         * 
+         * */
     }    
 }

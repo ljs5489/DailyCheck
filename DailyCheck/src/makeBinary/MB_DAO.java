@@ -43,7 +43,10 @@ public class MB_DAO {
 
 		String sql = " SELECT cnt = COUNT(*) FROM [TFS_DB].[dbo].[LSAE5119D] WHERE REG_DATE='" + date + "'";
 
-		try (Connection con = DB_makeBin.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+		try (
+				Connection con = DB_makeBin.getConnection(); 
+				
+				PreparedStatement stmt = con.prepareStatement(sql)) {
 
 			try (ResultSet rs = stmt.executeQuery()) {
 				while (rs.next())
@@ -75,6 +78,9 @@ public class MB_DAO {
 
 		byte[] data = strHeader.getBytes();
 		MakeFileTool.targetFile.write(data);
+		
+		block = 0;
+		space = 0;
 	}
 	public static void makeDataRecord(String date) throws Exception {
 		Connection connection = null;
@@ -138,6 +144,7 @@ public class MB_DAO {
 		System.out.println("==================");
 		*/
 		
+		System.out.println(binaryData.length);
 
 		if( !(binaryData.length == 0) ){			
 			// 채워줘야 하는 공백 계산
@@ -147,6 +154,8 @@ public class MB_DAO {
 			space = 883;
 		}
 	
+		System.out.println("space => ");
+		System.out.println(space);
 		
 		String strData = "" //나중에 수정.		
 		+ AN(6,RECORD_TYPE)		// 1. 업무구분코드
@@ -188,7 +197,6 @@ public class MB_DAO {
 		System.arraycopy(tmpdata, 0, data, 0, tmpdata.length );
 		System.arraycopy(tmp, 0, data, tmpdata.length, tmp.length);
 		// ================= /18. FILLER =======================
-
 		
 		block += data.length;
 		MakeFileTool.targetFile.write(data);
@@ -196,16 +204,16 @@ public class MB_DAO {
 
 
 	public static void makeTailerRecord(String date) throws Exception {		
-		String strHeader = "\n\n\n"
+		String strHeader = ""
 		 + AN(6, "AE5119")                 // 1. 업무 구분 코드 AE5119
 		 +  N(2, "33") 	                   // 2. 데이터 구분 코드 
 		 +  N(7, "9999999")               // 3. 일련 번호
 		 + AN(20,"9965913443")             // 4.이용기관코드
 		 +  N(7, ""+MakeFileTool.TotCnt)  // 5.총 Data Record개수
-		 +  N(10,""+block)                // 6.총 Data Block개수 0000001940
+		 +  N(10,""+Integer.toString(block/1024))                // 6.총 Data Block개수 0000001940
 		 +  A(972)                        // 10. FILLER
 		 + "";
-
+		
 		byte[] data = strHeader.getBytes();
 		MakeFileTool.targetFile.write(data);
 	}
@@ -222,6 +230,13 @@ public class MB_DAO {
 			+ "INSERT INTO CMSATTACH(KY_NO,SIL_COUNT,CMS_NO,SEQ_NUM,FILE_ROW,FILE_BIN_DATA)" 
 			+ "VALUES(?,?,?,?,?,?)"
 			+ "";
+
+			System.out.println("getKY_NO : " + ds.getKY_NO());
+			System.out.println("getSIL_COUNT : " + ds.getSIL_COUNT());
+			System.out.println("getCMS_NO : " + ds.getCMS_NO());
+			System.out.println("getSEQ_NUM : " + ds.getSEQ_NUM());
+			System.out.println("getFILE_ROW : " + ds.getFILE_ROW());			
+			
 
 			System.out.println("hello : "+sql);
 
@@ -244,6 +259,49 @@ public class MB_DAO {
 		}
 	}
 	
+	public static void updateBinaryData(byte[] binaryData, DataSetCust ds) throws Exception {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DB_makeBin.getConnection();
+			String sql = "";
+			sql ="" //+= "INSERT INTO CMSATTACH(test) VALUES ( ? ) ";
+			+ "UPDATE CMSATTACH"
+			+ "   SET FILE_BIN_DATA = ?"			
+			+ " WHERE 1=1"
+			+ "   AND KY_NO = ? "
+			+ "   AND SIL_COUNT = ? "
+			+ "   AND CMS_NO = ? "
+			+ "   AND SEQ_NUM = ? "			
+			+ "";
+
+			System.out.println("getKY_NO : " + ds.getKY_NO());
+			System.out.println("getSIL_COUNT : " + ds.getSIL_COUNT());
+			System.out.println("getCMS_NO : " + ds.getCMS_NO());
+			System.out.println("getSEQ_NUM : " + ds.getSEQ_NUM());						
+			
+			System.out.println("hello : "+sql);
+			
+			statement = connection.prepareStatement(sql);
+			statement.setBytes(1, binaryData);
+			statement.setString(2,ds.getKY_NO()); 
+			statement.setString(3,ds.getSIL_COUNT()); 
+			statement.setString(4,ds.getCMS_NO()); 
+			statement.setString(5,ds.getSEQ_NUM()); 			
+			 
+
+			statement.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (statement != null)
+				statement.close();
+			if (connection != null)
+				connection.close();
+		}
+	}
 	
 	//============= Block 개수 계산 ================
 	private static void calBlockCnt(String strData){
