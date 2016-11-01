@@ -61,6 +61,11 @@ body{
 		//업로드 경로, 파일 최대 크기, 한글처리, 파일 중복처리
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "UTF-8", new DefaultFileRenamePolicy()); 
 			 
+	
+		System.out.println(uploadPath);
+		System.out.println(request);
+		System.out.println(size);
+		
 		// 폼에서 입력한 값을 가져옴
 		//name = multi.getParameter("name");
 		//subject = multi.getParameter("subject"); 
@@ -88,10 +93,10 @@ body{
 		  Enumeration files = multi.getFileNames(); 
 	  
 		// 업로드한 파일들의 이름을 얻어옴
-		//String file = (String)files.nextElement();
+		String file = (String)files.nextElement();
 		//String file = "c:\\AE4119.tif";
-		//filename = multi.getFilesystemName(file); 
-		filename = FILE_NAME;
+		filename = multi.getFilesystemName(file); 
+		//filename = FILE_NAME;
 		
 		
 		
@@ -99,9 +104,10 @@ body{
 
 		//MakeBinaryTool.insertBinaryFileIntoDB(uploadPath+"\\"+filename,tmpDS);
 		
-		//MakeBinaryTool.updateBinaryFileIntoDB(uploadPath+"\\"+filename,tmpDS);
+		MakeBinaryTool.updateBinaryFileIntoDB(uploadPath+"\\"+filename,tmpDS);
 		
-		MakeBinaryTool.updateBinaryFileIntoDB(filename,tmpDS);
+		
+		//MakeBinaryTool.updateBinaryFileIntoDB(filename,tmpDS);
 		
 		
 	 }

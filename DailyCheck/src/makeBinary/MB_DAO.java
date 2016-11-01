@@ -25,6 +25,20 @@ public class MB_DAO {
 	static String cms_file_path = "";
 	
 	
+	public static void makeFileFromDataSet(String path, byte[] data,DataSetCust ds) throws Exception {
+		System.out.println("path : "+path);
+		System.out.println(data);
+		OutputStream targetFile = new FileOutputStream(path);
+		
+		updateBinaryData(data,ds);
+		
+		targetFile.write(data);
+		targetFile.close();
+	}
+	
+	
+	
+	
 	
     public static String getCMSpath() throws Exception {
     	if("".equals(cms_file_path)){

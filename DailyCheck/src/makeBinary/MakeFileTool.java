@@ -17,8 +17,17 @@ public class MakeFileTool {
 	
 	
 	
-	
-	
+	public static void makeFileFromDS(String path,byte[] data, DataSetCust ds) throws Exception {
+
+		try{
+			makeFileFromDataSet(path,data,ds);
+		}
+		catch(Exception e){		
+			
+		}
+		
+	}
+
 	
 	
 	public static void makeFileFromDB(String date, String path) throws Exception {
@@ -57,7 +66,9 @@ public class MakeFileTool {
 	
 	
 	
-	
+	private static void makeFileFromDataSet(String path, byte[] data,DataSetCust ds) throws Exception {		
+		MB_DAO.makeFileFromDataSet(path, data, ds);
+	}
 	
 	private static void makeHeaderRecord(String date) throws Exception {		
 		MB_DAO.makeHeaderRecord(date);

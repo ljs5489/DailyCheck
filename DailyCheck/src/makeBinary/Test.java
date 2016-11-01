@@ -1,5 +1,8 @@
 package makeBinary;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
 public class Test {
 	
 	
@@ -9,8 +12,9 @@ public class Test {
 			//MakeFileTool.makeFileFromDB("20161017","C:\\inetpub\\wwwroot\\test\\test");
 			
 			//MakeBinaryTool.insertBinaryFileIntoDB("C:\\inetpub\\wwwroot\\test\\TFSKR Approval Matrix review_201609 (위임전결기준표 리뷰회의 자료)6.pdf");
-			
-			
+			//String path = "C:\\CMS_Evidence_File\\";
+				
+			MakeBinaryTool.makeBinFile("C:\\Users\\jslee\\Desktop\\RTMS해결해야할 문제.jpg","C:\\inetpub\\wwwroot\\test","Hello");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

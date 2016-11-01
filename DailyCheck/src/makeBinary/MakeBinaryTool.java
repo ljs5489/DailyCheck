@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Blob;
@@ -50,6 +51,14 @@ public class MakeBinaryTool {
 		}
 	}
 */
+	
+	public static void makeBinFile(String srcPath,String dstPath,String fileName) throws Exception{
+		File file = new File(srcPath);
+		FileInputStream fis = new FileInputStream(file);		
+		OutputStream targetFile = new FileOutputStream(dstPath+"\\"+fileName);
+		targetFile.write(IOUtils.toByteArray(fis));
+		targetFile.close();
+	}
 
 	public static void updateBinaryFileIntoDB(String FileName, DataSetCust ds) throws Exception {
 		
@@ -61,7 +70,11 @@ public class MakeBinaryTool {
 
 		try {
 			byte[] evdcByteArray = null;
-
+			
+			
+			System.out.println("test : "+FileName);
+			
+			
 			File file = new File(FileName);
 			fis = new FileInputStream(file);
 			evdcByteArray = IOUtils.toByteArray(fis);
