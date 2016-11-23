@@ -36,7 +36,13 @@
 	//System.out.println(basic_path);
 	SystemWriterLog.writeLog(basic_path + filename);
 
-	MakeFileTool.makeFileFromDB(p_date, basic_path + filename); //파일 만든다.
+	
+	try{
+		MakeFileTool.makeFileFromDB(p_date, basic_path + filename); //파일 만든다.
+	}
+	catch(Exception e){
+		SystemWriterLog.writeLog("에러발생 : "+e);
+	}
 
 
 	//경로
@@ -63,7 +69,7 @@
 			out = pageContext.pushBody();
 
 		} catch (Exception e) {
-			System.out.println("에러메세지: " + e.getMessage());
+			SystemWriterLog.writeLog("에러메세지: " + e.getMessage());
 		} finally {
 			if (output != null) {
 				output.close();
@@ -74,7 +80,7 @@
 		}
 	} 
 	else{
-		System.out.println(file.length());
-		System.out.println(file.isFile());		
+		SystemWriterLog.writeLog(""+file.length());
+		SystemWriterLog.writeLog(""+file.isFile());		
 	}
 %>

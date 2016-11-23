@@ -51,6 +51,8 @@ in_dl = pReq.getDatasetList();
 Dataset ds = in_dl.getDataset("input");
 Dataset data_cms = in_dl.getDataset("input2");
 
+String U_ID = request.getParameter("U_ID");
+
 %>
 
 
@@ -74,15 +76,18 @@ String FILE_NAME     = dsGetString(ds,0, "FILE_NAME").toLowerCase()
 
 byte[] FILE_BIN_DATA = dsGetBinary(ds,0, "FILE_BIN_DATA");
 
-String KY_NO     = dsGetString(data_cms,0, "KY_NO");
-String SIL_COUNT = dsGetString(data_cms,0, "SIL_COUNT");
-String SEQ_NUM   = dsGetString(data_cms,0, "SEQ_NUM");
-String CMS_NO   = dsGetString(data_cms,0, "CMS_NO");
+String KY_NO      = dsGetString(data_cms,0, "KY_NO");
+String SIL_COUNT  = dsGetString(data_cms,0, "SIL_COUNT");
+String SEQ_NUM    = dsGetString(data_cms,0, "SEQ_NUM");
+String CMS_NO     = dsGetString(data_cms,0, "CMS_NO");
 
+
+/*
 System.out.println(KY_NO);
 System.out.println(SIL_COUNT);
 System.out.println(FILE_NAME);
 System.out.println("=========================");
+*/
 //MakeFileTool.makeFileFromDS("C:\\CMS_Evidence_File\\",test2);
 
 
@@ -92,7 +97,7 @@ System.out.println("=========================");
 MakeFileTool.makeFileFromDS(
 		MB_DAO.getCMSpath()+FILE_NAME
 		,FILE_BIN_DATA
-		,new DataSetCust(KY_NO,SIL_COUNT,CMS_NO,SEQ_NUM,"1")
+		,new DataSetCust(KY_NO,SIL_COUNT,CMS_NO,SEQ_NUM,U_ID,"1")
 	);
 
 
@@ -114,7 +119,7 @@ DatasetList  out_dl = new DatasetList();
 <%
 /********* 변수를 VariableList에 추가 ************/
 out_vl.addStr("ErrorCode", "0");
-out_vl.addStr("ErrorMsg", "SUCC"+"HelloWorld!");
+out_vl.addStr("ErrorMsg", "SUCC");
 //out_vl.addStr("out_var", FILE_PATH);
 
 %>

@@ -43,7 +43,8 @@ public class Queries {
 			+"				                            AND C.CMS_NO = B.CMS_NO                                         "
 			+"                                          AND C.SEQ_NUM = B.SEQ_NUM                                       "								   
 			+" WHERE 1=1															                                    "
-			+"   AND A.REG_DATE = '"+date+"'                                                                            "
+			+"   AND A.REG_DATE = '"+date+"'                                                                            "			
+			+" ORDER BY SEQ_NUM                                                                                         "
 			//+"   AND A.CMS_NO = 'L0609S0097001' AND A.REG_DATE = '"+date+"'                                                                            "
 		
 			+"";

@@ -17,6 +17,7 @@ import java.util.Properties;
 
 import comments.Comment;
 import tools.DB;
+import tools.SystemWriterLog;
 
 public class MB_DAO {
 	
@@ -26,8 +27,8 @@ public class MB_DAO {
 	
 	
 	public static void makeFileFromDataSet(String path, byte[] data,DataSetCust ds) throws Exception {
-		System.out.println("path : "+path);
-		System.out.println(data);
+		SystemWriterLog.writeLog("path : "+path);
+		SystemWriterLog.writeLog(""+data);
 		OutputStream targetFile = new FileOutputStream(path);
 		
 		updateBinaryData(data,ds);
@@ -101,7 +102,9 @@ public class MB_DAO {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		
-		String sql = Queries.select1(date);				
+		String sql = Queries.select1(date);
+		
+		//System.out.println(sql);
 		//int K =0;			
 		
 		
@@ -110,11 +113,11 @@ public class MB_DAO {
 
 			try (ResultSet rs = stmt.executeQuery()) {
 				while (rs.next()){
-					//System.out.println(rs.toString());
+					//SystemWriterLog.writeLog(rs.toString());
 					//K++;
 					//if(K!=1) continue;
 					makeDataRecords(rs);
-					//System.out.println(K);
+					//SystemWriterLog.writeLog(K);
 				}
 			}
 		} finally {
@@ -143,22 +146,22 @@ public class MB_DAO {
 		byte[] binaryData     = chkVal(resultSet.getBytes("FILE_BIN_DATA"));				
 		
 		/*
-		System.out.println(RECORD_TYPE    );
-		System.out.println(SEQ_NUM        );
-		System.out.println(REQ_TYPE       );
-		System.out.println(ORG_CD         );
-		System.out.println(CMS_NO         );
-		System.out.println(BANK_CD        );
-		System.out.println(ACCT_NO        );
-		System.out.println(APPLY_DATE     );
-		System.out.println(EVIDENCE_TYPE  );
-		System.out.println(RESULT_YN      );
-		System.out.println(FILE_EXTENSION );
-		System.out.println(FILE_SIZE      );
-		System.out.println("==================");
+		SystemWriterLog.writeLog(RECORD_TYPE    );
+		SystemWriterLog.writeLog(SEQ_NUM        );
+		SystemWriterLog.writeLog(REQ_TYPE       );
+		SystemWriterLog.writeLog(ORG_CD         );
+		SystemWriterLog.writeLog(CMS_NO         );
+		SystemWriterLog.writeLog(BANK_CD        );
+		SystemWriterLog.writeLog(ACCT_NO        );
+		SystemWriterLog.writeLog(APPLY_DATE     );
+		SystemWriterLog.writeLog(EVIDENCE_TYPE  );
+		SystemWriterLog.writeLog(RESULT_YN      );
+		SystemWriterLog.writeLog(FILE_EXTENSION );
+		SystemWriterLog.writeLog(FILE_SIZE      );
+		SystemWriterLog.writeLog("==================");
 		*/
 		
-		System.out.println(binaryData.length);
+		SystemWriterLog.writeLog(binaryData.length);
 
 		if( !(binaryData.length == 0) ){			
 			// 채워줘야 하는 공백 계산
@@ -168,8 +171,7 @@ public class MB_DAO {
 			space = 883;
 		}
 	
-		System.out.println("space => ");
-		System.out.println(space);
+		SystemWriterLog.writeLog("space => "+space);
 		
 		String strData = "" //나중에 수정.		
 		+ AN(6,RECORD_TYPE)		// 1. 업무구분코드
@@ -245,14 +247,12 @@ public class MB_DAO {
 			+ "VALUES(?,?,?,?,?,?)"
 			+ "";
 
-			System.out.println("getKY_NO : " + ds.getKY_NO());
-			System.out.println("getSIL_COUNT : " + ds.getSIL_COUNT());
-			System.out.println("getCMS_NO : " + ds.getCMS_NO());
-			System.out.println("getSEQ_NUM : " + ds.getSEQ_NUM());
-			System.out.println("getFILE_ROW : " + ds.getFILE_ROW());			
+			SystemWriterLog.writeLog("getKY_NO : " + ds.getKY_NO());
+			SystemWriterLog.writeLog("getSIL_COUNT : " + ds.getSIL_COUNT());
+			SystemWriterLog.writeLog("getCMS_NO : " + ds.getCMS_NO());
+			SystemWriterLog.writeLog("getSEQ_NUM : " + ds.getSEQ_NUM());
+			SystemWriterLog.writeLog("getFILE_ROW : " + ds.getFILE_ROW());			
 			
-
-			System.out.println("hello : "+sql);
 
 			statement = connection.prepareStatement(sql);
 			statement.setString(1,ds.getKY_NO()); 
@@ -283,7 +283,9 @@ public class MB_DAO {
 			String sql = "";
 			sql ="" //+= "INSERT INTO CMSATTACH(test) VALUES ( ? ) ";
 			+ "UPDATE CMSATTACH"
-			+ "   SET FILE_BIN_DATA = ?"			
+			+ "   SET FILE_BIN_DATA = ?"
+			+ "     , UPDAT_DATE = GETDATE() "		
+			+ "     , UPDAT_IDNO = ? "
 			+ " WHERE 1=1"
 			+ "   AND KY_NO = ? "
 			+ "   AND SIL_COUNT = ? "
@@ -291,23 +293,28 @@ public class MB_DAO {
 			+ "   AND SEQ_NUM = ? "			
 			+ "";
 
-			System.out.println("getKY_NO : " + ds.getKY_NO());
-			System.out.println("getSIL_COUNT : " + ds.getSIL_COUNT());
-			System.out.println("getCMS_NO : " + ds.getCMS_NO());
-			System.out.println("getSEQ_NUM : " + ds.getSEQ_NUM());						
 			
-			System.out.println("hello : "+sql);
+			
+			SystemWriterLog.writeLog("getU_ID : " + ds.getU_ID());
+			SystemWriterLog.writeLog("getKY_NO : " + ds.getKY_NO());
+			SystemWriterLog.writeLog("getSIL_COUNT : " + ds.getSIL_COUNT());
+			SystemWriterLog.writeLog("getCMS_NO : " + ds.getCMS_NO());
+			SystemWriterLog.writeLog("getSEQ_NUM : " + ds.getSEQ_NUM());						
+			
+			//SystemWriterLog.writeLog("hello : "+sql);
 			
 			statement = connection.prepareStatement(sql);
 			statement.setBytes(1, binaryData);
-			statement.setString(2,ds.getKY_NO()); 
-			statement.setString(3,ds.getSIL_COUNT()); 
-			statement.setString(4,ds.getCMS_NO()); 
-			statement.setString(5,ds.getSEQ_NUM()); 			
+			statement.setString(2,ds.getU_ID()); 
+			statement.setString(3,ds.getKY_NO()); 
+			statement.setString(4,ds.getSIL_COUNT()); 
+			statement.setString(5,ds.getCMS_NO()); 
+			statement.setString(6,ds.getSEQ_NUM()); 			
 			 
 
 			statement.executeUpdate();
 		} catch (Exception e) {
+			SystemWriterLog.writeLog(e);
 			throw e;
 		} finally {
 			if (statement != null)

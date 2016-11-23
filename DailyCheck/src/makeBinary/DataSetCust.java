@@ -5,13 +5,15 @@ public class DataSetCust {
 	String SIL_COUNT;
 	String CMS_NO;
 	String SEQ_NUM;
+	String U_ID;
 	String FILE_ROW;
 	
-	public DataSetCust(String KY_NO,String SIL_COUNT,String CMS_NO,String SEQ_NUM,String FILE_ROW){
+	public DataSetCust(String KY_NO,String SIL_COUNT,String CMS_NO,String SEQ_NUM,String U_ID, String FILE_ROW){
 		this.KY_NO = KY_NO;
 		this.SIL_COUNT = SIL_COUNT;
 		this.CMS_NO = CMS_NO;
 		this.SEQ_NUM = SEQ_NUM;
+		this.U_ID = U_ID;
 		this.FILE_ROW = FILE_ROW;
 	}
 	
@@ -45,6 +47,15 @@ public class DataSetCust {
 	}
 	public void setFILE_ROW(String fILE_ROW) {
 		FILE_ROW = fILE_ROW;
+	}
+
+
+	public String getU_ID() {
+		return U_ID;
+	}
+
+	public void setU_ID(String U_ID) {
+		this.U_ID = U_ID;
 	}
 	
 	
