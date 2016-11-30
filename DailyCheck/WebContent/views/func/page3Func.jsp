@@ -351,9 +351,6 @@
 		WEB2_c_val = param.getString("WEB2_c_val", "");
 		DB2_c_val = param.getString("DB2_c_val", "");
 
-		
-		
-
 		ifany = param.getString("ifany", "");
 
 		if (mobileserver == null) {

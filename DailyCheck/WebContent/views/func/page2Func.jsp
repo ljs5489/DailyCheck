@@ -428,6 +428,7 @@
 		//SystemWriterLog.writeLog("AJAX POST!!!");
 
 		RequestParameter param = new RequestParameter(request);
+		
 		checktime = param.getString("checktime", "");
 		checker = param.getString("checker", "");
 		WEB_CPU = param.getString("WEB_CPU", "");
@@ -608,8 +609,11 @@
 		ADV2_disk1 = param.getString("ADV2_disk1", "");
 		ADV2_disk2 = param.getString("ADV2_disk2", "");
 
-		ifany = param.getString("ifany", "");
+		ifany = param.getString("ifany", "");		
 
+		
+		
+		
 		if (server == null) {
 			ServerDAO.insertInfo(id, checktime, checker, WEB_CPU, WEB_memory, WEB_value, WEB_vaccine,
 					WEB_update, WEB_status, DBM_CPU, DBM_memory, DBM_value, DBM_vaccine, DBM_update, DBM_DB,

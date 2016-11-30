@@ -13,12 +13,13 @@ function postWithAjax() {
 			in_serv_tru1 : $("#in_serv_tru1").val(),
 			in_serv_tru2 : $("#in_serv_tru2").val(),
 			gateway : $("#gateway").val(),
-			ipt_alarm : $("#ipt_alarm").val(),
 			
 			idle_val : $("#idle_val").val(),
 			temp_val : $("#temp_val").val(),		
 			
-			ifany : $("#ifany").val(),			
+
+			ipt_alarm : encodeURIComponent($("#ipt_alarm").val()),
+			ifany : encodeURIComponent($("#ifany").val()),
 		},
 		success : function(data) {		
 			//console.log("post성공");  

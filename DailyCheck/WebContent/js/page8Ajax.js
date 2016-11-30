@@ -16,7 +16,7 @@ function postWithAjax() {
 		file_ : $("#file_").val(),
 		VRS_DB : $("#VRS_DB").val(),
 		DBM : $("#DBM").val(),
-		ifany : $("#ifany").val(),		
+		ifany : encodeURIComponent($("#ifany").val())	
 
 	}, function(data) {
 		//성공하면 여기

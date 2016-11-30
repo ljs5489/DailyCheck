@@ -1,6 +1,8 @@
 package tools;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class RequestParameter {
@@ -32,9 +34,10 @@ public class RequestParameter {
         request.setCharacterEncoding("UTF-8");
     }
     
-    public String getString(String name, String defaultValue) throws UnsupportedEncodingException {
+    @SuppressWarnings("deprecation")
+	public String getString(String name, String defaultValue) throws UnsupportedEncodingException {
         String s = request.getParameter(name);
-        return s == null ? defaultValue : new String(s.trim() .getBytes("8859_1"), "UTF-8"); //후...
+        return s == null ? defaultValue : URLDecoder.decode(new String(s.trim() .getBytes("8859_1"), "UTF-8")); //후...
     }
     
     public int getInt(String name, int defaultValue) {

@@ -31,7 +31,7 @@ function postWithAjax() {
 
 
 		
-		ifany : $("#ifany").val(),
+		ifany : encodeURIComponent($("#ifany").val()),
 
 	}, function(data) {
 		//alert(4);

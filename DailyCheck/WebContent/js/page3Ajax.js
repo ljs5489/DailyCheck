@@ -1,4 +1,6 @@
 function postWithAjax() {
+	
+	
 	$.post("func/page3Func.jsp", { //바꿔줄것.
 		id:$("input[name='mydate']").val(),//날짜 선택 추가...
 		
@@ -101,8 +103,7 @@ function postWithAjax() {
 
 		
 	
-		ifany : $("#ifany").val()
-
+		ifany : encodeURIComponent($("#ifany").val())
 
 	}, function(data) {
 		//성공하면 여기

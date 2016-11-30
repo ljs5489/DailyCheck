@@ -20,7 +20,7 @@ function postWithAjax() {
 		internet_spd_2 : $("#internet_spd_2").val(),
 		traffic_IDC_2 : $("#traffic_IDC_2").val(),	
 
-		ifany : $("#ifany").val(),
+		ifany : encodeURIComponent($("#ifany").val()),
 
 
 	}, function(data) {

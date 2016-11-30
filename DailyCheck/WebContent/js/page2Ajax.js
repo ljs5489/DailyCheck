@@ -1,4 +1,6 @@
 function postWithAjax() {
+
+	
 	$.post("func/page2Func.jsp", {
 		id:$("input[name='mydate']").val(),//날짜 선택 추가...
 		
@@ -184,7 +186,7 @@ function postWithAjax() {
 		ADV2_disk1 : $("#ADV2_disk1").val(),
 		ADV2_disk2 : $("#ADV2_disk2").val(),		
 		
-		ifany : $("#ifany").val()
+		ifany : encodeURIComponent($("#ifany").val()),
 
 	}, function() {
 		//성공하면 여기

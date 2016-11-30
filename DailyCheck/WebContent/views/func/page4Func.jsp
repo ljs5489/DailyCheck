@@ -126,7 +126,9 @@
 		
 		
 		ifany = param.getString("ifany", "");
-
+		System.out.println("ifany : "+ifany);
+		
+		
 		if (dmzserver == null) {
 			DmzserverDAO.insertInfo(
 					id, 
