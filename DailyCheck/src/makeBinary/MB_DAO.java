@@ -102,7 +102,8 @@ public class MB_DAO {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		
-		String sql = Queries.select1(date);
+		String sql = "[dbo].[LSE_CMS_EVIDENCE_SP] '"+date+"'";		
+		//Queries.select1(date);
 		
 		//System.out.println(sql);
 		//int K =0;			
@@ -161,7 +162,7 @@ public class MB_DAO {
 		SystemWriterLog.writeLog("==================");
 		*/
 		
-		SystemWriterLog.writeLog(binaryData.length);
+
 
 		if( !(binaryData.length == 0) ){			
 			// 채워줘야 하는 공백 계산
@@ -170,8 +171,7 @@ public class MB_DAO {
 		else {
 			space = 883;
 		}
-	
-		SystemWriterLog.writeLog("space => "+space);
+		SystemWriterLog.writeLog("OK... "+binaryData.length+" / space => "+space);
 		
 		String strData = "" //나중에 수정.		
 		+ AN(6,RECORD_TYPE)		// 1. 업무구분코드

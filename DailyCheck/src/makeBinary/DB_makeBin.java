@@ -23,11 +23,16 @@ public class DB_makeBin {
     static void readProperties() throws IOException {
 
         SP_JDBC_DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        SP_DB_URL           = "jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB";
         
-        //SP_DB_URL = "jdbc:sqlserver://10.1.208.15;databaseName=TFS_DB";
+        SP_DB_URL           = "jdbc:sqlserver://10.1.208.2;databaseName=TFS_DB";
         SP_USER_ID          = "DBWeb2"; //
-        SP_USER_PASSWORD    = "DB02@Web2#1024";     
+        SP_USER_PASSWORD    = "DB02@Web2#1024"; 
+        
+        /*
+        SP_DB_URL 			= "jdbc:sqlserver://10.1.208.15;databaseName=TFS_DB";
+        SP_USER_ID          = "DBDev5"; //
+        SP_USER_PASSWORD    = "1q2w3e1^";
+        */
 
     }    
 }

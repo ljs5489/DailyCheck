@@ -1,6 +1,16 @@
 package makeBinary;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class Queries {
+	
+	/*
+		public static void makeDataRecord(String date) throws Exception
+		  
+		[dbo].[LSE_CMS_EVIDENCE_SP] '"+date+"'"; <- 로 대체했음.			
+	*/
 	static String select1(String date){
 		return ""
 			+" SELECT A.RECORD_TYPE											                                            "

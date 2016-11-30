@@ -32,9 +32,9 @@ public class RequestParameter {
         request.setCharacterEncoding("UTF-8");
     }
     
-    public String getString(String name, String defaultValue) {
+    public String getString(String name, String defaultValue) throws UnsupportedEncodingException {
         String s = request.getParameter(name);
-        return s == null ? defaultValue : s.trim();
+        return s == null ? defaultValue : new String(s.trim() .getBytes("8859_1"), "UTF-8"); //후...
     }
     
     public int getInt(String name, int defaultValue) {

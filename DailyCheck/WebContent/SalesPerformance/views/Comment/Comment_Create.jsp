@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.*"%>
 <%@ page import="comments.*, tools.* "%>
@@ -40,12 +39,17 @@ if(request.getMethod().equals("POST")){
 	SystemWriterLog.writeLog(writer);
 	SystemWriterLog.writeLog(pw);
 	SystemWriterLog.writeLog(content);	
-		
+    
+	System.out.println("test2"+cmd);
+    
+    
 	if ("저장".equals(cmd)) {
 	    if (title.length() > 0) {
 	        if (content.length() > 0) {
 	        	if (pw.length() > 0) {
 		            CommentDAO.insertComment(writer,pw, title, content);
+		            
+		            System.out.println("test");
 		    		response.sendRedirect(urlList);
 		            SystemWriterLog.writeLog("password : "+pw);
 		        	//EXEC sp.insertComment  '1','2','3'
