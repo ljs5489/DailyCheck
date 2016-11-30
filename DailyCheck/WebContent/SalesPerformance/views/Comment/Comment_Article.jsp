@@ -31,7 +31,7 @@ String cmd = param.getString("cmd", "");
 
 
 
-//SystemWriterLog.writeLog("=>"+cmd);
+SystemWriterLog.writeLog("=>"+cmd);
 
 Comment cmt;
 
@@ -123,7 +123,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 			 location.href = "<%=urlDelete%>";			
 		});
 		$(".deleteReply").click(function(){
-			var pw = prompt("비밀번호를 입력하세요", "password");			
+			var pw = encodeURIComponent(prompt("비밀번호를 입력하세요", "password"));			
 			var thisId = $(this).parent(); 			
 		    
 		    if (pw != null) {

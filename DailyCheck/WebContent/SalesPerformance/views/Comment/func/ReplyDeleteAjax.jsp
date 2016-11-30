@@ -1,16 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.ArrayList, tools.*, pages.*, comments.*, java.text.SimpleDateFormat, java.util.Calendar "%>
-<%@page import="org.json.simple.JSONObject"%>
+<%@ page import="org.json.simple.JSONObject"%>
+<%@ page import="java.net.*"%>
 
-<%
-	request.setCharacterEncoding("UTF-8"); //필수
+<%	
+	RequestParameter param = new RequestParameter(request);
+
+	int boardId = param.getInt("bid", 0);
+	int articleId = param.getInt("aid", 0);
+	int category = param.getInt("ct", 0);
+
+	String chkPW = 	 URLDecoder.decode(param.getString("chkPW",""),"utf-8");
+	String sid = param.getString("sid","");
+	String pid = param.getString("pid","");
 	
-	String chkPW = request.getParameter("chkPW").trim();
-	String sid = request.getParameter("sid").trim();
-	String pid = request.getParameter("pid").trim();
-	
-	//SystemWriterLog.writeLog("chkPW : "+chkPW);
+	SystemWriterLog.writeLog("chkPW : "+chkPW);
 	//SystemWriterLog.writeLog("sid : "+sid);
 	//SystemWriterLog.writeLog("pid : "+pid);
 	

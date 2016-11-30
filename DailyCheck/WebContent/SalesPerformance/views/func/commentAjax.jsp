@@ -6,19 +6,21 @@
 
 
 <%
+	RequestParameter param = new RequestParameter(request);
 
-	request.setCharacterEncoding("UTF-8"); //필수
-	
-	String temp = request.getParameter("writer").trim();
+	String temp = param.getString("writer","");
+
+
 	SystemWriterLog.writeLog(temp);
 	if(temp.equals("save")){
 		SystemWriterLog.writeLog("same");
 		
 	}
 	if(true){
-		String writer=request.getParameter("writer").trim();
-		String password=request.getParameter("password").trim();
-		String content=request.getParameter("content").trim();
+		String writer = param.getString("writer","");
+		String password = param.getString("password","");
+		String content = param.getString("content","");
+		
 		
 		SystemWriterLog.writeLog(writer);
 		SystemWriterLog.writeLog(password);
