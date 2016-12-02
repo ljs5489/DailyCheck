@@ -1,5 +1,5 @@
 function postWithAjax() {
-	//console.log($("#ifany").val());
+	console.log($("#ifany").val());
 	
 	$.post("func/page1Func.jsp", {
 		id:$("input[name='mydate']").val(),//날짜 선택 추가...
@@ -44,13 +44,15 @@ function postWithAjax() {
 		EMaircon : $("#EMaircon").val(),
 		EMtemperature : $("#EMtemperature").val(),
 
+
+		ifany : $("#ifany").val(),
+		
 		EEtime : $("#EEtime").val(),
 		EEstate : $("#EEstate").val(),
 		EEpump : $("#EEpump").val(),
 		EEaircon : $("#EEaircon").val(),
 		EEtemperature : $("#EEtemperature").val(),
 
-		ifany : encodeURIComponent($("#ifany").val())
 
 	}, function() {
 		//성공하면 여기

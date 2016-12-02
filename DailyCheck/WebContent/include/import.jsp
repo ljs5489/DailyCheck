@@ -15,7 +15,6 @@
 
 
 
-
 <%@ page import=" tools.* "%>
 <% 
 	String clientIP = RequestParameter.getClientIP(request);

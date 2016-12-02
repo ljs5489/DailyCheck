@@ -34,12 +34,25 @@ public class RequestParameter {
         request.setCharacterEncoding("UTF-8");
     }
     
-    @SuppressWarnings("deprecation")
 	public String getString(String name, String defaultValue) throws UnsupportedEncodingException {
-        String s = request.getParameter(name);
-        return s == null ? defaultValue : URLDecoder.decode(new String(s.trim() .getBytes("8859_1"), "UTF-8")); //후...
+	    String s = request.getParameter(name);
+        return s == null ? defaultValue : s.trim(); //후...
+
     }
-    
+	public String getString(String unicode,String name, String defaultValue) throws UnsupportedEncodingException {
+        String s = request.getParameter(name);
+        if(s==null){
+        	return defaultValue;        	
+        }
+        else if(unicode.equals("UTF-8")){            
+        	System.out.println("2 : "+s);
+            s = new String(s.getBytes("8859_1"));
+
+        	System.out.println("3 : "+s);
+        	return s;     
+        }
+    	return s;
+    }
     public int getInt(String name, int defaultValue) {
         String s = request.getParameter(name);
         if (s == null) return defaultValue;

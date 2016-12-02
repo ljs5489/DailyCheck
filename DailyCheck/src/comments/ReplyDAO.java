@@ -135,6 +135,8 @@ public class ReplyDAO {
 			if(encrypted) check2 = pw;
 			else check2 = UserService.encryptToMD5(""+pw);
 			
+			SystemWriterLog.writeLog(check2);
+			
 			if(check1.trim().equals(check2.trim())) return true;				
 			
 			return false;

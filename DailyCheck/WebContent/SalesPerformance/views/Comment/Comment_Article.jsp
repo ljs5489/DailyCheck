@@ -23,12 +23,26 @@ String userIP = Address.getHostAddress();
 String userName = Address.getHostName();
 
 //==============코멘트 쪽=================================================
-String c_pw = param.getString("c_pw", "");
-String c_writer = param.getString("c_writer", "");
-String c_content = param.getString("c_content", "");
-String cmd = param.getString("cmd", "");
+String c_pw = param.getString("UTF-8","c_pw", "");
+String c_writer = param.getString("UTF-8","c_writer", "");
+String c_content = param.getString("UTF-8","c_content", "");
+String cmd = param.getString("UTF-8","cmd", "");
 
 
+System.out.println(c_pw);
+System.out.println(c_writer);
+System.out.println(c_content);
+System.out.println(cmd);
+
+c_pw = param.getString("c_pw", "");
+c_writer = param.getString("c_writer", "");
+c_content = param.getString("c_content", "");
+cmd = param.getString("cmd", "");
+
+System.out.println(c_pw);
+System.out.println(c_writer);
+System.out.println(c_content);
+System.out.println(cmd);
 
 
 SystemWriterLog.writeLog("=>"+cmd);
@@ -123,7 +137,7 @@ ArrayList<Reply> replies = ReplyDAO.selectAll(aid);
 			 location.href = "<%=urlDelete%>";			
 		});
 		$(".deleteReply").click(function(){
-			var pw = encodeURIComponent(prompt("비밀번호를 입력하세요", "password"));			
+			var pw = prompt("비밀번호를 입력하세요", "password");			
 			var thisId = $(this).parent(); 			
 		    
 		    if (pw != null) {

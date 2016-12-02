@@ -10,7 +10,7 @@ function postWithAjax() {
 		del_M : $("#del_M").val(),
 		leave_Mng : $("#leave_Mng").val(),
 		fax_SMS : $("#fax_SMS").val(),
-		ifany : encodeURIComponent($("#ifany").val())
+		ifany : $("#ifany").val(),
 
 
 	},function(data) {

@@ -28,11 +28,11 @@ String errMsg = null;
 String urlList = "Comment.jsp?"+ request.getQueryString().replaceAll("&?aid=[0-9]+&?", "");
 
 
-String cmd = param.getString("cmd", "");
-String title = param.getString("title", "");
-String writer = param.getString("writer", "");
-String pw = param.getString("pw", "");
-String content = param.getString("content", "");
+String cmd     = param.getString("UTF-8","cmd", "");
+String title   = param.getString("UTF-8","title", "");
+String writer  = param.getString("UTF-8","writer", "");
+String pw      = param.getString("UTF-8","pw", "");
+String content = param.getString("UTF-8","content", "");
 
 if(request.getMethod().equals("POST")){	
 	SystemWriterLog.writeLog(title);
@@ -49,7 +49,7 @@ if(request.getMethod().equals("POST")){
 	        	if (pw.length() > 0) {
 		            CommentDAO.insertComment(writer,pw, title, content);
 		            
-		            System.out.println("test");
+		           //System.out.println("test");
 		    		response.sendRedirect(urlList);
 		            SystemWriterLog.writeLog("password : "+pw);
 		        	//EXEC sp.insertComment  '1','2','3'

@@ -29,17 +29,17 @@ String urlEditCheck = "Comment_Edit_Check.jsp?"+ request.getQueryString().replac
 
 String title="", writer="", pw="", content="";
 
-String cmd = param.getString("cmd", "");
-String key = param.getString("key", "");
+String cmd = param.getString("UTF-8","cmd", "");
+String key = param.getString("UTF-8","key", "");
 
 
 
 if(request.getMethod().equals("GET")){	
 	Comment cmt = CommentDAO.selectByIdWithoutView(aid);
-	title   = param.getString("title", cmt.getTitle());
-	writer  = param.getString("writer", cmt.getWriter());
-	pw      = param.getString("pw", cmt.getPw());
-	content = param.getString("content", cmt.getContent());
+	title   = param.getString("UTF-8","title", cmt.getTitle());
+	writer  = param.getString("UTF-8","writer", cmt.getWriter());
+	pw      = param.getString("UTF-8","pw", cmt.getPw());
+	content = param.getString("UTF-8","content", cmt.getContent());
 	/*
 	SystemWriterLog.writeLog("GET");
 	SystemWriterLog.writeLog("title"+cmt.getTitle());
@@ -57,10 +57,10 @@ if(request.getMethod().equals("GET")){
 	}
 }
 else if(request.getMethod().equals("POST")){	
-	title   = param.getString("title", "");
-	writer  = param.getString("writer", "");
-	pw      = param.getString("pw", "");
-	content = param.getString("content", "");
+	title   = param.getString("UTF-8","title", "");
+	writer  = param.getString("UTF-8","writer", "");
+	pw      = param.getString("UTF-8","pw", "");
+	content = param.getString("UTF-8","content", "");
 	/*
 	SystemWriterLog.writeLog("POST");
 	SystemWriterLog.writeLog("content"+content);

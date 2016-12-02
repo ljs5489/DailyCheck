@@ -11,9 +11,9 @@
 	int articleId = param.getInt("aid", 0);
 	int category = param.getInt("ct", 0);
 
-	String chkPW = 	 URLDecoder.decode(param.getString("chkPW",""),"utf-8");
-	String sid = param.getString("sid","");
-	String pid = param.getString("pid","");
+	String chkPW = param.getString("UTF-8","chkPW","");
+	String sid = param.getString("UTF-8","sid","");
+	String pid = param.getString("UTF-8","pid","");
 	
 	SystemWriterLog.writeLog("chkPW : "+chkPW);
 	//SystemWriterLog.writeLog("sid : "+sid);

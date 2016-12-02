@@ -186,7 +186,7 @@ function postWithAjax() {
 		ADV2_disk1 : $("#ADV2_disk1").val(),
 		ADV2_disk2 : $("#ADV2_disk2").val(),		
 		
-		ifany : encodeURIComponent($("#ifany").val()),
+		ifany : $("#ifany").val(),
 
 	}, function() {
 		//성공하면 여기

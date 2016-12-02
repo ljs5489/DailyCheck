@@ -1,5 +1,6 @@
 package tools;
 
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -10,6 +11,12 @@ public class Sets {
 	public static void main(String[] args){
 
 	}
+	
+	
+	public static String UTF_8(String txt) throws UnsupportedEncodingException{
+		return new String(txt.getBytes("8859_1"));
+	}
+	
 	
 	public static String changeFormatYYYYMMDD(String date){
 		

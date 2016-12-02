@@ -14,7 +14,10 @@
 <%
 	RequestParameter param = new RequestParameter(request);
 	int aid = param.getInt("aid", 0);
-	String usrText = param.getString("usrText", "");
+	
+	
+	String usrText = param.getString("UTF-8","usrText", "");
+	
 	String urlGoBack = "Comment_Article.jsp?"+request.getQueryString();
 	String url = request.getQueryString();
 	

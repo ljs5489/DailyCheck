@@ -103,7 +103,7 @@ function postWithAjax() {
 
 		
 	
-		ifany : encodeURIComponent($("#ifany").val())
+		ifany : $("#ifany").val(),
 
 	}, function(data) {
 		//성공하면 여기

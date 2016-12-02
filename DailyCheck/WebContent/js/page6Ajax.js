@@ -17,9 +17,8 @@ function postWithAjax() {
 			idle_val : $("#idle_val").val(),
 			temp_val : $("#temp_val").val(),		
 			
-
-			ipt_alarm : encodeURIComponent($("#ipt_alarm").val()),
-			ifany : encodeURIComponent($("#ifany").val()),
+			ipt_alarm : $("#ipt_alarm").val(),
+			ifany : $("#ifany").val(),
 		},
 		success : function(data) {		
 			//console.log("post성공");  
