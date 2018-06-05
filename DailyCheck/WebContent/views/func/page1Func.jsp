@@ -11,7 +11,7 @@
 			WMtime = "", WMstate = "", WMpump = "", WMaircon = "", WMtemperature = "", WEtime = "",
 			WEstate = "", WEpump = "", WEaircon = "", WEtemperature = "", EMtime = "", EMstate = "",
 			EMpump = "", EMaircon = "", EMtemperature = "", EEtime = "", EEstate = "", EEpump = "",
-			EEaircon = "", EEtemperature = "", ifany = "";
+			EEaircon = "", EEtemperature = "", RTMS = "", ifany = "";
 
 	String id=request.getParameter("id").trim();
 	//SystemWriterLog.writeLog("?" + id);
@@ -69,6 +69,8 @@
 		EEpump = precheck.getEEpump();
 		EEaircon = precheck.getEEaircon();
 		EEtemperature = precheck.getEEtemperature();
+		
+		RTMS = precheck.getRTMS();
 
 		ifany = precheck.getIfany();
 
@@ -121,6 +123,7 @@
 	json.put("EEpump", EEpump);
 	json.put("EEaircon", EEaircon);
 	json.put("EEtemperature", EEtemperature);
+	json.put("RTMS", RTMS);
 	json.put("ifany", ifany);
 	
 	out.print(json);
@@ -174,7 +177,8 @@
 		EEpump = param.getString("EEpump", "");
 		EEaircon = param.getString("EEaircon", "");
 		EEtemperature = param.getString("EEtemperature", "");
-	
+		RTMS = param.getString("RTMS", "");
+		
 		ifany = param.getString("ifany", "");
 		
 		System.out.println(ifany);
@@ -187,14 +191,14 @@
 			PrecheckDAO.insertInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
 					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
 					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val);
+					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val,RTMS);
 			//SystemWriterLog.writeLog("인서트!");
 		} else {
 			//update	
 			PrecheckDAO.updateInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
 					images, font, links, bbs, indexsize, WMtime, WMstate, WMpump, WMaircon, WMtemperature,
 					WEtime, WEstate, WEpump, WEaircon, WEtemperature, EMtime, EMstate, EMpump, EMaircon,
-					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val);
+					EMtemperature, EEtime, EEstate, EEpump, EEaircon, EEtemperature, ifany,tra1time,tra1val,tra2time,tra2val,RTMS);
 
 			//SystemWriterLog.writeLog("업데이트!");
 		}

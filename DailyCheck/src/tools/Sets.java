@@ -67,6 +67,20 @@ public class Sets {
 
 		return tags;
 	}
+	public static String setBlock(String block, String name, String on, String off, boolean mini, String label) {
+
+		String tags = "";
+		tags += "<div class='ui-block-" + block + "'>";
+		tags += "<label for='" + name + "'>" + label + ":</label><select type='checkbox' ";
+		if (mini)
+			tags += "data-mini='true' ";
+		tags += "data-role='flipswitch' name='" + name + "' id='" + name + "'>";
+		tags += "<option value='off'>" + off + "</option>";
+		tags += "<option value='on'>" + on + "</option>";
+		tags += "</select><br></div>";
+
+		return tags;
+	}
 	//제거할 문장 선택
 	public static String getRidOfTwoChar(String str) {	
 		//page2

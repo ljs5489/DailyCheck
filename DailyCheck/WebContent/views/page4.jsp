@@ -101,13 +101,68 @@
 				</div>
 			</div>
 			<br />
+			
+			
+				<h3>TFSKR TFSKR-TAX2</h3>
+				<hr />
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "TAX2_CPU", "Y", "N", true)%>
+					<%=Sets.setBlock("b", "TAX2_memory", "Y", "N", true)%>
+					<div class="ui-block-c">
+						<label for="TAX2_value">C_val:</label> <input type="tel"
+							name="TAX2_value" id="TAX2_value" data-clear-btn="true"
+							data-mini="true">
+					</div>
+					<div class="ui-block-d">
+						<label for="TAX2_value_2">M_val:</label> <input type="tel"
+							name="TAX2_value_2" id="TAX2_value_2" data-mini="true"
+							data-clear-btn="true">
+					</div>
+				</div>
+				<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "TAX2_vaccine", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "TAX2_update", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "TAX2_status", "Good", "Bad", false)%>
+				</div>
+				<div class="diskUsage">
+					<h4>Disk Usage check</h4>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "TAX2_disk1", "tel")%>
+						<%=Sets.setText("b", "TAX2_disk2", "tel")%>
+					</div>
+				</div>
+				<br />
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<div class="ui-field-contain">
 				<label for="info">If Any:</label>
 				<textarea name="ifany" id="ifany"></textarea>
 			</div>
+			
+			
+			
+			
+			
 			<%@ include file="/../include/bottomTools.jsp"%>
 			<%@ include file="/../include/bottomGoUp.jsp"%>
+			
+			
 		</div>
+		
+						
+				
+		
 
 		<%@ include file="/../include/footer.jsp"%>
 	</div>

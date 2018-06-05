@@ -19,12 +19,17 @@
 			<%@ include file="../include/whoDidCheck.jsp"%>
 
 			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","network_conn","Y","N",false) %>
-				<%= Sets.setBlock("b","firm_banking","Y","N",false) %>
+						
+				<%= Sets.setBlock("a","firm_banking_nice","Y","N",false,"펌뱅킹 Nice") %>
+				<%= Sets.setBlock("b","firm_banking_kcb","Y","N",false,"펌뱅킹 KCB") %>
+				<%= Sets.setBlock("c","firm_banking","Y","N",false,"펌뱅킹 WebCash") %>		
+				<!-- 2018-06-05 김효중 부장님 지시
+				Sets.setBlock("a","network_conn","Y","N",false) 
 				<div class="ui-block-c">
 					<label for="network_err">Network Err:</label> <input type="tel"
 						name="network_err" id="network_err" data-clear-btn="true">
 				</div>
+				 -->
 			</div>
 			<div class="ui-grid-c">
 				<%= Sets.setBlock("a","vpn_21","Y","N",true) %>
@@ -34,35 +39,37 @@
 			</div>
 						<div class="ui-grid-a">
 				<div class="ui-block-a">
-					<label for="internet_traffic">internet_traffic:</label> <input type="tel"
+					<label for="internet_traffic">internet traffic IN:</label> <input type="tel"
 						name="internet_traffic" id="internet_traffic" data-clear-btn="true">
 				</div>
 				<div class="ui-block-b">
-					<label for="internet_traffic_2"></label>internet_traffic_2:<input type="tel"
+					<label for="internet_traffic_2"></label>internet traffic OUT:<input type="tel"
 						name="internet_traffic_2" id="internet_traffic_2" data-clear-btn="true">
 				</div>
 			</div>
 
 			<div class="ui-grid-a">
 				<div class="ui-block-a">
-					<label for="traffic_IDC">Traffic(IDC):</label> <input type="tel"
+					<label for="traffic_IDC">Traffic(IDC) IN:</label> <input type="tel"
 						name="traffic_IDC" id="traffic_IDC" data-clear-btn="true">
 				</div>
 				<div class="ui-block-b">
-					<label for="traffic_IDC_2">Traffic(IDC)_2:</label> <input type="tel"
+					<label for="traffic_IDC_2">Traffic(IDC) OUT:</label> <input type="tel"
 						name="traffic_IDC_2" id="traffic_IDC_2" data-clear-btn="true">
 				</div>
 			</div>
 			<div class="ui-grid-a">
 				<div class="ui-block-a">
-					<label for="internet_spd">Internet Spd:</label> <input type="tel"
+					<label for="internet_spd">Internet Spd DOWN</label> <input type="tel"
 						name="internet_spd" id="internet_spd" data-clear-btn="true">
 				</div>
 				<div class="ui-block-b">
-					<label for="internet_spd_2">Internet Spd_2:</label> <input type="tel"
+					<label for="internet_spd_2">Internet Spd UP</label> <input type="tel"
 						name="internet_spd_2" id="internet_spd_2" data-clear-btn="true">
 				</div>
 			</div>
+
+
 
 			<br/>
 			<div class="ui-field-contain">

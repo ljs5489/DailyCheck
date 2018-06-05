@@ -18,39 +18,45 @@
 			<h2>●Back up</h2>
 			<%@ include file="../include/whoDidCheck.jsp"%>
 
-			<h3>TFSKR File daily check</h3>
+			<br /> 
+			<h3>TFSKR Tape Backup Check</h3>
 			<hr />
 			<div class="ui-grid-b">
 				<%= Sets.setBlock("a","web","Y","N",false) %>
 				<%= Sets.setBlock("b","dew","Y","N",false) %>
 				<%= Sets.setBlock("c","app","Y","N",false) %>
-
 			</div>
 			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","ADV_1","Y","N",false) %>
-				<%= Sets.setBlock("b","VRS","Y","N",false) %>
-				<%= Sets.setBlock("c","mail","Y","N",false) %>
-			</div>
-			<div class="ui-grid-b">
-				<div class='ui-block-a'>
-					<label for='FAX_W'>FAX:</label>
-					<select type='checkbox' data-role='flipswitch' name='FAX_W' id='FAX_W'>
-						<option value='off'>N</option>
-						<option value='on'>Y</option>
-					</select>
-				</div>
-				<%= Sets.setBlock("b","DBsafer_M","Y","N",false) %>
-				<%= Sets.setBlock("c","file_","Y","N",false) %>
-			</div>
-			<br /> <br />
-			<h3>TFSKR DB daily check</h3>
+				<%= Sets.setBlock("a","mail","Y","N",false) %>
+				<%= Sets.setBlock("b","DBsafer_M","Y","N",false,"DBsafer(M)") %>
+			</div>			
+			<br />
+			<br />  
+			
+			
+			<h3>TFSKR SSR Backup Check</h3>
 			<hr />
-			<!-- /set -->
 			<div class="ui-grid-b">
-				<%= Sets.setBlock("a","VRS_DB","Y","N",false) %>
-				<%= Sets.setBlock("b","DBM","Y","N",false) %>
+				<%= Sets.setBlock("a","ADV_1","Y","N",false,"AD") %>
+				<%= Sets.setBlock("b","file_","Y","N",false,"FILE") %>
+				<%= Sets.setBlock("c","FAX_W","Y","N",false,"FAX(W)") %>
 			</div>
-			<br/>
+			<br /> 
+			<br /> 
+			
+			
+			<h3>TFSKR ETC Backup Check</h3>
+			<hr />
+			<div class="ui-grid-b">
+				<%= Sets.setBlock("a","VRS","Y","N",false) %>
+				<%= Sets.setBlock("b","VRS_DB","Y","N",false,"VRS (ACCESS)") %>
+			</div>
+			<br /> 
+			<br /> 
+			
+			
+			
+			
 			<div class="ui-field-contain">
 				<label for="info">If Any:</label>
 				<textarea name="ifany" id="ifany"></textarea>

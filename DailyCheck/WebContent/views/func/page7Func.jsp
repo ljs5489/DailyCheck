@@ -21,7 +21,10 @@
 			internet_spd_2= "",
 			traffic_IDC_2= "",
 
-			
+			firm_banking_nice= "",
+			firm_banking_kcb= "",
+
+					
 			ifany = "";
 
 	String id=request.getParameter("id").trim();
@@ -37,6 +40,8 @@
 		
 		network_conn = networkerr.getNetwork_conn();
 		firm_banking = networkerr.getFirm_banking();
+				
+		
 		vpn_21 = networkerr.getVpn_21();
 		vpn_31 = networkerr.getVpn_31();
 		vpn_200 = networkerr.getVpn_200();
@@ -49,6 +54,10 @@
 		internet_traffic_2 = networkerr.getInternet_traffic_2();
 		internet_spd_2 = networkerr.getInternet_spd_2();
 		traffic_IDC_2 = networkerr.getTraffic_IDC_2();
+		
+		firm_banking_nice = networkerr.getFirm_banking_nice();
+		firm_banking_kcb = networkerr.getFirm_banking_nice();
+		
 		
 		
 		ifany = networkerr.getIfany();
@@ -84,6 +93,10 @@
 	json.put("internet_spd_2", internet_spd_2);
 	json.put("traffic_IDC_2", traffic_IDC_2);	
 	
+	//HERE
+	json.put("firm_banking_nice", firm_banking_nice);
+	json.put("firm_banking_kcb", firm_banking_kcb);
+	
 	json.put("ifany", ifany);
 
 	
@@ -110,17 +123,28 @@
 		internet_spd_2 = param.getString("internet_spd_2", "");
 		traffic_IDC_2 = param.getString("traffic_IDC_2", "");		
 
+		firm_banking_nice = param.getString("firm_banking_nice", "");
+		firm_banking_kcb = param.getString("firm_banking_kcb", "");
+		
 		ifany = param.getString("ifany", "");
 
 		if (networkerr == null) {
 			NetworkerrDAO.insertInfo(id, checktime, checker,network_conn,firm_banking,vpn_21
-					,vpn_31,vpn_200,vpn_254,network_err,internet_spd,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2,ifany);
+					,vpn_31,vpn_200,vpn_254,network_err,internet_spd,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2
+					,firm_banking_nice,firm_banking_kcb
+					,ifany);
 			//SystemWriterLog.writeLog("인서트!");
+
+			SystemWriterLog.writeLog("업데이트!"+firm_banking_nice);
+			SystemWriterLog.writeLog("업데이트!"+firm_banking_kcb);
 		} else {
 			//update	
 			NetworkerrDAO.updateInfo(id, checktime, checker,network_conn,firm_banking,vpn_21,vpn_31,vpn_200,vpn_254,network_err,internet_spd
-					,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2,ifany);
-			//SystemWriterLog.writeLog("업데이트!");
+					,traffic_IDC,internet_traffic,internet_traffic_2,internet_spd_2,traffic_IDC_2
+					,firm_banking_nice,firm_banking_kcb
+					,ifany);
+			SystemWriterLog.writeLog("업데이트!"+firm_banking_nice);
+			SystemWriterLog.writeLog("업데이트!"+firm_banking_kcb);
 		}
 	}
 %>

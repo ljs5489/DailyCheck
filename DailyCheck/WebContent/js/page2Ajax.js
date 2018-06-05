@@ -1,5 +1,4 @@
 function postWithAjax() {
-
 	
 	$.post("func/page2Func.jsp", {
 		id:$("input[name='mydate']").val(),//날짜 선택 추가...
@@ -123,6 +122,10 @@ function postWithAjax() {
 		DBM_disk2 : $("#DBM_disk2").val(),
 		DBM_disk3 : $("#DBM_disk3").val(),
 		DBM_disk4 : $("#DBM_disk4").val(),
+		DBM_disk5 : $("#DBM_disk5").val(),
+		DBM_disk6 : $("#DBM_disk6").val(),
+		
+		
 		DEW_disk1 : $("#DEW_disk1").val(),
 		DEW_disk2 : $("#DEW_disk2").val(),
 		MAIL_disk1 : $("#MAIL_disk1").val(),
@@ -157,6 +160,14 @@ function postWithAjax() {
 		DEVN_disk2 : $("#DEVN_disk2").val(),
 		DEVN_disk3 : $("#DEVN_disk3").val(),
 		DEVN_disk4 : $("#DEVN_disk4").val(),
+		
+		
+		/* ================ 2017-02-27 스토리지 추가. ================ */
+		DEVN_disk5 : $("#DEVN_disk5").val(),
+		DEVN_disk6 : $("#DEVN_disk6").val(),		
+		/* ================ 2017-02-27 스토리지 추가. ================ */
+		
+		
 		MSVM1_disk1 : $("#MSVM1_disk1").val(),
 		MSVM1_disk2 : $("#MSVM1_disk2").val(),
 		MSVM1_disk3 : $("#MSVM1_disk3").val(),
@@ -184,7 +195,37 @@ function postWithAjax() {
 		ADV1_disk1 : $("#ADV1_disk1").val(),
 		ADV1_disk2 : $("#ADV1_disk2").val(),
 		ADV2_disk1 : $("#ADV2_disk1").val(),
-		ADV2_disk2 : $("#ADV2_disk2").val(),		
+		ADV2_disk2 : $("#ADV2_disk2").val(),	
+		
+		
+		TAX1_CPU:$("#TAX1_CPU").val(),	
+		TAX1_memory:$("#TAX1_memory").val(),	
+		TAX1_value:$("#TAX1_value").val(),	
+		TAX1_value_2:$("#TAX1_value_2").val(),	
+		TAX1_vaccine:$("#TAX1_vaccine").val(),	
+		TAX1_update:$("#TAX1_update").val(),	
+		TAX1_status:$("#TAX1_status").val(),	
+		TAX1_disk1:$("#TAX1_disk1").val(),	
+		TAX1_disk2:$("#TAX1_disk2").val(),	
+		
+		
+		
+		
+		TAX2_CPU:$("#TAX2_CPU").val(),	
+		TAX2_memory:$("#TAX2_memory").val(),	
+		TAX2_value:$("#TAX2_value").val(),	
+		TAX2_value_2:$("#TAX2_value_2").val(),	
+		TAX2_vaccine:$("#TAX2_vaccine").val(),	
+		TAX2_update:$("#TAX2_update").val(),	
+		TAX2_status:$("#TAX2_status").val(),	
+		TAX2_disk1:$("#TAX2_disk1").val(),	
+		TAX2_disk2:$("#TAX2_disk2").val(),	
+		
+		
+		
+		
+		
+		
 		
 		ifany : $("#ifany").val(),
 
@@ -326,6 +367,10 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#DBM_disk2").val(data.DBM_disk2).textinput('refresh');
 			$("#DBM_disk3").val(data.DBM_disk3).textinput('refresh');
 			$("#DBM_disk4").val(data.DBM_disk4).textinput('refresh');
+			$("#DBM_disk5").val(data.DBM_disk5).textinput('refresh');
+			$("#DBM_disk6").val(data.DBM_disk6).textinput('refresh');
+			
+			
 			$("#DEW_disk1").val(data.DEW_disk1).textinput('refresh');
 			$("#DEW_disk2").val(data.DEW_disk2).textinput('refresh');
 			$("#MAIL_disk1").val(data.MAIL_disk1).textinput('refresh');
@@ -359,6 +404,12 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#DEVN_disk2").val(data.DEVN_disk2).textinput('refresh');
 			$("#DEVN_disk3").val(data.DEVN_disk3).textinput('refresh');
 			$("#DEVN_disk4").val(data.DEVN_disk4).textinput('refresh');
+
+			/* ================ 2017-02-27 스토리지 추가. ================ */
+			$("#DEVN_disk5").val(data.DEVN_disk5).textinput('refresh');
+			$("#DEVN_disk6").val(data.DEVN_disk6).textinput('refresh');
+			/* ================ /2017-02-27 스토리지 추가. ================ */
+			
 			$("#MSVM1_disk1").val(data.MSVM1_disk1).textinput('refresh');
 			$("#MSVM1_disk2").val(data.MSVM1_disk2).textinput('refresh');
 			$("#MSVM1_disk3").val(data.MSVM1_disk3).textinput('refresh');
@@ -387,6 +438,33 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#ADV1_disk2").val(data.ADV1_disk2).textinput('refresh');
 			$("#ADV2_disk1").val(data.ADV2_disk1).textinput('refresh');
 			$("#ADV2_disk2").val(data.ADV2_disk2).textinput('refresh');
+			
+			$("#TAX1_CPU").val(data.TAX1_CPU).flipswitch('refresh');
+			$("#TAX1_memory").val(data.TAX1_memory).flipswitch('refresh');
+			$("#TAX1_value").val(data.TAX1_value).textinput('refresh');
+			$("#TAX1_value_2").val(data.TAX1_value_2).textinput('refresh');
+			$("#TAX1_vaccine").val(data.TAX1_vaccine).flipswitch('refresh');
+			$("#TAX1_update").val(data.TAX1_update).flipswitch('refresh');
+			$("#TAX1_status").val(data.TAX1_status).flipswitch('refresh');
+			$("#TAX1_disk1").val(data.TAX1_disk1).textinput('refresh');
+			$("#TAX1_disk2").val(data.TAX1_disk2).textinput('refresh');
+			
+			
+			
+			$("#TAX2_CPU").val(data.TAX2_CPU).flipswitch('refresh');
+			$("#TAX2_memory").val(data.TAX2_memory).flipswitch('refresh');
+			$("#TAX2_value").val(data.TAX2_value).textinput('refresh');
+			$("#TAX2_value_2").val(data.TAX2_value_2).textinput('refresh');
+			$("#TAX2_vaccine").val(data.TAX2_vaccine).flipswitch('refresh');
+			$("#TAX2_update").val(data.TAX2_update).flipswitch('refresh');
+			$("#TAX2_status").val(data.TAX2_status).flipswitch('refresh');
+			$("#TAX2_disk1").val(data.TAX2_disk1).textinput('refresh');
+			$("#TAX2_disk2").val(data.TAX2_disk2).textinput('refresh');
+			
+			
+			
+			
+			
 
 			
 			$("#ifany").val(data.ifany).textinput('refresh');

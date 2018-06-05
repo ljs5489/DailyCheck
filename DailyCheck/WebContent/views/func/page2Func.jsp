@@ -33,13 +33,42 @@
 			FAX_disk1 = "", FAX_disk2 = "", FAX_disk3 = "", FAX_disk4 = "", ADN_disk1 = "", ADN_disk2 = "",
 			ADN_disk3 = "", ADN_disk4 = "", VRS_disk1 = "", VRS_disk2 = "", VRS_disk3 = "", VRS_disk4 = "",
 			FILE_disk1 = "", FILE_disk2 = "", FILE_disk3 = "", FILE_disk4 = "", DEVN_disk1 = "",
-			DEVN_disk2 = "", DEVN_disk3 = "", DEVN_disk4 = "", MSVM1_disk1 = "", MSVM1_disk2 = "",
+			DEVN_disk2 = "", DEVN_disk3 = "", DEVN_disk4 = "", 
+			
+			/* ================ 2017-02-27 스토리지 추가. ================ */
+			DEVN_disk5 = "", DEVN_disk6 = "",
+			DBM_disk5 = "", DBM_disk6 = "",
+			/* ================ 2017-02-27 스토리지 추가. ================ */
+					
+					
+			MSVM1_disk1 = "", MSVM1_disk2 = "",
 			MSVM1_disk3 = "", MSVM1_disk4 = "", MSVM1_disk5 = "", MSVM1_disk6 = "", MSVM1_disk7 = "",
 			MSVM1_disk8 = "", MSVM1_disk9 = "", MSVM1_disk10 = "", MSVM2_disk1 = "", MSVM2_disk2 = "",
 			MSVM2_disk3 = "", MSVM2_disk4 = "", MSVM2_disk5 = "", MSVM2_disk6 = "", MSVM2_disk7 = "",
 			MSVM2_disk8 = "", MSVM2_disk9 = "", MSVM2_disk10 = "", LYNC_disk1 = "", LYNC_disk2 = "",
 			LYNC_disk3 = "", LYNC_disk4 = "", ADV1_disk1 = "", ADV1_disk2 = "", ADV2_disk1 = "",
 			ADV2_disk2 = "",
+
+			/* ================ 2017-08-01 Tax추가. ================ */
+			TAX1_CPU = "",
+			TAX1_memory = "",
+			TAX1_value = "",
+			TAX1_value_2 = "",
+			TAX1_vaccine = "",
+			TAX1_update = "",
+			TAX1_status = "",
+			TAX1_disk1 = "",
+			TAX1_disk2 = "",
+			TAX2_CPU = "",
+			TAX2_memory = "",
+			TAX2_value = "",
+			TAX2_value_2 = "",
+			TAX2_vaccine = "",
+			TAX2_update = "",
+			TAX2_status = "",
+			TAX2_disk1 = "",
+			TAX2_disk2 = "",
+			/* ================ 2017-08-01 Tax추가. ================ */
 
 			ifany = "";
 
@@ -170,6 +199,10 @@
 		DBM_disk2 = server.getDBM_disk2();
 		DBM_disk3 = server.getDBM_disk3();
 		DBM_disk4 = server.getDBM_disk4();
+
+		DBM_disk5 = server.getDBM_disk5();
+		DBM_disk6 = server.getDBM_disk6();
+		
 		DEW_disk1 = server.getDEW_disk1();
 		DEW_disk2 = server.getDEW_disk2();
 		MAIL_disk1 = server.getMAIL_disk1();
@@ -202,6 +235,12 @@
 		DEVN_disk2 = server.getDEVN_disk2();
 		DEVN_disk3 = server.getDEVN_disk3();
 		DEVN_disk4 = server.getDEVN_disk4();
+		
+		/* ================ 2017-02-27 스토리지 추가. ================ */
+		DEVN_disk5 = server.getDEVN_disk5();
+		DEVN_disk6 = server.getDEVN_disk6();
+		/* ================ 2017-02-27 스토리지 추가. ================ */
+		
 		MSVM1_disk1 = server.getMSVM1_disk1();
 		MSVM1_disk2 = server.getMSVM1_disk2();
 		MSVM1_disk3 = server.getMSVM1_disk3();
@@ -231,6 +270,29 @@
 		ADV2_disk1 = server.getADV2_disk1();
 		ADV2_disk2 = server.getADV2_disk2();
 
+
+		/* ================ 2017-08-01 Tax추가. ================ */
+		TAX1_CPU     = server.getTAX1_CPU();
+		TAX1_memory  = server.getTAX1_memory();
+		TAX1_value   = server.getTAX1_value();
+		TAX1_value_2 = server.getTAX1_value_2();
+		TAX1_vaccine = server.getTAX1_vaccine();
+		TAX1_update  = server.getTAX1_update();
+		TAX1_status  = server.getTAX1_status();
+		TAX1_disk1   = server.getTAX1_disk1();
+		TAX1_disk2   = server.getTAX1_disk2();
+		TAX2_CPU     = server.getTAX2_CPU();
+		TAX2_memory  = server.getTAX2_memory();
+		TAX2_value   = server.getTAX2_value();
+		TAX2_value_2 = server.getTAX2_value_2();
+		TAX2_vaccine = server.getTAX2_vaccine();
+		TAX2_update  = server.getTAX2_update();
+		TAX2_status  = server.getTAX2_status();
+		TAX2_disk1   = server.getTAX2_disk1();
+		TAX2_disk2   = server.getTAX2_disk2();
+
+		/* ================ 2017-08-01 Tax추가. ================ */
+		
 		ifany = server.getIfany();
 
 	}
@@ -359,6 +421,10 @@
 	json.put("DBM_disk2", DBM_disk2);
 	json.put("DBM_disk3", DBM_disk3);
 	json.put("DBM_disk4", DBM_disk4);
+	json.put("DBM_disk5", DBM_disk5);
+	json.put("DBM_disk6", DBM_disk6);
+	
+	
 	json.put("DEW_disk1", DEW_disk1);
 	json.put("DEW_disk2", DEW_disk2);
 	json.put("MAIL_disk1", MAIL_disk1);
@@ -391,6 +457,13 @@
 	json.put("DEVN_disk2", DEVN_disk2);
 	json.put("DEVN_disk3", DEVN_disk3);
 	json.put("DEVN_disk4", DEVN_disk4);
+	
+	
+	/* ================ 2017-02-27 스토리지 추가. ================ */
+	json.put("DEVN_disk5", DEVN_disk5);
+	json.put("DEVN_disk6", DEVN_disk6);
+	/* ================ /2017-02-27 스토리지 추가. ================ */
+	
 	json.put("MSVM1_disk1", MSVM1_disk1);
 	json.put("MSVM1_disk2", MSVM1_disk2);
 	json.put("MSVM1_disk3", MSVM1_disk3);
@@ -420,14 +493,59 @@
 	json.put("ADV2_disk1", ADV2_disk1);
 	json.put("ADV2_disk2", ADV2_disk2);
 
+	
+	json.put("TAX1_CPU",TAX1_CPU);
+	json.put("TAX1_memory",TAX1_memory);
+	json.put("TAX1_value",TAX1_value);
+	json.put("TAX1_value_2",TAX1_value_2);
+	json.put("TAX1_vaccine",TAX1_vaccine);
+	json.put("TAX1_update",TAX1_update);
+	json.put("TAX1_status",TAX1_status);
+	json.put("TAX1_disk1",TAX1_disk1);
+	json.put("TAX1_disk2",TAX1_disk2);
+	
+	
+	
+	json.put("TAX2_CPU",TAX2_CPU);
+	json.put("TAX2_memory",TAX2_memory);
+	json.put("TAX2_value",TAX2_value);
+	json.put("TAX2_value_2",TAX2_value_2);
+	json.put("TAX2_vaccine",TAX2_vaccine);
+	json.put("TAX2_update",TAX2_update);
+	json.put("TAX2_status",TAX2_status);
+	json.put("TAX2_disk1",TAX2_disk1);
+	json.put("TAX2_disk2",TAX2_disk2);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	json.put("ifany", ifany);
 
 	out.print(json);
 
 	if (request.getMethod().equals("POST")) {
 		//SystemWriterLog.writeLog("AJAX POST!!!");
+		
+		
+		
+		
+		
+		
 
 		RequestParameter param = new RequestParameter(request);
+		
+		
+		System.out.println("===============================>"+param.getString("TAX1_CPU",""));
+		
+		//System.out.println("test : "+param.getString("DEVN_disk5", ""));
+		//System.out.println("test : "+param.getString("DEVN_disk6", ""));
+		
 		
 		checktime = param.getString("checktime", "");
 		checker = param.getString("checker", "");
@@ -543,10 +661,16 @@
 		WEB_disk2 = param.getString("WEB_disk2", "");
 		WEB_disk3 = param.getString("WEB_disk3", "");
 		WEB_disk4 = param.getString("WEB_disk4", "");
+		
 		DBM_disk1 = param.getString("DBM_disk1", "");
 		DBM_disk2 = param.getString("DBM_disk2", "");
 		DBM_disk3 = param.getString("DBM_disk3", "");
 		DBM_disk4 = param.getString("DBM_disk4", "");
+		DBM_disk5 = param.getString("DBM_disk5", "");
+		DBM_disk6 = param.getString("DBM_disk6", "");
+		
+		
+		
 		DEW_disk1 = param.getString("DEW_disk1", "");
 		DEW_disk2 = param.getString("DEW_disk2", "");
 		MAIL_disk1 = param.getString("MAIL_disk1", "");
@@ -580,6 +704,14 @@
 		DEVN_disk2 = param.getString("DEVN_disk2", "");
 		DEVN_disk3 = param.getString("DEVN_disk3", "");
 		DEVN_disk4 = param.getString("DEVN_disk4", "");
+		
+		
+		/* ================ 2017-02-27 스토리지 추가. ================ */
+		DEVN_disk5 = param.getString("DEVN_disk5", "");
+		DEVN_disk6 = param.getString("DEVN_disk6", "");
+		/* ================ 2017-02-27 스토리지 추가. ================ */
+		
+		
 		MSVM1_disk1 = param.getString("MSVM1_disk1", "");
 		MSVM1_disk2 = param.getString("MSVM1_disk2", "");
 		MSVM1_disk3 = param.getString("MSVM1_disk3", "");
@@ -608,10 +740,48 @@
 		ADV1_disk2 = param.getString("ADV1_disk2", "");
 		ADV2_disk1 = param.getString("ADV2_disk1", "");
 		ADV2_disk2 = param.getString("ADV2_disk2", "");
-
-		ifany = param.getString("ifany", "");		
+		
+		
+		TAX1_CPU     = param.getString("TAX1_CPU","");
+		TAX1_memory  = param.getString("TAX1_memory","");
+		TAX1_value   = param.getString("TAX1_value","");
+		TAX1_value_2 = param.getString("TAX1_value_2","");
+		TAX1_vaccine = param.getString("TAX1_vaccine","");
+		TAX1_update  = param.getString("TAX1_update","");
+		TAX1_status  = param.getString("TAX1_status","");
+		TAX1_disk1   = param.getString("TAX1_disk1","");
+		TAX1_disk2   = param.getString("TAX1_disk2","");
+		
+		
+		
+		TAX2_CPU     = param.getString("TAX2_CPU","");
+		TAX2_memory  = param.getString("TAX2_memory","");
+		TAX2_value   = param.getString("TAX2_value","");
+		TAX2_value_2 = param.getString("TAX2_value_2","");
+		TAX2_vaccine = param.getString("TAX2_vaccine","");
+		TAX2_update  = param.getString("TAX2_update","");
+		TAX2_status  = param.getString("TAX2_status","");
+		TAX2_disk1   = param.getString("TAX2_disk1","");
+		TAX2_disk2   = param.getString("TAX2_disk2","");
 
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		ifany = param.getString("ifany", "");		
 		
 		
 		if (server == null) {
@@ -632,18 +802,46 @@
 					WEB_value_2, DBM_value_2, DEW_value_2, MAIL_value_2, APP_value_2, FAX_value_2, ADN_value_2,
 					VRS_value_2, FILE_value_2, DEVN_value_2, MSVM1_value_2, MSVM2_value_2, LYNC_value_2,
 					ADV1_value_2, ADV2_value_2, WEB_disk1, WEB_disk2, WEB_disk3, WEB_disk4, DBM_disk1,
-					DBM_disk2, DBM_disk3, DBM_disk4, DEW_disk1, DEW_disk2, MAIL_disk1, MAIL_disk2, MAIL_disk3,
+					DBM_disk2, DBM_disk3, DBM_disk4,	DBM_disk5, DBM_disk6, DEW_disk1, DEW_disk2, MAIL_disk1, MAIL_disk2, MAIL_disk3,
 					MAIL_disk4, APP_disk1, APP_disk2, APP_disk3, APP_disk4, FAX_disk1, FAX_disk2, FAX_disk3,
 					FAX_disk4, ADN_disk1, ADN_disk2, ADN_disk3, ADN_disk4, VRS_disk1, VRS_disk2, VRS_disk3,
 					VRS_disk4, FILE_disk1, FILE_disk2, FILE_disk3, FILE_disk4, DEVN_disk1, DEVN_disk2,
-					DEVN_disk3, DEVN_disk4, MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5,
+					DEVN_disk3, DEVN_disk4, 
+					/* ================ 2017-02-27 스토리지 추가. ================ */
+					DEVN_disk5, DEVN_disk6, 				
+					/* ================ /2017-02-27 스토리지 추가. ================ */
+					
+					MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5,
 					MSVM1_disk6, MSVM1_disk7, MSVM1_disk8, MSVM1_disk9, MSVM1_disk10, MSVM2_disk1, MSVM2_disk2,
 					MSVM2_disk3, MSVM2_disk4, MSVM2_disk5, MSVM2_disk6, MSVM2_disk7, MSVM2_disk8, MSVM2_disk9,
 					MSVM2_disk10, LYNC_disk1, LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2,
 					ADV2_disk1, ADV2_disk2,
-
+					
+					TAX1_CPU,TAX1_memory,TAX1_value,TAX1_value_2,TAX1_vaccine,TAX1_update,TAX1_status,TAX1_disk1,TAX1_disk2,
+					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2,
+					
 					ifany);
-			//SystemWriterLog.writeLog("인서트!");
+			SystemWriterLog.writeLog("인서트!");
+			/*
+			System.out.println(TAX1_CPU      );
+			System.out.println(TAX1_memory   );
+			System.out.println(TAX1_value    );
+			System.out.println(TAX1_value_2  );
+			System.out.println(TAX1_vaccine  );
+			System.out.println(TAX1_update   );
+			System.out.println(TAX1_status   );
+			System.out.println(TAX1_disk1    );
+			System.out.println(TAX1_disk2    );
+			System.out.println(TAX2_CPU      );
+			System.out.println(TAX2_memory   );
+			System.out.println(TAX2_value    );
+			System.out.println(TAX2_value_2  );
+			System.out.println(TAX2_vaccine  );
+			System.out.println(TAX2_update   );
+			System.out.println(TAX2_status   );
+			System.out.println(TAX2_disk1    );
+			System.out.println(TAX2_disk2    );
+			*/
 		} else {
 			//update	
 			ServerDAO.updateInfo(id, checktime, checker, WEB_CPU, WEB_memory, WEB_value, WEB_vaccine,
@@ -663,18 +861,50 @@
 					WEB_value_2, DBM_value_2, DEW_value_2, MAIL_value_2, APP_value_2, FAX_value_2, ADN_value_2,
 					VRS_value_2, FILE_value_2, DEVN_value_2, MSVM1_value_2, MSVM2_value_2, LYNC_value_2,
 					ADV1_value_2, ADV2_value_2, WEB_disk1, WEB_disk2, WEB_disk3, WEB_disk4, DBM_disk1,
-					DBM_disk2, DBM_disk3, DBM_disk4, DEW_disk1, DEW_disk2, MAIL_disk1, MAIL_disk2, MAIL_disk3,
+					DBM_disk2, DBM_disk3, DBM_disk4,DBM_disk5, DBM_disk6, DEW_disk1, DEW_disk2, MAIL_disk1, MAIL_disk2, MAIL_disk3,
 					MAIL_disk4, APP_disk1, APP_disk2, APP_disk3, APP_disk4, FAX_disk1, FAX_disk2, FAX_disk3,
 					FAX_disk4, ADN_disk1, ADN_disk2, ADN_disk3, ADN_disk4, VRS_disk1, VRS_disk2, VRS_disk3,
 					VRS_disk4, FILE_disk1, FILE_disk2, FILE_disk3, FILE_disk4, DEVN_disk1, DEVN_disk2,
-					DEVN_disk3, DEVN_disk4, MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5,
+					DEVN_disk3, DEVN_disk4, 
+					
+					/* ================ 2017-02-27 스토리지 추가. ================ */
+					DEVN_disk5, DEVN_disk6, 
+			
+					/* ================ /2017-02-27 스토리지 추가. ================ */
+					
+					MSVM1_disk1, MSVM1_disk2, MSVM1_disk3, MSVM1_disk4, MSVM1_disk5,
 					MSVM1_disk6, MSVM1_disk7, MSVM1_disk8, MSVM1_disk9, MSVM1_disk10, MSVM2_disk1, MSVM2_disk2,
 					MSVM2_disk3, MSVM2_disk4, MSVM2_disk5, MSVM2_disk6, MSVM2_disk7, MSVM2_disk8, MSVM2_disk9,
 					MSVM2_disk10, LYNC_disk1, LYNC_disk2, LYNC_disk3, LYNC_disk4, ADV1_disk1, ADV1_disk2,
 					ADV2_disk1, ADV2_disk2,
 
+					TAX1_CPU,TAX1_memory,TAX1_value,TAX1_value_2,TAX1_vaccine,TAX1_update,TAX1_status,TAX1_disk1,TAX1_disk2,
+					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2,
+					
 					ifany);
-			//SystemWriterLog.writeLog("업데이트!");
+			SystemWriterLog.writeLog("업데이트!");
+			/*
+			System.out.println(TAX1_CPU      );
+			System.out.println(TAX1_memory   );
+			System.out.println(TAX1_value    );
+			System.out.println(TAX1_value_2  );
+			System.out.println(TAX1_vaccine  );
+			System.out.println(TAX1_update   );
+			System.out.println(TAX1_status   );
+			System.out.println(TAX1_disk1    );
+			System.out.println(TAX1_disk2    );
+			System.out.println(TAX2_CPU      );
+			System.out.println(TAX2_memory   );
+			System.out.println(TAX2_value    );
+			System.out.println(TAX2_value_2  );
+			System.out.println(TAX2_vaccine  );
+			System.out.println(TAX2_update   );
+			System.out.println(TAX2_status   );
+			System.out.println(TAX2_disk1    );
+			System.out.println(TAX2_disk2    );
+			
+			System.out.println();
+			*/
 		}
 	}
 %>

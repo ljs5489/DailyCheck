@@ -52,7 +52,7 @@ function postWithAjax() {
 		EEpump : $("#EEpump").val(),
 		EEaircon : $("#EEaircon").val(),
 		EEtemperature : $("#EEtemperature").val(),
-
+		RTMS : $("#RTMS").val(),
 
 	}, function() {
 		//성공하면 여기
@@ -117,6 +117,8 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#EEpump").val(data.EEpump).flipswitch("refresh");
 			$("#EEaircon").val(data.EEaircon).flipswitch("refresh");
 			$("#EEtemperature").val(data.EEtemperature).textinput('refresh');
+			
+			$("#RTMS").val(data.RTMS).flipswitch("refresh");
 			
 			$("#ifany").val(data.ifany).textinput('refresh');
 			

@@ -38,7 +38,11 @@
 						</select><br>
 					</div>
 				</div>
-
+				<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "RTMS", "Good", "Bad", false)%>
+					<div class='ui-block-b'></div>
+					<div class='ui-block-c'></div>
+				</div>
 				<h3>Homepage</h3>
 				<hr />
 				<div class="ui-grid-b">

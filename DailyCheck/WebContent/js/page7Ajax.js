@@ -20,6 +20,9 @@ function postWithAjax() {
 		internet_spd_2 : $("#internet_spd_2").val(),
 		traffic_IDC_2 : $("#traffic_IDC_2").val(),	
 
+		firm_banking_nice : $("#firm_banking_nice").val(),
+		firm_banking_kcb : $("#firm_banking_kcb").val(),
+		
 		ifany : $("#ifany").val(),
 
 
@@ -60,6 +63,10 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#internet_spd_2").val(data.internet_spd_2).textinput("refresh");
 			$("#traffic_IDC_2").val(data.traffic_IDC_2).textinput("refresh");
 
+			
+			$("#firm_banking_nice").val(data.firm_banking_nice).flipswitch("refresh");
+			$("#firm_banking_kcb").val(data.firm_banking_kcb).flipswitch("refresh");
+			
 			$("#ifany").val(data.ifany).textinput("refresh");
 
 			

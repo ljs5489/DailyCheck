@@ -121,6 +121,10 @@
 						<%=Sets.setText("a", "DBM_disk3", "tel")%>
 						<%=Sets.setText("b", "DBM_disk4", "tel")%>
 					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "DBM_disk5", "tel")%>
+						<%=Sets.setText("b", "DBM_disk6", "tel")%>
+					</div>
 				</div>
 				<br />
 
@@ -404,10 +408,13 @@
 						<%=Sets.setText("a", "DEVN_disk1", "tel")%>
 						<%=Sets.setText("b", "DEVN_disk2", "tel")%>
 					</div>
-
 					<div class="ui-grid-a">
-						<%=Sets.setText("a", "DEVN_disk3", "tel")%>
+						<%=Sets.setText("a", "DEVN_disk3", "tel")%>						
 						<%=Sets.setText("b", "DEVN_disk4", "tel")%>
+					</div>					
+					<div class="ui-grid-a">												
+						<%=Sets.setText("a", "DEVN_disk5", "tel")%>
+						<%=Sets.setText("b", "DEVN_disk6", "tel")%>
 					</div>
 				</div>
 				<br />
@@ -595,7 +602,47 @@
 					</div>
 				</div>
 				<br />
+				
+				
+				<!-- ----------------------------------------------------------- -->
+				<h3>TFSKR TFSKR-TAX1</h3>
+				<hr />
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "TAX1_CPU", "Y", "N", true)%>
+					<%=Sets.setBlock("b", "TAX1_memory", "Y", "N", true)%>
+					<div class="ui-block-c">
+						<label for="TAX1_value">C_val:</label> <input type="tel"
+							name="TAX1_value" id="TAX1_value" data-clear-btn="true"
+							data-mini="true">
+					</div>
+					<div class="ui-block-d">
+						<label for="TAX1_value_2">M_val:</label> <input type="tel"
+							name="TAX1_value_2" id="TAX1_value_2" data-mini="true"
+							data-clear-btn="true">
+					</div>
+				</div>
+				<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "TAX1_vaccine", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "TAX1_update", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "TAX1_status", "Good", "Bad", false)%>
+				</div>
+				<div class="diskUsage">
+					<h4>Disk Usage check</h4>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "TAX1_disk1", "tel")%>
+						<%=Sets.setText("b", "TAX1_disk2", "tel")%>
+					</div>
+				</div>
+				<br />
+				
+				
+				
+				
 			</div>
+			<!-- ----------------------------------------------------------- -->
+			
+			
+			
 			<!-- /page -------------------------------------------------------------------------------------------------------------------------------------------------->
 			<!-- /page -------------------------------------------------------------------------------------------------------------------------------------------------->
 			<!-- /page -------------------------------------------------------------------------------------------------------------------------------------------------->

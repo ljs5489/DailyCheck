@@ -54,7 +54,7 @@ $(function() {
 
 	});
 	$("#myPost").on('click', function() {
-		console.log("ifany : "+$("#ifany").val());
+		//console.log("ifany : "+$("#ifany").val());
 		postWithAjax();
 	});
 

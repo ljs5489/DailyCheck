@@ -29,6 +29,15 @@ function postWithAjax() {
 		NSCPU_val : $("#NSCPU_val").val(),
 		NSmemory_val : $("#NSmemory_val").val(),
 
+		TAX2_CPU:$("#TAX2_CPU").val(),
+		TAX2_memory:$("#TAX2_memory").val(),
+		TAX2_value:$("#TAX2_value").val(),
+		TAX2_value_2:$("#TAX2_value_2").val(),
+		TAX2_vaccine:$("#TAX2_vaccine").val(),
+		TAX2_update:$("#TAX2_update").val(),
+		TAX2_status:$("#TAX2_status").val(),
+		TAX2_disk1:$("#TAX2_disk1").val(),
+		TAX2_disk2:$("#TAX2_disk2").val(),
 
 		
 		ifany : $("#ifany").val(),
@@ -79,6 +88,17 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#NWmemory_val").val(data.NWmemory_val).textinput("refresh");
 			$("#NSCPU_val").val(data.NSCPU_val).textinput("refresh");
 			$("#NSmemory_val").val(data.NSmemory_val).textinput("refresh");		
+			
+
+			$("#TAX2_CPU").val(data.TAX2_CPU).flipswitch('refresh');
+			$("#TAX2_memory").val(data.TAX2_memory).flipswitch('refresh');
+			$("#TAX2_value").val(data.TAX2_value).textinput('refresh');
+			$("#TAX2_value_2").val(data.TAX2_value_2).textinput('refresh');
+			$("#TAX2_vaccine").val(data.TAX2_vaccine).flipswitch('refresh');
+			$("#TAX2_update").val(data.TAX2_update).flipswitch('refresh');
+			$("#TAX2_status").val(data.TAX2_status).flipswitch('refresh');
+			$("#TAX2_disk1").val(data.TAX2_disk1).textinput('refresh');
+			$("#TAX2_disk2").val(data.TAX2_disk2).textinput('refresh');
 			
 			$("#ifany").val(data.ifany).textinput("refresh");			
 		}

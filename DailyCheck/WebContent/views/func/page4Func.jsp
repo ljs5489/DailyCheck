@@ -10,8 +10,17 @@
 	String NWmemory_val= "";
 	String NSCPU_val= "";
 	String NSmemory_val= "";
-
 	
+	String TAX2_CPU = "";
+	String TAX2_memory = "";
+	String TAX2_value = "";
+	String TAX2_value_2 = "";
+	String TAX2_vaccine = "";
+	String TAX2_update = "";
+	String TAX2_status = "";
+	String TAX2_disk1 = "";
+	String TAX2_disk2 = "";
+
 
 	String id=request.getParameter("id").trim();
 	//SystemWriterLog.writeLog("?" + id);
@@ -47,6 +56,17 @@
 		NWmemory_val = dmzserver.getNWmemory_val();
 		NSCPU_val = dmzserver.getNSCPU_val();
 		NSmemory_val = dmzserver.getNSmemory_val();
+		
+
+		TAX2_CPU     = dmzserver.getTAX2_CPU();
+		TAX2_memory  = dmzserver.getTAX2_memory();
+		TAX2_value   = dmzserver.getTAX2_value();
+		TAX2_value_2 = dmzserver.getTAX2_value_2();
+		TAX2_vaccine = dmzserver.getTAX2_vaccine();
+		TAX2_update  = dmzserver.getTAX2_update();
+		TAX2_status  = dmzserver.getTAX2_status();
+		TAX2_disk1   = dmzserver.getTAX2_disk1();
+		TAX2_disk2   = dmzserver.getTAX2_disk2();
 
 				
 		ifany = dmzserver.getIfany();
@@ -87,7 +107,16 @@
 	json.put("NSCPU_val", NSCPU_val);
 	json.put("NSmemory_val", NSmemory_val);
 
-	
+	json.put("TAX2_CPU",TAX2_CPU);	
+	json.put("TAX2_memory",TAX2_memory);	
+	json.put("TAX2_value",TAX2_value);	
+	json.put("TAX2_value_2",TAX2_value_2);	
+	json.put("TAX2_vaccine",TAX2_vaccine);	
+	json.put("TAX2_update",TAX2_update);	
+	json.put("TAX2_status",TAX2_status);	
+	json.put("TAX2_disk1",TAX2_disk1);	
+	json.put("TAX2_disk2",TAX2_disk2);	
+
 	
 	json.put("ifany", ifany);
 
@@ -123,7 +152,16 @@
 		NSCPU_val = param.getString("NSCPU_val", "");
 		NSmemory_val = param.getString("NSmemory_val", "");
 
-		
+		TAX2_CPU     = param.getString("TAX2_CPU","");
+		TAX2_memory  = param.getString("TAX2_memory","");
+		TAX2_value   = param.getString("TAX2_value","");
+		TAX2_value_2 = param.getString("TAX2_value_2","");
+		TAX2_vaccine = param.getString("TAX2_vaccine","");
+		TAX2_update  = param.getString("TAX2_update","");
+		TAX2_status  = param.getString("TAX2_status","");
+		TAX2_disk1   = param.getString("TAX2_disk1","");
+		TAX2_disk2   = param.getString("TAX2_disk2","");
+
 		
 		ifany = param.getString("ifany", "");
 		System.out.println("ifany : "+ifany);
@@ -157,6 +195,9 @@
 					NSCPU_val,
 					NSmemory_val,
 
+					
+					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2,
+					
 					ifany
 					);
 			//SystemWriterLog.writeLog("인서트!");
@@ -188,7 +229,7 @@
 					NWmemory_val,
 					NSCPU_val,
 					NSmemory_val,
-					
+					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2,
 					ifany
 					);
 
