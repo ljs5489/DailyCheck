@@ -100,7 +100,7 @@ public class PrecheckDAO {
 			String bbs, String indexsize, String WMtime, String WMstate, String WMpump, String WMaircon,
 			String WMtemperature, String WEtime, String WEstate, String WEpump, String WEaircon, String WEtemperature,
 			String EMtime, String EMstate, String EMpump, String EMaircon, String EMtemperature, String EEtime,
-			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany, String tra1time, String tra1val, String tra2time, String tra2val) throws Exception {
+			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany, String tra1time, String tra1val, String tra2time, String tra2val , String RTMS) throws Exception {
 		Precheck precheck = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -115,10 +115,10 @@ public class PrecheckDAO {
 					+ ",WEstate	,WEpump ,WEaircon ,WEtemperature ,EMtime "
 					+ ",EMstate	,EMpump ,EMaircon ,EMtemperature ,EEtime "
 					+ ",EEstate	,EEpump ,EEaircon ,EEtemperature ,ifany"
-					+ ",tra1time,tra1val ,tra2time ,tra2val"
+					+ ",tra1time,tra1val ,tra2time ,tra2val ,RTMS"
 					+ ") " + "VALUES (" + "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, "
-					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			
 			//SystemWriterLog.writeLog(sql);
@@ -194,7 +194,7 @@ public class PrecheckDAO {
 			String bbs, String indexsize, String WMtime, String WMstate, String WMpump, String WMaircon,
 			String WMtemperature, String WEtime, String WEstate, String WEpump, String WEaircon, String WEtemperature,
 			String EMtime, String EMstate, String EMpump, String EMaircon, String EMtemperature, String EEtime,
-			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany, String tra1time, String tra1val, String tra2time, String tra2val) throws Exception {
+			String EEstate, String EEpump, String EEaircon, String EEtemperature, String ifany, String tra1time, String tra1val, String tra2time, String tra2val, String RTMS) throws Exception {
 		Precheck precheck = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -242,7 +242,11 @@ public class PrecheckDAO {
 					+"[tra1time]=?,"
 					+"[tra1val]=?,"
 					+"[tra2time]=?,"
-					+"[tra2val]=?"				
+					+"[tra2val]=?"
+					
+					+"[RTMS]=?"
+					
+					
 					
 					+" WHERE [id]=?";
 
@@ -285,8 +289,10 @@ public class PrecheckDAO {
 			statement.setString(36,tra1time);
 			statement.setString(37,tra1val);
 			statement.setString(38,tra2time);
-			statement.setString(39,tra2val);						
-			statement.setString(40,id);
+			statement.setString(39,tra2val);	
+			statement.setString(40,RTMS);
+			
+			statement.setString(41,id);
 			
 			
 			

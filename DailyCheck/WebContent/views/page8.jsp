@@ -28,7 +28,8 @@
 			</div>
 			<div class="ui-grid-b">
 				<%= Sets.setBlock("a","mail","Y","N",false) %>
-				<%= Sets.setBlock("b","DBsafer_M","Y","N",false,"DBsafer(M)") %>
+				<%= Sets.setBlock("b","DBM","Y","N",false) %>
+				<%= Sets.setBlock("c","DBsafer_M","Y","N",false,"DBsafer(M)") %>
 			</div>			
 			<br />
 			<br />  

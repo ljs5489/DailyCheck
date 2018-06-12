@@ -348,6 +348,10 @@ public class ServerDAO {
 			String DBM_disk2,
 			String DBM_disk3,
 			String DBM_disk4,
+			
+			String DBM_disk5,
+			String DBM_disk6,
+			
 			String DEW_disk1,
 			String DEW_disk2,
 			String MAIL_disk1,
@@ -380,6 +384,11 @@ public class ServerDAO {
 			String DEVN_disk2,
 			String DEVN_disk3,
 			String DEVN_disk4,
+			
+			String DEVN_disk5,
+			String DEVN_disk6,
+			
+			
 			String MSVM1_disk1,
 			String MSVM1_disk2,
 			String MSVM1_disk3,
@@ -407,7 +416,30 @@ public class ServerDAO {
 			String ADV1_disk1,
 			String ADV1_disk2,
 			String ADV2_disk1,
-			String ADV2_disk2,			
+			String ADV2_disk2,	
+			
+			String TAX1_CPU,
+			String TAX1_memory,
+			String TAX1_value,
+			String TAX1_value_2,
+			String TAX1_vaccine,
+			String TAX1_update,
+			String TAX1_status,
+			String TAX1_disk1,
+			String TAX1_disk2,
+			String TAX2_CPU,
+			String TAX2_memory,
+			String TAX2_value,
+			String TAX2_value_2,
+			String TAX2_vaccine,
+			String TAX2_update,
+			String TAX2_status,
+			String TAX2_disk1,
+			String TAX2_disk2,
+
+
+			
+			
 			
 			String ifany) throws Exception {
 		Server server = null;
@@ -571,6 +603,14 @@ public class ServerDAO {
 					+ "DEVN_disk2, "
 					+ "DEVN_disk3, "
 					+ "DEVN_disk4, "
+					
+					
+					+ "DEVN_disk5, "
+					+ "DEVN_disk6, "
+									
+									
+					
+					
 					+ "MSVM1_disk1, "
 					+ "MSVM1_disk2, "
 					+ "MSVM1_disk3, "
@@ -600,6 +640,28 @@ public class ServerDAO {
 					+ "ADV2_disk1, "
 					+ "ADV2_disk2, "				
 					
+										
+					+ "TAX1_CPU, "
+					+ "TAX1_memory, "
+					+ "TAX1_value, "
+					+ "TAX1_value_2, "
+					+ "TAX1_vaccine, "
+					+ "TAX1_update, "
+					+ "TAX1_status, "
+					+ "TAX1_disk1, "
+					+ "TAX1_disk2, "
+					+ "TAX2_CPU, "
+					+ "TAX2_memory, "
+					+ "TAX2_value, "
+					+ "TAX2_value_2, "
+					+ "TAX2_vaccine, "
+					+ "TAX2_update, "
+					+ "TAX2_status, "
+					+ "TAX2_disk1, "
+					+ "TAX2_disk2, "
+					
+					
+					
 					+ "ifany"
 					+ ") "
 					+ "VALUES (" 
@@ -620,194 +682,63 @@ public class ServerDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
-					+ "?, ?, ?, ?, ?, ?, ? )";
+					
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
+					
+					+ "?, ?, ?, ?, ? )";
 			
 			//SystemWriterLog.writeLog(sql);			
 			GetDate.makeLog("Server Insert");
 			
 			statement = connection.prepareStatement(sql);
-			statement.setString(1, id);
-			statement.setString(2, checktime);
-			statement.setString(3, checker);
 			
-			statement.setString(4, WEB_CPU);
-			statement.setString(5,WEB_memory);
-			statement.setString(6,WEB_value);
-			statement.setString(7,WEB_vaccine);
-			statement.setString(8,WEB_update);
-			statement.setString(9,WEB_status);
-			statement.setString(10,DBM_CPU);
-			statement.setString(11,DBM_memory);
-			statement.setString(12,DBM_value);
-			statement.setString(13,DBM_vaccine);
-			statement.setString(14,DBM_update);
-			statement.setString(15,DBM_DB);
-			statement.setString(16,DBM_status);
-			statement.setString(17,DEW_CPU);
-			statement.setString(18,DEW_memory);
-			statement.setString(19,DEW_value);
-			statement.setString(20,DEW_vaccine);
-			statement.setString(21,DEW_update);
-			statement.setString(22,DEW_status);
-			statement.setString(23,MAIL_CPU);
-			statement.setString(24,MAIL_memory);
-			statement.setString(25,MAIL_value);
-			statement.setString(26,MAIL_vaccine);
-			statement.setString(27,MAIL_update);
-			statement.setString(28,MAIL_status);
-			statement.setString(29,APP_CPU);
-			statement.setString(30,APP_memory);
-			statement.setString(31,APP_value);
-			statement.setString(32,APP_vaccine);
-			statement.setString(33,APP_update);
-			statement.setString(34,APP_status);
-			statement.setString(35,FAX_CPU);
-			statement.setString(36,FAX_memory);
-			statement.setString(37,FAX_value);
-			statement.setString(38,FAX_vaccine);
-			statement.setString(39,FAX_update);
-			statement.setString(40,FAX_status);
-			statement.setString(41,ADN_CPU);
-			statement.setString(42,ADN_memory);
-			statement.setString(43,ADN_value);
-			statement.setString(44,ADN_vaccine);
-			statement.setString(45,ADN_update);
-			statement.setString(46,ADN_status);
-			statement.setString(47,VRS_CPU);
-			statement.setString(48,VRS_memory);
-			statement.setString(49,VRS_value);
-			statement.setString(50,VRS_vaccine);
-			statement.setString(51,VRS_update);
-			statement.setString(52,VRS_status);
-			statement.setString(53,FILE_CPU);
-			statement.setString(54,FILE_memory);
-			statement.setString(55,FILE_value);
-			statement.setString(56,FILE_vaccine);
-			statement.setString(57,FILE_update);
-			statement.setString(58,FILE_status);
-			statement.setString(59,DEVN_CPU);
-			statement.setString(60,DEVN_memory);
-			statement.setString(61,DEVN_value);
-			statement.setString(62,DEVN_vaccine);
-			statement.setString(63,DEVN_update);
-			statement.setString(64,DEVN_DB);
-			statement.setString(65,DEVN_status);
-			statement.setString(66,MSVM1_CPU);
-			statement.setString(67,MSVM1_memory);
-			statement.setString(68,MSVM1_value);
-			statement.setString(69,MSVM1_vaccine);
-			statement.setString(70,MSVM1_update);
-			statement.setString(71,MSVM1_status);
-			statement.setString(72,MSVM2_CPU);
-			statement.setString(73,MSVM2_memory);
-			statement.setString(74,MSVM2_value);
-			statement.setString(75,MSVM2_vaccine);
-			statement.setString(76,MSVM2_update);
-			statement.setString(77,MSVM2_status);
-			statement.setString(78,LYNC_CPU);
-			statement.setString(79,LYNC_memory);
-			statement.setString(80,LYNC_value);
-			statement.setString(81,LYNC_vaccine);
-			statement.setString(82,LYNC_update);
-			statement.setString(83,LYNC_status);
-			statement.setString(84,ADV1_CPU);
-			statement.setString(85,ADV1_memory);
-			statement.setString(86,ADV1_value);
-			statement.setString(87,ADV1_vaccine);
-			statement.setString(88,ADV1_update);
-			statement.setString(89,ADV1_status);
-			statement.setString(90,ADV2_CPU);
-			statement.setString(91,ADV2_memory);
-			statement.setString(92,ADV2_value);
-			statement.setString(93,ADV2_vaccine);
-			statement.setString(94,ADV2_update);
-			statement.setString(95,ADV2_status);
+		
+			String[] arr = {
+					 id            ,checktime     ,checker      ,WEB_CPU      ,WEB_memory			
+					,WEB_value     ,WEB_vaccine   ,WEB_update   ,WEB_status   ,DBM_CPU
+					,DBM_memory    ,DBM_value     ,DBM_vaccine  ,DBM_update   ,DBM_DB
+					,DBM_status    ,DEW_CPU       ,DEW_memory   ,DEW_value    ,DEW_vaccine
+					,DEW_update    ,DEW_status    ,MAIL_CPU     ,MAIL_memory  ,MAIL_value
+					,MAIL_vaccine  ,MAIL_update   ,MAIL_status  ,APP_CPU      ,APP_memory
+					,APP_value     ,APP_vaccine   ,APP_update   ,APP_status   ,FAX_CPU
+					,FAX_memory    ,FAX_value     ,FAX_vaccine  ,FAX_update   ,FAX_status
+					,ADN_CPU       ,ADN_memory    ,ADN_value    ,ADN_vaccine  ,ADN_update
+					,ADN_status    ,VRS_CPU       ,VRS_memory   ,VRS_value    ,VRS_vaccine
+					,VRS_update    ,VRS_status    ,FILE_CPU     ,FILE_memory  ,FILE_value
+					,FILE_vaccine  ,FILE_update   ,FILE_status  ,DEVN_CPU     ,DEVN_memory
+					,DEVN_value    ,DEVN_vaccine  ,DEVN_update  ,DEVN_DB      ,DEVN_status
+					,MSVM1_CPU     ,MSVM1_memory  ,MSVM1_value  ,MSVM1_vaccine,MSVM1_update
+					,MSVM1_status  ,MSVM2_CPU     ,MSVM2_memory ,MSVM2_value  ,MSVM2_vaccine
+					,MSVM2_update  ,MSVM2_status  ,LYNC_CPU     ,LYNC_memory  ,LYNC_value
+					,LYNC_vaccine  ,LYNC_update   ,LYNC_status  ,ADV1_CPU     ,ADV1_memory
+					,ADV1_value    ,ADV1_vaccine  ,ADV1_update  ,ADV1_status  ,ADV2_CPU
+					,ADV2_memory   ,ADV2_value    ,ADV2_vaccine ,ADV2_update  ,ADV2_status
+					,WEB_value_2   ,DBM_value_2   ,DEW_value_2  ,MAIL_value_2 ,APP_value_2
+					,FAX_value_2   ,ADN_value_2   ,VRS_value_2  ,FILE_value_2 ,DEVN_value_2
+					,MSVM1_value_2 ,MSVM2_value_2 ,LYNC_value_2 ,ADV1_value_2 ,ADV2_value_2
+					,WEB_disk1     ,WEB_disk2     ,WEB_disk3    ,WEB_disk4    ,DBM_disk1
+					,DBM_disk2     ,DBM_disk3     ,DBM_disk4    ,DEW_disk1    ,DEW_disk2
+					,MAIL_disk1    ,MAIL_disk2    ,MAIL_disk3   ,MAIL_disk4   ,APP_disk1
+					,APP_disk2     ,APP_disk3     ,APP_disk4    ,FAX_disk1    ,FAX_disk2
+					,FAX_disk3     ,FAX_disk4     ,ADN_disk1    ,ADN_disk2    ,ADN_disk3
+					,ADN_disk4     ,VRS_disk1     ,VRS_disk2    ,VRS_disk3    ,VRS_disk4
+					,FILE_disk1    ,FILE_disk2    ,FILE_disk3   ,FILE_disk4   ,DEVN_disk1
+					,DEVN_disk2    ,DEVN_disk3    ,DEVN_disk4   ,DEVN_disk5   ,DEVN_disk6
+					,MSVM1_disk1   ,MSVM1_disk2   ,MSVM1_disk3  ,MSVM1_disk4  ,MSVM1_disk5
+					,MSVM1_disk6   ,MSVM1_disk7   ,MSVM1_disk8  ,MSVM1_disk9  ,MSVM1_disk10
+					,MSVM2_disk1   ,MSVM2_disk2   ,MSVM2_disk3  ,MSVM2_disk4  ,MSVM2_disk5
+					,MSVM2_disk6   ,MSVM2_disk7   ,MSVM2_disk8  ,MSVM2_disk9  ,MSVM2_disk10
+					,LYNC_disk1    ,LYNC_disk2    ,LYNC_disk3   ,LYNC_disk4   ,ADV1_disk1
+					,ADV1_disk2    ,ADV2_disk1    ,ADV2_disk2   ,TAX1_CPU     ,TAX1_memory
+					,TAX1_value    ,TAX1_value_2  ,TAX1_vaccine ,TAX1_update  ,TAX1_status
+					,TAX1_disk1    ,TAX1_disk2    ,TAX2_CPU     ,TAX2_memory  ,TAX2_value
+					,TAX2_value_2  ,TAX2_vaccine  ,TAX2_update  ,TAX2_status  ,TAX2_disk1
+					,TAX2_disk2    ,ifany
+				};
 			
-			statement.setString(96,WEB_value_2);
-			statement.setString(97,DBM_value_2);
-			statement.setString(98,DEW_value_2);
-			statement.setString(99,MAIL_value_2);
-			statement.setString(100,APP_value_2);
-			statement.setString(101,FAX_value_2);
-			statement.setString(102,ADN_value_2);
-			statement.setString(103,VRS_value_2);
-			statement.setString(104,FILE_value_2);
-			statement.setString(105,DEVN_value_2);
-			statement.setString(106,MSVM1_value_2);
-			statement.setString(107,MSVM2_value_2);
-			statement.setString(108,LYNC_value_2);
-			statement.setString(109,ADV1_value_2);
-			statement.setString(110,ADV2_value_2);
-			statement.setString(111,WEB_disk1);
-			statement.setString(112,WEB_disk2);
-			statement.setString(113,WEB_disk3);
-			statement.setString(114,WEB_disk4);
-			statement.setString(115,DBM_disk1);
-			statement.setString(116,DBM_disk2);
-			statement.setString(117,DBM_disk3);
-			statement.setString(118,DBM_disk4);
-			statement.setString(119,DEW_disk1);
-			statement.setString(120,DEW_disk2);
-			statement.setString(121,MAIL_disk1);
-			statement.setString(122,MAIL_disk2);
-			statement.setString(123,MAIL_disk3);
-			statement.setString(124,MAIL_disk4);
-			statement.setString(125,APP_disk1);
-			statement.setString(126,APP_disk2);
-			statement.setString(127,APP_disk3);
-			statement.setString(128,APP_disk4);
-			statement.setString(129,FAX_disk1);
-			statement.setString(130,FAX_disk2);
+			for(int i=0;i<arr.length;i++) statement.setString(i+1, arr[i]);
 			
-			statement.setString(131,FAX_disk3);
-			statement.setString(132,FAX_disk4);
-			
-			statement.setString(133,ADN_disk1);
-			statement.setString(134,ADN_disk2);
-			statement.setString(135,ADN_disk3);
-			statement.setString(136,ADN_disk4);
-			statement.setString(137,VRS_disk1);
-			statement.setString(138,VRS_disk2);
-			statement.setString(139,VRS_disk3);
-			statement.setString(140,VRS_disk4);
-			statement.setString(141,FILE_disk1);
-			statement.setString(142,FILE_disk2);
-			statement.setString(143,FILE_disk3);
-			statement.setString(144,FILE_disk4);
-			statement.setString(145,DEVN_disk1);
-			statement.setString(146,DEVN_disk2);
-			statement.setString(147,DEVN_disk3);
-			statement.setString(148,DEVN_disk4);
-			statement.setString(149,MSVM1_disk1);
-			statement.setString(150,MSVM1_disk2);
-			statement.setString(151,MSVM1_disk3);
-			statement.setString(152,MSVM1_disk4);
-			statement.setString(153,MSVM1_disk5);
-			statement.setString(154,MSVM1_disk6);
-			statement.setString(155,MSVM1_disk7);
-			statement.setString(156,MSVM1_disk8);
-			statement.setString(157,MSVM1_disk9);
-			statement.setString(158,MSVM1_disk10);
-			statement.setString(159,MSVM2_disk1);
-			statement.setString(160,MSVM2_disk2);
-			statement.setString(161,MSVM2_disk3);
-			statement.setString(162,MSVM2_disk4);
-			statement.setString(163,MSVM2_disk5);
-			statement.setString(164,MSVM2_disk6);
-			statement.setString(165,MSVM2_disk7);
-			statement.setString(166,MSVM2_disk8);
-			statement.setString(167,MSVM2_disk9);
-			statement.setString(168,MSVM2_disk10);
-			statement.setString(169,LYNC_disk1);
-			statement.setString(170,LYNC_disk2);
-			statement.setString(171,LYNC_disk3);
-			statement.setString(172,LYNC_disk4);
-			statement.setString(173,ADV1_disk1);
-			statement.setString(174,ADV1_disk2);
-			statement.setString(175,ADV2_disk1);
-			statement.setString(176,ADV2_disk2);
-			
-			statement.setString(177,ifany);
 
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -973,6 +904,11 @@ public class ServerDAO {
 			String DEVN_disk2,
 			String DEVN_disk3,
 			String DEVN_disk4,
+			
+			String DEVN_disk5,
+			String DEVN_disk6,
+			
+			
 			String MSVM1_disk1,
 			String MSVM1_disk2,
 			String MSVM1_disk3,
@@ -1001,6 +937,26 @@ public class ServerDAO {
 			String ADV1_disk2,
 			String ADV2_disk1,
 			String ADV2_disk2,
+			
+			String TAX1_CPU,
+			String TAX1_memory,
+			String TAX1_value,
+			String TAX1_value_2,
+			String TAX1_vaccine,
+			String TAX1_update,
+			String TAX1_status,
+			String TAX1_disk1,
+			String TAX1_disk2,
+			String TAX2_CPU,
+			String TAX2_memory,
+			String TAX2_value,
+			String TAX2_value_2,
+			String TAX2_vaccine,
+			String TAX2_update,
+			String TAX2_status,
+			String TAX2_disk1,
+			String TAX2_disk2,
+
 			
 			String ifany) throws Exception {
 		Server server = null;
@@ -1163,6 +1119,11 @@ public class ServerDAO {
 					+"[DEVN_disk2]=?,"
 					+"[DEVN_disk3]=?,"
 					+"[DEVN_disk4]=?,"
+					
+					+"[DEVN_disk5]=?,"
+					+"[DEVN_disk6]=?,"
+
+					
 					+"[MSVM1_disk1]=?,"
 					+"[MSVM1_disk2]=?,"
 					+"[MSVM1_disk3]=?,"
@@ -1192,6 +1153,26 @@ public class ServerDAO {
 					+"[ADV2_disk1]=?,"
 					+"[ADV2_disk2]=?,"
 
+										
+					+"[TAX1_CPU]=?,"
+					+"[TAX1_memory]=?,"
+					+"[TAX1_value]=?,"
+					+"[TAX1_value_2]=?,"
+					+"[TAX1_vaccine]=?,"
+					+"[TAX1_update]=?,"
+					+"[TAX1_status]=?,"
+					+"[TAX1_disk1]=?,"
+					+"[TAX1_disk2]=?,"
+					+"[TAX2_CPU]=?,"
+					+"[TAX2_memory]=?,"
+					+"[TAX2_value]=?,"
+					+"[TAX2_value_2]=?,"
+					+"[TAX2_vaccine]=?,"
+					+"[TAX2_update]=?,"
+					+"[TAX2_status]=?,"
+					+"[TAX2_disk1]=?,"
+					+"[TAX2_disk2]=?,"
+										
 					
 					
 					+"[ifany]=?"					
@@ -1199,189 +1180,50 @@ public class ServerDAO {
 					+" WHERE [id]=?";
 
 			statement = connection.prepareStatement(sql);
-
-			statement.setString(1,checktime);
-			statement.setString(2,checker);
-			statement.setString(3,WEB_CPU);
-			statement.setString(4,WEB_memory);
-			statement.setString(5,WEB_value);
-			statement.setString(6,WEB_vaccine);
-			statement.setString(7,WEB_update);
-			statement.setString(8,WEB_status);
-			statement.setString(9,DBM_CPU);
-			statement.setString(10,DBM_memory);
-			statement.setString(11,DBM_value);
-			statement.setString(12,DBM_vaccine);
-			statement.setString(13,DBM_update);
-			statement.setString(14,DBM_DB);
-			statement.setString(15,DBM_status);
-			statement.setString(16,DEW_CPU);
-			statement.setString(17,DEW_memory);
-			statement.setString(18,DEW_value);
-			statement.setString(19,DEW_vaccine);
-			statement.setString(20,DEW_update);
-			statement.setString(21,DEW_status);
-			statement.setString(22,MAIL_CPU);
-			statement.setString(23,MAIL_memory);
-			statement.setString(24,MAIL_value);
-			statement.setString(25,MAIL_vaccine);
-			statement.setString(26,MAIL_update);
-			statement.setString(27,MAIL_status);
-			statement.setString(28,APP_CPU);
-			statement.setString(29,APP_memory);
-			statement.setString(30,APP_value);
-			statement.setString(31,APP_vaccine);
-			statement.setString(32,APP_update);
-			statement.setString(33,APP_status);
-			statement.setString(34,FAX_CPU);
-			statement.setString(35,FAX_memory);
-			statement.setString(36,FAX_value);
-			statement.setString(37,FAX_vaccine);
-			statement.setString(38,FAX_update);
-			statement.setString(39,FAX_status);
-			statement.setString(40,ADN_CPU);
-			statement.setString(41,ADN_memory);
-			statement.setString(42,ADN_value);
-			statement.setString(43,ADN_vaccine);
-			statement.setString(44,ADN_update);
-			statement.setString(45,ADN_status);
-			statement.setString(46,VRS_CPU);
-			statement.setString(47,VRS_memory);
-			statement.setString(48,VRS_value);
-			statement.setString(49,VRS_vaccine);
-			statement.setString(50,VRS_update);
-			statement.setString(51,VRS_status);
-			statement.setString(52,FILE_CPU);
-			statement.setString(53,FILE_memory);
-			statement.setString(54,FILE_value);
-			statement.setString(55,FILE_vaccine);
-			statement.setString(56,FILE_update);
-			statement.setString(57,FILE_status);
-			statement.setString(58,DEVN_CPU);
-			statement.setString(59,DEVN_memory);
-			statement.setString(60,DEVN_value);
-			statement.setString(61,DEVN_vaccine);
-			statement.setString(62,DEVN_update);
-			statement.setString(63,DEVN_DB);
-			statement.setString(64,DEVN_status);
-			statement.setString(65,MSVM1_CPU);
-			statement.setString(66,MSVM1_memory);
-			statement.setString(67,MSVM1_value);
-			statement.setString(68,MSVM1_vaccine);
-			statement.setString(69,MSVM1_update);
-			statement.setString(70,MSVM1_status);
-			statement.setString(71,MSVM2_CPU);
-			statement.setString(72,MSVM2_memory);
-			statement.setString(73,MSVM2_value);
-			statement.setString(74,MSVM2_vaccine);
-			statement.setString(75,MSVM2_update);
-			statement.setString(76,MSVM2_status);
-			statement.setString(77,LYNC_CPU);
-			statement.setString(78,LYNC_memory);
-			statement.setString(79,LYNC_value);
-			statement.setString(80,LYNC_vaccine);
-			statement.setString(81,LYNC_update);
-			statement.setString(82,LYNC_status);
-			statement.setString(83,ADV1_CPU);
-			statement.setString(84,ADV1_memory);
-			statement.setString(85,ADV1_value);
-			statement.setString(86,ADV1_vaccine);
-			statement.setString(87,ADV1_update);
-			statement.setString(88,ADV1_status);
-			statement.setString(89,ADV2_CPU);
-			statement.setString(90,ADV2_memory);
-			statement.setString(91,ADV2_value);
-			statement.setString(92,ADV2_vaccine);
-			statement.setString(93,ADV2_update);
-			statement.setString(94,ADV2_status);
+			String[] arr = {
+					                checktime     ,checker      ,WEB_CPU      ,WEB_memory			
+					,WEB_value     ,WEB_vaccine   ,WEB_update   ,WEB_status   ,DBM_CPU
+					,DBM_memory    ,DBM_value     ,DBM_vaccine  ,DBM_update   ,DBM_DB
+					,DBM_status    ,DEW_CPU       ,DEW_memory   ,DEW_value    ,DEW_vaccine
+					,DEW_update    ,DEW_status    ,MAIL_CPU     ,MAIL_memory  ,MAIL_value
+					,MAIL_vaccine  ,MAIL_update   ,MAIL_status  ,APP_CPU      ,APP_memory
+					,APP_value     ,APP_vaccine   ,APP_update   ,APP_status   ,FAX_CPU
+					,FAX_memory    ,FAX_value     ,FAX_vaccine  ,FAX_update   ,FAX_status
+					,ADN_CPU       ,ADN_memory    ,ADN_value    ,ADN_vaccine  ,ADN_update
+					,ADN_status    ,VRS_CPU       ,VRS_memory   ,VRS_value    ,VRS_vaccine
+					,VRS_update    ,VRS_status    ,FILE_CPU     ,FILE_memory  ,FILE_value
+					,FILE_vaccine  ,FILE_update   ,FILE_status  ,DEVN_CPU     ,DEVN_memory
+					,DEVN_value    ,DEVN_vaccine  ,DEVN_update  ,DEVN_DB      ,DEVN_status
+					,MSVM1_CPU     ,MSVM1_memory  ,MSVM1_value  ,MSVM1_vaccine,MSVM1_update
+					,MSVM1_status  ,MSVM2_CPU     ,MSVM2_memory ,MSVM2_value  ,MSVM2_vaccine
+					,MSVM2_update  ,MSVM2_status  ,LYNC_CPU     ,LYNC_memory  ,LYNC_value
+					,LYNC_vaccine  ,LYNC_update   ,LYNC_status  ,ADV1_CPU     ,ADV1_memory
+					,ADV1_value    ,ADV1_vaccine  ,ADV1_update  ,ADV1_status  ,ADV2_CPU
+					,ADV2_memory   ,ADV2_value    ,ADV2_vaccine ,ADV2_update  ,ADV2_status
+					,WEB_value_2   ,DBM_value_2   ,DEW_value_2  ,MAIL_value_2 ,APP_value_2
+					,FAX_value_2   ,ADN_value_2   ,VRS_value_2  ,FILE_value_2 ,DEVN_value_2
+					,MSVM1_value_2 ,MSVM2_value_2 ,LYNC_value_2 ,ADV1_value_2 ,ADV2_value_2
+					,WEB_disk1     ,WEB_disk2     ,WEB_disk3    ,WEB_disk4    ,DBM_disk1
+					,DBM_disk2     ,DBM_disk3     ,DBM_disk4    ,DEW_disk1    ,DEW_disk2
+					,MAIL_disk1    ,MAIL_disk2    ,MAIL_disk3   ,MAIL_disk4   ,APP_disk1
+					,APP_disk2     ,APP_disk3     ,APP_disk4    ,FAX_disk1    ,FAX_disk2
+					,FAX_disk3     ,FAX_disk4     ,ADN_disk1    ,ADN_disk2    ,ADN_disk3
+					,ADN_disk4     ,VRS_disk1     ,VRS_disk2    ,VRS_disk3    ,VRS_disk4
+					,FILE_disk1    ,FILE_disk2    ,FILE_disk3   ,FILE_disk4   ,DEVN_disk1
+					,DEVN_disk2    ,DEVN_disk3    ,DEVN_disk4   ,DEVN_disk5   ,DEVN_disk6
+					,MSVM1_disk1   ,MSVM1_disk2   ,MSVM1_disk3  ,MSVM1_disk4  ,MSVM1_disk5
+					,MSVM1_disk6   ,MSVM1_disk7   ,MSVM1_disk8  ,MSVM1_disk9  ,MSVM1_disk10
+					,MSVM2_disk1   ,MSVM2_disk2   ,MSVM2_disk3  ,MSVM2_disk4  ,MSVM2_disk5
+					,MSVM2_disk6   ,MSVM2_disk7   ,MSVM2_disk8  ,MSVM2_disk9  ,MSVM2_disk10
+					,LYNC_disk1    ,LYNC_disk2    ,LYNC_disk3   ,LYNC_disk4   ,ADV1_disk1
+					,ADV1_disk2    ,ADV2_disk1    ,ADV2_disk2   ,TAX1_CPU     ,TAX1_memory
+					,TAX1_value    ,TAX1_value_2  ,TAX1_vaccine ,TAX1_update  ,TAX1_status
+					,TAX1_disk1    ,TAX1_disk2    ,TAX2_CPU     ,TAX2_memory  ,TAX2_value
+					,TAX2_value_2  ,TAX2_vaccine  ,TAX2_update  ,TAX2_status  ,TAX2_disk1
+					,TAX2_disk2    ,ifany         ,id
+				};
 			
-			statement.setString(95,WEB_value_2);
-			statement.setString(96,DBM_value_2);
-			statement.setString(97,DEW_value_2);
-			statement.setString(98,MAIL_value_2);
-			statement.setString(99,APP_value_2);
-			statement.setString(100,FAX_value_2);
-			statement.setString(101,ADN_value_2);
-			statement.setString(102,VRS_value_2);
-			statement.setString(103,FILE_value_2);
-			statement.setString(104,DEVN_value_2);
-			statement.setString(105,MSVM1_value_2);
-			statement.setString(106,MSVM2_value_2);
-			statement.setString(107,LYNC_value_2);
-			statement.setString(108,ADV1_value_2);
-			statement.setString(109,ADV2_value_2);
-			statement.setString(110,WEB_disk1);
-			statement.setString(111,WEB_disk2);
-			statement.setString(112,WEB_disk3);
-			statement.setString(113,WEB_disk4);
-			statement.setString(114,DBM_disk1);
-			statement.setString(115,DBM_disk2);
-			statement.setString(116,DBM_disk3);
-			statement.setString(117,DBM_disk4);
-			statement.setString(118,DEW_disk1);
-			statement.setString(119,DEW_disk2);
-			statement.setString(120,MAIL_disk1);
-			statement.setString(121,MAIL_disk2);
-			statement.setString(122,MAIL_disk3);
-			statement.setString(123,MAIL_disk4);
-			statement.setString(124,APP_disk1);
-			statement.setString(125,APP_disk2);
-			statement.setString(126,APP_disk3);
-			statement.setString(127,APP_disk4);
-			statement.setString(128,FAX_disk1);
-			statement.setString(129,FAX_disk2);
-			
-			statement.setString(130,FAX_disk3);
-			statement.setString(131,FAX_disk4);
-			
-			
-			statement.setString(132,ADN_disk1);
-			statement.setString(133,ADN_disk2);
-			statement.setString(134,ADN_disk3);
-			statement.setString(135,ADN_disk4);
-			statement.setString(136,VRS_disk1);
-			statement.setString(137,VRS_disk2);
-			statement.setString(138,VRS_disk3);
-			statement.setString(139,VRS_disk4);
-			statement.setString(140,FILE_disk1);
-			statement.setString(141,FILE_disk2);
-			statement.setString(142,FILE_disk3);
-			statement.setString(143,FILE_disk4);
-			statement.setString(144,DEVN_disk1);
-			statement.setString(145,DEVN_disk2);
-			statement.setString(146,DEVN_disk3);
-			statement.setString(147,DEVN_disk4);
-			statement.setString(148,MSVM1_disk1);
-			statement.setString(149,MSVM1_disk2);
-			statement.setString(150,MSVM1_disk3);
-			statement.setString(151,MSVM1_disk4);
-			statement.setString(152,MSVM1_disk5);
-			statement.setString(153,MSVM1_disk6);
-			statement.setString(154,MSVM1_disk7);
-			statement.setString(155,MSVM1_disk8);
-			statement.setString(156,MSVM1_disk9);
-			statement.setString(157,MSVM1_disk10);
-			statement.setString(158,MSVM2_disk1);
-			statement.setString(159,MSVM2_disk2);
-			statement.setString(160,MSVM2_disk3);
-			statement.setString(161,MSVM2_disk4);
-			statement.setString(162,MSVM2_disk5);
-			statement.setString(163,MSVM2_disk6);
-			statement.setString(164,MSVM2_disk7);
-			statement.setString(165,MSVM2_disk8);
-			statement.setString(166,MSVM2_disk9);
-			statement.setString(167,MSVM2_disk10);
-			statement.setString(168,LYNC_disk1);
-			statement.setString(169,LYNC_disk2);
-			statement.setString(170,LYNC_disk3);
-			statement.setString(171,LYNC_disk4);
-			statement.setString(172,ADV1_disk1);
-			statement.setString(173,ADV1_disk2);
-			statement.setString(174,ADV2_disk1);
-			statement.setString(175,ADV2_disk2);
-		
-			statement.setString(176,ifany);
-			statement.setString(177,id);
+			for(int i=0;i<arr.length;i++) statement.setString(i+1, arr[i]);
 			
 			//SystemWriterLog.writeLog(sql);
 			GetDate.makeLog("Server Update");

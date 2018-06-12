@@ -154,6 +154,12 @@ public class Server {
 	private String DEVN_disk2;
 	private String DEVN_disk3;
 	private String DEVN_disk4;
+	
+	private String DEVN_disk5;
+	private String DEVN_disk6;
+	
+	
+	
 	private String MSVM1_disk1;
 	private String MSVM1_disk2;
 	private String MSVM1_disk3;
@@ -184,6 +190,31 @@ public class Server {
 	private String ADV2_disk2;
 
 	
+	
+	
+	private String TAX1_CPU;
+	private String TAX1_memory;
+	private String TAX1_value;
+	private String TAX1_value_2;
+	private String TAX1_vaccine;
+	private String TAX1_update;
+	private String TAX1_status;
+	private String TAX1_disk1;
+	private String TAX1_disk2;
+	private String TAX2_CPU;
+	private String TAX2_memory;
+	private String TAX2_value;
+	private String TAX2_value_2;
+	private String TAX2_vaccine;
+	private String TAX2_update;
+	private String TAX2_status;
+	private String TAX2_disk1;
+	private String TAX2_disk2;
+	
+	
+	
+	
+	
 	private String ifany;
 	
 	
@@ -192,6 +223,126 @@ public class Server {
 	
 	
 	
+	public String getDEVN_disk5() {
+		return DEVN_disk5;
+	}
+	public void setDEVN_disk5(String dEVN_disk5) {
+		DEVN_disk5 = dEVN_disk5;
+	}
+	public String getDEVN_disk6() {
+		return DEVN_disk6;
+	}
+	public void setDEVN_disk6(String dEVN_disk6) {
+		DEVN_disk6 = dEVN_disk6;
+	}
+	public String getTAX1_CPU() {
+		return TAX1_CPU;
+	}
+	public void setTAX1_CPU(String tAX1_CPU) {
+		TAX1_CPU = tAX1_CPU;
+	}
+	public String getTAX1_memory() {
+		return TAX1_memory;
+	}
+	public void setTAX1_memory(String tAX1_memory) {
+		TAX1_memory = tAX1_memory;
+	}
+	public String getTAX1_value() {
+		return TAX1_value;
+	}
+	public void setTAX1_value(String tAX1_value) {
+		TAX1_value = tAX1_value;
+	}
+	public String getTAX1_value_2() {
+		return TAX1_value_2;
+	}
+	public void setTAX1_value_2(String tAX1_value_2) {
+		TAX1_value_2 = tAX1_value_2;
+	}
+	public String getTAX1_vaccine() {
+		return TAX1_vaccine;
+	}
+	public void setTAX1_vaccine(String tAX1_vaccine) {
+		TAX1_vaccine = tAX1_vaccine;
+	}
+	public String getTAX1_update() {
+		return TAX1_update;
+	}
+	public void setTAX1_update(String tAX1_update) {
+		TAX1_update = tAX1_update;
+	}
+	public String getTAX1_status() {
+		return TAX1_status;
+	}
+	public void setTAX1_status(String tAX1_status) {
+		TAX1_status = tAX1_status;
+	}
+	public String getTAX1_disk1() {
+		return TAX1_disk1;
+	}
+	public void setTAX1_disk1(String tAX1_disk1) {
+		TAX1_disk1 = tAX1_disk1;
+	}
+	public String getTAX1_disk2() {
+		return TAX1_disk2;
+	}
+	public void setTAX1_disk2(String tAX1_disk2) {
+		TAX1_disk2 = tAX1_disk2;
+	}
+	public String getTAX2_CPU() {
+		return TAX2_CPU;
+	}
+	public void setTAX2_CPU(String tAX2_CPU) {
+		TAX2_CPU = tAX2_CPU;
+	}
+	public String getTAX2_memory() {
+		return TAX2_memory;
+	}
+	public void setTAX2_memory(String tAX2_memory) {
+		TAX2_memory = tAX2_memory;
+	}
+	public String getTAX2_value() {
+		return TAX2_value;
+	}
+	public void setTAX2_value(String tAX2_value) {
+		TAX2_value = tAX2_value;
+	}
+	public String getTAX2_value_2() {
+		return TAX2_value_2;
+	}
+	public void setTAX2_value_2(String tAX2_value_2) {
+		TAX2_value_2 = tAX2_value_2;
+	}
+	public String getTAX2_vaccine() {
+		return TAX2_vaccine;
+	}
+	public void setTAX2_vaccine(String tAX2_vaccine) {
+		TAX2_vaccine = tAX2_vaccine;
+	}
+	public String getTAX2_update() {
+		return TAX2_update;
+	}
+	public void setTAX2_update(String tAX2_update) {
+		TAX2_update = tAX2_update;
+	}
+	public String getTAX2_status() {
+		return TAX2_status;
+	}
+	public void setTAX2_status(String tAX2_status) {
+		TAX2_status = tAX2_status;
+	}
+	public String getTAX2_disk1() {
+		return TAX2_disk1;
+	}
+	public void setTAX2_disk1(String tAX2_disk1) {
+		TAX2_disk1 = tAX2_disk1;
+	}
+	public String getTAX2_disk2() {
+		return TAX2_disk2;
+	}
+	public void setTAX2_disk2(String tAX2_disk2) {
+		TAX2_disk2 = tAX2_disk2;
+	}
 	public String getWEB_value_2() {
 		return WEB_value_2;
 	}

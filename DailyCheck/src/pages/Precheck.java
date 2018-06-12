@@ -48,7 +48,17 @@ public class Precheck {
 	private String EEaircon;
 	private String EEtemperature;
 
+	private String RTMS;
+	
 	private String ifany;
+
+	public String getRTMS() {
+		return RTMS;
+	}
+
+	public void setRTMS(String rTMS) {
+		RTMS = rTMS;
+	}
 
 	public String getId() {
 		return id;

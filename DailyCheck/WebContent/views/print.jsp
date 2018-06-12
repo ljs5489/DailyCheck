@@ -242,32 +242,12 @@ html body .tempThead th{
 		<%= PrintSets.getFooter() %>
 		
 
-<div class="page-break"></div>
-<br/>
-		<%= PrintSets.getWrap() %>
-		<%= PrintSets.getHeader("Mobile Servers", "Min Park",
-				PrintSets.timeFormat(mobileserver.getCheckTime()), 
-				PrintSets.whoName(mobileserver.getChecker())) %>		
-		<table cellspacing="0" cellpadding="0" class="datatable">
-			<colgroup>
-				<%=PrintSets.getCol(new String[] { "16%", "9%", "16%", "9%", "10%", "10%", "10%", "10%", "10%" })%>
-			</colgroup>
-			<!-- <thead>  -->
-				<tr class="tempThead"><%=PrintSets.getTh(new String[] { "Mobile Server", "VT", "Disk Usage", "DB", "CPU", "Memory", "Vaccine","Update","Status" })%></tr>
-			<!-- </thead> -->
-			<tbody>
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBH1</b>", "Host", "<td style='padding:0px;'>"+PrintSets.setTable(4, new String[] {mobileserver.getMOBH1_disk1(),mobileserver.getMOBH1_disk2(),mobileserver.getMOBH1_disk3(),mobileserver.getMOBH1_disk4(),mobileserver.getMOBH1_disk1_2(),mobileserver.getMOBH1_disk2_2(),mobileserver.getMOBH1_disk3_2(),mobileserver.getMOBH1_disk4_2()})+"</td>", "-", PrintSets.onToY(mobileserver.getMOBH1_CPU())+" "+mobileserver.getMOBH1_c_val(), PrintSets.onToY(mobileserver.getMOBH1_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getMOBH1_m_val(),65), PrintSets.onToY(mobileserver.getMOBH1_vaccine()), PrintSets.onToY(mobileserver.getMOBH1_update()), PrintSets.onToGood(mobileserver.getMOBH1_status()) })%></tr>
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSMOBILE-DC2</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {mobileserver.getDC2_disk1(),mobileserver.getDC2_disk2()})+"</td>", "-", PrintSets.onToY(mobileserver.getDC2_CPU())+" "+mobileserver.getDC2_c_val(), PrintSets.onToY(mobileserver.getDC2_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getDC2_m_val(),65), PrintSets.onToY(mobileserver.getDC2_vaccine()), PrintSets.onToY(mobileserver.getDC2_update()), PrintSets.onToGood(mobileserver.getDC2_status()) })%></tr>
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBWEB1</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {mobileserver.getWEB1_disk1(),mobileserver.getWEB1_disk2()})+"</td>", "-", PrintSets.onToY(mobileserver.getWEB1_CPU())+" "+mobileserver.getWEB1_c_val(), PrintSets.onToY(mobileserver.getWEB1_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getWEB1_m_val(),65), PrintSets.onToY(mobileserver.getWEB1_vaccine()), PrintSets.onToY(mobileserver.getWEB1_update()), PrintSets.onToGood(mobileserver.getWEB1_status()) })%></tr>				
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBDB1</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(4, new String[] {mobileserver.getDB1_disk1(),mobileserver.getDB1_disk2(),mobileserver.getDB1_disk3(),mobileserver.getDB1_disk4(),mobileserver.getDB1_disk1_2(),mobileserver.getDB1_disk2_2(),mobileserver.getDB1_disk3_2(),mobileserver.getDB1_disk4_2()})+"</td>", PrintSets.onToY(mobileserver.getDB1_DB()), PrintSets.onToY(mobileserver.getDB1_CPU())+" "+mobileserver.getDB1_c_val(), PrintSets.onToY(mobileserver.getDB1_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getDB1_m_val(),65), PrintSets.onToY(mobileserver.getDB1_vaccine()), PrintSets.onToY(mobileserver.getDB1_update()), PrintSets.onToGood(mobileserver.getDB1_status()) })%></tr>				
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBH2</b>", "Host", "<td style='padding:0px;'>"+PrintSets.setTable(4, new String[] {mobileserver.getMOBH2_disk1(),mobileserver.getMOBH2_disk2(),mobileserver.getMOBH2_disk3(),mobileserver.getMOBH2_disk4(),mobileserver.getMOBH2_disk1_2(),mobileserver.getMOBH2_disk2_2(),mobileserver.getMOBH2_disk3_2(),mobileserver.getMOBH2_disk4_2()})+"</td>", "-", PrintSets.onToY(mobileserver.getMOBH2_CPU())+" "+mobileserver.getMOBH2_c_val(), PrintSets.onToY(mobileserver.getMOBH2_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getMOBH2_m_val(),65), PrintSets.onToY(mobileserver.getMOBH2_vaccine()), PrintSets.onToY(mobileserver.getMOBH2_update()), PrintSets.onToGood(mobileserver.getMOBH2_status()) })%></tr>				
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSMOBILE-DC1</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {mobileserver.getDC1_disk1(),mobileserver.getDC1_disk2()})+"</td>", "-", PrintSets.onToY(mobileserver.getDC1_CPU())+" "+mobileserver.getDC1_c_val(), PrintSets.onToY(mobileserver.getDC1_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getDC1_m_val(),65), PrintSets.onToY(mobileserver.getDC1_vaccine()), PrintSets.onToY(mobileserver.getDC1_update()), PrintSets.onToGood(mobileserver.getDC1_status()) })%></tr>				
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBWEB2</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {mobileserver.getWEB2_disk1(),mobileserver.getWEB2_disk2()})+"</td>", "-", PrintSets.onToY(mobileserver.getWEB2_CPU())+" "+mobileserver.getWEB2_c_val(), PrintSets.onToY(mobileserver.getWEB2_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getWEB2_m_val(),65), PrintSets.onToY(mobileserver.getWEB2_vaccine()), PrintSets.onToY(mobileserver.getWEB2_update()), PrintSets.onToGood(mobileserver.getWEB2_status()) })%></tr>
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMOBDB2</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {mobileserver.getDB2_disk1(),mobileserver.getDB2_disk2()})+"</td>", PrintSets.onToY(mobileserver.getDB2_DB()), PrintSets.onToY(mobileserver.getDB2_CPU())+" "+mobileserver.getDB2_c_val(), PrintSets.onToY(mobileserver.getDB2_memory())+" / "+PrintSets.whenOverLimit(mobileserver.getDB2_m_val(),65), PrintSets.onToY(mobileserver.getDB2_vaccine()), PrintSets.onToY(mobileserver.getDB2_update()), PrintSets.onToGood(mobileserver.getDB2_status()) })%></tr>
-				<tr><td><b>If Any</b></td><td colspan="8"><%= mobileserver.getIfany() %></td></tr>	
-			</tbody>
-		</table>
-		<%= PrintSets.getFooter() %>
+	<div class="page-break"></div>
+	
+	
+	
+		
+		
 		
 		<br/>
 		<%= PrintSets.getWrap() %>
@@ -391,7 +371,7 @@ html body .tempThead th{
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Internet Speed</b>", "http://speed.nia.or.kr", networkerr.getInternet_spd()+" / "+networkerr.getInternet_spd_2()+" Mbps", "<b>Traffic (IDC)</b>", "IDC Homepage", networkerr.getTraffic_IDC()+" / "+networkerr.getTraffic_IDC_2()+" Mbps" })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>Internet Traffic</b>", "http://e-robot.skbroadband.com", networkerr.getInternet_traffic()+" / "+networkerr.getInternet_traffic_2()+" Mbps", "<b>Firm-Banking<br/>Web Cash</b>", "Balance List", PrintSets.onToY(networkerr.getFirm_banking()) })%></tr>
 				
-				<tr><%=PrintSets.getTd(0, new String[] { "<b>Firm-Banking<br/>Nice</b>", "Balance List", networkerr.getFirm_banking_nice(), "<b>Firm-Banking<br/>KCB</b>", "Balance List", PrintSets.onToY(networkerr.getFirm_banking_kcb()) })%></tr>
+				<tr><%=PrintSets.getTd(0, new String[] { "<b>Firm-Banking<br/>Nice</b>", "Balance List", PrintSets.onToY(networkerr.getFirm_banking_nice()), "<b>Firm-Banking<br/>KCB</b>", "Balance List", PrintSets.onToY(networkerr.getFirm_banking_kcb()) })%></tr>
 				
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>VPN</b>", "Status - 10.1.212.254", PrintSets.onToY(networkerr.getVpn_254()), "<b>VPN</b>", "Status - 10.1.208.31", PrintSets.onToY(networkerr.getVpn_31()) })%></tr>
 				<tr><%=PrintSets.getTd(0, new String[] { "<b>VPN</b>", "Status - 101.1.209.200", PrintSets.onToY(networkerr.getVpn_200()), "<b>VPN</b>", "Status - 10.1.209.21", PrintSets.onToY(networkerr.getVpn_21()) })%></tr>
