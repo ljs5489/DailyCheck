@@ -145,38 +145,59 @@
 		
 		
 		if (batchjob == null) {
-			BatchjobDAO.insertInfo(id, checktime, checker, ebilling, funding_MMS, funding_SMS, del_M, leave_Mng, fax_SMS, E_B_rst,E_B_cnt
-					
-					,C_stat_updat
-					,init_CD_rate
-					,LSRMDLY_daily_backup
-					,syspolicy_history
-					,Vintage_analysis
-					,sett_accumulated_cashflow
-					,sett_accumulated_cashflow_2
-					,C_termination
-					,del_rate_statictics
-					,fund_repayment_noti
-					,E_Bill_pubi_noti
-					
-					,ifany);
+			BatchjobDAO.insertInfo(
+					id, 
+					checktime, 
+					checker, 
+					ebilling,					
+					funding_SMS,
+					del_M,
+					leave_Mng,
+					fax_SMS,
+					funding_MMS ,
+					E_B_rst ,
+					E_B_cnt ,
+					C_stat_updat ,
+					init_CD_rate ,
+					LSRMDLY_daily_backup ,
+					syspolicy_history ,
+					Vintage_analysis ,
+					sett_accumulated_cashflow ,
+					sett_accumulated_cashflow_2 ,
+					C_termination ,
+					del_rate_statictics ,
+					fund_repayment_noti ,
+					E_Bill_pubi_noti ,
+					ifany
+				);
 			//SystemWriterLog.writeLog("인서트!");
 		} else {
 			//update	
-			BatchjobDAO.updateInfo(id, checktime, checker, ebilling, funding_MMS, funding_SMS, del_M, leave_Mng, fax_SMS, E_B_rst,E_B_cnt
-					,C_stat_updat
-					,init_CD_rate
-					,LSRMDLY_daily_backup
-					,syspolicy_history
-					,Vintage_analysis
-					,sett_accumulated_cashflow
-					,sett_accumulated_cashflow_2
-					,C_termination
-					,del_rate_statictics
-					,fund_repayment_noti
-					,E_Bill_pubi_noti
-					
-					,ifany);
+			BatchjobDAO.updateInfo(
+					id, 
+					checktime, 
+					checker, 
+					ebilling,					
+					funding_SMS,
+					del_M,
+					leave_Mng,
+					fax_SMS,
+					funding_MMS ,
+					E_B_rst ,
+					E_B_cnt ,
+					C_stat_updat ,
+					init_CD_rate ,
+					LSRMDLY_daily_backup ,
+					syspolicy_history ,
+					Vintage_analysis ,
+					sett_accumulated_cashflow ,
+					sett_accumulated_cashflow_2 ,
+					C_termination ,
+					del_rate_statictics ,
+					fund_repayment_noti ,
+					E_Bill_pubi_noti ,
+					ifany
+					);
 			//SystemWriterLog.writeLog("업데이트!");
 		}
 	}

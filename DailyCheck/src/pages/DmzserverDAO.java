@@ -37,6 +37,16 @@ public class DmzserverDAO {
 		dmzserver.setNSCPU_val(resultSet.getString("NSCPU_val").trim());
 		dmzserver.setNSmemory_val(resultSet.getString("NSmemory_val").trim());
 
+		
+		dmzserver.setTAX2_CPU (resultSet.getString("TAX2_CPU").trim());
+		dmzserver.setTAX2_memory (resultSet.getString("TAX2_memory").trim());
+		dmzserver.setTAX2_value (resultSet.getString("TAX2_value").trim());
+		dmzserver.setTAX2_value_2 (resultSet.getString("TAX2_value_2").trim());
+		dmzserver.setTAX2_vaccine (resultSet.getString("TAX2_vaccine").trim());
+		dmzserver.setTAX2_update (resultSet.getString("TAX2_update").trim());
+		dmzserver.setTAX2_status (resultSet.getString("TAX2_status").trim());
+		dmzserver.setTAX2_disk1 (resultSet.getString("TAX2_disk1").trim());
+		dmzserver.setTAX2_disk2 (resultSet.getString("TAX2_disk2").trim());
 				
 		dmzserver.setIfany(resultSet.getString("ifany").trim());
 
@@ -101,6 +111,18 @@ public class DmzserverDAO {
 			String NSCPU_val,
 			String NSmemory_val,
 			
+			
+			String TAX2_CPU    ,
+			String TAX2_memory ,
+			String TAX2_value  ,
+			String TAX2_value_2, 
+			String TAX2_vaccine, 
+			String TAX2_update ,
+			String TAX2_status ,
+			String TAX2_disk1  ,
+			String TAX2_disk2  ,
+			
+			
 			String ifany
 			) throws Exception {
 		Connection connection = null;
@@ -136,15 +158,25 @@ public class DmzserverDAO {
 					+ ",NSCPU_val"
 					+ ",NSmemory_val"
 
-					
-					
+					+ ",TAX2_CPU"
+					+ ",TAX2_memory"
+					+ ",TAX2_value"
+					+ ",TAX2_value_2" 
+					+ ",TAX2_vaccine" 
+					+ ",TAX2_update" 
+					+ ",TAX2_status" 
+					+ ",TAX2_disk1" 
+					+ ",TAX2_disk2" 
+										
 					+ ",ifany) " 
 					+ "VALUES ( "
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, " 
 					+ "?, ?, ?, ?, ?, " 
-					+ "?, ?, ?, ? " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?        " 
 					
 					+ ")";
 			
@@ -181,7 +213,18 @@ public class DmzserverDAO {
 			statement.setString(22,NSCPU_val);
 			statement.setString(23,NSmemory_val);		
 			
-			statement.setString(24,ifany);			
+			statement.setString(24,TAX2_CPU);
+			statement.setString(25,TAX2_memory);
+			statement.setString(26,TAX2_value);
+			statement.setString(27,TAX2_value_2);
+			statement.setString(28,TAX2_vaccine);
+			statement.setString(29,TAX2_update);
+			statement.setString(30,TAX2_status);
+			statement.setString(31,TAX2_disk1);
+			statement.setString(32,TAX2_disk2);
+			
+			
+			statement.setString(33,ifany);			
 			statement.executeUpdate();
 		} catch (Exception e) {
 			SystemWriterLog.writeLog(e);
@@ -220,6 +263,19 @@ public class DmzserverDAO {
 			String NSCPU_val,
 			String NSmemory_val,
 			
+			
+			
+			String TAX2_CPU    ,
+			String TAX2_memory ,
+			String TAX2_value  ,
+			String TAX2_value_2, 
+			String TAX2_vaccine, 
+			String TAX2_update ,
+			String TAX2_status ,
+			String TAX2_disk1  ,
+			String TAX2_disk2  ,
+						
+			
 			String ifany) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -255,6 +311,16 @@ public class DmzserverDAO {
 					+"[NSmemory_val]=?,"
 
 					
+				+"[TAX2_CPU]=?,"
+				+"[TAX2_memory]=?," 
+				+"[TAX2_value]=?," 
+				+"[TAX2_value_2]=?," 
+				+"[TAX2_vaccine]=?," 
+				+"[TAX2_update]=?," 
+				+"[TAX2_status]=?," 
+				+"[TAX2_disk1]=?," 
+				+"[TAX2_disk2]=?," 
+					
 					+"[ifany]=?"
 					+" WHERE [id]=?";
 
@@ -286,8 +352,18 @@ public class DmzserverDAO {
 			statement.setString(21,NSCPU_val);
 			statement.setString(22,NSmemory_val);				
 			
-			statement.setString(23,ifany);				
-			statement.setString(24, id);
+			statement.setString(23,TAX2_CPU);
+			statement.setString(24,TAX2_memory);
+			statement.setString(25,TAX2_value);
+			statement.setString(26,TAX2_value_2);
+			statement.setString(27,TAX2_vaccine);
+			statement.setString(28,TAX2_update);
+			statement.setString(29,TAX2_status);
+			statement.setString(30,TAX2_disk1);
+			statement.setString(31,TAX2_disk2);
+			
+			statement.setString(32,ifany);				
+			statement.setString(33, id);
 			
 			
 			

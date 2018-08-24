@@ -59,6 +59,8 @@ public class PrecheckDAO {
 		precheck.setEEpump(resultSet.getString("EEpump"));
 		precheck.setEEaircon(resultSet.getString("EEaircon"));
 		precheck.setEEtemperature(resultSet.getString("EEtemperature"));
+		
+		precheck.setRTMS(resultSet.getString("RTMS"));
 
 		precheck.setIfany(resultSet.getString("ifany"));
 		return precheck;

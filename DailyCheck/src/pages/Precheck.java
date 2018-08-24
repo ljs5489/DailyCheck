@@ -56,8 +56,8 @@ public class Precheck {
 		return RTMS;
 	}
 
-	public void setRTMS(String rTMS) {
-		RTMS = rTMS;
+	public void setRTMS(String RTMS) {
+		this.RTMS = RTMS;
 	}
 
 	public String getId() {

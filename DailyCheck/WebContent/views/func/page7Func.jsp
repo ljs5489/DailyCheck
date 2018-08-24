@@ -56,7 +56,7 @@
 		traffic_IDC_2 = networkerr.getTraffic_IDC_2();
 		
 		firm_banking_nice = networkerr.getFirm_banking_nice();
-		firm_banking_kcb = networkerr.getFirm_banking_nice();
+		firm_banking_kcb = networkerr.getFirm_banking_kcb();
 		
 		
 		

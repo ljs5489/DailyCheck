@@ -21,10 +21,24 @@ public class Networkerr {
 
 	
 	private String ifany;
+	private String firm_banking_nice;
+	private String firm_banking_kcb;
+
 	
 	
 	
-	
+	public String getFirm_banking_nice() {
+		return firm_banking_nice;
+	}
+	public void setFirm_banking_nice(String firm_banking_nice) {
+		this.firm_banking_nice = firm_banking_nice;
+	}
+	public String getFirm_banking_kcb() {
+		return firm_banking_kcb;
+	}
+	public void setFirm_banking_kcb(String firm_banking_kcb) {
+		this.firm_banking_kcb = firm_banking_kcb;
+	}
 	public String getInternet_traffic_2() {
 		return internet_traffic_2;
 	}

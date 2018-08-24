@@ -80,7 +80,7 @@
 		//GET방식으로 데이터들을 DB에서 가져온 후 각각의 이름으로 담는다.
 		//SystemWriterLog.writeLog("GET!");
 
-		checktime = server.getCheckTime();
+		checktime = server.getChecktime();
 		checker = server.getChecker();
 
 		WEB_CPU = server.getWEB_CPU();
@@ -519,7 +519,9 @@
 	
 	
 	
-	
+
+
+	System.out.println("3423423324 : "+TAX2_disk2);
 	
 	
 	
@@ -770,12 +772,14 @@
 		
 		
 		
+
+		System.out.println("1234 : "+TAX2_disk2);
 		
 		
 		
 		
 		
-		
+
 		
 		
 		

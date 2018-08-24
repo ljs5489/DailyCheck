@@ -30,6 +30,8 @@ public class NetworkerrDAO {
 		
 		networkerr.setIfany(resultSet.getString("ifany").trim());
 
+		networkerr.setFirm_banking_nice(resultSet.getString("firm_banking_nice").trim());
+		networkerr.setFirm_banking_kcb(resultSet.getString("firm_banking_kcb").trim());
 
 		
 		return networkerr;
@@ -87,6 +89,10 @@ public class NetworkerrDAO {
 			String internet_spd_2,
 			String traffic_IDC_2,
 			
+			String firm_banking_nice,
+			String firm_banking_kcb,
+
+			
 			String ifany		
 			) throws Exception {
 		Networkerr networkerr = null;
@@ -114,12 +120,16 @@ public class NetworkerrDAO {
 					+ ",internet_traffic_2"
 					+ ",internet_spd_2"
 					+ ",traffic_IDC_2"
+					
+										
+					+ ",firm_banking_nice"
+					+ ",firm_banking_kcb"
 
 					+ ",ifany)"					 
 					+ "VALUES ( "
 					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, " 
-					+ "?, ?, ?, " 
+					+ "?, ?, ?, ?, ?," 
 					+ "?, ?, ?, ?)";
 			
 			
@@ -146,7 +156,12 @@ public class NetworkerrDAO {
 			statement.setString(15,internet_spd_2);
 			statement.setString(16,traffic_IDC_2);
 			
-			statement.setString(17,ifany);
+			
+			statement.setString( 17 ,firm_banking_nice);
+			statement.setString( 18,firm_banking_kcb);
+
+			
+			statement.setString(19,ifany);
 
 			statement.executeUpdate();
 		} catch (Exception e) {
@@ -178,6 +193,11 @@ public class NetworkerrDAO {
 			String internet_spd_2,
 			String traffic_IDC_2,	
 			
+			String firm_banking_nice,
+			String firm_banking_kcb,
+
+			
+			
 			String ifany	
 			) throws Exception {
 		Networkerr networkerr = null;
@@ -206,7 +226,14 @@ public class NetworkerrDAO {
 					+"[internet_spd_2]=?,"
 					+"[traffic_IDC_2]=?,"
 					
+
+					
 					+"[ifany]=? "
+					
+
++"[firm_banking_nice]=?,"
++"[firm_banking_kcb]=?,"
+					
 					+" WHERE [id]=?";
 
 			statement = connection.prepareStatement(sql);
@@ -229,7 +256,11 @@ public class NetworkerrDAO {
 			statement.setString(14,internet_spd_2);
 			statement.setString(15,traffic_IDC_2);
 			statement.setString(16,ifany);
-			statement.setString(17, id);
+			
+			statement.setString( 17 ,firm_banking_nice);
+			statement.setString( 18 ,firm_banking_kcb);
+
+			statement.setString(19, id);
 			
 			
 			

@@ -26,7 +26,7 @@ public class EnvVal {
 		Properties properties = new Properties();
 		InputStream inputstream = DB.class.getClassLoader().getResourceAsStream("envSet.properties");
 		properties.load(inputstream);
-		
+		/*
 		ENTIRE_MARGIN = properties.getProperty("ENTIRE_MARGIN").trim();
 		TESTING = properties.getProperty("TESTING").trim();
 		TIME_TERM = properties.getProperty("TIME_TERM").trim();
@@ -40,7 +40,7 @@ public class EnvVal {
 		NEXT_LexusTarget = properties.getProperty("NEXT_LexusTarget").trim();
 		NEXT_ToyotaTarget = properties.getProperty("NEXT_ToyotaTarget").trim();
 		NEXT_Comment = properties.getProperty("NEXT_Comment").trim();
-		
+		*/
 		AUTH_PASSWORD = properties.getProperty("AUTH_PASSWORD").trim();
 	}
 

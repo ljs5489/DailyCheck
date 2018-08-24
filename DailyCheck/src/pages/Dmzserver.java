@@ -30,12 +30,76 @@ public class Dmzserver {
 	private String NSmemory_val;
 
 	
+	private String TAX2_CPU     ;
+	private String TAX2_memory  ;
+	private String TAX2_value   ;
+	private String TAX2_value_2 ;
+	private String TAX2_vaccine ;
+	private String TAX2_update  ;
+	private String TAX2_status  ;
+	private String TAX2_disk1   ;
+	private String TAX2_disk2   ;
+	
 	private String ifany;
 	
 	
 	
 	
 	
+	public String getTAX2_CPU() {
+		return TAX2_CPU;
+	}
+	public void setTAX2_CPU(String tAX2_CPU) {
+		TAX2_CPU = tAX2_CPU;
+	}
+	public String getTAX2_memory() {
+		return TAX2_memory;
+	}
+	public void setTAX2_memory(String tAX2_memory) {
+		TAX2_memory = tAX2_memory;
+	}
+	public String getTAX2_value() {
+		return TAX2_value;
+	}
+	public void setTAX2_value(String tAX2_value) {
+		TAX2_value = tAX2_value;
+	}
+	public String getTAX2_value_2() {
+		return TAX2_value_2;
+	}
+	public void setTAX2_value_2(String tAX2_value_2) {
+		TAX2_value_2 = tAX2_value_2;
+	}
+	public String getTAX2_vaccine() {
+		return TAX2_vaccine;
+	}
+	public void setTAX2_vaccine(String tAX2_vaccine) {
+		TAX2_vaccine = tAX2_vaccine;
+	}
+	public String getTAX2_update() {
+		return TAX2_update;
+	}
+	public void setTAX2_update(String tAX2_update) {
+		TAX2_update = tAX2_update;
+	}
+	public String getTAX2_status() {
+		return TAX2_status;
+	}
+	public void setTAX2_status(String tAX2_status) {
+		TAX2_status = tAX2_status;
+	}
+	public String getTAX2_disk1() {
+		return TAX2_disk1;
+	}
+	public void setTAX2_disk1(String tAX2_disk1) {
+		TAX2_disk1 = tAX2_disk1;
+	}
+	public String getTAX2_disk2() {
+		return TAX2_disk2;
+	}
+	public void setTAX2_disk2(String tAX2_disk2) {
+		TAX2_disk2 = tAX2_disk2;
+	}
 	public String getNWCPU_val() {
 		return NWCPU_val;
 	}

@@ -27,6 +27,7 @@ catch(Exception e){
 }
 
 
+
 SystemWriterLog.writeLog("=========Print Data...============");
 Precheck precheck = PrecheckDAO.selectById(theDate);
 Server server = ServerDAO.selectById(theDate);
@@ -209,7 +210,7 @@ html body .tempThead th{
 		
 		<%= PrintSets.getWrap() %>
 		<%= PrintSets.getHeader("Servers", "Min Park",
-				PrintSets.timeFormat(server.getCheckTime()), 
+				PrintSets.timeFormat(server.getChecktime()), 
 				PrintSets.whoName(server.getChecker())) %>
 		<table cellspacing="0" cellpadding="0" class="datatable">
 			<colgroup>
