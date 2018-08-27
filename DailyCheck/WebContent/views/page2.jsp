@@ -50,6 +50,51 @@
 			<!-- page -------------------------------------------------------------------------------------------------------------------------------------------------->
 			<!-- page -------------------------------------------------------------------------------------------------------------------------------------------------->
 			<div id="page2_1">
+			
+			
+			
+				<!----------------2018-08-24 추가 ------------------>
+				<h3>TFSKR WEB VT-Host</h3>
+				<hr />
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "WEB_H_CPU", "Y", "N", true)%>
+					<%=Sets.setBlock("b", "WEB_H_memory", "Y", "N", true)%>
+					<div class="ui-block-c">
+						<label for="WEB_H_value">C_val:</label> <input type="tel"
+							name="WEB_H_value" id="WEB_H_value" data-clear-btn="true"
+							data-mini="true">
+					</div>
+					<div class="ui-block-d">
+						<label for="WEB_H_value_2">M_val:</label> <input type="tel"
+							name="WEB_H_value_2" id="WEB_H_value_2" data-mini="true"
+							data-clear-btn="true">
+					</div>
+				</div>
+					<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "WEB_H_vaccine", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "WEB_H_update", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "WEB_H_status", "Good", "Bad", false)%>
+				</div>
+				<div class="diskUsage">
+					<h4>Disk Usage check</h4>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "WEB_H_disk1", "tel")%>
+						<%=Sets.setText("b", "WEB_H_disk2", "tel")%>
+					</div>
+				</div>
+				
+				<br />
+				<!----------------/2018-08-24 추가 ------------------>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 				<h3>TFSKR WEB VT-Guest</h3>
 				<hr />
 				<div class="ui-grid-c">
@@ -86,6 +131,41 @@
 				</div>
 
 				<br />
+
+
+
+
+				<!----------------2018-08-24 추가 ------------------>
+				<h3>TFSKR DBM VT-Host</h3>
+				<hr />
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "DBM_H_CPU", "Y", "N", true)%>
+					<%=Sets.setBlock("b", "DBM_H_memory", "Y", "N", true)%>
+					<div class="ui-block-c">
+						<label for="DBM_H_value">C_val:</label> <input type="tel"
+							name="DBM_H_value" id="DBM_H_value" data-clear-btn="true"
+							data-mini="true">
+					</div>
+					<div class="ui-block-d">
+						<label for="DBM_H_value_2">M_val:</label> <input type="tel"
+							name="DBM_H_value_2" id="DBM_H_value_2" data-mini="true"
+							data-clear-btn="true">
+					</div>
+				</div>
+					<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "DBM_H_vaccine", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "DBM_H_update", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "DBM_H_status", "Good", "Bad", false)%>
+				</div>
+				<div class="diskUsage">
+					<h4>Disk Usage check</h4>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "DBM_H_disk1", "tel")%>
+						<%=Sets.setText("b", "DBM_H_disk2", "tel")%>
+					</div>
+				</div>
+				<br />
+				<!----------------/2018-08-24 추가 ------------------>
 
 
 				<h3>TFSKR DBM VT-Guest</h3>
@@ -158,6 +238,46 @@
 				</div>
 				<br />
 
+
+
+
+				<!----------------2018-08-24 추가 ------------------>
+				<h3>TFSKR MAIL VT-Host</h3>
+				<hr />
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "MAIL_H_CPU", "Y", "N", true)%>
+					<%=Sets.setBlock("b", "MAIL_H_memory", "Y", "N", true)%>
+					<div class="ui-block-c">
+						<label for="MAIL_H_value">C_val:</label> <input type="tel"
+							name="MAIL_H_value" id="MAIL_H_value" data-clear-btn="true"
+							data-mini="true">
+					</div>
+					<div class="ui-block-d">
+						<label for="MAIL_H_value_2">M_val:</label> <input type="tel"
+							name="MAIL_H_value_2" id="MAIL_H_value_2" data-mini="true"
+							data-clear-btn="true">
+					</div>
+				</div>
+					<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "MAIL_H_vaccine", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "MAIL_H_update", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "MAIL_H_status", "Good", "Bad", false)%>
+				</div>
+				
+				
+				<div class="diskUsage">
+					<h4>Disk Usage check</h4>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "MAIL_H_disk1", "tel")%>
+						<%=Sets.setText("b", "MAIL_H_disk2", "tel")%>
+					</div>
+				</div>
+				<br />
+				<!----------------/2018-08-24 추가 ------------------>
+
+
+
+
 				<h3>TFSKR MAIL VT-Guest</h3>
 				<hr />
 				<div class="ui-grid-c">
@@ -191,7 +311,44 @@
 						<%=Sets.setText("b", "MAIL_disk4", "tel")%>
 					</div>
 				</div>
+				
+				
 				<br />
+
+
+
+				<!----------------2018-08-24 추가 ------------------>
+				<h3>TFSKR APP VT-Host</h3>
+				<hr />
+				<div class="ui-grid-c">
+					<%=Sets.setBlock("a", "APP_H_CPU", "Y", "N", true)%>
+					<%=Sets.setBlock("b", "APP_H_memory", "Y", "N", true)%>
+					<div class="ui-block-c">
+						<label for="APP_H_value">C_val:</label> <input type="tel"
+							name="APP_H_value" id="APP_H_value" data-clear-btn="true"
+							data-mini="true">
+					</div>
+					<div class="ui-block-d">
+						<label for="APP_H_value_2">M_val:</label> <input type="tel"
+							name="APP_H_value_2" id="APP_H_value_2" data-mini="true"
+							data-clear-btn="true">
+					</div>
+				</div>
+					<div class="ui-grid-b">
+					<%=Sets.setBlock("a", "APP_H_vaccine", "Y", "N", false)%>
+					<%=Sets.setBlock("b", "APP_H_update", "Y", "N", false)%>
+					<%=Sets.setBlock("c", "APP_H_status", "Good", "Bad", false)%>
+				</div>
+				
+				<div class="diskUsage">
+					<h4>Disk Usage check</h4>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "APP_H_disk1", "tel")%>
+						<%=Sets.setText("b", "APP_H_disk2", "tel")%>
+					</div>
+				</div>
+				<br />
+				<!----------------/2018-08-24 추가 ------------------>
 
 				<h3>TFSKR APP VT-Guest</h3>
 				<hr />
@@ -607,6 +764,8 @@
 				<!-- ----------------------------------------------------------- -->
 				<h3>TFSKR TFSKR-TAX1</h3>
 				<hr />
+				
+				
 				<div class="ui-grid-c">
 					<%=Sets.setBlock("a", "TAX1_CPU", "Y", "N", true)%>
 					<%=Sets.setBlock("b", "TAX1_memory", "Y", "N", true)%>
@@ -621,6 +780,8 @@
 							data-clear-btn="true">
 					</div>
 				</div>
+				
+				
 				<div class="ui-grid-b">
 					<%=Sets.setBlock("a", "TAX1_vaccine", "Y", "N", false)%>
 					<%=Sets.setBlock("b", "TAX1_update", "Y", "N", false)%>
@@ -634,6 +795,10 @@
 					</div>
 				</div>
 				<br />
+				
+				
+				
+				
 				
 				
 				

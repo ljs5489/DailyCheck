@@ -222,8 +222,43 @@ function postWithAjax() {
 		TAX2_disk2:$("#TAX2_disk2").val(),	
 		
 		
-		
-		
+		WEB_H_CPU:$("#WEB_H_CPU").val(),	
+		WEB_H_memory:$("#WEB_H_memory").val(),	
+		WEB_H_value:$("#WEB_H_value").val(),	
+		WEB_H_value_2:$("#WEB_H_value_2").val(),	
+		WEB_H_vaccine:$("#WEB_H_vaccine").val(),	
+		WEB_H_update:$("#WEB_H_update").val(),	
+		WEB_H_status:$("#WEB_H_status").val(),	
+		DBM_H_CPU:$("#DBM_H_CPU").val(),	
+		DBM_H_memory:$("#DBM_H_memory").val(),	
+		DBM_H_value:$("#DBM_H_value").val(),	
+		DBM_H_value_2:$("#DBM_H_value_2").val(),	
+		DBM_H_vaccine:$("#DBM_H_vaccine").val(),	
+		DBM_H_update:$("#DBM_H_update").val(),	
+		DBM_H_status:$("#DBM_H_status").val(),	
+		MAIL_H_CPU:$("#MAIL_H_CPU").val(),	
+		MAIL_H_memory:$("#MAIL_H_memory").val(),	
+		MAIL_H_value:$("#MAIL_H_value").val(),	
+		MAIL_H_value_2:$("#MAIL_H_value_2").val(),	
+		MAIL_H_vaccine:$("#MAIL_H_vaccine").val(),	
+		MAIL_H_update:$("#MAIL_H_update").val(),	
+		MAIL_H_status:$("#MAIL_H_status").val(),	
+		APP_H_CPU:$("#APP_H_CPU").val(),	
+		APP_H_memory:$("#APP_H_memory").val(),	
+		APP_H_value:$("#APP_H_value").val(),	
+		APP_H_value_2:$("#APP_H_value_2").val(),	
+		APP_H_vaccine:$("#APP_H_vaccine").val(),	
+		APP_H_update:$("#APP_H_update").val(),	
+		APP_H_status:$("#APP_H_status").val(),	
+
+		WEB_H_disk1:$("#WEB_H_disk1").val(),	
+		WEB_H_disk2:$("#WEB_H_disk2").val(),	
+		DBM_H_disk1:$("#DBM_H_disk1").val(),	
+		DBM_H_disk2:$("#DBM_H_disk2").val(),	
+		MAIL_H_disk1:$("#MAIL_H_disk1").val(),	
+		MAIL_H_disk2:$("#MAIL_H_disk2").val(),	
+		APP_H_disk1:$("#APP_H_disk1").val(),	
+		APP_H_disk2:$("#APP_H_disk2").val(),	
 		
 		
 		
@@ -462,10 +497,61 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			$("#TAX2_disk2").val(data.TAX2_disk2).textinput('refresh');
 			
 			
-			
-			
-			
 
+			
+			$("#WEB_H_CPU").val(data.WEB_H_CPU).flipswitch('refresh');
+			$("#WEB_H_memory").val(data.WEB_H_memory).flipswitch('refresh');
+			
+			
+			$("#WEB_H_value").val(data.WEB_H_value).textinput('refresh');			
+			$("#WEB_H_value_2").val(data.WEB_H_value_2).textinput('refresh');	
+			
+			$("#WEB_H_vaccine").val(data.WEB_H_vaccine).flipswitch('refresh');
+			$("#WEB_H_update").val(data.WEB_H_update).flipswitch('refresh');
+			$("#WEB_H_status").val(data.WEB_H_status).flipswitch('refresh');
+			
+			
+			$("#DBM_H_CPU").val(data.DBM_H_CPU).flipswitch('refresh');
+			$("#DBM_H_memory").val(data.DBM_H_memory).flipswitch('refresh');			
+			$("#DBM_H_value").val(data.DBM_H_value).textinput('refresh');
+			$("#DBM_H_value_2").val(data.DBM_H_value_2).textinput('refresh');
+			
+			$("#DBM_H_vaccine").val(data.DBM_H_vaccine).flipswitch('refresh');
+			$("#DBM_H_update").val(data.DBM_H_update).flipswitch('refresh');
+			$("#DBM_H_status").val(data.DBM_H_status).flipswitch('refresh');
+			
+			
+			$("#MAIL_H_CPU").val(data.MAIL_H_CPU).flipswitch('refresh');
+			$("#MAIL_H_memory").val(data.MAIL_H_memory).flipswitch('refresh');
+			$("#MAIL_H_value").val(data.MAIL_H_value).textinput('refresh');
+			$("#MAIL_H_value_2").val(data.MAIL_H_value_2).textinput('refresh');
+			
+			$("#MAIL_H_vaccine").val(data.MAIL_H_vaccine).flipswitch('refresh');
+			$("#MAIL_H_update").val(data.MAIL_H_update).flipswitch('refresh');
+			$("#MAIL_H_status").val(data.MAIL_H_status).flipswitch('refresh');
+			
+			
+			$("#APP_H_CPU").val(data.APP_H_CPU).flipswitch('refresh');
+			$("#APP_H_memory").val(data.APP_H_memory).flipswitch('refresh');
+			$("#APP_H_value").val(data.APP_H_value).textinput('refresh');
+			$("#APP_H_value_2").val(data.APP_H_value_2).textinput('refresh');
+			
+			$("#APP_H_vaccine").val(data.APP_H_vaccine).flipswitch('refresh');
+			$("#APP_H_update").val(data.APP_H_update).flipswitch('refresh');
+			$("#APP_H_status").val(data.APP_H_status).flipswitch('refresh');
+			
+			$("#WEB_H_disk1").val(data.WEB_H_disk1).textinput('refresh');
+			$("#WEB_H_disk2").val(data.WEB_H_disk2).textinput('refresh');
+			$("#DBM_H_disk1").val(data.DBM_H_disk1).textinput('refresh');
+			$("#DBM_H_disk2").val(data.DBM_H_disk2).textinput('refresh');
+			$("#MAIL_H_disk1").val(data.MAIL_H_disk1).textinput('refresh');
+			$("#MAIL_H_disk2").val(data.MAIL_H_disk2).textinput('refresh');
+			$("#APP_H_disk1").val(data.APP_H_disk1).textinput('refresh');
+			$("#APP_H_disk2").val(data.APP_H_disk2).textinput('refresh');
+			
+			
+			
+			
 			
 			$("#ifany").val(data.ifany).textinput('refresh');
 

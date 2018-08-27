@@ -202,7 +202,266 @@ public class Server {
 	private String TAX2_disk1;
 	private String TAX2_disk2;
 	
+	private String WEB_H_CPU;
+	private String WEB_H_memory;
+	private String WEB_H_value;
+	private String WEB_H_value_2;
+	private String WEB_H_vaccine;
+	private String WEB_H_update;
+	private String WEB_H_status;
+	private String DBM_H_CPU;
+	private String DBM_H_memory;
+	private String DBM_H_value;
+	private String DBM_H_value_2;
+	private String DBM_H_vaccine;
+	private String DBM_H_update;
+	private String DBM_H_status;
+	private String MAIL_H_CPU;
+	private String MAIL_H_memory;
+	private String MAIL_H_value;
+	private String MAIL_H_value_2;
+	private String MAIL_H_vaccine;
+	private String MAIL_H_update;
+	private String MAIL_H_status;
+	private String APP_H_CPU;
+	private String APP_H_memory;
+	private String APP_H_value;
+	private String APP_H_value_2;
+	private String APP_H_vaccine;
+	private String APP_H_update;
+	private String APP_H_status;
+
+	
+	private String WEB_H_disk1;
+	private String WEB_H_disk2;
+	private String DBM_H_disk1;
+	private String DBM_H_disk2;
+	private String MAIL_H_disk1;
+	private String MAIL_H_disk2;
+	private String APP_H_disk1;
+	private String APP_H_disk2;
+	
 	private String ifany;
+	
+	
+	
+	
+	public String getWEB_H_disk1() {
+		return WEB_H_disk1;
+	}
+	public void setWEB_H_disk1(String wEB_H_disk1) {
+		WEB_H_disk1 = wEB_H_disk1;
+	}
+	public String getWEB_H_disk2() {
+		return WEB_H_disk2;
+	}
+	public void setWEB_H_disk2(String wEB_H_disk2) {
+		WEB_H_disk2 = wEB_H_disk2;
+	}
+	public String getDBM_H_disk1() {
+		return DBM_H_disk1;
+	}
+	public void setDBM_H_disk1(String dBM_H_disk1) {
+		DBM_H_disk1 = dBM_H_disk1;
+	}
+	public String getDBM_H_disk2() {
+		return DBM_H_disk2;
+	}
+	public void setDBM_H_disk2(String dBM_H_disk2) {
+		DBM_H_disk2 = dBM_H_disk2;
+	}
+	public String getMAIL_H_disk1() {
+		return MAIL_H_disk1;
+	}
+	public void setMAIL_H_disk1(String mAIL_H_disk1) {
+		MAIL_H_disk1 = mAIL_H_disk1;
+	}
+	public String getMAIL_H_disk2() {
+		return MAIL_H_disk2;
+	}
+	public void setMAIL_H_disk2(String mAIL_H_disk2) {
+		MAIL_H_disk2 = mAIL_H_disk2;
+	}
+	public String getAPP_H_disk1() {
+		return APP_H_disk1;
+	}
+	public void setAPP_H_disk1(String aPP_H_disk1) {
+		APP_H_disk1 = aPP_H_disk1;
+	}
+	public String getAPP_H_disk2() {
+		return APP_H_disk2;
+	}
+	public void setAPP_H_disk2(String aPP_H_disk2) {
+		APP_H_disk2 = aPP_H_disk2;
+	}
+	public String getWEB_H_CPU() {
+		return WEB_H_CPU;
+	}
+	public void setWEB_H_CPU(String wEB_H_CPU) {
+		WEB_H_CPU = wEB_H_CPU;
+	}
+	public String getWEB_H_memory() {
+		return WEB_H_memory;
+	}
+	public void setWEB_H_memory(String wEB_H_memory) {
+		WEB_H_memory = wEB_H_memory;
+	}
+	public String getWEB_H_value() {
+		return WEB_H_value;
+	}
+	public void setWEB_H_value(String wEB_H_value) {
+		WEB_H_value = wEB_H_value;
+	}
+	public String getWEB_H_value_2() {
+		return WEB_H_value_2;
+	}
+	public void setWEB_H_value_2(String wEB_H_value_2) {
+		WEB_H_value_2 = wEB_H_value_2;
+	}
+	public String getWEB_H_vaccine() {
+		return WEB_H_vaccine;
+	}
+	public void setWEB_H_vaccine(String wEB_H_vaccine) {
+		WEB_H_vaccine = wEB_H_vaccine;
+	}
+	public String getWEB_H_update() {
+		return WEB_H_update;
+	}
+	public void setWEB_H_update(String wEB_H_update) {
+		WEB_H_update = wEB_H_update;
+	}
+	public String getWEB_H_status() {
+		return WEB_H_status;
+	}
+	public void setWEB_H_status(String wEB_H_status) {
+		WEB_H_status = wEB_H_status;
+	}
+	public String getDBM_H_CPU() {
+		return DBM_H_CPU;
+	}
+	public void setDBM_H_CPU(String dBM_H_CPU) {
+		DBM_H_CPU = dBM_H_CPU;
+	}
+	public String getDBM_H_memory() {
+		return DBM_H_memory;
+	}
+	public void setDBM_H_memory(String dBM_H_memory) {
+		DBM_H_memory = dBM_H_memory;
+	}
+	public String getDBM_H_value() {
+		return DBM_H_value;
+	}
+	public void setDBM_H_value(String dBM_H_value) {
+		DBM_H_value = dBM_H_value;
+	}
+	public String getDBM_H_value_2() {
+		return DBM_H_value_2;
+	}
+	public void setDBM_H_value_2(String dBM_H_value_2) {
+		DBM_H_value_2 = dBM_H_value_2;
+	}
+	public String getDBM_H_vaccine() {
+		return DBM_H_vaccine;
+	}
+	public void setDBM_H_vaccine(String dBM_H_vaccine) {
+		DBM_H_vaccine = dBM_H_vaccine;
+	}
+	public String getDBM_H_update() {
+		return DBM_H_update;
+	}
+	public void setDBM_H_update(String dBM_H_update) {
+		DBM_H_update = dBM_H_update;
+	}
+	public String getDBM_H_status() {
+		return DBM_H_status;
+	}
+	public void setDBM_H_status(String dBM_H_status) {
+		DBM_H_status = dBM_H_status;
+	}
+	public String getMAIL_H_CPU() {
+		return MAIL_H_CPU;
+	}
+	public void setMAIL_H_CPU(String mAIL_H_CPU) {
+		MAIL_H_CPU = mAIL_H_CPU;
+	}
+	public String getMAIL_H_memory() {
+		return MAIL_H_memory;
+	}
+	public void setMAIL_H_memory(String mAIL_H_memory) {
+		MAIL_H_memory = mAIL_H_memory;
+	}
+	public String getMAIL_H_value() {
+		return MAIL_H_value;
+	}
+	public void setMAIL_H_value(String mAIL_H_value) {
+		MAIL_H_value = mAIL_H_value;
+	}
+	public String getMAIL_H_value_2() {
+		return MAIL_H_value_2;
+	}
+	public void setMAIL_H_value_2(String mAIL_H_value_2) {
+		MAIL_H_value_2 = mAIL_H_value_2;
+	}
+	public String getMAIL_H_vaccine() {
+		return MAIL_H_vaccine;
+	}
+	public void setMAIL_H_vaccine(String mAIL_H_vaccine) {
+		MAIL_H_vaccine = mAIL_H_vaccine;
+	}
+	public String getMAIL_H_update() {
+		return MAIL_H_update;
+	}
+	public void setMAIL_H_update(String mAIL_H_update) {
+		MAIL_H_update = mAIL_H_update;
+	}
+	public String getMAIL_H_status() {
+		return MAIL_H_status;
+	}
+	public void setMAIL_H_status(String mAIL_H_status) {
+		MAIL_H_status = mAIL_H_status;
+	}
+	public String getAPP_H_CPU() {
+		return APP_H_CPU;
+	}
+	public void setAPP_H_CPU(String aPP_H_CPU) {
+		APP_H_CPU = aPP_H_CPU;
+	}
+	public String getAPP_H_memory() {
+		return APP_H_memory;
+	}
+	public void setAPP_H_memory(String aPP_H_memory) {
+		APP_H_memory = aPP_H_memory;
+	}
+	public String getAPP_H_value() {
+		return APP_H_value;
+	}
+	public void setAPP_H_value(String aPP_H_value) {
+		APP_H_value = aPP_H_value;
+	}
+	public String getAPP_H_value_2() {
+		return APP_H_value_2;
+	}
+	public void setAPP_H_value_2(String aPP_H_value_2) {
+		APP_H_value_2 = aPP_H_value_2;
+	}
+	public String getAPP_H_vaccine() {
+		return APP_H_vaccine;
+	}
+	public void setAPP_H_vaccine(String aPP_H_vaccine) {
+		APP_H_vaccine = aPP_H_vaccine;
+	}
+	public String getAPP_H_update() {
+		return APP_H_update;
+	}
+	public void setAPP_H_update(String aPP_H_update) {
+		APP_H_update = aPP_H_update;
+	}
+	public String getAPP_H_status() {
+		return APP_H_status;
+	}
+	public void setAPP_H_status(String aPP_H_status) {
+		APP_H_status = aPP_H_status;
+	}
 	public String getId() {
 		return id;
 	}

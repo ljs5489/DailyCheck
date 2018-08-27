@@ -129,7 +129,14 @@ public class Sets {
 		char[] stringArray = str.trim().toCharArray();
 		stringArray[0] = Character.toUpperCase(stringArray[0]);
 		str = new String(stringArray);
+		
 
+		if("H_CPU".equals(str)) str = "CPU";
+		if("H_memory".equals(str)) str = "Memory";
+		if("H_vaccine".equals(str)) str = "Vaccine";
+		if("H_update".equals(str)) str = "Update";
+		if("H_status".equals(str)) str = "Status";
+		
 		return str;
 	}
 }

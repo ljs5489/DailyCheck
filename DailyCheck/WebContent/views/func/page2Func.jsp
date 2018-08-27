@@ -69,6 +69,47 @@
 			TAX2_disk1 = "",
 			TAX2_disk2 = "",
 			/* ================ 2017-08-01 Tax추가. ================ */
+			
+			WEB_H_CPU     = "",
+			WEB_H_memory  = "",
+			WEB_H_value   = "",
+			WEB_H_value_2 = "",
+			WEB_H_vaccine = "",
+			WEB_H_update  = "",
+			WEB_H_status  = "",
+			DBM_H_CPU     = "",
+			DBM_H_memory  = "",
+			DBM_H_value   = "",
+			DBM_H_value_2 = "",
+			DBM_H_vaccine = "",
+			DBM_H_update  = "",
+			DBM_H_status  = "",
+			MAIL_H_CPU    = "",
+			MAIL_H_memory = "",
+			MAIL_H_value  = "",
+			MAIL_H_value_2= "",
+			MAIL_H_vaccine= "",
+			MAIL_H_update = "",
+			MAIL_H_status = "",
+			APP_H_CPU     = "",
+			APP_H_memory  = "",
+			APP_H_value   = "",
+			APP_H_value_2 = "",
+			APP_H_vaccine = "",
+			APP_H_update  = "",
+			APP_H_status  = "",
+
+			WEB_H_disk1  = "",
+			WEB_H_disk2  = "",
+
+			DBM_H_disk1  = "",
+			DBM_H_disk2  = "",
+
+			MAIL_H_disk1  = "",
+			MAIL_H_disk2  = "",
+
+			APP_H_disk1  = "",
+			APP_H_disk2  = "",
 
 			ifany = "";
 
@@ -292,6 +333,47 @@
 		TAX2_disk2   = server.getTAX2_disk2();
 
 		/* ================ 2017-08-01 Tax추가. ================ */
+				
+				
+						
+		WEB_H_CPU=server.getWEB_H_CPU();
+		WEB_H_memory=server.getWEB_H_memory();
+		WEB_H_value=server.getWEB_H_value();
+		WEB_H_value_2=server.getWEB_H_value_2();
+		WEB_H_vaccine=server.getWEB_H_vaccine();
+		WEB_H_update=server.getWEB_H_update();
+		WEB_H_status=server.getWEB_H_status();
+		DBM_H_CPU=server.getDBM_H_CPU();
+		DBM_H_memory=server.getDBM_H_memory();
+		DBM_H_value=server.getDBM_H_value();
+		DBM_H_value_2=server.getDBM_H_value_2();
+		DBM_H_vaccine=server.getDBM_H_vaccine();
+		DBM_H_update=server.getDBM_H_update();
+		DBM_H_status=server.getDBM_H_status();
+		MAIL_H_CPU=server.getMAIL_H_CPU();
+		MAIL_H_memory=server.getMAIL_H_memory();
+		MAIL_H_value=server.getMAIL_H_value();
+		MAIL_H_value_2=server.getMAIL_H_value_2();
+		MAIL_H_vaccine=server.getMAIL_H_vaccine();
+		MAIL_H_update=server.getMAIL_H_update();
+		MAIL_H_status=server.getMAIL_H_status();
+		APP_H_CPU=server.getAPP_H_CPU();
+		APP_H_memory=server.getAPP_H_memory();
+		APP_H_value=server.getAPP_H_value();
+		APP_H_value_2=server.getAPP_H_value_2();
+		APP_H_vaccine=server.getAPP_H_vaccine();
+		APP_H_update=server.getAPP_H_update();
+		APP_H_status=server.getAPP_H_status();
+
+		WEB_H_disk1=server.getWEB_H_disk1();
+		WEB_H_disk2=server.getWEB_H_disk2();
+		DBM_H_disk1=server.getDBM_H_disk1();
+		DBM_H_disk2=server.getDBM_H_disk2();
+		MAIL_H_disk1=server.getMAIL_H_disk1();
+		MAIL_H_disk2=server.getMAIL_H_disk2();
+		APP_H_disk1=server.getAPP_H_disk1();
+		APP_H_disk2=server.getAPP_H_disk2();
+				
 		
 		ifany = server.getIfany();
 
@@ -516,12 +598,46 @@
 	json.put("TAX2_disk1",TAX2_disk1);
 	json.put("TAX2_disk2",TAX2_disk2);
 	
-	
-	
+	json.put("WEB_H_CPU",WEB_H_CPU);
+	json.put("WEB_H_memory",WEB_H_memory);
+	json.put("WEB_H_value",WEB_H_value);
+	json.put("WEB_H_value_2",WEB_H_value_2);
+	json.put("WEB_H_vaccine",WEB_H_vaccine);
+	json.put("WEB_H_update",WEB_H_update);
+	json.put("WEB_H_status",WEB_H_status);
+	json.put("DBM_H_CPU",DBM_H_CPU);
+	json.put("DBM_H_memory",DBM_H_memory);
+	json.put("DBM_H_value",DBM_H_value);
+	json.put("DBM_H_value_2",DBM_H_value_2);
+	json.put("DBM_H_vaccine",DBM_H_vaccine);
+	json.put("DBM_H_update",DBM_H_update);
+	json.put("DBM_H_status",DBM_H_status);
+	json.put("MAIL_H_CPU",MAIL_H_CPU);
+	json.put("MAIL_H_memory",MAIL_H_memory);
+	json.put("MAIL_H_value",MAIL_H_value);
+	json.put("MAIL_H_value_2",MAIL_H_value_2);
+	json.put("MAIL_H_vaccine",MAIL_H_vaccine);
+	json.put("MAIL_H_update",MAIL_H_update);
+	json.put("MAIL_H_status",MAIL_H_status);
+	json.put("APP_H_CPU",APP_H_CPU);
+	json.put("APP_H_memory",APP_H_memory);
+	json.put("APP_H_value",APP_H_value);
+	json.put("APP_H_value_2",APP_H_value_2);
+	json.put("APP_H_vaccine",APP_H_vaccine);
+	json.put("APP_H_update",APP_H_update);
+	json.put("APP_H_status",APP_H_status);
+
+	json.put("WEB_H_disk1",WEB_H_disk1);
+	json.put("WEB_H_disk2",WEB_H_disk2);
+	json.put("DBM_H_disk1",DBM_H_disk1);
+	json.put("DBM_H_disk2",DBM_H_disk2);
+	json.put("MAIL_H_disk1",MAIL_H_disk1);
+	json.put("MAIL_H_disk2",MAIL_H_disk2);
+	json.put("APP_H_disk1",APP_H_disk1);
+	json.put("APP_H_disk2",APP_H_disk2);
 	
 
 
-	System.out.println("3423423324 : "+TAX2_disk2);
 	
 	
 	
@@ -768,13 +884,46 @@
 
 		
 		
+		WEB_H_CPU=param.getString("WEB_H_CPU","");
+		WEB_H_memory=param.getString("WEB_H_memory","");
+		WEB_H_value=param.getString("WEB_H_value","");
+		WEB_H_value_2=param.getString("WEB_H_value_2","");
+		WEB_H_vaccine=param.getString("WEB_H_vaccine","");
+		WEB_H_update=param.getString("WEB_H_update","");
+		WEB_H_status=param.getString("WEB_H_status","");
+		DBM_H_CPU=param.getString("DBM_H_CPU","");
+		DBM_H_memory=param.getString("DBM_H_memory","");
+		DBM_H_value=param.getString("DBM_H_value","");
+		DBM_H_value_2=param.getString("DBM_H_value_2","");
+		DBM_H_vaccine=param.getString("DBM_H_vaccine","");
+		DBM_H_update=param.getString("DBM_H_update","");
+		DBM_H_status=param.getString("DBM_H_status","");
+		MAIL_H_CPU=param.getString("MAIL_H_CPU","");
+		MAIL_H_memory=param.getString("MAIL_H_memory","");
+		MAIL_H_value=param.getString("MAIL_H_value","");
+		MAIL_H_value_2=param.getString("MAIL_H_value_2","");
+		MAIL_H_vaccine=param.getString("MAIL_H_vaccine","");
+		MAIL_H_update=param.getString("MAIL_H_update","");
+		MAIL_H_status=param.getString("MAIL_H_status","");
+		APP_H_CPU=param.getString("APP_H_CPU","");
+		APP_H_memory=param.getString("APP_H_memory","");
+		APP_H_value=param.getString("APP_H_value","");
+		APP_H_value_2=param.getString("APP_H_value_2","");
+		APP_H_vaccine=param.getString("APP_H_vaccine","");
+		APP_H_update=param.getString("APP_H_update","");
+		APP_H_status=param.getString("APP_H_status","");
 		
-		
-		
+		WEB_H_disk1 =param.getString("WEB_H_disk1","");
+		WEB_H_disk2 =param.getString("WEB_H_disk2","");
+		DBM_H_disk1 =param.getString("DBM_H_disk1","");
+		DBM_H_disk2 =param.getString("DBM_H_disk2","");
+		MAIL_H_disk1 =param.getString("MAIL_H_disk1","");
+		MAIL_H_disk2 =param.getString("MAIL_H_disk2","");
+		APP_H_disk1 =param.getString("APP_H_disk1","");
+		APP_H_disk2 =param.getString("APP_H_disk2","");
+
 		
 
-		System.out.println("1234 : "+TAX2_disk2);
-		
 		
 		
 		
@@ -822,9 +971,50 @@
 					ADV2_disk1, ADV2_disk2,
 					
 					TAX1_CPU,TAX1_memory,TAX1_value,TAX1_value_2,TAX1_vaccine,TAX1_update,TAX1_status,TAX1_disk1,TAX1_disk2,
-					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2,
+					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2
+					,WEB_H_CPU     
+					,WEB_H_memory
+					,WEB_H_value
+					,WEB_H_value_2
+					,WEB_H_vaccine
+					,WEB_H_update
+					,WEB_H_status
+					,DBM_H_CPU
+					,DBM_H_memory
+					,DBM_H_value
+					,DBM_H_value_2
+					,DBM_H_vaccine
+					,DBM_H_update
+					,DBM_H_status
+					,MAIL_H_CPU
+					,MAIL_H_memory
+					,MAIL_H_value
+					,MAIL_H_value_2
+					,MAIL_H_vaccine
+					,MAIL_H_update
+					,MAIL_H_status
+					,APP_H_CPU
+					,APP_H_memory
+					,APP_H_value
+					,APP_H_value_2
+					,APP_H_vaccine
+					,APP_H_update
+					,APP_H_status
+
 					
-					ifany);
+					
+					,WEB_H_disk1
+					,WEB_H_disk2
+					,DBM_H_disk1
+					,DBM_H_disk2
+					,MAIL_H_disk1
+					,MAIL_H_disk2
+					,APP_H_disk1
+					,APP_H_disk2
+					
+					
+					
+					,ifany);
 			SystemWriterLog.writeLog("인서트!");
 			/*
 			System.out.println(TAX1_CPU      );
@@ -883,9 +1073,46 @@
 					ADV2_disk1, ADV2_disk2,
 
 					TAX1_CPU,TAX1_memory,TAX1_value,TAX1_value_2,TAX1_vaccine,TAX1_update,TAX1_status,TAX1_disk1,TAX1_disk2,
-					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2,
+					TAX2_CPU,TAX2_memory,TAX2_value,TAX2_value_2,TAX2_vaccine,TAX2_update,TAX2_status,TAX2_disk1,TAX2_disk2
+					,WEB_H_CPU     
+					,WEB_H_memory
+					,WEB_H_value
+					,WEB_H_value_2
+					,WEB_H_vaccine
+					,WEB_H_update
+					,WEB_H_status
+					,DBM_H_CPU
+					,DBM_H_memory
+					,DBM_H_value
+					,DBM_H_value_2
+					,DBM_H_vaccine
+					,DBM_H_update
+					,DBM_H_status
+					,MAIL_H_CPU
+					,MAIL_H_memory
+					,MAIL_H_value
+					,MAIL_H_value_2
+					,MAIL_H_vaccine
+					,MAIL_H_update
+					,MAIL_H_status
+					,APP_H_CPU
+					,APP_H_memory
+					,APP_H_value
+					,APP_H_value_2
+					,APP_H_vaccine
+					,APP_H_update
+					,APP_H_status
 					
-					ifany);
+					,WEB_H_disk1
+					,WEB_H_disk2
+					,DBM_H_disk1
+					,DBM_H_disk2
+					,MAIL_H_disk1
+					,MAIL_H_disk2
+					,APP_H_disk1
+					,APP_H_disk2
+
+					,ifany);
 			SystemWriterLog.writeLog("업데이트!");
 			/*
 			System.out.println(TAX1_CPU      );
