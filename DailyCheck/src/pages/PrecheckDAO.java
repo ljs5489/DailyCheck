@@ -118,8 +118,14 @@ public class PrecheckDAO {
 					+ ",EMstate	,EMpump ,EMaircon ,EMtemperature ,EEtime "
 					+ ",EEstate	,EEpump ,EEaircon ,EEtemperature ,ifany"
 					+ ",tra1time,tra1val ,tra2time ,tra2val ,RTMS"
-					+ ") " + "VALUES (" + "?, ?, ?, ?, ?, "
-					+ "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, "
+					+ ") " 
+					+ "VALUES (" 
+					+ "?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, " 
+					+ "?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			
@@ -177,6 +183,7 @@ public class PrecheckDAO {
 			statement.setString(38, tra1val);
 			statement.setString(39, tra2time);
 			statement.setString(40, tra2val);
+			statement.setString(41, RTMS);
 			
 			
 			
@@ -244,7 +251,7 @@ public class PrecheckDAO {
 					+"[tra1time]=?,"
 					+"[tra1val]=?,"
 					+"[tra2time]=?,"
-					+"[tra2val]=?"
+					+"[tra2val]=?,"
 					
 					+"[RTMS]=?"
 					
@@ -299,7 +306,7 @@ public class PrecheckDAO {
 			
 			
 			//SystemWriterLog.writeLog(sql);
-			GetDate.makeLog("Precheck Update");
+			GetDate.makeLog("Precheck Update / RTMS : "+RTMS);
 			
 			statement.executeUpdate();
 		} catch (Exception e) {

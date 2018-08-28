@@ -99,6 +99,8 @@ public class NetworkerrDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
+		
+		System.out.println("firm_banking_nice IN : "+firm_banking_nice);
 
 		try {
 			connection = DB.getConnection();
@@ -116,15 +118,11 @@ public class NetworkerrDAO {
 					+ ",internet_spd"
 					+ ",traffic_IDC"
 					+ ",internet_traffic"
-					
 					+ ",internet_traffic_2"
 					+ ",internet_spd_2"
 					+ ",traffic_IDC_2"
-					
-										
 					+ ",firm_banking_nice"
 					+ ",firm_banking_kcb"
-
 					+ ",ifany)"					 
 					+ "VALUES ( "
 					+ "?, ?, ?, ?, ?, "
@@ -135,7 +133,7 @@ public class NetworkerrDAO {
 			
 			
 			//SystemWriterLog.writeLog(sql);
-			GetDate.makeLog("Networkerr Insert");
+			GetDate.makeLog("Networkerr Insert " + sql);
 			
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
@@ -157,8 +155,8 @@ public class NetworkerrDAO {
 			statement.setString(16,traffic_IDC_2);
 			
 			
-			statement.setString( 17 ,firm_banking_nice);
-			statement.setString( 18,firm_banking_kcb);
+			statement.setString(17,firm_banking_nice);
+			statement.setString(18,firm_banking_kcb);
 
 			
 			statement.setString(19,ifany);
@@ -205,6 +203,9 @@ public class NetworkerrDAO {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
+		
+		System.out.println("firm_banking_nice up : "+firm_banking_nice);
+		
 		try {
 			connection = DB.getConnection();
 			String sql = "";
@@ -221,19 +222,12 @@ public class NetworkerrDAO {
 					+"[internet_spd]=?,"
 					+"[traffic_IDC]=?,"
 					+"[internet_traffic]=?,"
-					
 					+"[internet_traffic_2]=?,"
 					+"[internet_spd_2]=?,"
-					+"[traffic_IDC_2]=?,"
-					
-
-					
-					+"[ifany]=? "
-					
-
-+"[firm_banking_nice]=?,"
-+"[firm_banking_kcb]=?,"
-					
+					+"[traffic_IDC_2]=?,"	
+					+"[ifany]=?, "
+					+"[firm_banking_nice]=?,"
+					+"[firm_banking_kcb]=? "
 					+" WHERE [id]=?";
 
 			statement = connection.prepareStatement(sql);
@@ -265,7 +259,7 @@ public class NetworkerrDAO {
 			
 			
 			//SystemWriterLog.writeLog(sql);
-			GetDate.makeLog("Networkerr Update");
+			GetDate.makeLog("Networkerr Update : "+sql);
 			
 			
 			

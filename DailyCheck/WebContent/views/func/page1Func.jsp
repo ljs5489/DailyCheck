@@ -185,7 +185,7 @@
 		
 		
 		
-		//System.out.println("ifany : "+ifany);
+		System.out.println("RTMS : "+RTMS);
 
 		if (precheck == null) {
 			PrecheckDAO.insertInfo(id, checktime, checker, ars, mail, fax, vrs, messanger, leaseloan, visual,
