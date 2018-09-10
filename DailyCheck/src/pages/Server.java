@@ -245,6 +245,30 @@ public class Server {
 	
 	
 	
+	private String MAIL_H_disk3 ;
+	private String MAIL_H_disk4 ;
+	private String MAIL_H_disk5 ;
+	private String MAIL_H_disk6 ;
+	private String MAIL_H_disk7 ;
+	private String MAIL_H_disk8 ;
+	private String MAIL_H_disk9 ;
+	private String MAIL_H_disk10;
+	private String MAIL_H_disk11;
+	private String MAIL_H_disk12;
+	private String APP_H_disk3  ;
+	private String APP_H_disk4  ;
+	private String APP_H_disk5  ;
+	private String APP_H_disk6  ;
+	private String APP_H_disk7  ;
+	private String APP_H_disk8  ;
+	private String APP_H_disk9  ;
+	private String APP_H_disk10 ;
+	private String APP_H_disk11 ;
+	private String APP_H_disk12 ;
+
+	
+	
+	
 	
 	public String getWEB_H_disk1() {
 		return WEB_H_disk1;
@@ -1655,6 +1679,126 @@ public class Server {
 	}
 	public void setIfany(String ifany) {
 		this.ifany = ifany;
+	}
+	public String getMAIL_H_disk3() {
+		return MAIL_H_disk3;
+	}
+	public void setMAIL_H_disk3(String mAIL_H_disk3) {
+		MAIL_H_disk3 = mAIL_H_disk3;
+	}
+	public String getMAIL_H_disk4() {
+		return MAIL_H_disk4;
+	}
+	public void setMAIL_H_disk4(String mAIL_H_disk4) {
+		MAIL_H_disk4 = mAIL_H_disk4;
+	}
+	public String getMAIL_H_disk5() {
+		return MAIL_H_disk5;
+	}
+	public void setMAIL_H_disk5(String mAIL_H_disk5) {
+		MAIL_H_disk5 = mAIL_H_disk5;
+	}
+	public String getMAIL_H_disk6() {
+		return MAIL_H_disk6;
+	}
+	public void setMAIL_H_disk6(String mAIL_H_disk6) {
+		MAIL_H_disk6 = mAIL_H_disk6;
+	}
+	public String getMAIL_H_disk7() {
+		return MAIL_H_disk7;
+	}
+	public void setMAIL_H_disk7(String mAIL_H_disk7) {
+		MAIL_H_disk7 = mAIL_H_disk7;
+	}
+	public String getMAIL_H_disk8() {
+		return MAIL_H_disk8;
+	}
+	public void setMAIL_H_disk8(String mAIL_H_disk8) {
+		MAIL_H_disk8 = mAIL_H_disk8;
+	}
+	public String getMAIL_H_disk9() {
+		return MAIL_H_disk9;
+	}
+	public void setMAIL_H_disk9(String mAIL_H_disk9) {
+		MAIL_H_disk9 = mAIL_H_disk9;
+	}
+	public String getMAIL_H_disk10() {
+		return MAIL_H_disk10;
+	}
+	public void setMAIL_H_disk10(String mAIL_H_disk10) {
+		MAIL_H_disk10 = mAIL_H_disk10;
+	}
+	public String getMAIL_H_disk11() {
+		return MAIL_H_disk11;
+	}
+	public void setMAIL_H_disk11(String mAIL_H_disk11) {
+		MAIL_H_disk11 = mAIL_H_disk11;
+	}
+	public String getMAIL_H_disk12() {
+		return MAIL_H_disk12;
+	}
+	public void setMAIL_H_disk12(String mAIL_H_disk12) {
+		MAIL_H_disk12 = mAIL_H_disk12;
+	}
+	public String getAPP_H_disk3() {
+		return APP_H_disk3;
+	}
+	public void setAPP_H_disk3(String aPP_H_disk3) {
+		APP_H_disk3 = aPP_H_disk3;
+	}
+	public String getAPP_H_disk4() {
+		return APP_H_disk4;
+	}
+	public void setAPP_H_disk4(String aPP_H_disk4) {
+		APP_H_disk4 = aPP_H_disk4;
+	}
+	public String getAPP_H_disk5() {
+		return APP_H_disk5;
+	}
+	public void setAPP_H_disk5(String aPP_H_disk5) {
+		APP_H_disk5 = aPP_H_disk5;
+	}
+	public String getAPP_H_disk6() {
+		return APP_H_disk6;
+	}
+	public void setAPP_H_disk6(String aPP_H_disk6) {
+		APP_H_disk6 = aPP_H_disk6;
+	}
+	public String getAPP_H_disk7() {
+		return APP_H_disk7;
+	}
+	public void setAPP_H_disk7(String aPP_H_disk7) {
+		APP_H_disk7 = aPP_H_disk7;
+	}
+	public String getAPP_H_disk8() {
+		return APP_H_disk8;
+	}
+	public void setAPP_H_disk8(String aPP_H_disk8) {
+		APP_H_disk8 = aPP_H_disk8;
+	}
+	public String getAPP_H_disk9() {
+		return APP_H_disk9;
+	}
+	public void setAPP_H_disk9(String aPP_H_disk9) {
+		APP_H_disk9 = aPP_H_disk9;
+	}
+	public String getAPP_H_disk10() {
+		return APP_H_disk10;
+	}
+	public void setAPP_H_disk10(String aPP_H_disk10) {
+		APP_H_disk10 = aPP_H_disk10;
+	}
+	public String getAPP_H_disk11() {
+		return APP_H_disk11;
+	}
+	public void setAPP_H_disk11(String aPP_H_disk11) {
+		APP_H_disk11 = aPP_H_disk11;
+	}
+	public String getAPP_H_disk12() {
+		return APP_H_disk12;
+	}
+	public void setAPP_H_disk12(String aPP_H_disk12) {
+		APP_H_disk12 = aPP_H_disk12;
 	}
 						
 	

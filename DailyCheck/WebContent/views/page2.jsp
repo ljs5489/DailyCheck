@@ -271,6 +271,31 @@
 						<%=Sets.setText("a", "MAIL_H_disk1", "tel")%>
 						<%=Sets.setText("b", "MAIL_H_disk2", "tel")%>
 					</div>
+					
+					
+					
+					<!----------------2018-09-10 추가 ------------------>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "MAIL_H_disk3", "tel")%>
+						<%=Sets.setText("b", "MAIL_H_disk4", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "MAIL_H_disk5", "tel")%>
+						<%=Sets.setText("b", "MAIL_H_disk6", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "MAIL_H_disk7", "tel")%>
+						<%=Sets.setText("b", "MAIL_H_disk8", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "MAIL_H_disk9", "tel")%>
+						<%=Sets.setText("b", "MAIL_H_disk10", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "MAIL_H_disk11", "tel")%>
+						<%=Sets.setText("b", "MAIL_H_disk12", "tel")%>
+					</div>
+					<!----------------/2018-09-10 추가 ------------------>
 				</div>
 				<br />
 				<!----------------/2018-08-24 추가 ------------------>
@@ -346,6 +371,35 @@
 						<%=Sets.setText("a", "APP_H_disk1", "tel")%>
 						<%=Sets.setText("b", "APP_H_disk2", "tel")%>
 					</div>
+						
+					
+					
+					<!----------------2018-09-10 추가 ------------------>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "APP_H_disk3", "tel")%>
+						<%=Sets.setText("b", "APP_H_disk4", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "APP_H_disk5", "tel")%>
+						<%=Sets.setText("b", "APP_H_disk6", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "APP_H_disk7", "tel")%>
+						<%=Sets.setText("b", "APP_H_disk8", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "APP_H_disk9", "tel")%>
+						<%=Sets.setText("b", "APP_H_disk10", "tel")%>
+					</div>
+					<div class="ui-grid-a">
+						<%=Sets.setText("a", "APP_H_disk11", "tel")%>
+						<%=Sets.setText("b", "APP_H_disk12", "tel")%>
+					</div>
+					<!----------------/2018-09-10 추가 ------------------>
+					
+					
+					
+					
 				</div>
 				<br />
 				<!----------------/2018-08-24 추가 ------------------>

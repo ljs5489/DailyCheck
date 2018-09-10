@@ -111,6 +111,28 @@
 			APP_H_disk1  = "",
 			APP_H_disk2  = "",
 
+			MAIL_H_disk3 = "",
+			MAIL_H_disk4 = "",
+			MAIL_H_disk5 = "",
+			MAIL_H_disk6 = "",
+			MAIL_H_disk7 = "",
+			MAIL_H_disk8 = "",
+			MAIL_H_disk9 = "",
+			MAIL_H_disk10= "",
+			MAIL_H_disk11= "",
+			MAIL_H_disk12= "",
+			APP_H_disk3  = "",
+			APP_H_disk4  = "",
+			APP_H_disk5  = "",
+			APP_H_disk6  = "",
+			APP_H_disk7  = "",
+			APP_H_disk8  = "",
+			APP_H_disk9  = "",
+			APP_H_disk10 = "",
+			APP_H_disk11 = "",
+			APP_H_disk12 = "",
+
+			
 			ifany = "";
 
 	String id = request.getParameter("id").trim();
@@ -373,6 +395,33 @@
 		MAIL_H_disk2=server.getMAIL_H_disk2();
 		APP_H_disk1=server.getAPP_H_disk1();
 		APP_H_disk2=server.getAPP_H_disk2();
+		
+		
+		MAIL_H_disk3  = server.getMAIL_H_disk3();
+		MAIL_H_disk4  = server.getMAIL_H_disk4(); 
+		MAIL_H_disk5  = server.getMAIL_H_disk5(); 
+		MAIL_H_disk6  = server.getMAIL_H_disk6(); 
+		MAIL_H_disk7  = server.getMAIL_H_disk7(); 
+		MAIL_H_disk8  = server.getMAIL_H_disk8(); 
+		MAIL_H_disk9  = server.getMAIL_H_disk9(); 
+		MAIL_H_disk10 = server.getMAIL_H_disk10();
+		MAIL_H_disk11 = server.getMAIL_H_disk11();
+		MAIL_H_disk12 = server.getMAIL_H_disk12();
+		APP_H_disk3   = server.getAPP_H_disk3();  
+		APP_H_disk4   = server.getAPP_H_disk4();  
+		APP_H_disk5   = server.getAPP_H_disk5();  
+		APP_H_disk6   = server.getAPP_H_disk6();  
+		APP_H_disk7   = server.getAPP_H_disk7();  
+		APP_H_disk8   = server.getAPP_H_disk8();  
+		APP_H_disk9   = server.getAPP_H_disk9();  
+		APP_H_disk10  = server.getAPP_H_disk10(); 
+		APP_H_disk11  = server.getAPP_H_disk11(); 
+		APP_H_disk12  = server.getAPP_H_disk12(); 
+		
+		
+		
+		
+		
 				
 		
 		ifany = server.getIfany();
@@ -636,7 +685,26 @@
 	json.put("APP_H_disk1",APP_H_disk1);
 	json.put("APP_H_disk2",APP_H_disk2);
 	
-
+	json.put("MAIL_H_disk3" , MAIL_H_disk3);  
+	json.put("MAIL_H_disk4" , MAIL_H_disk4);  
+	json.put("MAIL_H_disk5" , MAIL_H_disk5);  
+	json.put("MAIL_H_disk6" , MAIL_H_disk6);  
+	json.put("MAIL_H_disk7" , MAIL_H_disk7);  
+	json.put("MAIL_H_disk8" , MAIL_H_disk8);  
+	json.put("MAIL_H_disk9" , MAIL_H_disk9);  
+	json.put("MAIL_H_disk10", MAIL_H_disk10); 
+	json.put("MAIL_H_disk11", MAIL_H_disk11); 
+	json.put("MAIL_H_disk12", MAIL_H_disk12); 
+	json.put("APP_H_disk3"  , APP_H_disk3);   
+	json.put("APP_H_disk4"  , APP_H_disk4);   
+	json.put("APP_H_disk5"  , APP_H_disk5);   
+	json.put("APP_H_disk6"  , APP_H_disk6);   
+	json.put("APP_H_disk7"  , APP_H_disk7);   
+	json.put("APP_H_disk8"  , APP_H_disk8);   
+	json.put("APP_H_disk9"  , APP_H_disk9);   
+	json.put("APP_H_disk10" , APP_H_disk10);  
+	json.put("APP_H_disk11" , APP_H_disk11);  
+	json.put("APP_H_disk12" , APP_H_disk12);  
 
 	
 	
@@ -924,7 +992,27 @@
 
 		
 
-		
+		MAIL_H_disk3 = param.getString("MAIL_H_disk3","");
+		MAIL_H_disk4 = param.getString("MAIL_H_disk4","");
+		MAIL_H_disk5 = param.getString("MAIL_H_disk5","");
+		MAIL_H_disk6 = param.getString("MAIL_H_disk6","");
+		MAIL_H_disk7 = param.getString("MAIL_H_disk7","");
+		MAIL_H_disk8 = param.getString("MAIL_H_disk8","");
+		MAIL_H_disk9 = param.getString("MAIL_H_disk9","");
+		MAIL_H_disk10= param.getString("MAIL_H_disk10","");
+		MAIL_H_disk11= param.getString("MAIL_H_disk11","");
+		MAIL_H_disk12= param.getString("MAIL_H_disk12","");
+		APP_H_disk3  = param.getString("APP_H_disk3","");
+		APP_H_disk4  = param.getString("APP_H_disk4","");
+		APP_H_disk5  = param.getString("APP_H_disk5","");
+		APP_H_disk6  = param.getString("APP_H_disk6","");
+		APP_H_disk7  = param.getString("APP_H_disk7","");
+		APP_H_disk8  = param.getString("APP_H_disk8","");
+		APP_H_disk9  = param.getString("APP_H_disk9","");
+		APP_H_disk10 = param.getString("APP_H_disk10","");
+		APP_H_disk11 = param.getString("APP_H_disk11","");
+		APP_H_disk12 = param.getString("APP_H_disk12","");
+
 		
 		
 		
@@ -1012,7 +1100,26 @@
 					,APP_H_disk1
 					,APP_H_disk2
 					
-					
+					,MAIL_H_disk3 
+					,MAIL_H_disk4 
+					,MAIL_H_disk5 
+					,MAIL_H_disk6 
+					,MAIL_H_disk7 
+					,MAIL_H_disk8 
+					,MAIL_H_disk9 
+					,MAIL_H_disk10
+					,MAIL_H_disk11
+					,MAIL_H_disk12
+					,APP_H_disk3  
+					,APP_H_disk4  
+					,APP_H_disk5  
+					,APP_H_disk6  
+					,APP_H_disk7  
+					,APP_H_disk8  
+					,APP_H_disk9  
+					,APP_H_disk10 
+					,APP_H_disk11 
+					,APP_H_disk12 
 					
 					,ifany);
 			SystemWriterLog.writeLog("인서트!");
@@ -1112,6 +1219,27 @@
 					,APP_H_disk1
 					,APP_H_disk2
 
+					,MAIL_H_disk3 
+					,MAIL_H_disk4 
+					,MAIL_H_disk5 
+					,MAIL_H_disk6 
+					,MAIL_H_disk7 
+					,MAIL_H_disk8 
+					,MAIL_H_disk9 
+					,MAIL_H_disk10
+					,MAIL_H_disk11
+					,MAIL_H_disk12
+					,APP_H_disk3  
+					,APP_H_disk4  
+					,APP_H_disk5  
+					,APP_H_disk6  
+					,APP_H_disk7  
+					,APP_H_disk8  
+					,APP_H_disk9  
+					,APP_H_disk10 
+					,APP_H_disk11 
+					,APP_H_disk12 
+					
 					,ifany);
 			SystemWriterLog.writeLog("업데이트!");
 			/*

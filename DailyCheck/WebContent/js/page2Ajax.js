@@ -260,7 +260,26 @@ function postWithAjax() {
 		APP_H_disk1:$("#APP_H_disk1").val(),	
 		APP_H_disk2:$("#APP_H_disk2").val(),	
 		
-		
+		MAIL_H_disk3:$("#MAIL_H_disk3").val(),	
+		MAIL_H_disk4:$("#MAIL_H_disk4").val(),	
+		MAIL_H_disk5:$("#MAIL_H_disk5").val(),	
+		MAIL_H_disk6:$("#MAIL_H_disk6").val(),	
+		MAIL_H_disk7:$("#MAIL_H_disk7").val(),	
+		MAIL_H_disk8:$("#MAIL_H_disk8").val(),	
+		MAIL_H_disk9:$("#MAIL_H_disk9").val(),	
+		MAIL_H_disk10:$("#MAIL_H_disk10").val(),	
+		MAIL_H_disk11:$("#MAIL_H_disk11").val(),	
+		MAIL_H_disk12:$("#MAIL_H_disk12").val(),	
+		APP_H_disk3:$("#APP_H_disk3").val(),	
+		APP_H_disk4:$("#APP_H_disk4").val(),	
+		APP_H_disk5:$("#APP_H_disk5").val(),	
+		APP_H_disk6:$("#APP_H_disk6").val(),	
+		APP_H_disk7:$("#APP_H_disk7").val(),	
+		APP_H_disk8:$("#APP_H_disk8").val(),	
+		APP_H_disk9:$("#APP_H_disk9").val(),	
+		APP_H_disk10:$("#APP_H_disk10").val(),	
+		APP_H_disk11:$("#APP_H_disk11").val(),	
+		APP_H_disk12:$("#APP_H_disk12").val(),	
 		
 		ifany : $("#ifany").val(),
 
@@ -551,7 +570,26 @@ function getWithAjax() { // page1.jsp ~ func/page1Func.jsp와 연계됨.
 			
 			
 			
-			
+			$("#MAIL_H_disk3").val(data.MAIL_H_disk3).textinput('refresh');
+			$("#MAIL_H_disk4").val(data.MAIL_H_disk4).textinput('refresh');
+			$("#MAIL_H_disk5").val(data.MAIL_H_disk5).textinput('refresh');
+			$("#MAIL_H_disk6").val(data.MAIL_H_disk6).textinput('refresh');
+			$("#MAIL_H_disk7").val(data.MAIL_H_disk7).textinput('refresh');
+			$("#MAIL_H_disk8").val(data.MAIL_H_disk8).textinput('refresh');
+			$("#MAIL_H_disk9").val(data.MAIL_H_disk9).textinput('refresh');
+			$("#MAIL_H_disk10").val(data.MAIL_H_disk10).textinput('refresh');
+			$("#MAIL_H_disk11").val(data.MAIL_H_disk11).textinput('refresh');
+			$("#MAIL_H_disk12").val(data.MAIL_H_disk12).textinput('refresh');
+			$("#APP_H_disk3").val(data.APP_H_disk3).textinput('refresh');
+			$("#APP_H_disk4").val(data.APP_H_disk4).textinput('refresh');
+			$("#APP_H_disk5").val(data.APP_H_disk5).textinput('refresh');
+			$("#APP_H_disk6").val(data.APP_H_disk6).textinput('refresh');
+			$("#APP_H_disk7").val(data.APP_H_disk7).textinput('refresh');
+			$("#APP_H_disk8").val(data.APP_H_disk8).textinput('refresh');
+			$("#APP_H_disk9").val(data.APP_H_disk9).textinput('refresh');
+			$("#APP_H_disk10").val(data.APP_H_disk10).textinput('refresh');
+			$("#APP_H_disk11").val(data.APP_H_disk11).textinput('refresh');
+			$("#APP_H_disk12").val(data.APP_H_disk12).textinput('refresh');
 			
 			$("#ifany").val(data.ifany).textinput('refresh');
 

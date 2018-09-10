@@ -262,9 +262,31 @@ public class ServerDAO {
 		server.setAPP_H_disk1(resultSet.getString("APP_H_disk1").trim());
 		server.setAPP_H_disk2(resultSet.getString("APP_H_disk2").trim());
 
-		
+		server.setMAIL_H_disk3(resultSet.getString("MAIL_H_disk3").trim());
+		server.setMAIL_H_disk4(resultSet.getString("MAIL_H_disk4").trim());
+		server.setMAIL_H_disk5(resultSet.getString("MAIL_H_disk5").trim());
+		server.setMAIL_H_disk6(resultSet.getString("MAIL_H_disk6").trim());
+		server.setMAIL_H_disk7(resultSet.getString("MAIL_H_disk7").trim());
+		server.setMAIL_H_disk8(resultSet.getString("MAIL_H_disk8").trim());
+		server.setMAIL_H_disk9(resultSet.getString("MAIL_H_disk9").trim());
+		server.setMAIL_H_disk10(resultSet.getString("MAIL_H_disk10").trim());
+		server.setMAIL_H_disk11(resultSet.getString("MAIL_H_disk11").trim());
+		server.setMAIL_H_disk12(resultSet.getString("MAIL_H_disk12").trim());
+		server.setAPP_H_disk3(resultSet.getString("APP_H_disk3").trim());
+		server.setAPP_H_disk4(resultSet.getString("APP_H_disk4").trim());
+		server.setAPP_H_disk5(resultSet.getString("APP_H_disk5").trim());
+		server.setAPP_H_disk6(resultSet.getString("APP_H_disk6").trim());
+		server.setAPP_H_disk7(resultSet.getString("APP_H_disk7").trim());
+		server.setAPP_H_disk8(resultSet.getString("APP_H_disk8").trim());
+		server.setAPP_H_disk9(resultSet.getString("APP_H_disk9").trim());
+		server.setAPP_H_disk10(resultSet.getString("APP_H_disk10").trim());
+		server.setAPP_H_disk11(resultSet.getString("APP_H_disk11").trim());
+		server.setAPP_H_disk12(resultSet.getString("APP_H_disk12").trim());
+
+
 		
 		server.setIfany(resultSet.getString("ifany").trim());
+		/*
 		System.out.println("WEB_H_CPU : "+resultSet.getString("WEB_H_CPU").trim());
 		System.out.println("WEB_H_memory : "+resultSet.getString("WEB_H_memory").trim());
 		System.out.println("WEB_H_value : "+resultSet.getString("WEB_H_value").trim());
@@ -272,7 +294,7 @@ public class ServerDAO {
 		System.out.println("WEB_H_vaccine : "+resultSet.getString("WEB_H_vaccine").trim());
 		System.out.println("WEB_H_update : "+resultSet.getString("WEB_H_update").trim());
 		System.out.println("WEB_H_status : "+resultSet.getString("WEB_H_status").trim());
-		
+		*/
 		
 		
 		
@@ -558,7 +580,27 @@ public class ServerDAO {
 			String APP_H_disk1,
 			String APP_H_disk2,
 
-			
+			String MAIL_H_disk3,
+			String MAIL_H_disk4,
+			String MAIL_H_disk5,
+			String MAIL_H_disk6,
+			String MAIL_H_disk7,
+			String MAIL_H_disk8,
+			String MAIL_H_disk9,
+			String MAIL_H_disk10,
+			String MAIL_H_disk11,
+			String MAIL_H_disk12,
+			String APP_H_disk3,
+			String APP_H_disk4,
+			String APP_H_disk5,
+			String APP_H_disk6,
+			String APP_H_disk7,
+			String APP_H_disk8,
+			String APP_H_disk9,
+			String APP_H_disk10,
+			String APP_H_disk11,
+			String APP_H_disk12,
+
 			String ifany
 			
 			) throws Exception {
@@ -655,6 +697,28 @@ public class ServerDAO {
 					+ ",APP_H_disk2"
 
 					
++ ",MAIL_H_disk3"
++ ",MAIL_H_disk4"
++ ",MAIL_H_disk5"
++ ",MAIL_H_disk6"
++ ",MAIL_H_disk7"
++ ",MAIL_H_disk8"
++ ",MAIL_H_disk9"
++ ",MAIL_H_disk10"
++ ",MAIL_H_disk11"
++ ",MAIL_H_disk12"
++ ",APP_H_disk3"
++ ",APP_H_disk4"
++ ",APP_H_disk5"
++ ",APP_H_disk6"
++ ",APP_H_disk7"
++ ",APP_H_disk8"
++ ",APP_H_disk9"
++ ",APP_H_disk10"
++ ",APP_H_disk11"
++ ",APP_H_disk12"
+
+					
 					+ ",ifany"
 
 					
@@ -682,13 +746,13 @@ public class ServerDAO {
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "					
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"					
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"					
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"	
+					
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
-					
-					
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"					
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
-					
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
 					
 					+ "?, ?, ?, ?, ?    "
@@ -785,6 +849,28 @@ public class ServerDAO {
 					 ,APP_H_disk1
 					 ,APP_H_disk2
 					 
+					 ,MAIL_H_disk3
+					 ,MAIL_H_disk4
+					 ,MAIL_H_disk5
+					 ,MAIL_H_disk6
+					 ,MAIL_H_disk7
+					 ,MAIL_H_disk8
+					 ,MAIL_H_disk9
+					 ,MAIL_H_disk10
+					 ,MAIL_H_disk11
+					 ,MAIL_H_disk12
+					 ,APP_H_disk3
+					 ,APP_H_disk4
+					 ,APP_H_disk5
+					 ,APP_H_disk6
+					 ,APP_H_disk7
+					 ,APP_H_disk8
+					 ,APP_H_disk9
+					 ,APP_H_disk10
+					 ,APP_H_disk11
+					 ,APP_H_disk12
+
+					 
 					 ,ifany
 					 
 					 
@@ -854,7 +940,27 @@ public class ServerDAO {
 			String APP_H_disk1,
 			String APP_H_disk2,
 
-			
+			String MAIL_H_disk3,
+			String MAIL_H_disk4,
+			String MAIL_H_disk5,
+			String MAIL_H_disk6,
+			String MAIL_H_disk7,
+			String MAIL_H_disk8,
+			String MAIL_H_disk9,
+			String MAIL_H_disk10,
+			String MAIL_H_disk11,
+			String MAIL_H_disk12,
+			String APP_H_disk3,
+			String APP_H_disk4,
+			String APP_H_disk5,
+			String APP_H_disk6,
+			String APP_H_disk7,
+			String APP_H_disk8,
+			String APP_H_disk9,
+			String APP_H_disk10,
+			String APP_H_disk11,
+			String APP_H_disk12,
+
 
 			String ifany
 			) throws Exception {
@@ -908,6 +1014,30 @@ public class ServerDAO {
 				+"[APP_H_disk2]=?,"
 
 					
++"[MAIL_H_disk3]=?,"
++"[MAIL_H_disk4]=?,"
++"[MAIL_H_disk5]=?,"
++"[MAIL_H_disk6]=?,"
++"[MAIL_H_disk7]=?,"
++"[MAIL_H_disk8]=?,"
++"[MAIL_H_disk9]=?,"
++"[MAIL_H_disk10]=?,"
++"[MAIL_H_disk11]=?,"
++"[MAIL_H_disk12]=?,"
++"[APP_H_disk3]=?,"
++"[APP_H_disk4]=?,"
++"[APP_H_disk5]=?,"
++"[APP_H_disk6]=?,"
++"[APP_H_disk7]=?,"
++"[APP_H_disk8]=?,"
++"[APP_H_disk9]=?,"
++"[APP_H_disk10]=?,"
++"[APP_H_disk11]=?,"
++"[APP_H_disk12]=?,"
+
+					
+					
+					
 					+"[ifany]=? WHERE [id]=?";
 
 			statement = connection.prepareStatement(sql);
@@ -952,6 +1082,26 @@ public class ServerDAO {
 					,APP_H_disk1
 					,APP_H_disk2
 
+					,MAIL_H_disk3
+					,MAIL_H_disk4
+					,MAIL_H_disk5
+					,MAIL_H_disk6
+					,MAIL_H_disk7
+					,MAIL_H_disk8
+					,MAIL_H_disk9
+					,MAIL_H_disk10
+					,MAIL_H_disk11
+					,MAIL_H_disk12
+					,APP_H_disk3
+					,APP_H_disk4
+					,APP_H_disk5
+					,APP_H_disk6
+					,APP_H_disk7
+					,APP_H_disk8
+					,APP_H_disk9
+					,APP_H_disk10
+					,APP_H_disk11
+					,APP_H_disk12
 
 					,ifany
 					,id

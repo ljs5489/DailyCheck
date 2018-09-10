@@ -229,10 +229,28 @@ html body .tempThead th{
 
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRDEW</b>", "", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {server.getDEW_disk1(),server.getDEW_disk2()})+"</td>", "-", PrintSets.onToY(server.getDEW_CPU())+" "+server.getDEW_value(), PrintSets.onToY(server.getDEW_memory())+" / "+PrintSets.whenOverLimit(server.getDEW_value_2(),65), PrintSets.onToY(server.getDEW_vaccine()),PrintSets.onToY(server.getDEW_update()),PrintSets.onToGood(server.getDEW_status()) })%></tr>
 				
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMAILAPP</b>", "Host", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {server.getMAIL_H_disk1(),server.getMAIL_H_disk2()})+"</td>", "-", PrintSets.onToY(server.getMAIL_H_CPU())+" "+server.getWEB_value(), PrintSets.onToY(server.getMAIL_H_memory())+" / "+PrintSets.whenOverLimit(server.getMAIL_H_value_2(),65), PrintSets.onToY(server.getMAIL_H_vaccine()),PrintSets.onToY(server.getMAIL_H_update()),PrintSets.onToGood(server.getMAIL_H_status()) })%></tr>				
+				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMAILAPP</b>", "Host", "<td style='padding:0px;'>"
+											+PrintSets.setTable(6, new String[] {//server.getMAIL_H_disk1(),server.getMAIL_H_disk2()
+													 "15.5","49.3"
+													,"1.7","109.3"
+													,"4.7","110.3"
+													,"100.9","100.9"
+													,"0","1500"
+													,"800","2900"
+													})
+											+"</td>", "-", PrintSets.onToY(server.getMAIL_H_CPU())+" "+server.getWEB_value(), PrintSets.onToY(server.getMAIL_H_memory())+" / "+PrintSets.whenOverLimit(server.getMAIL_H_value_2(),65), PrintSets.onToY(server.getMAIL_H_vaccine()),PrintSets.onToY(server.getMAIL_H_update()),PrintSets.onToGood(server.getMAIL_H_status()) })%></tr>				
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMAIL</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(2, new String[] {server.getMAIL_disk1(),server.getMAIL_disk2(),server.getMAIL_disk3(),server.getMAIL_disk4()})+"</td>", "-", PrintSets.onToY(server.getMAIL_CPU())+" "+server.getMAIL_value(), PrintSets.onToY(server.getMAIL_memory())+" / "+PrintSets.whenOverLimit(server.getMAIL_value_2(),65), PrintSets.onToY(server.getMAIL_vaccine()),PrintSets.onToY(server.getMAIL_update()),PrintSets.onToGood(server.getMAIL_status()) })%></tr>
 				
-				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMAILAPP1</b>", "Host", "<td style='padding:0px;'>"+PrintSets.setTable(1, new String[] {server.getAPP_H_disk1(),server.getAPP_H_disk2()})+"</td>", "-", PrintSets.onToY(server.getAPP_H_CPU())+" "+server.getAPP_H_value(), PrintSets.onToY(server.getAPP_H_memory())+" / "+PrintSets.whenOverLimit(server.getAPP_H_value_2(),65), PrintSets.onToY(server.getAPP_H_vaccine()),PrintSets.onToY(server.getAPP_H_update()),PrintSets.onToGood(server.getAPP_H_status()) })%></tr>				
+				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRMAILAPP1</b>", "Host", "<td style='padding:0px;'>"
+											+PrintSets.setTable(6, new String[] {//server.getAPP_H_disk1(),server.getAPP_H_disk2()
+													 "15.5","49.3"
+														,"1.7","109.3"
+														,"4.7","110.3"
+														,"100.9","100.9"
+														,"0","1500"
+														,"800","2900"
+													})
+											+"</td>", "-", PrintSets.onToY(server.getAPP_H_CPU())+" "+server.getAPP_H_value(), PrintSets.onToY(server.getAPP_H_memory())+" / "+PrintSets.whenOverLimit(server.getAPP_H_value_2(),65), PrintSets.onToY(server.getAPP_H_vaccine()),PrintSets.onToY(server.getAPP_H_update()),PrintSets.onToGood(server.getAPP_H_status()) })%></tr>				
 				<tr><%=PrintSets.getTd(3, new String[] { "<b>TFSKRAPP</b>", "Guest", "<td style='padding:0px;'>"+PrintSets.setTable(2, new String[] {server.getAPP_disk1(),server.getAPP_disk2(),server.getAPP_disk3(),server.getAPP_disk4()})+"</td>", "-", PrintSets.onToY(server.getAPP_CPU())+" "+server.getAPP_value(), PrintSets.onToY(server.getAPP_memory())+" / "+PrintSets.whenOverLimit(server.getAPP_value_2(),65), PrintSets.onToY(server.getAPP_vaccine()),PrintSets.onToY(server.getAPP_update()),PrintSets.onToGood(server.getAPP_status()) })%></tr>
 				
 				
